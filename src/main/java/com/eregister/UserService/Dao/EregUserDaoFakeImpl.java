@@ -49,6 +49,11 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
+    public EregUser getEregUserByName(String name) {
+        return null;
+    }
+
+    @Override
     public void updateEregStudent(EregUser eregUser){
         allUsers.put(eregUser.getId(),eregUser);
     }

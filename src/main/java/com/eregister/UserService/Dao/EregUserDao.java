@@ -14,6 +14,8 @@ public interface EregUserDao {
 
     void removeEregUserById(int id);
 
+    EregUser getEregUserByName(String name);
+
     void updateEregStudent(EregUser eregUser);
 
     void insertEregStudent(EregUser eregUser);

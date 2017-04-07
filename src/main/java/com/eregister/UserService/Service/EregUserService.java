@@ -17,7 +17,7 @@ import java.util.Collection;
 public class EregUserService {
 
     @Autowired
-    @Qualifier("fakeData")
+    @Qualifier("mysql")
     EregUserDao eregUserDao;
 
     public Collection<EregUser> getAllEregUsers(){
@@ -26,6 +26,10 @@ public class EregUserService {
 
     public EregUser getEregUserById(int id){
         return eregUserDao.getEregUserById(id);
+    }
+
+    public EregUser getEregUserByName(String name){
+        return eregUserDao.getEregUserByName(name);
     }
 
     public void removeEregUserById(int id){

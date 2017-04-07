@@ -7,6 +7,7 @@ public class EregUser {
     int id;
     String login;
     String password;
+    String role;
 
     public EregUser(int id, String login, String password) {
         this.id = id;
@@ -40,5 +41,13 @@ public class EregUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

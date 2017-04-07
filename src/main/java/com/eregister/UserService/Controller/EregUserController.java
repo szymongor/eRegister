@@ -44,7 +44,7 @@ public class EregUserController
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public String insertEregUserById(@RequestBody EregUser eregUser){
-        eregUserService.updateEregUser(eregUser);
-        return "Ereg User updated!";
+        eregUserService.insertEregUser(eregUser);
+        return "Ereg User inserted!";
     }
 }
