@@ -28,8 +28,8 @@ public class EregUserService {
         return eregUserDao.getEregUserById(id);
     }
 
-    public EregUser getEregUserByName(String name){
-        return eregUserDao.getEregUserByName(name);
+    public EregUser getEregUserByLogin(String login){
+        return eregUserDao.getEregUserByLogin(login);
     }
 
     public void removeEregUserById(int id){

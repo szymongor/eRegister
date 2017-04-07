@@ -14,7 +14,7 @@ public interface EregUserDao {
 
     void removeEregUserById(int id);
 
-    EregUser getEregUserByName(String name);
+    EregUser getEregUserByLogin(String login);
 
     void updateEregStudent(EregUser eregUser);
 

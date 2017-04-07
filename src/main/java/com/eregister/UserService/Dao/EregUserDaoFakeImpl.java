@@ -49,7 +49,7 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public EregUser getEregUserByName(String name) {
+    public EregUser getEregUserByLogin(String login) {
         return null;
     }
 

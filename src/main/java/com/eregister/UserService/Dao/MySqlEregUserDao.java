@@ -52,9 +52,9 @@ public class MySqlEregUserDao implements EregUserDao {
     }
 
     @Override
-    public EregUser getEregUserByName(String name){
-        final String sql = "SELECT * FROM users where name = ?";
-        EregUser student = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), name);
+    public EregUser getEregUserByLogin(String login){
+        final String sql = "SELECT * FROM users where login = ?";
+        EregUser student = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), login);
         return student;
     }
 
