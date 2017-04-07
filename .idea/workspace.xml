@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12a16c1-c348-4995-8d98-ed76f626bbee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_6_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_7_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_7_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/MySqlEregUserDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/AuthorizationService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Controller/AuthorizationController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Model/JwtCredentials.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eRegister.iml" afterPath="$PROJECT_DIR$/eRegister.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/EregUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/EregUserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/EregUserDaoFakeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/EregUserDaoFakeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Entity/EregUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Entity/EregUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Service/EregUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Service/EregUserService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,21 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="EregUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MySqlEregUserDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/MySqlEregUserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="71" column="75" lean-forward="false" selection-start-line="71" selection-start-column="75" selection-end-line="71" selection-end-column="75" />
+            <state relative-caret-position="372">
+              <caret line="44" column="4" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,13 +32,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EregUserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java">
+      <file leaf-file-name="AuthorizationController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Controller/AuthorizationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="201">
+              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JwtCredentials.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Model/JwtCredentials.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
+              <folding>
+                <element signature="docComment;class#JwtCredentials#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -98,6 +90,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Service/EregUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Dao/MySqlEregUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eregister/security/Controller/AuthorizationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Model/Credentials.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Controller/AuthorizationController.java" />
       </list>
     </option>
   </component>
@@ -235,10 +230,6 @@
               <option name="myItemId" value="UserService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -270,7 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,11 +291,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UserService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dao" />
+              <option name="myItemId" value="SecurityService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,7 +321,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UserService" />
+              <option name="myItemId" value="SecurityService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eregister" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eRegister" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eregister" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SecurityService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -562,7 +583,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1618" height="868" extended-state="7" />
+    <frame x="-9" y="-9" width="1618" height="868" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -587,7 +608,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -696,10 +717,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/security/authorizationControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/AuthorizationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/UserService/Controller/EregUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        <state relative-caret-position="372">
+          <caret line="44" column="4" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Model/JwtCredentials.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="docComment;class#JwtCredentials#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eregister/SecurityService/Controller/AuthorizationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
