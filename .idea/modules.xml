@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/eregister.iml" filepath="$PROJECT_DIR$/eregister.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eRegister.iml" filepath="$PROJECT_DIR$/eRegister.iml" />
     </modules>
   </component>
 </project>

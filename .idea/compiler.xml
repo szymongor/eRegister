@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eregister" />
+        <module name="eRegister" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eregister" target="1.8" />
+      <module name="eRegister" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

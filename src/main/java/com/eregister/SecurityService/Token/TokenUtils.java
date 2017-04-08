@@ -26,7 +26,7 @@ public class TokenUtils {
     static private String secret = "eregpass";
 
     //@Value("${jwt.expiration}")
-    static private Long expiration;
+    static private Long expiration = 604800L;
 
     public String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
         String id = Integer.toString(eregUser.getId());
@@ -34,7 +34,7 @@ public class TokenUtils {
         String role = eregUser.getRole();
 
         String jwt = Jwts.builder()
-                //.setExpiration(new Date(1300819380))
+                .setExpiration(generateExpirationDate())
                 .claim("login", login)
                 .claim("role", role)
                 .claim("id",id)
@@ -44,8 +44,11 @@ public class TokenUtils {
                 )
                 .compact();
 
-
         return jwt;
+    }
+
+    private Date generateExpirationDate() {
+        return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
 
