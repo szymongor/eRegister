@@ -1,0 +1,73 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center 
+
+\textsc{\LARGE Politechnika Śląska}\\[1.5cm] 
+
+\textsc{\Large Wydział Matematyki Stosowanej}\\ 
+\textsc{\Large Informatyka, sem. VI}\\[1cm]
+
+\textsc{\large Aplikacje bazodanowe}\\
+\textsc{\large Dokumentacja Projektu}\\[0.7cm] 
+
+
+\HRule \\[0.7cm]
+{ \huge \bfseries E-register}\\[0.4cm] 
+\HRule \\[1.5cm]
+ 
+\begin{minipage}{0.8\textwidth}
+\begin{flushleft} \large
+\emph{Autorzy:}\\
+Karolina \textsc{Chrząszcz}\\
+Szymon \textsc{Górnioczek}\\
+Wiktor \textsc{Gruszczyński}\\
+Jarosław \textsc{Kania}\\
+Tomasz \textsc{Kryg}\\
+\end{flushleft}
+\end{minipage}\\[1cm]
+
+\includegraphics[scale=0.5]{img/logo.jpg}\\[1cm]
+{\large \today}\\[0.5cm] 
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+
+\section{Opis ogólny wymagań}
+
+Główną funkcjonalnością tworzonej aplikacji bazodanowej jest dziennik internetowy. Musi on przede wszystkim pozwalać na zapis oraz wgląd do ocen ucznia, ale również mieć pełną bazę użytkowników, grup, zajęć oraz przedmiotów.
+Najważniejszym elementem bazy danych jest ,,użytkownik". Użytkownikiem dziennika może zostać nauczyciel, uczeń oraz opiekun. W każdym przypadku, dane tej osoby są trzymane w bazie przez dłuższy czas, nawet po opuszczeniu placówki. W drugim przypadku jedynie blokowane jest ich konto użytkownika, a dane osoby pozostają bez zmian.
+
+\subsection{Uczeń}
+
+Uczeń jest bez wątpienia podstawowym użytkownikiem bazy – bez niego, dziennik byłby zbędny. Jego prawa dotyczące dostępu są jednak w pewien sposób okrojone. Każdy uczeń posiadający konto w bazie, ma jedynie wgląd do swoich ocen, zajęć w których uczestniczą oraz grup, do których przynależą. Może on jedynie przeglądać informacje – nie ma prawa modyfikacji.
+Uczniowie należą do pewnych grup. Grupa jest to większa ilość uczniów uczestniczących w pewnych konkretnych zajęciach. Zajęcia zawsze dotyczą jednego z możliwych przedmiotów. Z każdych zajęć, uczeń otrzymuje oceny. Podział ocen jest następujący:
+\begin{itemize}
+\item ocena częściowa -- pomniejsza ocena związana z pewną aktywnością ucznia na zajęciach. Może to być ocena za sprawdzian, odpowiedź lub zadanie domowe. Każda ocena częściowa ma swoją wagę, która wpływa na ważniejsze oceny opisane poniżej.
+\item ocena semestralna -- ocena występująca raz na cały semestr. Jest ona wyliczana na podstawie ocen częściowych ucznia osobno dla każdego przedmiotu.
+\item ocena końcowa -- główna ocena wystawiana z każdego przedmiotu po całym roku zajęć. Jest to średnia z dwóch ocen semestralnych: za pierwszy oraz za drugi semestr.
+\end{itemize}
+Uczeń z przedmiotu może uzyskać między innymi ocenę niedostateczną. Oznacza ona, że nie uzyskuje on promocji do następnej klasy. W takim wypadku zostaje on jedynie przepisany do innej klasy (rok wcześniej) i kontynuuje swoją naukę w tej klasie.
+Dodatkowo każdy z uczniów, poza grupą należy także do klasy profilowanej. Są to klasy prowadzone przez nauczycieli i są one odpowiednio ukierunkowane. Podsumowując uczeń nie tylko należy do pewnej klasy, ale także ma osobne zajęcia w pewnych konkretnych grupach (przykładem mogą być zajęcia wychowania fizycznego, gdzie istnieją osobne grupy dla chłopców i dziewcząt).
+
+\subsection{Nauczyciel}
+
+Osobą pełniącą główną pieczę nad ocenami jest nauczyciel. Jest on przypisany do każdej z klas profilowanych jako jej wychowawca. Dodatkowo każdy z nauczycieli prowadzi zajecia z pewnego przedmiotu, zatem jest to osoba posiadająca nieco więcej praw od ucznia – posiada prawo wystawiania ocen. Nauczyciel samodzielnie wystawia każdą z ocen na podstawie osiągnięć uczniów z danego przedmiotu, który on sam prowadzi. Pod uwagę została również wzięta kwestia nauczyciela będącego jednocześnie rodzicem dziecka.
+
+\subsection{Opiekun}
+
+Osobnym użytkownikiem, mającym jedynie wgląd do ocen jest opiekun. Jest to osoba będąca zwykle rodzicem ucznia, mającego swoje konto w bazie. Zatem bez ucznia nie ma opiekuna. Opiekun jest poniekąd użytkownikiem-duchem. Może przeglądać jedynie oceny swojego podopiecznego, ale sam nie ma w bazie żadnych danych dodatkowych poza tożsamością oraz adresem zamieszkania. Jest on swego rodzaju obserwatorem, którego rolą jest dowiadywanie się o postępach w nauce swojego dziecka. 
+
+\end{document}
