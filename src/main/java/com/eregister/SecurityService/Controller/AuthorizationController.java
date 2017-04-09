@@ -15,14 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/auth")
 public class AuthorizationController {
 
     @Autowired
     AuthorizationService authorizationService;
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String insertEregUserById(@RequestBody JwtCredentials jwtCredentials){
+    @RequestMapping(value = "auth", method = RequestMethod.POST)
+    public String createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
+        String response = authorizationService.authorizeEregUser(jwtCredentials);
+        return response;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String verifyToken(@RequestBody JwtCredentials jwtCredentials){
         String response = authorizationService.authorizeEregUser(jwtCredentials);
         return response;
     }

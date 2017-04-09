@@ -4,6 +4,7 @@ import com.eregister.UserService.Entity.EregUser;
 import com.eregister.UserService.Service.EregUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
@@ -21,6 +22,7 @@ public class EregUserController
     EregUserService eregUserService;
 
     @RequestMapping(method = RequestMethod.GET)
+    @PreAuthorize("hasRole('TEACHER')")
     public Collection<EregUser> getAllEregUsers(){
         return eregUserService.getAllEregUsers();
     }
