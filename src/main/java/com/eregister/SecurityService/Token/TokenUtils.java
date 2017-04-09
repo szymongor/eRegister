@@ -64,7 +64,7 @@ public class TokenUtils {
     public UserDetails userDetailsFromToken(String token){
         Claims claims = verifyToken(token);
         JwtAuthority jwtAuthority = new JwtAuthority(claims.get("role").toString());
-        List<JwtAuthority> authorities = new ArrayList<JwtAuthority>();
+        List<JwtAuthority> authorities = new ArrayList<>();
         authorities.add(jwtAuthority);
         UserDetails userDetails = new UserDetails() {
             @Override
@@ -75,27 +75,22 @@ public class TokenUtils {
             public String getPassword() {
                 return null;
             }
-
             @Override
             public String getUsername() {
                 return claims.get("login").toString();
             }
-
             @Override
             public boolean isAccountNonExpired() {
                 return false;
             }
-
             @Override
             public boolean isAccountNonLocked() {
                 return false;
             }
-
             @Override
             public boolean isCredentialsNonExpired() {
                 return false;
             }
-
             @Override
             public boolean isEnabled() {
                 return false;

@@ -1,6 +1,7 @@
 package com.eregister.SecurityService.Controller;
 
 import com.eregister.SecurityService.AuthorizationService;
+import com.eregister.SecurityService.Model.JwtAuthenticationResponse;
 import com.eregister.SecurityService.Model.JwtCredentials;
 import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,10 @@ public class AuthorizationController {
     AuthorizationService authorizationService;
 
     @RequestMapping(value = "auth", method = RequestMethod.POST)
-    public String createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
-        String response = authorizationService.authorizeEregUser(jwtCredentials);
-        return response;
+    public JwtAuthenticationResponse createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
+        String token = authorizationService.authorizeEregUser(jwtCredentials);
+        JwtAuthenticationResponse jwtAuthenticationResponse = new JwtAuthenticationResponse(token);
+        return jwtAuthenticationResponse;
     }
 
     @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
