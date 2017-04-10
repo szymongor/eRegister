@@ -1,0 +1,6 @@
+framework module Pods_eRegistryTests {
+  umbrella header "Pods-eRegistryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
