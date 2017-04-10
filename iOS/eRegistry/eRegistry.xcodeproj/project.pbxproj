@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		222C82251E9C120D00644DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82241E9C120D00644DB5 /* AppDelegate.swift */; };
-		222C82271E9C120D00644DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82261E9C120D00644DB5 /* ViewController.swift */; };
+		222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82261E9C120D00644DB5 /* LoginVC.swift */; };
 		222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222C82281E9C120D00644DB5 /* Main.storyboard */; };
 		222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 222C822B1E9C120D00644DB5 /* eRegistry.xcdatamodeld */; };
 		222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222C822E1E9C120D00644DB5 /* Assets.xcassets */; };
 		222C82321E9C120D00644DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222C82301E9C120D00644DB5 /* LaunchScreen.storyboard */; };
 		222C823D1E9C120D00644DB5 /* eRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C823C1E9C120D00644DB5 /* eRegistryTests.swift */; };
 		222C82481E9C120D00644DB5 /* eRegistryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82471E9C120D00644DB5 /* eRegistryUITests.swift */; };
+		222C82571E9C149100644DB5 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82561E9C149100644DB5 /* RequestManager.swift */; };
+		222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82581E9C17D400644DB5 /* UITextField+appTheme.swift */; };
+		222C825B1E9C181100644DB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825A1E9C181100644DB5 /* Colors.swift */; };
+		222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */; };
+		222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */; };
+		222C82651E9C20E500644DB5 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82631E9C20E500644DB5 /* MenuVC.swift */; };
+		222C82661E9C20E500644DB5 /* MenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C82641E9C20E500644DB5 /* MenuVC.xib */; };
+		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
 		418C2ABE4F9F4D6AD608E233 /* Pods_eRegistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */; };
 		79E95E4E89D2B0DC3A73105A /* Pods_eRegistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F59A6A61E45248801C9B8 /* Pods_eRegistry.framework */; };
 		E54689CA88DBA3AF4859ABD6 /* Pods_eRegistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D871196CC340165EEC7300F /* Pods_eRegistryUITests.framework */; };
@@ -40,7 +48,7 @@
 /* Begin PBXFileReference section */
 		222C82211E9C120D00644DB5 /* eRegistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eRegistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222C82241E9C120D00644DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		222C82261E9C120D00644DB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		222C82261E9C120D00644DB5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		222C82291E9C120D00644DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		222C822C1E9C120D00644DB5 /* eRegistry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eRegistry.xcdatamodel; sourceTree = "<group>"; };
 		222C822E1E9C120D00644DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +60,14 @@
 		222C82431E9C120D00644DB5 /* eRegistryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eRegistryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		222C82471E9C120D00644DB5 /* eRegistryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eRegistryUITests.swift; sourceTree = "<group>"; };
 		222C82491E9C120D00644DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		222C82561E9C149100644DB5 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		222C82581E9C17D400644DB5 /* UITextField+appTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+appTheme.swift"; sourceTree = "<group>"; };
+		222C825A1E9C181100644DB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+appTheme.swift"; sourceTree = "<group>"; };
+		222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
+		222C82631E9C20E500644DB5 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		222C82641E9C20E500644DB5 /* MenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuVC.xib; sourceTree = "<group>"; };
+		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistry.release.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistry/Pods-eRegistry.release.xcconfig"; sourceTree = "<group>"; };
 		3038A7886BEBD526A2754197 /* Pods-eRegistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistryUITests/Pods-eRegistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eRegistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,11 +145,12 @@
 		222C82231E9C120D00644DB5 /* eRegistry */ = {
 			isa = PBXGroup;
 			children = (
+				222C82621E9C1E2300644DB5 /* Common */,
+				222C82611E9C1E0600644DB5 /* Extensions */,
+				222C82601E9C1DF900644DB5 /* Views */,
+				222C82551E9C143600644DB5 /* Networking */,
 				222C82241E9C120D00644DB5 /* AppDelegate.swift */,
-				222C82261E9C120D00644DB5 /* ViewController.swift */,
-				222C82281E9C120D00644DB5 /* Main.storyboard */,
 				222C822E1E9C120D00644DB5 /* Assets.xcassets */,
-				222C82301E9C120D00644DB5 /* LaunchScreen.storyboard */,
 				222C82331E9C120D00644DB5 /* Info.plist */,
 				222C822B1E9C120D00644DB5 /* eRegistry.xcdatamodeld */,
 			);
@@ -156,6 +173,53 @@
 				222C82491E9C120D00644DB5 /* Info.plist */,
 			);
 			path = eRegistryUITests;
+			sourceTree = "<group>";
+		};
+		222C82551E9C143600644DB5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */,
+				222C82561E9C149100644DB5 /* RequestManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		222C82601E9C1DF900644DB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2294D0E41E9C27D200D0C081 /* Other */,
+				222C82301E9C120D00644DB5 /* LaunchScreen.storyboard */,
+				222C82261E9C120D00644DB5 /* LoginVC.swift */,
+				222C82281E9C120D00644DB5 /* Main.storyboard */,
+				222C82631E9C20E500644DB5 /* MenuVC.swift */,
+				222C82641E9C20E500644DB5 /* MenuVC.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		222C82611E9C1E0600644DB5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				222C82581E9C17D400644DB5 /* UITextField+appTheme.swift */,
+				222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		222C82621E9C1E2300644DB5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				222C825A1E9C181100644DB5 /* Colors.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2294D0E41E9C27D200D0C081 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2294D0E51E9C27E100D0C081 /* CheckBox.swift */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		950881153EA5C16097D59F03 /* Frameworks */ = {
@@ -288,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				222C82321E9C120D00644DB5 /* LaunchScreen.storyboard in Resources */,
+				222C82661E9C20E500644DB5 /* MenuVC.xib in Resources */,
 				222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */,
 				222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */,
 			);
@@ -452,9 +517,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222C82271E9C120D00644DB5 /* ViewController.swift in Sources */,
+				222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */,
+				222C825B1E9C181100644DB5 /* Colors.swift in Sources */,
+				222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
+				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,
+				222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */,
+				222C82651E9C20E500644DB5 /* MenuVC.swift in Sources */,
 				222C82251E9C120D00644DB5 /* AppDelegate.swift in Sources */,
+				222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */,
+				222C82571E9C149100644DB5 /* RequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +679,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
 				INFOPLIST_FILE = eRegistry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kryg.eRegistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -621,6 +694,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
 				INFOPLIST_FILE = eRegistry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kryg.eRegistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -709,6 +783,7 @@
 				222C824E1E9C120D00644DB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		222C824F1E9C120D00644DB5 /* Build configuration list for PBXNativeTarget "eRegistryTests" */ = {
 			isa = XCConfigurationList;
@@ -717,6 +792,7 @@
 				222C82511E9C120D00644DB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		222C82521E9C120D00644DB5 /* Build configuration list for PBXNativeTarget "eRegistryUITests" */ = {
 			isa = XCConfigurationList;
@@ -725,6 +801,7 @@
 				222C82541E9C120D00644DB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
