@@ -49,3 +49,4 @@ Temporary Items
 .idea/libraries/Maven__com_zaxxer_HikariCP_2_5_1.xml
 .idea/workspace.xml
 *.class
+*.class

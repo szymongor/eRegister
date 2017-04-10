@@ -1,0 +1,9 @@
+
+createAuthenticationToken:
+  Endpoint: "server":port/auth
+  Method: POST
+  Body:
+  {
+    "login": "Marta123",
+    "password": "12345678"
+  }

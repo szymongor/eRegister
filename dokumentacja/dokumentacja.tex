@@ -4,6 +4,9 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
 
 
 \begin{document}
@@ -13,18 +16,18 @@
 
 \center 
 
-\textsc{\LARGE Politechnika Śląska}\\[1.5cm] 
+\textsc{\LARGE Politechnika Śląska}\\[1.2cm] 
 
 \textsc{\Large Wydział Matematyki Stosowanej}\\ 
-\textsc{\Large Informatyka, sem. VI}\\[1cm]
+\textsc{\Large Informatyka, sem. VI}\\[0.8cm]
 
 \textsc{\large Aplikacje bazodanowe}\\
 \textsc{\large Dokumentacja Projektu}\\[0.7cm] 
 
 
 \HRule \\[0.7cm]
-{ \huge \bfseries E-register}\\[0.4cm] 
-\HRule \\[1.5cm]
+{ \huge \bfseries eRegistry}\\[0.4cm] 
+\HRule \\[0.7cm]
  
 \begin{minipage}{0.8\textwidth}
 \begin{flushleft} \large
@@ -35,7 +38,12 @@ Wiktor \textsc{Gruszczyński}\\
 Jarosław \textsc{Kania}\\
 Tomasz \textsc{Kryg}\\
 \end{flushleft}
-\end{minipage}\\[1cm]
+
+\begin{flushright}
+\href{http://github.com/szymongor/eRegistry}{Repozytorium}
+\end{flushright} \large
+
+\end{minipage}\\[0.7cm]
 
 \includegraphics[scale=0.5]{img/logo.jpg}\\[1cm]
 {\large \today}\\[0.5cm] 
@@ -43,6 +51,10 @@ Tomasz \textsc{Kryg}\\
 \vfill % Fill the rest of the page with whitespace
 
 \end{titlepage}
+
+\tableofcontents
+
+\newpage
 
 
 \section{Opis ogólny wymagań}
@@ -69,5 +81,247 @@ Osobą pełniącą główną pieczę nad ocenami jest nauczyciel. Jest on przypi
 \subsection{Opiekun}
 
 Osobnym użytkownikiem, mającym jedynie wgląd do ocen jest opiekun. Jest to osoba będąca zwykle rodzicem ucznia, mającego swoje konto w bazie. Zatem bez ucznia nie ma opiekuna. Opiekun jest poniekąd użytkownikiem-duchem. Może przeglądać jedynie oceny swojego podopiecznego, ale sam nie ma w bazie żadnych danych dodatkowych poza tożsamością oraz adresem zamieszkania. Jest on swego rodzaju obserwatorem, którego rolą jest dowiadywanie się o postępach w nauce swojego dziecka. 
+
+\section{Aplikacja na Androida dla opiekuna i ucznia}
+
+Aplikacja kliencka jest napisana w androidzie aby umożliwić swobodny dostęp do danych. Aplikacja kierowana dla uczniów oraz ich opiekunów dlatego wymagania rozpisano dla obu grup.
+
+\subsection{Wymagania ogólne}
+
+\begin{enumerate}
+ \item Możliwość zalogowania (zapamiętaj login/hasło).
+ \item Możliwość zmiany hasła (trzeba ustawić przy pierwszym. uruchomieniu, hasło generowane przy tworzeniu użytkownika).
+ \item Obliczanie średniej ważonej (Wyświetla na kafelku przedmiotu).
+ \item Wyświetlanie przedmiotu, ocen cząstkowych z datami. wystawienia
+ \item Zmiana danych (mail, telefon).
+\end{enumerate}
+
+\subsubsection{Funkcjonalności opiekuna}
+
+\begin{enumerate}
+\item Wybór podopiecznego dla którego wyświetlać oceny.
+\item Zmiana adresu zamieszkania opiekuna oraz podopiecznych. (zastosuj dla podopiecznych).
+\item Wyświetlanie danych wychowawcy, możliwość wykonania połączenia z poziomu aplikacji.
+\end{enumerate}
+
+
+\subsubsection{Funkcjonalności opcjonalne}
+
+\begin{enumerate}
+\item Oznaczenie o nowych ocenach od ostatniego logowania.
+\item W zależności od płci podopiecznego w menu wyboru odpowiednia \\ ikona.
+\item W dniu urodzin życzenia.
+\item Wyświetlanie pomocy.
+\end{enumerate}
+
+
+\subsection{Opis interfejsu}
+
+Po uruchomieniu aplikacji ukaże się ekran logowania. Po zalogowaniu użytkownik zostanie przeniesiony do menu głównego z którego można nawigować do poszczególnych funkcjonalności.
+
+\subsection{Uwagi}
+
+\begin{enumerate}
+\item Podwójne kliknięcie wstecz w menu głównym wychodzi z aplikacji (po pierwszym kliknięciu 'toast' z informacją o tym)
+
+\item Opiekun może tylko wyświetlić mail oraz nr. telefonu podopiecznego. może edytować jego adres zamieszkania.
+
+\item Uczeń nie może edytować miejsca zamieszkania, może edytować mail oraz nr. telefonu.
+
+\item Na kafelku wyboru przedmiotu wyświetla się aktualna średnia ważona przedmiotu. (Może w zależności od stopnia zmieniać kolor)
+\end{enumerate}
+
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/EkranLogowania.jpg}
+  \captionof{figure}{Ekran logowania}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Menu1.jpg}
+  \captionof{figure}{Menu główne \\ (dla opiekuna)}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Menu2.jpg}
+  \captionof{figure}{Wybór podopiecznego\\ (dla opiekuna)}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Menu3.jpg}
+  \captionof{figure}{Menu główne (dla ucznia)}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/ZmianaAdresu.jpg}
+  \captionof{figure}{Zmiana adresu\\ (dla opiekuna)}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/ZmianaHasla.jpg}
+  \captionof{figure}{Zmiana hasła}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Oceny1.jpg}
+  \captionof{figure}{Widok główny ocen}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Oceny2.jpg}
+  \captionof{figure}{Widok ocen z przedmiotu}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/ZmianaMaila.jpg}
+  \captionof{figure}{Zmiana maila}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/ZmianaNumeru.jpg}
+  \captionof{figure}{Zmiana numeru}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{AplikacjaAndroid/Interfejs/Wychowawca.jpg}
+  \captionof{figure}{Widok danych \\ wychowawcy}
+  \label{fig:test1}
+\end{minipage}%
+\end{figure}
+
+\subsection{Technologia}
+
+Aplikacja kliencka działająca w systemie Android napisana w języku Java. Będzie łączyć się z serwerem za pomocą klasy HttpURLConnection. Wybór języka programowania na podstawie wspólnych preferencji oraz doświadczenia członków zespołu.
+
+\section{Aplikacja webowa dla nauczyciela oraz administratora.}
+\subsection{Technologia}
+Aplikacja zostanie wykonana w technologii webowej, gdyż pozwala to na dostęp z każdego urządzenia posiadającego przeglądarkę internetową. \\
+Skorzystamy z  bootstrapa, ponieważ są gotowe szablony dla stron administratorskich.
+\subsection{Wymagania}
+\begin{itemize}
+\item Wymagania dla panelu administratora:
+	\begin{itemize}
+	\item tworzenie użytkowników oraz ich profili: nauczyciela, ucznia bądź opiekuna; 
+	\item tworzenie klas i grup;
+	\item przypisywanie: 
+		\begin{itemize}
+			\item nauczyciela do klasy jako wychowawcy;
+			\item nauczyciela, grupy oraz przedmiotu do danej lekcji;
+			\item uczniów do klas i grup;
+		\end{itemize}
+	\item przeglądanie ocen oraz danych 
+	\end{itemize}
+\item Wymagania dla panelu nauczyciela:
+	\begin{itemize}
+		\item zmiana danych własnych;
+		\item przeglądanie, dodawanie oraz modyfikowanie ocen z własnych zajęć;
+		\item przeglądanie danych dot. uczniów własnej klasy oraz ich opiekunów;
+		\item przeglądanie ocen uczniów swojej klasy z innych zajęć;
+	\end{itemize}
+\end{itemize}
+\subsection{Interfejs}
+Dwa różne interfejsy:
+\begin{itemize}
+	\item dla nauczyciela,
+	\item dla administratora.
+\end{itemize}
+Oba opierają się na idei nawigatora po lewej stronie.
+\subsubsection{Interfejs nauczyciela}
+Interfejs nauczyciela powinien posiadać zakładki:
+\begin{itemize}
+	\item Zajęcia - dostęp do zajęć prowadzonych przez danego nauczyciela. Po kliknięciu na daną lekcję odsyłany jest on do strony z tabelą z ocenami. 
+\includegraphics[scale=0.4]{screeny/nauczyciel.png}
+	\item Moja klasa - klasa, której wychowawcą jest dany nauczyciel - jeżeli nie jest wychowawcą żadnej klasy to zakładka ta nie pojawia się. Tutaj nauczyciel ma prawo przejrzeć swoich uczniów oraz ich oceny z poszczególnych zajęć. \\
+\includegraphics[scale=0.4]{screeny/Oceny.png}
+\end{itemize}
+
+\subsubsection{Interfejs administratora}
+Administrator ma dostęp w pasku nawigacyjnym do listy użytkowników jak i osób, klas i grup. \\
+\includegraphics[scale=0.4]{screeny/admin.png}
+
+
+\section{Baza danych}
+
+\subsection{Diagram}
+\begin{center}
+\hspace{-2cm} \includegraphics[angle=90,scale=0.33]{screeny/diagram.png}
+\end{center}
+
+
+\subsection{Relacyjny model bazy danych}
+\begin{center}
+\hspace{-2cm} \includegraphics[angle=90,scale=0.33]{screeny/relational.png}
+\end{center}
+
+\subsection{Dane, o które pytamy}
+
+\begin{enumerate}
+	\item W trakcie logowania użytkownika:
+	\begin{itemize}
+		\item czy podany login jest w bazie
+		\item czy dla podanego loginu użytkownik wprowadził poprawne hasło
+		\item kim jest osoba logująca – admin, nauczyciel, uczeń, opiekun
+	\end{itemize}	
+	\item W trakcie tworzenia użytkownika przez admina:
+	\begin{itemize}
+		\item dodawanie nowego użytkownika, wprowadzenie nowego adresu i danych osobowych
+		\item przypisanie użytkownika do klasy/zajęć/dziecka/opiekuna….
+	\end{itemize}	
+	\item Zalogowany nauczyciel:
+	\begin{itemize}
+		\item lista zajęć które prowadzi (przedmiot, grupa)
+		\item lista uczniów, którzy są w danej grupie
+		\item dodawanie ocen (uczniowi z konkretnych zajęć, data, opis, waga, stopień)
+		\item po dodaniu oceny aktualizacja średniej ważonej ocen
+		\item edycja ocen/usuwanie
+	\end{itemize}	
+	\item Zalogowany opiekun/uczeń:
+	\begin{itemize}
+		\item lista zajęć na które uczęszcza uczeń (nazwa przedmiotu, prowadzący)
+		\item lista ocen z poszczególnych zajęć (data, opis, ocena)
+		\item średnia ważona obliczona na podstawie wystawionych dotychczas stopni
+		\item dane wychowawcy klasy, do której należy uczeń
+		\item dla opiekuna lista jego podopiecznych
+	\end{itemize}	
+	\item Zalogowany użytkownik:
+	\begin{itemize}
+		\item wgląd do swoich danych z możliwością edycji (adres, mail, telefon, ...)
+	\end{itemize}	
+\end{enumerate}
 
 \end{document}

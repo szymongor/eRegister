@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eregister" />
         <module name="eRegister" />
+        <module name="eRegistry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eregister" target="1.8" />
       <module name="eRegister" target="1.8" />
+      <module name="eRegistry" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Opis og\363lny wymagan}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Uczen}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Nauczyciel}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Opiekun}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Aplikacja na Androida dla opiekuna i ucznia}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Wymagania og\363lne}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Funkcjonalnosci opiekuna}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Funkcjonalnosci opcjonalne}{subsection.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Opis interfejsu}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Uwagi}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Technologia}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Aplikacja webowa dla nauczyciela oraz administratora.}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Technologia}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Wymagania}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Interfejs}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Interfejs nauczyciela}{subsection.3.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Interfejs administratora}{subsection.3.3}% 17
+\BOOKMARK [1][-]{section.4}{Baza danych}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Diagram}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Relacyjny model bazy danych}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.3}{Dane, o kt\363re pytamy}{section.4}% 21
