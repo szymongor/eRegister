@@ -49,8 +49,8 @@ class LoginVC: UIViewController {
     
     func onLoginClick() {
         
-        let username = usernameTF.text
-        let password = passwordTF.text
+        let username = usernameTF.text ?? ""
+        let password = passwordTF.text ?? ""
         RequestManager.login(username: username, password: password, completion: {
             success in
             if success {

@@ -8,23 +8,63 @@
 
 import UIKit
 
-class MenuVC: UIViewController {
+class MenuVC: UIViewController, MenuItemDelegate {
 
-//    @IBOutlet weak var collectionView: UICollectionView! {
-//        didSet {
-//            let cellNib = UINib(nibName: "MenuCVCell", bundle: nil)
-//            collectionView.register(cellNib, forCellWithReuseIdentifier: "MenuCVCell")
-//            collectionView.delegate = self
-//            collectionView.dataSource = self
-//        }
-//    }
     
-    //let NUMBER_OF_ROWS: CGFloat = 3
-    //let NUMBER_OF_COLUMNS: CGFloat = 2
+    @IBOutlet weak var menuView: UIStackView!
+    
+    @IBOutlet weak var firstItem: MenuItem! {
+        didSet {
+            firstItem.descriptionLabel.text = "Oceny"
+            firstItem.delegate = self
+        }
+    }
+    @IBOutlet weak var secondItem: MenuItem! {
+        didSet {
+            secondItem.delegate = self
+        }
+    }
+    @IBOutlet weak var thirdItem: MenuItem! {
+        didSet {
+            thirdItem.delegate = self
+        }
+    }
+    @IBOutlet weak var fourthItem: MenuItem! {
+        didSet {
+            fourthItem.delegate = self
+        }
+    }
+    @IBOutlet weak var fifthItem: MenuItem! {
+        didSet {
+            fifthItem.delegate = self
+        }
+    }
+    @IBOutlet weak var sixthItem: MenuItem! {
+        didSet {
+            sixthItem.delegate = self
+        }
+    }
+    @IBOutlet weak var bottomView: UIView! {
+        didSet {
+            bottomView.backgroundColor = Colors.MAIN
+        }
+    }
+    @IBOutlet weak var userInfoLabel: UILabel! {
+        didSet {
+            userInfoLabel.textColor = UIColor.white
+            userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
+        }
+    }
+    @IBOutlet weak var userTypeLabel: UILabel! {
+        didSet {
+            userTypeLabel.textColor = UIColor.white
+            userTypeLabel.text = "Uczeń"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.isNavigationBarHidden = false
         // Do any additional setup after loading the view.
     }
 
@@ -32,38 +72,24 @@ class MenuVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func onMenuItemClick(sender: MenuItem) {
+        switch sender {
+        case firstItem:
+            print("1")
+        case secondItem:
+            print("2")
+        case thirdItem:
+            print("3")
+        case fourthItem:
+            print("4")
+        case fifthItem:
+            print("5")
+        case sixthItem:
+            print("6")
+        default:
+            break
+        }
+    }
 
 }
-
-//extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCVCell", for: indexPath)
-//        cell.backgroundColor = UIColor.red
-//        return cell
-//    }
-//    
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 6
-//    }
-//    
-//}
-//
-//extension MenuVC: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        var cellEdge = 0
-//        let cellWidth = collectionView.bounds.width/NUMBER_OF_COLUMNS
-//        let cellHeight = collectionView.bounds.height/NUMBER_OF_ROWS
-//        cellEdge = Int(cellWidth < cellHeight ? cellWidth : cellHeight)
-//        return CGSize(width: cellEdge, height: cellEdge)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsetsMake(0, 0, 0, 0)
-//    }
-//
-//}

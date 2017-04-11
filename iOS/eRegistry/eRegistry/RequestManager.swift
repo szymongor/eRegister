@@ -20,12 +20,12 @@ class RequestManager {
     
     typealias LoginCompletion = (Bool)->()
     
-    static func login(username: String?, password: String?, completion: @escaping LoginCompletion) {
+    static func login(username: String, password: String, completion: @escaping LoginCompletion) {
         let url: URL = URL(string: getWSAddress())!
         let parameters: [String : AnyObject] =
             [
                 "login": username as AnyObject,
-                "password": username as AnyObject
+                "password": password as AnyObject
             ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {
             response in
@@ -36,6 +36,9 @@ class RequestManager {
             if result.isSuccess {
                 if let json = result.value as? JSONStandard,
                     let token = json["token"] as? String {
+                    print(json)
+                    UserDefaultValues.username = username
+                    UserDefaultValues.password = password
                     UserDefaultValues.token = token
                     print(UserDefaultValues.token)
                     success = true
