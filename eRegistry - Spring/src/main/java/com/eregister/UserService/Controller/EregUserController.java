@@ -1,6 +1,7 @@
 package com.eregister.UserService.Controller;
 
 import com.eregister.UserService.Entity.EregUser;
+import com.eregister.UserService.Model.UsersListResponse;
 import com.eregister.UserService.Service.EregUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,8 +24,11 @@ public class EregUserController
 
     @RequestMapping(method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Collection<EregUser> getAllEregUsers(){
-        return eregUserService.getAllEregUsers();
+    public UsersListResponse getAllEregUsers(){
+        UsersListResponse usersListResponse =
+                new UsersListResponse(eregUserService.getAllEregUsers(), "Ok");
+
+        return usersListResponse;
     }
 
     @RequestMapping(value ="/{id}",method = RequestMethod.GET)

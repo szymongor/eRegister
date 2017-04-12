@@ -24,7 +24,7 @@ public class AuthorizationController {
     @RequestMapping(value = "auth", method = RequestMethod.POST)
     public JwtAuthenticationResponse createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
         String token = authorizationService.authorizeEregUser(jwtCredentials);
-        JwtAuthenticationResponse jwtAuthenticationResponse = new JwtAuthenticationResponse(token);
+        JwtAuthenticationResponse jwtAuthenticationResponse = new JwtAuthenticationResponse(token, "Ok");
         return jwtAuthenticationResponse;
     }
 
