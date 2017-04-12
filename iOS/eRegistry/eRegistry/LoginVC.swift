@@ -54,7 +54,10 @@ class LoginVC: UIViewController {
         RequestManager.login(username: username, password: password, completion: {
             success in
             if success {
-                let menuVC = MenuVC(nibName: "MenuVC", bundle: nil)
+                
+                guard let menuVC: MenuVC = UINib(nibName: "MenuVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? MenuVC else {
+                    return
+                }
                 let _ = self.navigationController?.popToRootViewController(animated: true)
                 self.navigationController?.setViewControllers([menuVC], animated: true)
             } else {
