@@ -14,14 +14,15 @@ class RequestManager {
     typealias JSONStandard = Dictionary<String, AnyObject>
     
     fileprivate static func getWSAddress() -> String {
-        let address = "http://localhost:8080/auth"
+        let address = "http://localhost:8080/"
         return address
     }
     
     typealias LoginCompletion = (Bool)->()
     
     static func login(username: String, password: String, completion: @escaping LoginCompletion) {
-        let url: URL = URL(string: getWSAddress())!
+        let urlString = getWSAddress()+"auth"
+        let url: URL = URL(string: urlString)!
         let parameters: [String : AnyObject] =
             [
                 "login": username as AnyObject,
@@ -47,6 +48,27 @@ class RequestManager {
             completion(success)
         })
 
+    }
+    
+    static func getUsers() {
+        
+        let urlString = getWSAddress()+"EregUsers"
+        let url: URL = URL(string: urlString)!
+        
+        let header: HTTPHeaders = ["Authorization" : UserDefaultValues.token]
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            
+            if result.isSuccess {
+                if let json = result.value as? [JSONStandard] {
+                    print(json)
+                }
+            }
+        })
     }
     
 }

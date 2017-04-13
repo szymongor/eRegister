@@ -27,10 +27,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtB-Sd-exv">
-                            <rect key="frame" x="0.0" y="310" width="350" height="40"/>
+                            <rect key="frame" x="0.0" y="318" width="350" height="32"/>
                             <subviews>
+                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssn-je-WuN">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="32"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0jW-sM-JeS">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <blurEffect style="light"/>
+                                </visualEffectView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uO-Ty-GGM">
-                                    <rect key="frame" x="154" y="10" width="42" height="21"/>
+                                    <rect key="frame" x="154" y="6" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -38,9 +46,13 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="Otr-Ih-mB0"/>
+                                <constraint firstAttribute="bottom" secondItem="ssn-je-WuN" secondAttribute="bottom" id="3dq-As-qlY"/>
+                                <constraint firstAttribute="height" constant="32" id="Otr-Ih-mB0"/>
+                                <constraint firstItem="ssn-je-WuN" firstAttribute="leading" secondItem="QtB-Sd-exv" secondAttribute="leading" id="cx2-KX-mun"/>
                                 <constraint firstItem="0uO-Ty-GGM" firstAttribute="centerX" secondItem="QtB-Sd-exv" secondAttribute="centerX" id="e4O-mp-hQ8"/>
                                 <constraint firstItem="0uO-Ty-GGM" firstAttribute="centerY" secondItem="QtB-Sd-exv" secondAttribute="centerY" id="ksX-7J-L46"/>
+                                <constraint firstItem="ssn-je-WuN" firstAttribute="top" secondItem="QtB-Sd-exv" secondAttribute="top" id="mXg-Ma-CEn"/>
+                                <constraint firstAttribute="trailing" secondItem="ssn-je-WuN" secondAttribute="trailing" id="pPv-Bt-DN4"/>
                             </constraints>
                         </view>
                     </subviews>

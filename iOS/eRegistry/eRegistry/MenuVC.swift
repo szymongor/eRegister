@@ -62,10 +62,36 @@ class MenuVC: UIViewController, MenuItemDelegate {
         }
     }
     
+    var menuItemModels: [MenuItemModel] = []
+    var menuItems: [MenuItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        initMenuItems()
         // Do any additional setup after loading the view.
+    }
+    
+    func initMenuItems() {
+        menuItems = [firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem]
+        
+        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Oceny"))
+        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Wychowawca"))
+        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Telefon"))
+        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Adres"))
+        
+        var i = 0
+        for menuItem in menuItems {
+            if i < menuItemModels.count {
+                var model = menuItemModels[i]
+                menuItem.setModel(model)
+            } else {
+                menuItem.isHidden = true
+            }
+            i += 1
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

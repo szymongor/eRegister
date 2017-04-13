@@ -21,7 +21,7 @@ class MenuItem: UIView {
     }
     @IBOutlet weak var bottomView: UIView! {
         didSet {
-            bottomView.backgroundColor = UIColor.gray
+            bottomView.backgroundColor = UIColor.clear
         }
     }
 
@@ -48,6 +48,8 @@ class MenuItem: UIView {
         contentView!.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(contentView!)
         setGesture()
+        self.contentView?.layer.borderWidth = 1.0
+        self.contentView?.layer.borderColor = UIColor.black.cgColor
     }
     
     func loadViewFromNib() -> UIView! {
@@ -60,8 +62,14 @@ class MenuItem: UIView {
         self.isUserInteractionEnabled = true
     }
     
+    func setModel(_ model: MenuItemModel) {
+        imageView.image = model.image
+        descriptionLabel.text = model.description
+    }
+    
     func onClick() {
         delegate?.onMenuItemClick(sender: self)
+        RequestManager.getUsers()
     }
     
 }
