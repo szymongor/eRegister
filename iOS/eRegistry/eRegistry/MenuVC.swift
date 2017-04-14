@@ -8,40 +8,14 @@
 
 import UIKit
 
-class MenuVC: UIViewController, MenuItemDelegate {
+class MenuVC: UIViewController {
 
-    
-    @IBOutlet weak var menuView: UIStackView!
-    
-    @IBOutlet weak var firstItem: MenuItem! {
+    @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-            firstItem.descriptionLabel.text = "Oceny"
-            firstItem.delegate = self
-        }
-    }
-    @IBOutlet weak var secondItem: MenuItem! {
-        didSet {
-            secondItem.delegate = self
-        }
-    }
-    @IBOutlet weak var thirdItem: MenuItem! {
-        didSet {
-            thirdItem.delegate = self
-        }
-    }
-    @IBOutlet weak var fourthItem: MenuItem! {
-        didSet {
-            fourthItem.delegate = self
-        }
-    }
-    @IBOutlet weak var fifthItem: MenuItem! {
-        didSet {
-            fifthItem.delegate = self
-        }
-    }
-    @IBOutlet weak var sixthItem: MenuItem! {
-        didSet {
-            sixthItem.delegate = self
+            let menuCellNib = UINib(nibName: CELL_ID, bundle: nil)
+            collectionView.register(menuCellNib, forCellWithReuseIdentifier: CELL_ID)
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
     }
     @IBOutlet weak var bottomView: UIView! {
@@ -62,36 +36,18 @@ class MenuVC: UIViewController, MenuItemDelegate {
         }
     }
     
-    var menuItemModels: [MenuItemModel] = []
-    var menuItems: [MenuItem] = []
+    let CELL_ID = "MenuCVCell"
+    
+    var menuItems: [MenuItemModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        initMenuItems()
         // Do any additional setup after loading the view.
+        initMenuItems()
     }
     
-    func initMenuItems() {
-        menuItems = [firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem]
-        
-        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Oceny"))
-        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Wychowawca"))
-        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Telefon"))
-        menuItemModels.append(MenuItemModel(with: #imageLiteral(resourceName: "logoIcon"), "Adres"))
-        
-        var i = 0
-        for menuItem in menuItems {
-            if i < menuItemModels.count {
-                var model = menuItemModels[i]
-                menuItem.setModel(model)
-            } else {
-                menuItem.isHidden = true
-            }
-            i += 1
-        }
-        
-        
+    override func viewWillAppear(_ animated: Bool) {
+        prepareNavigationBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,23 +55,84 @@ class MenuVC: UIViewController, MenuItemDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func onMenuItemClick(sender: MenuItem) {
-        switch sender {
-        case firstItem:
-            print("1")
-        case secondItem:
-            print("2")
-        case thirdItem:
-            print("3")
-        case fourthItem:
-            print("4")
-        case fifthItem:
-            print("5")
-        case sixthItem:
-            print("6")
-        default:
-            break
-        }
+    func prepareNavigationBar() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyloguj", style: .plain, target: self, action: #selector(logout))
     }
 
+    func initMenuItems() {
+        
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Oceny", type: .grades))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Wychowawca", type: .teacher))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Telefon", type: .phone))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Adres", type: .address))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Email", type: .email))
+        
+    }
+    
+    func logout() {
+        UserDefaultValues.rememberMe = false
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell: MenuCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as? MenuCVCell else {
+            return UICollectionViewCell()
+        }
+        cell.setModel(menuItems[indexPath.item])
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return menuItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.item]
+        switch menuItem.type {
+        case .grades:
+            print("Oceny")
+        case .teacher:
+            print("Wychowawca")
+        case .phone:
+            print("Telefon")
+        case .address:
+            print("Adres")
+        case .email:
+            print("Email")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+}
+
+extension MenuVC : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = collectionView.bounds.height/3
+        let width = collectionView.bounds.width/2
+        let bound = width < height ? width : height
+        let size = CGSize(width: bound, height: bound)
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }

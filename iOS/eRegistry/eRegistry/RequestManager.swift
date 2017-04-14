@@ -14,7 +14,7 @@ class RequestManager {
     typealias JSONStandard = Dictionary<String, AnyObject>
     
     fileprivate static func getWSAddress() -> String {
-        let address = "http://localhost:8080/"
+        let address = "http://157.158.16.186:8090/"
         return address
     }
     

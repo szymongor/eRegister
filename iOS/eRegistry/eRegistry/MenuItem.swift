@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol MenuItemDelegate {
-    func onMenuItemClick(sender: MenuItem)
-}
-
 class MenuItem: UIView {
 
     @IBOutlet weak var imageView: UIImageView! {
@@ -68,7 +64,7 @@ class MenuItem: UIView {
     }
     
     func onClick() {
-        delegate?.onMenuItemClick(sender: self)
+        //delegate?.onMenuItemClick(sender: self)
         RequestManager.getUsers()
     }
     

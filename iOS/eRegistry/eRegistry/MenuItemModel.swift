@@ -9,14 +9,24 @@
 import Foundation
 import UIKit
 
+enum MenuItemType {
+    case grades
+    case teacher
+    case phone
+    case address
+    case email
+}
+
 class MenuItemModel {
     
     var image: UIImage = UIImage()
     var description: String = ""
+    var type: MenuItemType = .phone
     
-    init(with image: UIImage, _ description: String) {
+    init(image: UIImage, description: String, type: MenuItemType) {
         self.image = image
         self.description = description
+        self.type = type
     }
     
 }

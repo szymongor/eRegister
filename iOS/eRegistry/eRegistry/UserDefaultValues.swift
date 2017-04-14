@@ -37,4 +37,13 @@ class UserDefaultValues {
         }
     }
     
+    static var rememberMe: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "rememberMe") 
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "rememberMe")
+        }
+    }
+    
 }

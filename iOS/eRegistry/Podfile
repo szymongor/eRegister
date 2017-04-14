@@ -6,7 +6,7 @@ target 'eRegistry' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.2.0'
-  pod 'JSONWebToken'
+  pod 'MBProgressHUD', '~> 1.0.0'
 
   # Pods for eRegistry
 

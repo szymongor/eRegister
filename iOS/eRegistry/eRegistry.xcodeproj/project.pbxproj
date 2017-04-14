@@ -25,6 +25,8 @@
 		222C825B1E9C181100644DB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825A1E9C181100644DB5 /* Colors.swift */; };
 		222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */; };
 		222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */; };
+		2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260394B1E9FE39E002AF9E2 /* MenuCVCell.swift */; };
+		2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260394C1E9FE39E002AF9E2 /* MenuCVCell.xib */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
 		418C2ABE4F9F4D6AD608E233 /* Pods_eRegistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */; };
 		79E95E4E89D2B0DC3A73105A /* Pods_eRegistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F59A6A61E45248801C9B8 /* Pods_eRegistry.framework */; };
@@ -73,6 +75,9 @@
 		222C825A1E9C181100644DB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+appTheme.swift"; sourceTree = "<group>"; };
 		222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
+		2260394B1E9FE39E002AF9E2 /* MenuCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCVCell.swift; sourceTree = "<group>"; };
+		2260394C1E9FE39E002AF9E2 /* MenuCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCVCell.xib; sourceTree = "<group>"; };
+		226ABEBA1EA129F2002652F2 /* eRegistry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "eRegistry-Bridging-Header.h"; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistry.release.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistry/Pods-eRegistry.release.xcconfig"; sourceTree = "<group>"; };
 		3038A7886BEBD526A2754197 /* Pods-eRegistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistryUITests/Pods-eRegistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +165,7 @@
 				222C82331E9C120D00644DB5 /* Info.plist */,
 				222C822B1E9C120D00644DB5 /* eRegistry.xcdatamodeld */,
 				222083A81E9E6AA00069EEDC /* MenuItemModel.swift */,
+				226ABEBA1EA129F2002652F2 /* eRegistry-Bridging-Header.h */,
 			);
 			path = eRegistry;
 			sourceTree = "<group>";
@@ -225,6 +231,8 @@
 				2207AF271E9D5E8F00EFDE71 /* MenuVC.xib */,
 				2207AF2A1E9D771900EFDE71 /* MenuItem.swift */,
 				2207AF2C1E9D772300EFDE71 /* MenuItem.xib */,
+				2260394B1E9FE39E002AF9E2 /* MenuCVCell.swift */,
+				2260394C1E9FE39E002AF9E2 /* MenuCVCell.xib */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 					222C82201E9C120D00644DB5 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 3FMVQ97S47;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					222C82371E9C120D00644DB5 = {
@@ -379,6 +388,7 @@
 				2207AF2D1E9D772300EFDE71 /* MenuItem.xib in Resources */,
 				222C82321E9C120D00644DB5 /* LaunchScreen.storyboard in Resources */,
 				222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */,
+				2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */,
 				222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */,
 				2207AF291E9D5E8F00EFDE71 /* MenuVC.xib in Resources */,
 			);
@@ -545,6 +555,7 @@
 			files = (
 				222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */,
 				222C825B1E9C181100644DB5 /* Colors.swift in Sources */,
+				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
 				222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
 				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,
@@ -705,12 +716,15 @@
 			baseConfigurationReference = 93E1D4FA30278FF8CEDB2B12 /* Pods-eRegistry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
 				INFOPLIST_FILE = eRegistry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kryg.eRegistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "eRegistry/eRegistry-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -720,12 +734,14 @@
 			baseConfigurationReference = 28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
 				INFOPLIST_FILE = eRegistry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kryg.eRegistry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "eRegistry/eRegistry-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

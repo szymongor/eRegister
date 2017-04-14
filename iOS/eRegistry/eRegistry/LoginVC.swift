@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginVC: UIViewController {
 
@@ -47,30 +48,55 @@ class LoginVC: UIViewController {
     }
     @IBOutlet weak var rememberMeCheckBox: CheckBox!
     
+    var indicator: MBProgressHUD?
+    
     func onLoginClick() {
-        
+        showIndicator()
         let username = usernameTF.text ?? ""
         let password = passwordTF.text ?? ""
         RequestManager.login(username: username, password: password, completion: {
             success in
+            
+            self.hideIndicator()
+            
+            self.tryToRememberUser()
+            
             if success {
-                
-                guard let menuVC: MenuVC = UINib(nibName: "MenuVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? MenuVC else {
-                    return
-                }
-                let _ = self.navigationController?.popToRootViewController(animated: true)
-                self.navigationController?.setViewControllers([menuVC], animated: true)
+                self.goToMenu()
             } else {
-                self.showAlert()
+                self.showErrorAlert()
             }
         })
         
     }
     
-    private func showAlert() {
+    private func showIndicator() {
+        indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+        indicator?.label.text = "Logowanie"
+        indicator?.contentColor = Colors.MAIN
+    }
+    
+    private func hideIndicator() {
+        indicator?.hide(animated: true)
+    }
+    
+    private func tryToRememberUser() {
+        if rememberMeCheckBox.isChecked {
+            UserDefaultValues.rememberMe = true
+        }
+    }
+    
+    private func goToMenu() {
+        guard let menuVC: MenuVC = UINib(nibName: "MenuVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? MenuVC else {
+            return
+        }
+        self.navigationController?.pushViewController(menuVC, animated: true)
+    }
+    
+    private func showErrorAlert() {
         
-        let alert = UIAlertController(title: "Błąd!", message: "Albo neta nie ma albo se hasło gdzieś zapisz jak nie pamiętasz.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Przepraszam...", style: .cancel, handler: {
+        let alert = UIAlertController(title: "Błąd", message: "Sprawdź połączenie z internetem oraz wprowadź poprawne dane logowania.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: {
             _ in
             alert.dismiss(animated: true, completion: nil)
         })
@@ -86,6 +112,33 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        prepareNavigationBar()
+        tryToLogIn()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func prepareNavigationBar() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barTintColor = Colors.MAIN
+    }
+    
+    private func tryToLogIn() {
+        if UserDefaultValues.rememberMe {
+            usernameTF.text = UserDefaultValues.username
+            passwordTF.text = UserDefaultValues.password
+            rememberMeCheckBox.buttonClicked(sender: rememberMeCheckBox)
+            onLoginClick()
+        }
     }
 
     override func didReceiveMemoryWarning() {
