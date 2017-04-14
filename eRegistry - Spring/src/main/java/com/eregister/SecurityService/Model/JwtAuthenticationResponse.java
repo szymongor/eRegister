@@ -7,15 +7,23 @@ import java.io.Serializable;
  */
 public class JwtAuthenticationResponse implements Serializable {
 
-    private static final long serialVersionUID = 1250166508152483573L;
+    private static final long serialVersionUID = 23L;
+
+    private final String status;
 
     private final String token;
 
-    public JwtAuthenticationResponse(String token) {
+    public JwtAuthenticationResponse(String token, String status) {
         this.token = token;
+        this.status = status;
+    }
+
+    public String getStatus(){
+        return this.status;
     }
 
     public String getToken() {
         return this.token;
     }
+
 }

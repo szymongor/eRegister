@@ -22,7 +22,7 @@ public class AuthorizationService {
     @Autowired
     private TokenUtils tokenUtils;
 
-    public String authorizeEregUser(JwtCredentials jwtCredentials){
+    public String authorizeEregUser(JwtCredentials jwtCredentials) throws Exception{
         String login = jwtCredentials.getLogin();
         String password = jwtCredentials.getPassword();
         EregUser user;
@@ -30,14 +30,19 @@ public class AuthorizationService {
             user = eregUserService.getEregUserByLogin(login);
         }
         catch (Exception e){
-            return "No such user!";
+            throw new SecurityException("No such user");
         }
+
+        if(!user.getPassword().equals(password)){
+            throw new SecurityException("Wrong password");
+        }
+
         String tokenStr;
         try{
             tokenStr = tokenUtils.generateToken(user);
         }
         catch (Exception e){
-            return "TokenUtils Error";
+            throw new Exception("Token error");
         }
 
         return tokenStr;
