@@ -56,8 +56,11 @@ class MenuVC: UIViewController {
     }
     
     func prepareNavigationBar() {
+        self.title = "Menu"
+        
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyloguj", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settingsIcon"), style: .plain, target: self, action: #selector(goToSettings))
     }
 
     func initMenuItems() {
@@ -72,10 +75,19 @@ class MenuVC: UIViewController {
     
     func logout() {
         UserDefaultValues.rememberMe = false
-        let _ = self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func goToSettings() {
+        guard let settingsVC = UINib(nibName: "SettingsVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? SettingsVC else {
+            return
+        }
+        self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
 }
+
+// MARK: UICollectionView protocols
 
 extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -109,6 +121,7 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         case .email:
             print("Email")
         }
+        RequestManager.getUsers()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

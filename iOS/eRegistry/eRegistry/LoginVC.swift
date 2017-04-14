@@ -128,8 +128,9 @@ class LoginVC: UIViewController {
     
     private func prepareNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = Colors.MAIN
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     private func tryToLogIn() {

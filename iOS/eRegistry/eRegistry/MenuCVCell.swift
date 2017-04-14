@@ -8,37 +8,14 @@
 
 import UIKit
 
-
-protocol MenuItemDelegate {
-    func onMenuItemClick()
-}
-
-
 class MenuCVCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            imageView.image = #imageLiteral(resourceName: "logoIcon")
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    var delegate: MenuItemDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    func setGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClick))
-        self.addGestureRecognizer(tapGesture)
-        self.isUserInteractionEnabled = true
-    }
-    
-    func onClick() {
-        delegate?.onMenuItemClick()
-        RequestManager.getUsers()
     }
     
     func setModel(_ model: MenuItemModel) {

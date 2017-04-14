@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SettingsTVCell" customModule="eRegistry" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1u-Ee-h39">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JeE-5n-5HT">
+                                <rect key="frame" x="16" y="8" width="27.5" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JeE-5n-5HT" secondAttribute="height" multiplier="1:1" id="7VQ-Bd-tQi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6v-am-HLe">
+                                <rect key="frame" x="59.5" y="0.0" width="42" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="R6v-am-HLe" secondAttribute="bottom" id="5Ri-sG-RvN"/>
+                            <constraint firstAttribute="bottom" secondItem="JeE-5n-5HT" secondAttribute="bottom" constant="8" id="Kps-gG-952"/>
+                            <constraint firstItem="R6v-am-HLe" firstAttribute="leading" secondItem="JeE-5n-5HT" secondAttribute="trailing" constant="16" id="L55-n0-JFW"/>
+                            <constraint firstItem="JeE-5n-5HT" firstAttribute="top" secondItem="J1u-Ee-h39" secondAttribute="top" constant="8" id="N6L-HI-OeY"/>
+                            <constraint firstItem="JeE-5n-5HT" firstAttribute="leading" secondItem="J1u-Ee-h39" secondAttribute="leading" constant="16" id="dnP-fV-STq"/>
+                            <constraint firstItem="R6v-am-HLe" firstAttribute="top" secondItem="J1u-Ee-h39" secondAttribute="top" id="ggL-RB-J8C"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="J1u-Ee-h39" secondAttribute="bottom" id="883-wt-yxc"/>
+                    <constraint firstItem="J1u-Ee-h39" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fET-bU-AZa"/>
+                    <constraint firstItem="J1u-Ee-h39" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vJo-9x-yEg"/>
+                    <constraint firstAttribute="trailing" secondItem="J1u-Ee-h39" secondAttribute="trailing" id="x9y-eo-0Sb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconView" destination="JeE-5n-5HT" id="T8N-nz-7Iw"/>
+                <outlet property="title" destination="R6v-am-HLe" id="JP1-EC-Tsv"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
