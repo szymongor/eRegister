@@ -25,6 +25,12 @@
 		222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */; };
 		2254695A1EA151E700255B86 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469581EA151E700255B86 /* FormVC.swift */; };
 		2254695B1EA151E700255B86 /* FormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225469591EA151E700255B86 /* FormVC.xib */; };
+		225469631EA1634000255B86 /* GradesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469611EA1634000255B86 /* GradesVC.swift */; };
+		225469641EA1634000255B86 /* GradesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225469621EA1634000255B86 /* GradesVC.xib */; };
+		225469691EA164C700255B86 /* GradeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469671EA164C700255B86 /* GradeCVCell.swift */; };
+		2254696A1EA164C700255B86 /* GradeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225469681EA164C700255B86 /* GradeCVCell.xib */; };
+		2254696C1EA166DE00255B86 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254696B1EA166DE00255B86 /* Subject.swift */; };
+		225469711EA1752200255B86 /* UIColor+rgba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469701EA1752200255B86 /* UIColor+rgba.swift */; };
 		2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260394B1E9FE39E002AF9E2 /* MenuCVCell.swift */; };
 		2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260394C1E9FE39E002AF9E2 /* MenuCVCell.xib */; };
 		226ABEC01EA13596002652F2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABEBE1EA13596002652F2 /* SettingsVC.swift */; };
@@ -80,6 +86,12 @@
 		222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
 		225469581EA151E700255B86 /* FormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		225469591EA151E700255B86 /* FormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormVC.xib; sourceTree = "<group>"; };
+		225469611EA1634000255B86 /* GradesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesVC.swift; sourceTree = "<group>"; };
+		225469621EA1634000255B86 /* GradesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradesVC.xib; sourceTree = "<group>"; };
+		225469671EA164C700255B86 /* GradeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCVCell.swift; sourceTree = "<group>"; };
+		225469681EA164C700255B86 /* GradeCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradeCVCell.xib; sourceTree = "<group>"; };
+		2254696B1EA166DE00255B86 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		225469701EA1752200255B86 /* UIColor+rgba.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+rgba.swift"; sourceTree = "<group>"; };
 		2260394B1E9FE39E002AF9E2 /* MenuCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCVCell.swift; sourceTree = "<group>"; };
 		2260394C1E9FE39E002AF9E2 /* MenuCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCVCell.xib; sourceTree = "<group>"; };
 		226ABEBA1EA129F2002652F2 /* eRegistry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "eRegistry-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -212,6 +224,7 @@
 				22554EFE1E9E33AD00E580EF /* Login */,
 				22554EFD1E9E339900E580EF /* Menu */,
 				226ABEBD1EA13577002652F2 /* Settings */,
+				2254695C1EA162E100255B86 /* Grades */,
 				2294D0E41E9C27D200D0C081 /* Other */,
 			);
 			name = Views;
@@ -230,8 +243,45 @@
 			isa = PBXGroup;
 			children = (
 				222C825A1E9C181100644DB5 /* Colors.swift */,
+				225469701EA1752200255B86 /* UIColor+rgba.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		2254695C1EA162E100255B86 /* Grades */ = {
+			isa = PBXGroup;
+			children = (
+				2254696D1EA16B6A00255B86 /* View */,
+				2254696E1EA16B7200255B86 /* Cells */,
+				2254696F1EA16B8500255B86 /* Models */,
+			);
+			name = Grades;
+			sourceTree = "<group>";
+		};
+		2254696D1EA16B6A00255B86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				225469611EA1634000255B86 /* GradesVC.swift */,
+				225469621EA1634000255B86 /* GradesVC.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2254696E1EA16B7200255B86 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				225469671EA164C700255B86 /* GradeCVCell.swift */,
+				225469681EA164C700255B86 /* GradeCVCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		2254696F1EA16B8500255B86 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2254696B1EA166DE00255B86 /* Subject.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		22554EFD1E9E339900E580EF /* Menu */ = {
@@ -456,11 +506,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225469641EA1634000255B86 /* GradesVC.xib in Resources */,
 				2254695B1EA151E700255B86 /* FormVC.xib in Resources */,
 				222C82321E9C120D00644DB5 /* LaunchScreen.storyboard in Resources */,
 				222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */,
 				2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */,
 				226ABEC11EA13596002652F2 /* SettingsVC.xib in Resources */,
+				2254696A1EA164C700255B86 /* GradeCVCell.xib in Resources */,
 				222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */,
 				226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */,
 				2207AF291E9D5E8F00EFDE71 /* MenuVC.xib in Resources */,
@@ -630,8 +682,12 @@
 				222C825B1E9C181100644DB5 /* Colors.swift in Sources */,
 				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
 				226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */,
+				225469691EA164C700255B86 /* GradeCVCell.swift in Sources */,
+				225469711EA1752200255B86 /* UIColor+rgba.swift in Sources */,
 				2254695A1EA151E700255B86 /* FormVC.swift in Sources */,
 				222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */,
+				225469631EA1634000255B86 /* GradesVC.swift in Sources */,
+				2254696C1EA166DE00255B86 /* Subject.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
 				226ABEC91EA13B3C002652F2 /* SettingsTVCell.swift in Sources */,
 				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,

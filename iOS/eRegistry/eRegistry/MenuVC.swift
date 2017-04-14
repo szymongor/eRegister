@@ -87,7 +87,7 @@ class MenuVC: UIViewController {
     
 }
 
-// MARK: UICollectionView protocols
+// MARK: - UICollectionView protocols
 
 extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -112,6 +112,10 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         switch menuItem.type {
         case .grades:
             print("Oceny")
+            guard let gradeVC = UINib(nibName: "GradesVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? GradesVC else {
+                return
+            }
+            navigationController?.pushViewController(gradeVC, animated: true)
         case .teacher:
             print("Wychowawca")
         case .phone:
@@ -124,9 +128,9 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         RequestManager.getUsers()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
     
 }
 
