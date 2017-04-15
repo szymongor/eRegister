@@ -12,16 +12,18 @@ import UIKit
 enum MenuItemType {
     case grades
     case teacher
+    case settings
     case phone
     case address
     case email
+    case logout
 }
 
 class MenuItemModel {
     
     var image: UIImage = UIImage()
     var description: String = ""
-    var type: MenuItemType = .phone
+    var type: MenuItemType = .logout
     
     init(image: UIImage, description: String, type: MenuItemType) {
         self.image = image

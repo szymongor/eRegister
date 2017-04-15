@@ -37,6 +37,21 @@ class UserDefaultValues {
         }
     }
     
+    static var role: String {
+        get {
+            return UserDefaults.standard.string(forKey: "role") ?? ""
+        }
+        set {
+            var value = ""
+            if newValue == "ROLE_TEACHER" {
+                value = "Nauczyciel"
+            } else if newValue == "ROLE_STUDENT" {
+                value = "Uczeń"
+            }
+            UserDefaults.standard.set(value, forKey: "role")
+        }
+    }
+    
     static var rememberMe: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "rememberMe") 

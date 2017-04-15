@@ -39,6 +39,8 @@
 		226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */; };
 		226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABECB1EA14741002652F2 /* SettingsItemModel.swift */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
+		22F32C861EA2389700644548 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C851EA2389700644548 /* JWT.swift */; };
+		22F32C881EA23F1F00644548 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C871EA23F1F00644548 /* JSON.swift */; };
 		418C2ABE4F9F4D6AD608E233 /* Pods_eRegistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */; };
 		79E95E4E89D2B0DC3A73105A /* Pods_eRegistry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F59A6A61E45248801C9B8 /* Pods_eRegistry.framework */; };
 		E54689CA88DBA3AF4859ABD6 /* Pods_eRegistryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D871196CC340165EEC7300F /* Pods_eRegistryUITests.framework */; };
@@ -101,6 +103,8 @@
 		226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTVCell.xib; sourceTree = "<group>"; };
 		226ABECB1EA14741002652F2 /* SettingsItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		22F32C851EA2389700644548 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		22F32C871EA23F1F00644548 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistry.release.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistry/Pods-eRegistry.release.xcconfig"; sourceTree = "<group>"; };
 		3038A7886BEBD526A2754197 /* Pods-eRegistryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistryUITests/Pods-eRegistryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eRegistryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +218,8 @@
 			children = (
 				222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */,
 				222C82561E9C149100644DB5 /* RequestManager.swift */,
+				22F32C851EA2389700644548 /* JWT.swift */,
+				22F32C871EA23F1F00644548 /* JSON.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -679,7 +685,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */,
+				22F32C881EA23F1F00644548 /* JSON.swift in Sources */,
 				222C825B1E9C181100644DB5 /* Colors.swift in Sources */,
+				22F32C861EA2389700644548 /* JWT.swift in Sources */,
 				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
 				226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */,
 				225469691EA164C700255B86 /* GradeCVCell.swift in Sources */,

@@ -32,7 +32,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var userTypeLabel: UILabel! {
         didSet {
             userTypeLabel.textColor = UIColor.white
-            userTypeLabel.text = "Uczeń"
+            userTypeLabel.text = UserDefaultValues.role
         }
     }
     
@@ -59,17 +59,19 @@ class MenuVC: UIViewController {
         self.title = "Menu"
         
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyloguj", style: .plain, target: self, action: #selector(logout))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settingsIcon"), style: .plain, target: self, action: #selector(goToSettings))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyloguj", style: .plain, target: self, action: #selector(logout))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settingsIcon"), style: .plain, target: self, action: #selector(goToSettings))
     }
 
     func initMenuItems() {
         
         menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Oceny", type: .grades))
         menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Wychowawca", type: .teacher))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Telefon", type: .phone))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Adres", type: .address))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Email", type: .email))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Ustawienia", type: .settings))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Wyloguj", type: .logout))
+//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Telefon", type: .phone))
+//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Adres", type: .address))
+//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Email", type: .email))
         
     }
     
@@ -112,20 +114,30 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         switch menuItem.type {
         case .grades:
             print("Oceny")
-            guard let gradeVC = UINib(nibName: "GradesVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? GradesVC else {
-                return
-            }
-            navigationController?.pushViewController(gradeVC, animated: true)
+            goToGrades()
         case .teacher:
             print("Wychowawca")
+        case .settings:
+            print("Ustawienia")
+            goToSettings()
         case .phone:
             print("Telefon")
         case .address:
             print("Adres")
         case .email:
             print("Email")
+        case .logout:
+            print("Wyloguj")
+            logout()
         }
         RequestManager.getUsers()
+    }
+    
+    private func goToGrades() {
+        guard let gradeVC = UINib(nibName: "GradesVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? GradesVC else {
+            return
+        }
+        navigationController?.pushViewController(gradeVC, animated: true)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

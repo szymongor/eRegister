@@ -41,7 +41,12 @@ class RequestManager {
                     UserDefaultValues.username = username
                     UserDefaultValues.password = password
                     UserDefaultValues.token = token
-                    print(UserDefaultValues.token)
+                    
+                    let payloadStr = JWT.decode(token: token)
+                    if let payload = JSON.convertToJSON(text: payloadStr),
+                         let role = payload["role"] as? String {
+                        UserDefaultValues.role = role
+                    }
                     success = true
                 }
             }
