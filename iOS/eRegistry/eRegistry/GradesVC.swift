@@ -45,18 +45,18 @@ class GradesVC: UIViewController {
         
         self.title = "Oceny"
         
-        subjects.append(Subject(name: "Matematyka", averageGrade: 3.34))
-        subjects.append(Subject(name: "J. polski", averageGrade: 3.44))
-        subjects.append(Subject(name: "J. angielski", averageGrade: 3.55))
-        subjects.append(Subject(name: "J. niemiecki", averageGrade: 3.65))
-        subjects.append(Subject(name: "Fizyka", averageGrade: 3.77))
-        subjects.append(Subject(name: "Chemia", averageGrade: 3.87))
-        subjects.append(Subject(name: "Biologia", averageGrade: 4.0))
-        subjects.append(Subject(name: "Historia", averageGrade: 4.1))
+        subjects.append(Subject(name: "Matematyka", averageGrade: 1.0))
+        subjects.append(Subject(name: "J. polski", averageGrade: 1.3))
+        subjects.append(Subject(name: "J. angielski", averageGrade: 1.6))
+        subjects.append(Subject(name: "J. niemiecki", averageGrade: 1.92))
+        subjects.append(Subject(name: "Fizyka", averageGrade: 2.5))
+        subjects.append(Subject(name: "Chemia", averageGrade: 2.9))
+        subjects.append(Subject(name: "Biologia", averageGrade: 3.3))
+        subjects.append(Subject(name: "Historia", averageGrade: 3.8))
         subjects.append(Subject(name: "Muzyka", averageGrade: 4.2))
-        subjects.append(Subject(name: "Informatyka", averageGrade: 4.3))
-        subjects.append(Subject(name: "Religia", averageGrade: 4.5))
-        subjects.append(Subject(name: "WF", averageGrade: 4.99))
+        subjects.append(Subject(name: "Informatyka", averageGrade: 4.4))
+        subjects.append(Subject(name: "Religia", averageGrade: 4.7))
+        subjects.append(Subject(name: "WF", averageGrade: 5.0))
         
         // Do any additional setup after loading the view.
     }

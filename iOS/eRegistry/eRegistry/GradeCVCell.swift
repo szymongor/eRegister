@@ -22,8 +22,8 @@ class GradeCVCell: UICollectionViewCell {
     func setSubject(_ subject: Subject) {
         gradeLabel.text = "\(subject.averageGrade)"
         subjectLabel.text = subject.name
-        
-        colorView.backgroundColor = Colors.calculateColor(for: subject.averageGrade, fromInterval: [1,5], usingGradient: [.red, .yellow, .green])
+        colorView.backgroundColor = Colors.getColor(forGrade: subject.averageGrade)
+        //colorView.backgroundColor = Colors.calculateColor(for: subject.averageGrade, fromInterval: [1,5], usingGradient: [.red, .yellow, .green])
     }
 
 }
