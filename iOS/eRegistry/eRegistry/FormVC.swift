@@ -10,7 +10,11 @@ import UIKit
 
 class FormVC: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.textColor = Colors.MAIN
+        }
+    }
     @IBOutlet weak var oldValueTF: UITextField! {
         didSet {
             oldValueTF.appTheme()
@@ -99,7 +103,7 @@ extension FormVC {
         self.title = "E-mail"
         
         titleLabel.isHidden = false
-        titleLabel.text = "testowy.bartosz@gmail.com"
+        titleLabel.text = "testowy.szymon@gmail.com"
         oldValueTF.isHidden = true
         newValueTF.placeholder = "Nowy e-mail"
         newValueTF.keyboardType = .emailAddress

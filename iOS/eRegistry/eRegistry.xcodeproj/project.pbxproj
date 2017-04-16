@@ -41,6 +41,9 @@
 		226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */; };
 		226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABECB1EA14741002652F2 /* SettingsItemModel.swift */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
+		22E330B21EA3B46E0092AC1B /* EducatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E330B01EA3B46E0092AC1B /* EducatorVC.swift */; };
+		22E330B31EA3B46E0092AC1B /* EducatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E330B11EA3B46E0092AC1B /* EducatorVC.xib */; };
+		22E330B81EA3B8BE0092AC1B /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E330B71EA3B8BE0092AC1B /* Educator.swift */; };
 		22E6A9181EA383FA00EB2944 /* SubjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */; };
 		22E6A9191EA383FA00EB2944 /* SubjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */; };
 		22E6A91C1EA384ED00EB2944 /* SubjectDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A91A1EA384ED00EB2944 /* SubjectDetailsTVCell.swift */; };
@@ -114,6 +117,9 @@
 		226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTVCell.xib; sourceTree = "<group>"; };
 		226ABECB1EA14741002652F2 /* SettingsItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		22E330B01EA3B46E0092AC1B /* EducatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorVC.swift; sourceTree = "<group>"; };
+		22E330B11EA3B46E0092AC1B /* EducatorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducatorVC.xib; sourceTree = "<group>"; };
+		22E330B71EA3B8BE0092AC1B /* Educator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Educator.swift; sourceTree = "<group>"; };
 		22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailsVC.swift; sourceTree = "<group>"; };
 		22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailsVC.xib; sourceTree = "<group>"; };
 		22E6A91A1EA384ED00EB2944 /* SubjectDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailsTVCell.swift; sourceTree = "<group>"; };
@@ -248,8 +254,9 @@
 			children = (
 				22554EFE1E9E33AD00E580EF /* Login */,
 				22554EFD1E9E339900E580EF /* Menu */,
-				226ABEBD1EA13577002652F2 /* Settings */,
 				2254695C1EA162E100255B86 /* Grades */,
+				22E330AF1EA3B43B0092AC1B /* Educator */,
+				226ABEBD1EA13577002652F2 /* Settings */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -278,14 +285,14 @@
 		2254695C1EA162E100255B86 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
-				2254696D1EA16B6A00255B86 /* View */,
+				2254696D1EA16B6A00255B86 /* Views */,
 				2254696E1EA16B7200255B86 /* Cells */,
 				2254696F1EA16B8500255B86 /* Models */,
 			);
 			name = Grades;
 			sourceTree = "<group>";
 		};
-		2254696D1EA16B6A00255B86 /* View */ = {
+		2254696D1EA16B6A00255B86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				225469611EA1634000255B86 /* GradesVC.swift */,
@@ -293,7 +300,7 @@
 				22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */,
 				22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		2254696E1EA16B7200255B86 /* Cells */ = {
@@ -321,7 +328,7 @@
 		22554EFD1E9E339900E580EF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				226ABEC21EA13AB8002652F2 /* View */,
+				226ABEC21EA13AB8002652F2 /* Views */,
 				226ABEC31EA13AC4002652F2 /* Cells */,
 				226ABEC41EA13AD1002652F2 /* Models */,
 			);
@@ -340,7 +347,7 @@
 		226ABEBD1EA13577002652F2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				226ABEC51EA13B13002652F2 /* View */,
+				226ABEC51EA13B13002652F2 /* Views */,
 				226ABEC61EA13B1A002652F2 /* Cells */,
 				226ABECD1EA147C7002652F2 /* Models */,
 				225469581EA151E700255B86 /* FormVC.swift */,
@@ -349,13 +356,13 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		226ABEC21EA13AB8002652F2 /* View */ = {
+		226ABEC21EA13AB8002652F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2207AF261E9D5E8F00EFDE71 /* MenuVC.swift */,
 				2207AF271E9D5E8F00EFDE71 /* MenuVC.xib */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		226ABEC31EA13AC4002652F2 /* Cells */ = {
@@ -375,13 +382,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		226ABEC51EA13B13002652F2 /* View */ = {
+		226ABEC51EA13B13002652F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				226ABEBE1EA13596002652F2 /* SettingsVC.swift */,
 				226ABEBF1EA13596002652F2 /* SettingsVC.xib */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		226ABEC61EA13B1A002652F2 /* Cells */ = {
@@ -399,6 +406,32 @@
 				226ABECB1EA14741002652F2 /* SettingsItemModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		22E330AF1EA3B43B0092AC1B /* Educator */ = {
+			isa = PBXGroup;
+			children = (
+				22E330B61EA3B47E0092AC1B /* Views */,
+				22E330B41EA3B4720092AC1B /* Models */,
+			);
+			name = Educator;
+			sourceTree = "<group>";
+		};
+		22E330B41EA3B4720092AC1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22E330B71EA3B8BE0092AC1B /* Educator.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		22E330B61EA3B47E0092AC1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22E330B01EA3B46E0092AC1B /* EducatorVC.swift */,
+				22E330B11EA3B46E0092AC1B /* EducatorVC.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		950881153EA5C16097D59F03 /* Frameworks */ = {
@@ -532,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225469641EA1634000255B86 /* GradesVC.xib in Resources */,
+				22E330B31EA3B46E0092AC1B /* EducatorVC.xib in Resources */,
 				22E6A91D1EA384ED00EB2944 /* SubjectDetailsTVCell.xib in Resources */,
 				2254695B1EA151E700255B86 /* FormVC.xib in Resources */,
 				22E6A9191EA383FA00EB2944 /* SubjectDetailsVC.xib in Resources */,
@@ -712,6 +746,7 @@
 				220E303E1EA35F4F00B8F52E /* ViewTool.swift in Sources */,
 				22E6A9181EA383FA00EB2944 /* SubjectDetailsVC.swift in Sources */,
 				22F32C861EA2389700644548 /* JWT.swift in Sources */,
+				22E330B81EA3B8BE0092AC1B /* Educator.swift in Sources */,
 				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
 				226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */,
 				225469691EA164C700255B86 /* GradeCVCell.swift in Sources */,
@@ -731,6 +766,7 @@
 				222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */,
 				222C82251E9C120D00644DB5 /* AppDelegate.swift in Sources */,
 				222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */,
+				22E330B21EA3B46E0092AC1B /* EducatorVC.swift in Sources */,
 				222C82571E9C149100644DB5 /* RequestManager.swift in Sources */,
 				222083A91E9E6AA00069EEDC /* MenuItemModel.swift in Sources */,
 				226ABEC01EA13596002652F2 /* SettingsVC.swift in Sources */,

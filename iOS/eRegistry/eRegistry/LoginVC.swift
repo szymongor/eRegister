@@ -76,6 +76,7 @@ class LoginVC: UIViewController {
     
     private func showIndicator() {
         indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         indicator?.label.text = "Logowanie"
         indicator?.contentColor = Colors.MAIN
     }

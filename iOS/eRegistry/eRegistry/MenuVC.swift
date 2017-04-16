@@ -100,6 +100,7 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
             goToGrades()
         case .teacher:
             print("Wychowawca")
+            goToEducator()
         case .settings:
             print("Ustawienia")
             goToSettings()
@@ -121,6 +122,15 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
             return
         }
         navigationController?.pushViewController(gradeVC, animated: true)
+    }
+    
+    private func goToEducator() {
+        guard let educatorVC = UINib(nibName: "EducatorVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? EducatorVC else {
+            return
+        }
+        let educator = Educator(name: "Anna", surname: "Nowakowska", phone: "513 783 994", email: "nowakowska.anna@gmail.com")
+        educatorVC.setView(for: educator)
+        navigationController?.pushViewController(educatorVC, animated: true)
     }
     
 }

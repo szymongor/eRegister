@@ -31,11 +31,11 @@ class GradeCVCell: UICollectionViewCell {
     }
     
     func addShadow() {
-        ViewTool.addShadow(to: colorView)
+        //ViewTool.addShadow(to: colorView)
     }
     
     func removeShadow() {
-        ViewTool.removeShadow(from: colorView)
+        //ViewTool.removeShadow(from: colorView)
     }
 
 }

@@ -23,25 +23,25 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-Xu-cMd">
-                                <rect key="frame" x="0.0" y="16" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="43"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfc-AE-Nye">
-                                        <rect key="frame" x="18" y="0.0" width="349" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                        <rect key="frame" x="16" y="0.0" width="343" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="cfc-AE-Nye" firstAttribute="leading" secondItem="Nsh-Xu-cMd" secondAttribute="leading" constant="18" id="1ad-PP-pg9"/>
-                                    <constraint firstAttribute="trailing" secondItem="cfc-AE-Nye" secondAttribute="trailing" constant="8" id="Yqd-1E-Wsx"/>
+                                    <constraint firstItem="cfc-AE-Nye" firstAttribute="leading" secondItem="Nsh-Xu-cMd" secondAttribute="leading" constant="16" id="1ad-PP-pg9"/>
+                                    <constraint firstAttribute="trailing" secondItem="cfc-AE-Nye" secondAttribute="trailing" constant="16" id="Yqd-1E-Wsx"/>
                                     <constraint firstItem="cfc-AE-Nye" firstAttribute="top" secondItem="Nsh-Xu-cMd" secondAttribute="top" id="Z7C-MQ-4Wm"/>
                                     <constraint firstAttribute="bottom" secondItem="cfc-AE-Nye" secondAttribute="bottom" id="feg-WQ-rHM"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-My-LcH">
-                                <rect key="frame" x="16" y="116" width="343" height="184"/>
+                                <rect key="frame" x="16" y="123" width="343" height="184"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLn-cn-u26">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
