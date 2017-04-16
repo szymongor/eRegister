@@ -53,4 +53,9 @@ public class EregUserController
         eregUserService.insertEregUser(eregUser);
         return "Ereg User inserted!";
     }
+
+    @RequestMapping(value ="/activeUsers/{isActive}",method = RequestMethod.GET)
+    public Collection<EregUser> myNewTestFunction(@PathVariable("isActive") boolean isActive){
+        return eregUserService.myNewTestFunction(isActive);
+    }
 }

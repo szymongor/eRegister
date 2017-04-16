@@ -19,4 +19,6 @@ public interface EregUserDao {
     void updateEregStudent(EregUser eregUser);
 
     void insertEregStudent(EregUser eregUser);
+
+    Collection<EregUser> myNewTestFunction(boolean isActive);
 }

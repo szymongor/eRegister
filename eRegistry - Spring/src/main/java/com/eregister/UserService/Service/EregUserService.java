@@ -44,4 +44,8 @@ public class EregUserService {
         eregUserDao.insertEregStudent(eregUser);
     }
 
+    public Collection<EregUser> myNewTestFunction(boolean isActive){
+        return  eregUserDao.myNewTestFunction(isActive);
+    }
+
 }
