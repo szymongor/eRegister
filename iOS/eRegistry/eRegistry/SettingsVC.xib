@@ -35,19 +35,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-4n-GMf">
-                                        <rect key="frame" x="317" y="9" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.095184233300000004" blue="0.16577543650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="gUW-pa-4sN" firstAttribute="leading" secondItem="LWR-cc-FnH" secondAttribute="leading" constant="16" id="4wg-jQ-nuN"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="50E-1I-r1t"/>
-                                    <constraint firstAttribute="trailing" secondItem="HdQ-4n-GMf" secondAttribute="trailing" constant="16" id="7UX-fh-9c5"/>
-                                    <constraint firstItem="HdQ-4n-GMf" firstAttribute="centerY" secondItem="LWR-cc-FnH" secondAttribute="centerY" id="bBF-6H-xJl"/>
                                     <constraint firstAttribute="height" constant="40" id="fkH-bU-eyA"/>
                                     <constraint firstItem="gUW-pa-4sN" firstAttribute="centerY" secondItem="LWR-cc-FnH" secondAttribute="centerY" id="j7W-lC-p0s"/>
                                 </constraints>
@@ -77,7 +69,6 @@
                 <outlet property="bottomView" destination="LWR-cc-FnH" id="8LZ-Pg-LD3"/>
                 <outlet property="tableView" destination="9WJ-G3-JkX" id="WXj-ac-lIM"/>
                 <outlet property="userInfoLabel" destination="gUW-pa-4sN" id="3C3-NY-zss"/>
-                <outlet property="userTypeLabel" destination="HdQ-4n-GMf" id="R8m-cb-w5I"/>
             </connections>
             <point key="canvasLocation" x="186.5" y="-215.5"/>
         </viewController>

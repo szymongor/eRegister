@@ -11,11 +11,20 @@ import Foundation
 class Subject {
     
     var name: String = ""
-    var averageGrade: CGFloat = 1
+    var grades: [Grade] = []
+    var averageGrade: CGFloat {
+        get {
+            var avg: CGFloat = 0
+            for grade in grades {
+                avg += grade.mark
+            }
+            return avg/CGFloat(grades.count)
+        }
+    }
     
-    init(name: String, averageGrade: CGFloat) {
+    init(name: String, grades: [Grade]) {
         self.name = name
-        self.averageGrade = averageGrade
+        self.grades = grades
     }
     
 }

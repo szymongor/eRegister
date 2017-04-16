@@ -29,13 +29,6 @@ class SettingsVC: UIViewController {
             userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
         }
     }
-    @IBOutlet weak var userTypeLabel: UILabel! {
-        didSet {
-            userTypeLabel.textColor = UIColor.white
-            userTypeLabel.text = "Uczeń"
-        }
-    }
-    
     
     let CELL_ID = "SettingsTVCell"
     
@@ -44,7 +37,7 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Ustawienia"
+        self.title = "Informacje"
         
         settingsItems.append(SettingsItemModel(image: #imageLiteral(resourceName: "lockIcon"), description: "Hasło", type: .password))
         settingsItems.append(SettingsItemModel(image: #imageLiteral(resourceName: "phoneIcon"), description: "Telefon", type: .phone))
@@ -72,16 +65,22 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Dane użytkownika:"
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsItems.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Dane użytkownika:"
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let footer = "Typ konta: " + UserDefaultValues.role
+        return footer
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

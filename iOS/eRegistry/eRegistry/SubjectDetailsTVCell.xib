@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="KGk-i7-Jjw" customClass="SubjectDetailsTVCell" customModule="eRegistry" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-C4-yPy">
+                        <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pyY-de-UZY">
+                                <rect key="frame" x="16" y="8" width="381" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18.04.2017" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfw-FT-S3P">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="o6a-Kc-IKX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test końcowy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upO-eb-dYn">
+                                        <rect key="frame" x="108" y="0.0" width="215" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZz-Nq-D7K">
+                                        <rect key="frame" x="331" y="0.0" width="50" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Pc9-om-AwM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pyY-de-UZY" firstAttribute="leading" secondItem="KGx-C4-yPy" secondAttribute="leading" constant="16" id="85C-o8-L7P"/>
+                            <constraint firstItem="pyY-de-UZY" firstAttribute="top" secondItem="KGx-C4-yPy" secondAttribute="top" constant="8" id="9fl-1s-YHF"/>
+                            <constraint firstAttribute="bottom" secondItem="pyY-de-UZY" secondAttribute="bottom" constant="8" id="I7w-Sd-jXI"/>
+                            <constraint firstAttribute="trailing" secondItem="pyY-de-UZY" secondAttribute="trailing" constant="16" id="TCx-P4-Nth"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="KGx-C4-yPy" secondAttribute="trailing" id="3P8-U2-YbB"/>
+                    <constraint firstItem="KGx-C4-yPy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9P1-Xa-y5Y"/>
+                    <constraint firstItem="KGx-C4-yPy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BcO-h0-Zhx"/>
+                    <constraint firstAttribute="bottom" secondItem="KGx-C4-yPy" secondAttribute="bottom" id="Rjn-d3-Wqy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="tfw-FT-S3P" id="DeN-L3-S8y"/>
+                <outlet property="descriptionLabel" destination="upO-eb-dYn" id="5uO-gK-Uie"/>
+                <outlet property="gradeLabel" destination="nZz-Nq-D7K" id="b5Y-t4-lW3"/>
+            </connections>
+            <point key="canvasLocation" x="81.5" y="75"/>
+        </tableViewCell>
+    </objects>
+</document>

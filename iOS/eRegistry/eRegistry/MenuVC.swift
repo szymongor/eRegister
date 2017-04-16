@@ -16,23 +16,7 @@ class MenuVC: UIViewController {
             collectionView.register(menuCellNib, forCellWithReuseIdentifier: CELL_ID)
             collectionView.delegate = self
             collectionView.dataSource = self
-        }
-    }
-    @IBOutlet weak var bottomView: UIView! {
-        didSet {
-            bottomView.backgroundColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var userInfoLabel: UILabel! {
-        didSet {
-            userInfoLabel.textColor = UIColor.white
-            userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
-        }
-    }
-    @IBOutlet weak var userTypeLabel: UILabel! {
-        didSet {
-            userTypeLabel.textColor = UIColor.white
-            userTypeLabel.text = UserDefaultValues.role
+            collectionView.backgroundColor = Colors.MAIN
         }
     }
     
@@ -59,16 +43,15 @@ class MenuVC: UIViewController {
         self.title = "Menu"
         
         self.navigationItem.hidesBackButton = true
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyloguj", style: .plain, target: self, action: #selector(logout))
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settingsIcon"), style: .plain, target: self, action: #selector(goToSettings))
     }
 
     func initMenuItems() {
         
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Oceny", type: .grades))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Wychowawca", type: .teacher))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Ustawienia", type: .settings))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Wyloguj", type: .logout))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "gradeMenuIcon"), description: "Oceny", type: .grades))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "teacherMenuIcon"), description: "Wychowawca", type: .teacher))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "infoMenuIcon"), description: "Informacje", type: .settings))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
+        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
 //        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Telefon", type: .phone))
 //        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Adres", type: .address))
 //        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Email", type: .email))
@@ -140,10 +123,6 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         navigationController?.pushViewController(gradeVC, animated: true)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//    }
-    
 }
 
 extension MenuVC : UICollectionViewDelegateFlowLayout {
@@ -151,7 +130,8 @@ extension MenuVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.bounds.height/3
         let width = collectionView.bounds.width/2
-        let bound = width < height ? width : height
+        let bound = width
+//        let bound = width < height ? width : height
         let size = CGSize(width: bound, height: bound)
         return size
     }

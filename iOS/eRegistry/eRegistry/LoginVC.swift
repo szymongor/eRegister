@@ -48,6 +48,10 @@ class LoginVC: UIViewController {
     }
     @IBOutlet weak var rememberMeCheckBox: CheckBox!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     var indicator: MBProgressHUD?
     
     func onLoginClick() {
@@ -110,10 +114,12 @@ class LoginVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        setNeedsStatusBarAppearanceUpdate()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         prepareNavigationBar()
         tryToLogIn()
+        //setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +133,7 @@ class LoginVC: UIViewController {
     }
     
     private func prepareNavigationBar() {
+        UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = Colors.MAIN
         navigationController?.navigationBar.tintColor = .white

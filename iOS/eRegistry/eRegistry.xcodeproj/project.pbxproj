@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2207AF281E9D5E8F00EFDE71 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207AF261E9D5E8F00EFDE71 /* MenuVC.swift */; };
 		2207AF291E9D5E8F00EFDE71 /* MenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2207AF271E9D5E8F00EFDE71 /* MenuVC.xib */; };
+		220E303E1EA35F4F00B8F52E /* ViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E303D1EA35F4F00B8F52E /* ViewTool.swift */; };
+		220E30421EA368DD00B8F52E /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E30411EA368DD00B8F52E /* Grade.swift */; };
 		222083A91E9E6AA00069EEDC /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222083A81E9E6AA00069EEDC /* MenuItemModel.swift */; };
 		222C82251E9C120D00644DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82241E9C120D00644DB5 /* AppDelegate.swift */; };
 		222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C82261E9C120D00644DB5 /* LoginVC.swift */; };
@@ -39,6 +41,13 @@
 		226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */; };
 		226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABECB1EA14741002652F2 /* SettingsItemModel.swift */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
+		22E6A9181EA383FA00EB2944 /* SubjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */; };
+		22E6A9191EA383FA00EB2944 /* SubjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */; };
+		22E6A91C1EA384ED00EB2944 /* SubjectDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A91A1EA384ED00EB2944 /* SubjectDetailsTVCell.swift */; };
+		22E6A91D1EA384ED00EB2944 /* SubjectDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A91B1EA384ED00EB2944 /* SubjectDetailsTVCell.xib */; };
+		22E6A9231EA3929600EB2944 /* SubjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9221EA3929600EB2944 /* SubjectHeaderView.swift */; };
+		22E6A9271EA392AE00EB2944 /* SubjectHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A9261EA392AE00EB2944 /* SubjectHeaderView.xib */; };
+		22E6A9291EA3A68100EB2944 /* UIViewController+statusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */; };
 		22F32C861EA2389700644548 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C851EA2389700644548 /* JWT.swift */; };
 		22F32C881EA23F1F00644548 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C871EA23F1F00644548 /* JSON.swift */; };
 		418C2ABE4F9F4D6AD608E233 /* Pods_eRegistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */; };
@@ -66,6 +75,8 @@
 /* Begin PBXFileReference section */
 		2207AF261E9D5E8F00EFDE71 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		2207AF271E9D5E8F00EFDE71 /* MenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuVC.xib; sourceTree = "<group>"; };
+		220E303D1EA35F4F00B8F52E /* ViewTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTool.swift; sourceTree = "<group>"; };
+		220E30411EA368DD00B8F52E /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		222083A81E9E6AA00069EEDC /* MenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		222C82211E9C120D00644DB5 /* eRegistry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eRegistry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222C82241E9C120D00644DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +114,13 @@
 		226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTVCell.xib; sourceTree = "<group>"; };
 		226ABECB1EA14741002652F2 /* SettingsItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailsVC.swift; sourceTree = "<group>"; };
+		22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailsVC.xib; sourceTree = "<group>"; };
+		22E6A91A1EA384ED00EB2944 /* SubjectDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailsTVCell.swift; sourceTree = "<group>"; };
+		22E6A91B1EA384ED00EB2944 /* SubjectDetailsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailsTVCell.xib; sourceTree = "<group>"; };
+		22E6A9221EA3929600EB2944 /* SubjectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectHeaderView.swift; sourceTree = "<group>"; };
+		22E6A9261EA392AE00EB2944 /* SubjectHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectHeaderView.xib; sourceTree = "<group>"; };
+		22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+statusBar.swift"; sourceTree = "<group>"; };
 		22F32C851EA2389700644548 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		22F32C871EA23F1F00644548 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistry.release.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistry/Pods-eRegistry.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +205,7 @@
 				222C82601E9C1DF900644DB5 /* Views */,
 				222C82551E9C143600644DB5 /* Networking */,
 				222C82241E9C120D00644DB5 /* AppDelegate.swift */,
+				222C82301E9C120D00644DB5 /* LaunchScreen.storyboard */,
 				222C822E1E9C120D00644DB5 /* Assets.xcassets */,
 				222C82331E9C120D00644DB5 /* Info.plist */,
 				222C822B1E9C120D00644DB5 /* eRegistry.xcdatamodeld */,
@@ -231,7 +250,6 @@
 				22554EFD1E9E339900E580EF /* Menu */,
 				226ABEBD1EA13577002652F2 /* Settings */,
 				2254695C1EA162E100255B86 /* Grades */,
-				2294D0E41E9C27D200D0C081 /* Other */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,6 +259,8 @@
 			children = (
 				222C82581E9C17D400644DB5 /* UITextField+appTheme.swift */,
 				222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */,
+				225469701EA1752200255B86 /* UIColor+rgba.swift */,
+				22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -248,8 +268,9 @@
 		222C82621E9C1E2300644DB5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2294D0E51E9C27E100D0C081 /* CheckBox.swift */,
 				222C825A1E9C181100644DB5 /* Colors.swift */,
-				225469701EA1752200255B86 /* UIColor+rgba.swift */,
+				220E303D1EA35F4F00B8F52E /* ViewTool.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -269,6 +290,8 @@
 			children = (
 				225469611EA1634000255B86 /* GradesVC.swift */,
 				225469621EA1634000255B86 /* GradesVC.xib */,
+				22E6A9161EA383FA00EB2944 /* SubjectDetailsVC.swift */,
+				22E6A9171EA383FA00EB2944 /* SubjectDetailsVC.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -278,6 +301,10 @@
 			children = (
 				225469671EA164C700255B86 /* GradeCVCell.swift */,
 				225469681EA164C700255B86 /* GradeCVCell.xib */,
+				22E6A91A1EA384ED00EB2944 /* SubjectDetailsTVCell.swift */,
+				22E6A91B1EA384ED00EB2944 /* SubjectDetailsTVCell.xib */,
+				22E6A9221EA3929600EB2944 /* SubjectHeaderView.swift */,
+				22E6A9261EA392AE00EB2944 /* SubjectHeaderView.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -286,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				2254696B1EA166DE00255B86 /* Subject.swift */,
+				220E30411EA368DD00B8F52E /* Grade.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,15 +399,6 @@
 				226ABECB1EA14741002652F2 /* SettingsItemModel.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		2294D0E41E9C27D200D0C081 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				222C82301E9C120D00644DB5 /* LaunchScreen.storyboard */,
-				2294D0E51E9C27E100D0C081 /* CheckBox.swift */,
-			);
-			name = Other;
 			sourceTree = "<group>";
 		};
 		950881153EA5C16097D59F03 /* Frameworks */ = {
@@ -513,8 +532,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				225469641EA1634000255B86 /* GradesVC.xib in Resources */,
+				22E6A91D1EA384ED00EB2944 /* SubjectDetailsTVCell.xib in Resources */,
 				2254695B1EA151E700255B86 /* FormVC.xib in Resources */,
+				22E6A9191EA383FA00EB2944 /* SubjectDetailsVC.xib in Resources */,
 				222C82321E9C120D00644DB5 /* LaunchScreen.storyboard in Resources */,
+				22E6A9271EA392AE00EB2944 /* SubjectHeaderView.xib in Resources */,
 				222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */,
 				2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */,
 				226ABEC11EA13596002652F2 /* SettingsVC.xib in Resources */,
@@ -687,6 +709,8 @@
 				222C82271E9C120D00644DB5 /* LoginVC.swift in Sources */,
 				22F32C881EA23F1F00644548 /* JSON.swift in Sources */,
 				222C825B1E9C181100644DB5 /* Colors.swift in Sources */,
+				220E303E1EA35F4F00B8F52E /* ViewTool.swift in Sources */,
+				22E6A9181EA383FA00EB2944 /* SubjectDetailsVC.swift in Sources */,
 				22F32C861EA2389700644548 /* JWT.swift in Sources */,
 				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
 				226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */,
@@ -697,9 +721,13 @@
 				225469631EA1634000255B86 /* GradesVC.swift in Sources */,
 				2254696C1EA166DE00255B86 /* Subject.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
+				22E6A91C1EA384ED00EB2944 /* SubjectDetailsTVCell.swift in Sources */,
+				22E6A9291EA3A68100EB2944 /* UIViewController+statusBar.swift in Sources */,
 				226ABEC91EA13B3C002652F2 /* SettingsTVCell.swift in Sources */,
+				22E6A9231EA3929600EB2944 /* SubjectHeaderView.swift in Sources */,
 				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,
 				2207AF281E9D5E8F00EFDE71 /* MenuVC.swift in Sources */,
+				220E30421EA368DD00B8F52E /* Grade.swift in Sources */,
 				222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */,
 				222C82251E9C120D00644DB5 /* AppDelegate.swift in Sources */,
 				222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */,

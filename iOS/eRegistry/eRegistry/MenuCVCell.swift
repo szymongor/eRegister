@@ -10,7 +10,17 @@ import UIKit
 
 class MenuCVCell: UICollectionViewCell {
 
+    @IBOutlet weak var container: UIView! {
+        didSet {
+            container.backgroundColor = Colors.MAIN
+        }
+    }
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var bottomView: UIView! {
+        didSet {
+            bottomView.backgroundColor = Colors.MAIN
+        }
+    }
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
@@ -21,6 +31,8 @@ class MenuCVCell: UICollectionViewCell {
     func setModel(_ model: MenuItemModel) {
         imageView.image = model.image
         descriptionLabel.text = model.description
+        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .white
     }
 
 }

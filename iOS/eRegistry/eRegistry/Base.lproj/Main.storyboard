@@ -131,6 +131,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yJy-Lv-7SK" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CYO-Se-iEi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -14,16 +14,28 @@ class GradeCVCell: UICollectionViewCell {
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     
+    var subject: Subject?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        addShadow()
         // Initialization code
     }
     
     func setSubject(_ subject: Subject) {
-        gradeLabel.text = "\(subject.averageGrade)"
+        self.subject = subject
+        gradeLabel.text = String(format: "%.2f", subject.averageGrade)
         subjectLabel.text = subject.name
         colorView.backgroundColor = Colors.getColor(forGrade: subject.averageGrade)
         //colorView.backgroundColor = Colors.calculateColor(for: subject.averageGrade, fromInterval: [1,5], usingGradient: [.red, .yellow, .green])
+    }
+    
+    func addShadow() {
+        ViewTool.addShadow(to: colorView)
+    }
+    
+    func removeShadow() {
+        ViewTool.removeShadow(from: colorView)
     }
 
 }
