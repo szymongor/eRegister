@@ -16,6 +16,7 @@ class GradesVC: UIViewController {
             collectionView.register(cellNib, forCellWithReuseIdentifier: CELL_ID)
             collectionView.delegate = self
             collectionView.dataSource = self
+            collectionView.backgroundColor = Colors.MAIN
         }
     }
 //    @IBOutlet weak var bottomView: UIView! {
@@ -89,10 +90,10 @@ class GradesVC: UIViewController {
             Grade(mark: 4, date: "01.02.2017", description: "Odpowiedź")
         ]
         let grades5 = [
-            Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 5, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
-            Grade(mark: 4, date: "05.12.2016", description: "Odpowiedź")
+            Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
+            Grade(mark: 3, date: "23.09.2016", description: "Kartkówka I"),
+            Grade(mark: 3, date: "15.10.2016", description: "Kartkówka II"),
+            Grade(mark: 3, date: "05.12.2016", description: "Odpowiedź")
         ]
         let grades6 = [
             Grade(mark: 1, date: "17.09.2016", description: "Sprawdzian I"),
@@ -129,6 +130,8 @@ class GradesVC: UIViewController {
         subjects.append(Subject(name: "Religia", grades: grades7))
         subjects.append(Subject(name: "WF", grades: grades2))
         
+        collectionView.reloadData()
+        
     }
 
 }
@@ -149,16 +152,6 @@ extension GradesVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return subjects.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GradeCVCell else { return }
-        cell.removeShadow()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GradeCVCell else { return }
-        cell.addShadow()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

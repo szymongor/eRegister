@@ -14,17 +14,17 @@
             <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-C4-yPy">
                         <rect key="frame" x="0.0" y="0.0" width="413" height="86"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pyY-de-UZY">
-                                <rect key="frame" x="16" y="8" width="381" height="70"/>
+                                <rect key="frame" x="16" y="16" width="381" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18.04.2017" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfw-FT-S3P">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="o6a-Kc-IKX"/>
                                         </constraints>
@@ -32,14 +32,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT2-TJ-1pW">
+                                        <rect key="frame" x="108" y="0.0" width="1" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="Sug-is-Usl"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test końcowy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upO-eb-dYn">
-                                        <rect key="frame" x="108" y="0.0" width="215" height="70"/>
+                                        <rect key="frame" x="117" y="0.0" width="206" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZz-Nq-D7K">
-                                        <rect key="frame" x="331" y="0.0" width="50" height="70"/>
+                                        <rect key="frame" x="331" y="0.0" width="50" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Pc9-om-AwM"/>
                                         </constraints>
@@ -53,8 +60,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pyY-de-UZY" firstAttribute="leading" secondItem="KGx-C4-yPy" secondAttribute="leading" constant="16" id="85C-o8-L7P"/>
-                            <constraint firstItem="pyY-de-UZY" firstAttribute="top" secondItem="KGx-C4-yPy" secondAttribute="top" constant="8" id="9fl-1s-YHF"/>
-                            <constraint firstAttribute="bottom" secondItem="pyY-de-UZY" secondAttribute="bottom" constant="8" id="I7w-Sd-jXI"/>
+                            <constraint firstItem="pyY-de-UZY" firstAttribute="top" secondItem="KGx-C4-yPy" secondAttribute="top" constant="16" id="9fl-1s-YHF"/>
+                            <constraint firstAttribute="bottom" secondItem="pyY-de-UZY" secondAttribute="bottom" constant="16" id="I7w-Sd-jXI"/>
                             <constraint firstAttribute="trailing" secondItem="pyY-de-UZY" secondAttribute="trailing" constant="16" id="TCx-P4-Nth"/>
                         </constraints>
                     </view>

@@ -17,7 +17,7 @@ class SubjectDetailsVC: UIViewController {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.rowHeight = UITableViewAutomaticDimension
-            tableView.estimatedRowHeight = 100
+            tableView.estimatedRowHeight = 44
         }
     }
     
@@ -74,7 +74,7 @@ extension SubjectDetailsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 44
     }
     
 }
