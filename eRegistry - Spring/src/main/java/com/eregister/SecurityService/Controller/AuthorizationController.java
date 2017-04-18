@@ -19,12 +19,13 @@ import java.io.Serializable;
  */
 
 @RestController
+@RequestMapping(value = "auth")
 public class AuthorizationController {
 
     @Autowired
     AuthorizationService authorizationService;
 
-    @RequestMapping(value = "auth", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public Serializable createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
         String token;
         Serializable response;
