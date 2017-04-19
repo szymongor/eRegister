@@ -2,12 +2,11 @@ package com.eregister.LessonsService.DAO;
 
 import com.eregister.LessonsService.Entity.Lesson;
 import com.eregister.UserService.Entity.EregUser;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Szymon on 18.04.2017.
@@ -19,6 +18,7 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
 
 
     static Map<Integer, Lesson> lessons;
+    static List<Map.Entry<Integer,Integer>> attends; //id student, id lesson
 
     static{
         lessons = new HashMap<Integer, Lesson>(){
@@ -31,6 +31,17 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
                 put(6, new Lesson(6, 2010, 2,"Przyroda"));
             }
         };
+
+        attends = new ArrayList<>();
+        attends.add(new AbstractMap.SimpleEntry<>(1,1));
+        attends.add(new AbstractMap.SimpleEntry<>(1,2));
+        attends.add(new AbstractMap.SimpleEntry<>(1,3));
+        attends.add(new AbstractMap.SimpleEntry<>(2,1));
+        attends.add(new AbstractMap.SimpleEntry<>(2,2));
+        attends.add(new AbstractMap.SimpleEntry<>(2,3));
+        attends.add(new AbstractMap.SimpleEntry<>(3,4));
+        attends.add(new AbstractMap.SimpleEntry<>(3,5));
+        attends.add(new AbstractMap.SimpleEntry<>(3,6));
     }
 
 
@@ -42,11 +53,19 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
 
     @Override
     public Lesson getLessonById(int id) {
-        return null;
+        return lessons.get(id);
     }
 
     @Override
-    public Collection<Lesson> getLessonByStudentAttending(int studentId) {
-        return null;
+    public Collection<Lesson> getLessonsByStudentAttending(int studentId) {
+        Collection<Lesson> lessons = new ArrayList<Lesson>();
+
+        for(Map.Entry<Integer,Integer> attend : attends){
+            if(attend.getKey() == studentId){
+                lessons.add(getLessonById(attend.getValue()));
+            }
+
+        }
+        return lessons;
     }
 }

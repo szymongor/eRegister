@@ -14,7 +14,7 @@ public interface LessonsDAO {
 
     Lesson getLessonById(int id);
 
-    Collection<Lesson> getLessonByStudentAttending(int studentId);
+    Collection<Lesson> getLessonsByStudentAttending(int studentId);
 
 
 }

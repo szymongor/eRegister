@@ -22,9 +22,12 @@ public class LessonsService {
     @Qualifier("fakeLessons")
     LessonsDAO lessonsDAO;
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Lesson> getAllLessons(){
         return lessonsDAO.getAllLessons();
+    }
+
+    public Collection<Lesson> getLessonsByStudentAttending(int idStudent){
+        return lessonsDAO.getLessonsByStudentAttending(idStudent);
     }
 
 }
