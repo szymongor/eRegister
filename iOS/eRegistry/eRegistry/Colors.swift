@@ -14,6 +14,7 @@ class Colors {
     //MARK: - Constants
     
     static let MAIN = UIColor(red: 0.83, green: 0.22, blue: 0.22, alpha: 1)
+    static let SECOND_APP_COLOR = UIColor.white
     
 
     //MARK: - Functions

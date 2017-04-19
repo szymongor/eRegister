@@ -14,7 +14,7 @@ extension UIButton {
     func appTheme() {
         
         self.backgroundColor = Colors.MAIN
-        self.setTitleColor(.white, for: .normal)
+        self.setTitleColor(Colors.SECOND_APP_COLOR, for: .normal)
         
     }
     

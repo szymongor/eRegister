@@ -18,10 +18,12 @@ class SubjectDetailsVC: UIViewController {
             tableView.dataSource = self
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 44
+            tableView.backgroundColor = Colors.MAIN
         }
     }
     
     let CELL_ID = "SubjectDetailsTVCell"
+    let HEADER_HEIGHT: CGFloat = 64
     
     var subject: Subject?
     
@@ -74,7 +76,7 @@ extension SubjectDetailsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return HEADER_HEIGHT
     }
     
 }

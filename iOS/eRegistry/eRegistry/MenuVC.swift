@@ -138,12 +138,23 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
 extension MenuVC : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.bounds.height/3
-        let width = collectionView.bounds.width/2
-        let bound = width
-//        let bound = width < height ? width : height
+        let bound = calculateCellSideLength()
         let size = CGSize(width: bound, height: bound)
         return size
+    }
+    
+    private func calculateCellSideLength() -> CGFloat {
+        var width: CGFloat = 0.0
+        var height: CGFloat = 0.0
+        if UIDevice.current.orientation.isLandscape {
+            height = collectionView.bounds.height/2
+            width = collectionView.bounds.width/3
+        } else {
+            height = collectionView.bounds.height/3
+            width = collectionView.bounds.width/2
+        }
+        let bound = width < height ? width : height
+        return bound
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

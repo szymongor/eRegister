@@ -10,6 +10,14 @@ import UIKit
 
 class SubjectDetailsTVCell: UITableViewCell {
 
+    @IBOutlet weak var container: UIView! {
+        didSet {
+            container.backgroundColor = Colors.SECOND_APP_COLOR
+            container.layer.cornerRadius = 8.0
+            //container.layer.borderColor = Colors.SECOND_APP_COLOR.cgColor
+            //container.layer.borderWidth = 0.5
+        }
+    }
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             dateLabel.textColor = Colors.MAIN

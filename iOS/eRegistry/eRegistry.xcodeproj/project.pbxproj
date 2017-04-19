@@ -25,6 +25,8 @@
 		222C825B1E9C181100644DB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825A1E9C181100644DB5 /* Colors.swift */; };
 		222C825D1E9C18B500644DB5 /* UIButton+appTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */; };
 		222C825F1E9C1C8600644DB5 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */; };
+		223A8EEF1EA4F62100786CEF /* EducatorTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A8EED1EA4F62100786CEF /* EducatorTVCell.swift */; };
+		223A8EF01EA4F62100786CEF /* EducatorTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A8EEE1EA4F62100786CEF /* EducatorTVCell.xib */; };
 		2254695A1EA151E700255B86 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469581EA151E700255B86 /* FormVC.swift */; };
 		2254695B1EA151E700255B86 /* FormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225469591EA151E700255B86 /* FormVC.xib */; };
 		225469631EA1634000255B86 /* GradesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225469611EA1634000255B86 /* GradesVC.swift */; };
@@ -100,6 +102,8 @@
 		222C825A1E9C181100644DB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+appTheme.swift"; sourceTree = "<group>"; };
 		222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
+		223A8EED1EA4F62100786CEF /* EducatorTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorTVCell.swift; sourceTree = "<group>"; };
+		223A8EEE1EA4F62100786CEF /* EducatorTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducatorTVCell.xib; sourceTree = "<group>"; };
 		225469581EA151E700255B86 /* FormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		225469591EA151E700255B86 /* FormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormVC.xib; sourceTree = "<group>"; };
 		225469611EA1634000255B86 /* GradesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesVC.swift; sourceTree = "<group>"; };
@@ -282,6 +286,15 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		223A8EEC1EA4F5FB00786CEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				223A8EED1EA4F62100786CEF /* EducatorTVCell.swift */,
+				223A8EEE1EA4F62100786CEF /* EducatorTVCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		2254695C1EA162E100255B86 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				22E330B61EA3B47E0092AC1B /* Views */,
+				223A8EEC1EA4F5FB00786CEF /* Cells */,
 				22E330B41EA3B4720092AC1B /* Models */,
 			);
 			name = Educator;
@@ -577,6 +591,7 @@
 				2254696A1EA164C700255B86 /* GradeCVCell.xib in Resources */,
 				222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */,
 				226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */,
+				223A8EF01EA4F62100786CEF /* EducatorTVCell.xib in Resources */,
 				2207AF291E9D5E8F00EFDE71 /* MenuVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +769,7 @@
 				2254695A1EA151E700255B86 /* FormVC.swift in Sources */,
 				222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */,
 				225469631EA1634000255B86 /* GradesVC.swift in Sources */,
+				223A8EEF1EA4F62100786CEF /* EducatorTVCell.swift in Sources */,
 				2254696C1EA166DE00255B86 /* Subject.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
 				22E6A91C1EA384ED00EB2944 /* SubjectDetailsTVCell.swift in Sources */,

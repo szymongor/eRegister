@@ -32,7 +32,7 @@ class MenuCVCell: UICollectionViewCell {
         imageView.image = model.image
         descriptionLabel.text = model.description
         imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = .white
+        imageView.tintColor = Colors.SECOND_APP_COLOR
     }
 
 }

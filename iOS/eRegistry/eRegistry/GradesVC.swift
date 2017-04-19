@@ -26,13 +26,13 @@ class GradesVC: UIViewController {
 //    }
 //    @IBOutlet weak var userInfoLabel: UILabel! {
 //        didSet {
-//            userInfoLabel.textColor = UIColor.white
+//            userInfoLabel.textColor = Colors.SECOND_APP_COLOR
 //            userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
 //        }
 //    }
 //    @IBOutlet weak var userTypeLabel: UILabel! {
 //        didSet {
-//            userTypeLabel.textColor = UIColor.white
+//            userTypeLabel.textColor = Colors.SECOND_APP_COLOR
 //            userTypeLabel.text = "Uczeń"
 //        }
 //    }
@@ -61,9 +61,9 @@ class GradesVC: UIViewController {
         let grades1 = [
             Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
             Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 3, date: "15.10.2016", description: "Kartkówka II"),
+            Grade(mark: 3, date: "25.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich lekcji"),
             Grade(mark: 2, date: "19.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 2, date: "05.12.2016", description: "Odpowiedź")
+            Grade(mark: 2, date: "05.12.2016", description: "Kartkówka II")
         ]
         let grades2 = [
             Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
@@ -136,6 +136,8 @@ class GradesVC: UIViewController {
 
 }
 
+// MARK: - CollectionView Delegate and DataSource
+
 extension GradesVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -169,14 +171,28 @@ extension GradesVC : UICollectionViewDelegate, UICollectionViewDataSource {
     
 }
 
+// MARK: - CollectionView cells size
+
 extension GradesVC : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.bounds.height/3
-        let width = collectionView.bounds.width/2
-        let bound = width < height ? width : height
+        let bound = calculateCellSideLength()
         let size = CGSize(width: bound, height: bound)
         return size
+    }
+    
+    private func calculateCellSideLength() -> CGFloat {
+        var width: CGFloat = 0.0
+        var height: CGFloat = 0.0
+        if UIDevice.current.orientation.isLandscape {
+            height = collectionView.bounds.height/2
+            width = collectionView.bounds.width/3
+        } else {
+            height = collectionView.bounds.height/3
+            width = collectionView.bounds.width/2
+        }
+        let bound = width < height ? width : height
+        return bound
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

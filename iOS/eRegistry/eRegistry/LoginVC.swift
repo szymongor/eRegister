@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var usernameTF: UITextField! {
         didSet {
             usernameTF.placeholder = "Login"
-            usernameTF.text = "Bartosz"
+            usernameTF.text = ""
             usernameTF.appTheme()
         }
     }
@@ -137,8 +137,8 @@ class LoginVC: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = Colors.MAIN
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = Colors.SECOND_APP_COLOR
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.SECOND_APP_COLOR]
     }
     
     private func tryToLogIn() {

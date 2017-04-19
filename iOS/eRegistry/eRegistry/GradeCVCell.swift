@@ -12,16 +12,25 @@ class GradeCVCell: UICollectionViewCell {
 
     @IBOutlet weak var colorView: UIView! {
         didSet {
-            colorView.layer.borderColor = UIColor.white.cgColor
-            colorView.layer.borderWidth = 1.0
-            colorView.layer.cornerRadius = 6.0
+            colorView.backgroundColor = Colors.SECOND_APP_COLOR
+            //colorView.layer.borderColor = Colors.SECOND_APP_COLOR.cgColor
+            //colorView.layer.borderWidth = 1.0
+            colorView.layer.cornerRadius = 8.0
         }
     }
-    @IBOutlet weak var gradeLabel: UILabel!
-    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var gradeLabel: UILabel! {
+        didSet {
+            gradeLabel.textColor = Colors.MAIN
+        }
+    }
+    @IBOutlet weak var subjectLabel: UILabel! {
+        didSet {
+            subjectLabel.textColor = Colors.MAIN
+        }
+    }
     @IBOutlet weak var progressBackground: UIView! {
         didSet {
-            progressBackground.layer.borderColor = UIColor.white.cgColor
+            progressBackground.layer.borderColor = Colors.MAIN.cgColor
             progressBackground.layer.borderWidth = 1.0
             progressBackground.layer.cornerRadius = progressBackground.frame.height/2
         }
@@ -48,7 +57,7 @@ class GradeCVCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setConstraints() {
+    func updateProgressBar() {
         guard let subjectObj = subject else {
             return
         }
@@ -66,7 +75,7 @@ class GradeCVCell: UICollectionViewCell {
         progressView.backgroundColor = Colors.getColor(forGrade: subject.averageGrade)
         
         print(self.bounds.width)
-        setConstraints()
+        updateProgressBar()
     }
 
 }

@@ -25,7 +25,7 @@ class SettingsVC: UIViewController {
     }
     @IBOutlet weak var userInfoLabel: UILabel! {
         didSet {
-            userInfoLabel.textColor = UIColor.white
+            userInfoLabel.textColor = Colors.SECOND_APP_COLOR
             userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
         }
     }

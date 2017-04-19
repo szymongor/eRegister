@@ -10,50 +10,30 @@ import UIKit
 
 class EducatorVC: UIViewController {
 
-    @IBOutlet weak var surnameDescLabel: UILabel! {
+    @IBOutlet weak var container: UIView! {
         didSet {
-            surnameDescLabel.textColor = Colors.MAIN
+            container.backgroundColor = Colors.MAIN
         }
     }
-    @IBOutlet weak var surnameLabel: UILabel! {
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
-            surnameLabel.textColor = Colors.MAIN
+            let cellNib = UINib(nibName: CELL_ID, bundle: nil)
+            tableView.register(cellNib, forCellReuseIdentifier: CELL_ID)
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = 44
         }
     }
-    @IBOutlet weak var nameDescLabel: UILabel! {
-        didSet {
-            nameDescLabel.textColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var nameLabel: UILabel! {
-        didSet {
-            nameLabel.textColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var phoneDescLabel: UILabel! {
-        didSet {
-            phoneDescLabel.textColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var phoneLabel: UILabel! {
-        didSet {
-            phoneLabel.textColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var emailDescLabel: UILabel! {
-        didSet {
-            emailDescLabel.textColor = Colors.MAIN
-        }
-    }
-    @IBOutlet weak var emailLabel: UILabel! {
-        didSet {
-            emailLabel.textColor = Colors.MAIN
-        }
-    }
+    
+    let CELL_ID = "EducatorTVCell"
+
+    typealias EducatorDataTupple = (type: EducatorDataType, description: String)
+    var educatorDatas: [EducatorDataTupple] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Wychowawca"
-
         // Do any additional setup after loading the view.
     }
 
@@ -63,10 +43,42 @@ class EducatorVC: UIViewController {
     }
 
     func setView(for educator: Educator) {
-        surnameLabel.text = educator.surname
-        nameLabel.text = educator.name
-        phoneLabel.text = educator.phone
-        emailLabel.text = educator.email
+        educatorDatas.append((.surname, educator.surname))
+        educatorDatas.append((.name, educator.name))
+        educatorDatas.append((.phone, educator.phone))
+        educatorDatas.append((.email, educator.email))
+        tableView.reloadData()
     }
 
+}
+
+// MARK: - TableView Delegate and DataSource
+
+extension EducatorVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: EducatorTVCell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as? EducatorTVCell else {
+            return UITableViewCell()
+        }
+        let data = educatorDatas[indexPath.row]
+        cell.setView(type: data.type, description: data.description)
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return educatorDatas.count
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        return
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        return
+    }
+    
 }
