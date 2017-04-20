@@ -1,0 +1,92 @@
+SELECT * FROM USERS
+LEFT JOIN (
+
+SELECT * FROM (SELECT STUDENTS.id id, STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `STUDENTS`
+LEFT OUTER JOIN GUARDIANS ON STUDENTS.ID = GUARDIANS.ID
+LEFT OUTER JOIN TEACHERS ON STUDENTS.ID = TEACHERS.ID
+
+UNION
+
+SELECT GUARDIANS.id id, STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `GUARDIANS`
+LEFT OUTER JOIN STUDENTS ON STUDENTS.ID = GUARDIANS.ID
+LEFT OUTER JOIN TEACHERS ON GUARDIANS.ID = TEACHERS.ID
+
+UNION
+
+SELECT TEACHERS.id, STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `TEACHERS`
+LEFT OUTER JOIN GUARDIANS ON TEACHERS.ID = GUARDIANS.ID
+LEFT OUTER JOIN STUDENTS ON STUDENTS.ID = TEACHERS.ID) role
+
+) role
+
+ON USERS.id_person = role.students
+OR USERS.id_person = role.guardians
+OR USERS.id_person = role.teachers
+
++++++++++++++++++++++++++++\/KAROL EDIT\/+++++++++++++++++++++++++++++++++++++++++++++++
+
+SELECT * FROM USERS
+LEFT JOIN (
+
+SELECT * FROM (SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `STUDENTS`
+LEFT OUTER JOIN GUARDIANS ON STUDENTS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN TEACHERS ON STUDENTS.id_person = TEACHERS.id_person
+
+UNION
+
+SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `GUARDIANS`
+LEFT OUTER JOIN STUDENTS ON STUDENTS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN TEACHERS ON GUARDIANS.id_person = TEACHERS.id_person
+
+UNION
+
+SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `TEACHERS`
+LEFT OUTER JOIN GUARDIANS ON TEACHERS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN STUDENTS ON STUDENTS.id_person = TEACHERS.id_person) role
+
+) role
+
+ON USERS.id_person = role.students
+OR USERS.id_person = role.guardians
+OR USERS.id_person = role.teachers
+
+
++++++++++++++++++++++++++++++++++GET BY LOGIN+++++++++++++++++++++++++++++++++++++++++++++++
+
+SELECT * FROM USERS
+LEFT JOIN (
+
+SELECT * FROM (SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `STUDENTS`
+LEFT OUTER JOIN GUARDIANS ON STUDENTS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN TEACHERS ON STUDENTS.id_person = TEACHERS.id_person
+
+UNION
+
+SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `GUARDIANS`
+LEFT OUTER JOIN STUDENTS ON STUDENTS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN TEACHERS ON GUARDIANS.id_person = TEACHERS.id_person
+
+UNION
+
+SELECT STUDENTS.id_person students, GUARDIANS.id_person guardians, TEACHERS.id_person teachers
+FROM `TEACHERS`
+LEFT OUTER JOIN GUARDIANS ON TEACHERS.id_person = GUARDIANS.id_person
+LEFT OUTER JOIN STUDENTS ON STUDENTS.id_person = TEACHERS.id_person) role
+
+) role
+
+ON USERS.id_person = role.students
+OR USERS.id_person = role.guardians
+OR USERS.id_person = role.teachers
+
+WHERE
+
+USERS.login = 'natbob123'

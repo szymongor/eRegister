@@ -1,15 +1,17 @@
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Filter\JwtAuthenticationTokenFilter.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Service\EregUserService.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Entity\EregUser.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Controller\EregUserController.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Token\TokenUtils.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtAuthenticationResponse.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\main.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\EregUserDaoFakeImpl.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtCredentials.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\AuthorizationService.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtAuthority.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\EregUserDao.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\config\WebSecurityConfig.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\MySqlEregUserDao.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Controller\AuthorizationController.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Controller\EregUserController.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Model\UsersListResponse.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Controller\AuthorizationController.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Filter\JwtAuthenticationTokenFilter.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Service\EregUserService.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\EregUserDaoFakeImpl.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\main.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\AuthorizationService.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Token\TokenUtils.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtCredentials.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\EregUserDao.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\config\WebSecurityConfig.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\MySqlEregUserDao.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtAuthority.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtAuthenticationResponse.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Entity\EregUser.java
+C:\Users\Szymon\IdeaProjects\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\ErrorResponse.java
