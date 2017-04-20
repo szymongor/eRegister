@@ -30,8 +30,9 @@ public class MySqlEregUserDao implements EregUserDao {
             eregUser.setId(resultSet.getInt("id"));
             eregUser.setLogin(resultSet.getString("login"));
             eregUser.setPassword(resultSet.getString("password"));
-            //eregUser.setRole(resultSet.getString("role"));
-            eregUser.setRole("ROLE_TEACHER");
+            eregUser.setRole("teacher");
+            eregUser.setLastPasswordResetDate(resultSet.getString("last_password_reset_date"));
+            eregUser.setEnable(resultSet.getBoolean("enabled"));
             return eregUser;
         }
     }
@@ -45,18 +46,58 @@ public class MySqlEregUserDao implements EregUserDao {
     }
 
     @Override
+    public Collection<EregUser> getAllEnableEregUsers() {
+        // SELECT column_name(s) FROM table_name where column = value
+        final String sql = "SELECT * FROM USERS where enabled = 1";
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        return eregUsers;
+    }
+
+    @Override
+    public Collection<EregUser> getAllTeachersEregUsers() {
+        // SELECT column_name(s) FROM table_name where column = value
+        final String sql = "SELECT USERS.id, login, password, last_password_reset_date, enabled FROM USERS, TEACHERS where USERS.id_person = TEACHERS.id_person";
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        return eregUsers;
+    }
+
+    @Override
+    public Collection<EregUser> getAllGuardiansEregUsers() {
+        // SELECT column_name(s) FROM table_name where column = value
+        final String sql = "SELECT USERS.id, login, password, last_password_reset_date, enabled FROM USERS, GUARDIANS where USERS.id_person = GUARDIANS.id_person";
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        return eregUsers;
+    }
+
+    @Override
+    public Collection<EregUser> getAllStudentsEregUsers() {
+        // SELECT column_name(s) FROM table_name where column = value
+        final String sql = "SELECT USERS.id, login, password, last_password_reset_date, enabled FROM USERS, STUDENTS where USERS.id_person = STUDENTS.id_person";
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        return eregUsers;
+    }
+
+    @Override
     public EregUser getEregUserById(int id) {
         // SELECT column_name(s) FROM table_name where column = value
         final String sql = "SELECT * FROM USERS where id = ?";
-        EregUser student = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), id);
-        return student;
+        EregUser eregUser = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), id);
+        return eregUser;
+    }
+
+    @Override
+    public EregUser getEregUserByIdPerson(int id) {
+        // SELECT column_name(s) FROM table_name where column = value
+        final String sql = "SELECT * FROM USERS where id_person = ?";
+        EregUser eregUser = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), id);
+        return eregUser;
     }
 
     @Override
     public EregUser getEregUserByLogin(String login){
         final String sql = "SELECT * FROM USERS where login = ?";
-        EregUser student = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), login);
-        return student;
+        EregUser eregUser = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), login);
+        return eregUser;
     }
 
     @Override

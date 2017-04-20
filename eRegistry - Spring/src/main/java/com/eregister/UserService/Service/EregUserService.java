@@ -24,9 +24,27 @@ public class EregUserService {
         return eregUserDao.getAllEregUsers();
     }
 
+    public Collection<EregUser> getAllEnableEregUsers(){
+        return eregUserDao.getAllEnableEregUsers();
+    }
+
+    public Collection<EregUser> getAllTeachersEregUsers(){
+        return eregUserDao.getAllTeachersEregUsers();
+    }
+
+    public Collection<EregUser> getAllGuardiansEregUsers(){
+        return eregUserDao.getAllGuardiansEregUsers();
+    }
+
+    public Collection<EregUser> getAllStudentsEregUsers(){
+        return eregUserDao.getAllStudentsEregUsers();
+    }
+
     public EregUser getEregUserById(int id){
         return eregUserDao.getEregUserById(id);
     }
+
+    public EregUser getEregUserByIdPerson(int id) { return eregUserDao.getEregUserByIdPerson(id);}
 
     public EregUser getEregUserByLogin(String login){
         return eregUserDao.getEregUserByLogin(login);
