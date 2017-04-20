@@ -13,9 +13,7 @@ enum MenuItemType {
     case grades
     case teacher
     case settings
-    case phone
-    case address
-    case email
+    case children
     case logout
 }
 

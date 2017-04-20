@@ -44,10 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
         
-        if !UserDefaultValues.rememberMe {
-            UserDefaultValues.username = ""
-            UserDefaultValues.password = ""
-            UserDefaultValues.token = ""
+        if !User.instance.rememberMe {
+            User.instance.username = ""
+            User.instance.password = ""
+            User.instance.token = ""
         }
     }
 

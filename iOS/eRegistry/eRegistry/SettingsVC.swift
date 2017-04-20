@@ -26,7 +26,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var userInfoLabel: UILabel! {
         didSet {
             userInfoLabel.textColor = Colors.SECOND_APP_COLOR
-            userInfoLabel.text = "Zalogowano jako: \(UserDefaultValues.username)"
+            userInfoLabel.text = "Zalogowano jako: \(User.instance.username)"
         }
     }
     
@@ -79,7 +79,8 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        let footer = "Typ konta: " + UserDefaultValues.role
+        let roleName = User.instance.roleName
+        let footer = "Typ konta: " + roleName
         return footer
     }
     

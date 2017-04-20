@@ -8,9 +8,17 @@
 
 import Foundation
 
-class UserDefaultValues {
+enum UserRole {
+    case teacher
+    case student
+    case undefined
+}
+
+class User {
+    fileprivate init() {}
+    static let instance = User()
     
-    static var username: String {
+    var username: String {
         get {
             return UserDefaults.standard.string(forKey: "username") ?? ""
         }
@@ -19,7 +27,7 @@ class UserDefaultValues {
         }
     }
     
-    static var password: String {
+    var password: String {
         get {
             return UserDefaults.standard.string(forKey: "password") ?? ""
         }
@@ -28,7 +36,7 @@ class UserDefaultValues {
         }
     }
     
-    static var token: String {
+    var token: String {
         get {
             return UserDefaults.standard.string(forKey: "token") ?? ""
         }
@@ -37,24 +45,26 @@ class UserDefaultValues {
         }
     }
     
-    static var role: String {
+    var roleName: String {
         get {
             return UserDefaults.standard.string(forKey: "role") ?? ""
         }
         set {
-            var value = ""
             if newValue == "ROLE_TEACHER" {
-                value = "Nauczyciel"
+                roleType = .teacher
             } else if newValue == "ROLE_STUDENT" {
-                value = "Uczeń"
+                roleType = .student
             }
-            UserDefaults.standard.set(value, forKey: "role")
+
+            UserDefaults.standard.set(newValue, forKey: "role")
         }
     }
     
-    static var rememberMe: Bool {
+    private(set) var roleType: UserRole = .undefined
+    
+    var rememberMe: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: "rememberMe") 
+            return UserDefaults.standard.bool(forKey: "rememberMe")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "rememberMe")

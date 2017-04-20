@@ -210,6 +210,7 @@
 		222C82231E9C120D00644DB5 /* eRegistry */ = {
 			isa = PBXGroup;
 			children = (
+				2243E6041EA7E27B00053483 /* User */,
 				222C82621E9C1E2300644DB5 /* Common */,
 				222C82611E9C1E0600644DB5 /* Extensions */,
 				222C82601E9C1DF900644DB5 /* Views */,
@@ -245,7 +246,6 @@
 		222C82551E9C143600644DB5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */,
 				222C82561E9C149100644DB5 /* RequestManager.swift */,
 				22F32C851EA2389700644548 /* JWT.swift */,
 				22F32C871EA23F1F00644548 /* JSON.swift */,
@@ -293,6 +293,14 @@
 				223A8EEE1EA4F62100786CEF /* EducatorTVCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		2243E6041EA7E27B00053483 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				222C825E1E9C1C8600644DB5 /* UserDefaultValues.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		2254695C1EA162E100255B86 /* Grades */ = {

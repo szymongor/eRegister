@@ -62,13 +62,13 @@ class LoginVC: UIViewController {
             success in
             
             self.hideIndicator()
-            
             self.tryToRememberUser()
             
             if success {
-                self.goToMenu()
+                
+                self.tryGoToMenu(type: User.instance.roleType)
             } else {
-                self.showErrorAlert()
+                self.showErrorAlert(message: "Sprawdź połączenie z internetem oraz wprowadź poprawne dane logowania.")
             }
         })
         
@@ -87,20 +87,25 @@ class LoginVC: UIViewController {
     
     private func tryToRememberUser() {
         if rememberMeCheckBox.isChecked {
-            UserDefaultValues.rememberMe = true
+            User.instance.rememberMe = true
         }
     }
     
-    private func goToMenu() {
+    private func tryGoToMenu(type: UserRole) {
         guard let menuVC: MenuVC = UINib(nibName: "MenuVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? MenuVC else {
             return
         }
-        self.navigationController?.pushViewController(menuVC, animated: true)
+        if type != .undefined {
+            menuVC.prepare(for: type)
+            self.navigationController?.pushViewController(menuVC, animated: true)
+        } else {
+            showErrorAlert(message: "Podany typ użytkownika nie jest wspierany przez aplikację mobliną.")
+        }
     }
     
-    private func showErrorAlert() {
+    private func showErrorAlert(message: String) {
         
-        let alert = UIAlertController(title: "Błąd", message: "Sprawdź połączenie z internetem oraz wprowadź poprawne dane logowania.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Błąd", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: {
             _ in
             alert.dismiss(animated: true, completion: nil)
@@ -142,9 +147,9 @@ class LoginVC: UIViewController {
     }
     
     private func tryToLogIn() {
-        if UserDefaultValues.rememberMe {
-            usernameTF.text = UserDefaultValues.username
-            passwordTF.text = UserDefaultValues.password
+        if User.instance.rememberMe {
+            usernameTF.text = User.instance.username
+            passwordTF.text = User.instance.password
             rememberMeCheckBox.buttonClicked(sender: rememberMeCheckBox)
             onLoginClick()
         }

@@ -38,14 +38,14 @@ class RequestManager {
                 if let json = result.value as? JSONStandard,
                     let token = json["token"] as? String {
                     print(json)
-                    UserDefaultValues.username = username
-                    UserDefaultValues.password = password
-                    UserDefaultValues.token = token
+                    User.instance.username = username
+                    User.instance.password = password
+                    User.instance.token = token
                     
                     let payloadStr = JWT.decode(token: token)
                     if let payload = JSON.convertToJSON(text: payloadStr),
                          let role = payload["role"] as? String {
-                        UserDefaultValues.role = role
+                        User.instance.roleName = role
                     }
                     success = true
                 }
@@ -60,7 +60,7 @@ class RequestManager {
         let urlString = getWSAddress()+"EregUsers"
         let url: URL = URL(string: urlString)!
         
-        let header: HTTPHeaders = ["Authorization" : UserDefaultValues.token]
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
             response in
