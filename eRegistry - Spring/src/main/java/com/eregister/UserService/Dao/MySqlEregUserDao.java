@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,7 +31,11 @@ public class MySqlEregUserDao implements EregUserDao {
             eregUser.setId(resultSet.getInt("id"));
             eregUser.setLogin(resultSet.getString("login"));
             eregUser.setPassword(resultSet.getString("password"));
-            eregUser.setRole(resultSet.getString("role"));
+            //eregUser.setRoles(resultSet.getString("role"));
+            String roles = "ROLE_USER";
+            roles+=","+resultSet.getString("role");
+            eregUser.setRoles(roles);
+
             return eregUser;
         }
     }
@@ -73,8 +78,8 @@ public class MySqlEregUserDao implements EregUserDao {
         final int id = eregUser.getId();
         final String login = eregUser.getLogin();
         final String password = eregUser.getPassword();
-        final String role = eregUser.getRole();
-        jdbcTemplate.update(sql, new Object[]{login, password, role, id});
+        final String roles = eregUser.getRoles();
+        jdbcTemplate.update(sql, new Object[]{login, password, roles, id});
     }
 
     @Override
@@ -84,7 +89,7 @@ public class MySqlEregUserDao implements EregUserDao {
         final String sql = "INSERT INTO users (login, password, role) VALUES (?, ?, ?)";
         final String login = eregUser.getLogin();
         final String password = eregUser.getPassword();
-        final String role = eregUser.getRole();
-        jdbcTemplate.update(sql, new Object[]{login, password, role});
+        final String roles = eregUser.getRoles();
+        jdbcTemplate.update(sql, new Object[]{login, password, roles});
     }
 }

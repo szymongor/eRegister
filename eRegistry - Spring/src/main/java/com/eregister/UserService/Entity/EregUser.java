@@ -1,5 +1,8 @@
 package com.eregister.UserService.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Szymon on 07.04.2017.
  */
@@ -7,7 +10,7 @@ public class EregUser {
     int id;
     String login;
     String password;
-    String role;
+    String roles;
 
     public EregUser(int id, String login, String password) {
         this.id = id;
@@ -16,7 +19,6 @@ public class EregUser {
     }
 
     public EregUser(){
-
     }
 
     public int getId() {
@@ -43,11 +45,11 @@ public class EregUser {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 }

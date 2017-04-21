@@ -34,12 +34,12 @@ public class TokenUtils {
     public String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
         String id = Integer.toString(eregUser.getId());
         String login = eregUser.getLogin();
-        String role = eregUser.getRole();
+        String roles = eregUser.getRoles();
 
         String jwt = Jwts.builder()
                 .setExpiration(generateExpirationDate())
                 .claim("login", login)
-                .claim("role", role)
+                .claim("roles", roles)
                 .claim("id",id)
                 .signWith(
                         SignatureAlgorithm.HS256,
@@ -63,9 +63,14 @@ public class TokenUtils {
 
     public UserDetails userDetailsFromToken(String token){
         Claims claims = verifyToken(token);
-        JwtAuthority jwtAuthority = new JwtAuthority(claims.get("role").toString());
         List<JwtAuthority> authorities = new ArrayList<>();
-        authorities.add(jwtAuthority);
+        String roles = claims.get("roles").toString();
+        String[] splitedRoles = roles.split(",");
+        for(String role : splitedRoles){
+            JwtAuthority jwtAuthority = new JwtAuthority(role);
+            authorities.add(jwtAuthority);
+        }
+
         UserDetails userDetails = new UserDetails() {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
