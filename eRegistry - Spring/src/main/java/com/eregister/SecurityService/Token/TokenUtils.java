@@ -1,6 +1,7 @@
 package com.eregister.SecurityService.Token;
 
 import com.eregister.SecurityService.Model.JwtAuthority;
+import com.eregister.SecurityService.Model.JwtUserDetails;
 import com.eregister.UserService.Entity.EregUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
@@ -63,45 +64,7 @@ public class TokenUtils {
 
     public UserDetails userDetailsFromToken(String token){
         Claims claims = verifyToken(token);
-        List<JwtAuthority> authorities = new ArrayList<>();
-        String roles = claims.get("roles").toString();
-        String[] splitedRoles = roles.split(",");
-        for(String role : splitedRoles){
-            JwtAuthority jwtAuthority = new JwtAuthority(role);
-            authorities.add(jwtAuthority);
-        }
-
-        UserDetails userDetails = new UserDetails() {
-            @Override
-            public Collection<? extends GrantedAuthority> getAuthorities() {
-                return authorities;
-            }
-            @Override
-            public String getPassword() {
-                return null;
-            }
-            @Override
-            public String getUsername() {
-                return claims.get("login").toString();
-            }
-            @Override
-            public boolean isAccountNonExpired() {
-                return false;
-            }
-            @Override
-            public boolean isAccountNonLocked() {
-                return false;
-            }
-            @Override
-            public boolean isCredentialsNonExpired() {
-                return false;
-            }
-            @Override
-            public boolean isEnabled() {
-                return false;
-            }
-        };
-
+        UserDetails userDetails = new JwtUserDetails(claims);
         return userDetails;
     }
 
