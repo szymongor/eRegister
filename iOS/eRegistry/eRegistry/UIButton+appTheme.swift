@@ -11,8 +11,9 @@ import UIKit
 
 extension UIButton {
     
-    func appTheme() {
+    override func appTheme() {
         
+        self.layer.cornerRadius = 8.0
         self.backgroundColor = Colors.MAIN
         self.setTitleColor(Colors.SECOND_APP_COLOR, for: .normal)
         

@@ -45,6 +45,10 @@ class SettingsVC: UIViewController {
         settingsItems.append(SettingsItemModel(image: #imageLiteral(resourceName: "homeIcon"), description: "Adres", type: .address))
         // Do any additional setup after loading the view.
     }
+    
+    func prepare(for userType: UserType) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

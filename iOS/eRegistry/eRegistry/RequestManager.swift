@@ -44,8 +44,12 @@ class RequestManager {
                     
                     let payloadStr = JWT.decode(token: token)
                     if let payload = JSON.convertToJSON(text: payloadStr),
-                         let role = payload["role"] as? String {
+                         let role = payload["role"] as? String,
+                        let id = payload["id"] as? String {
+                        print(payloadStr)
                         User.instance.roleName = role
+                        guard let idInt = Int(id) else { return }
+                        User.instance.id = idInt
                     }
                     success = true
                 }

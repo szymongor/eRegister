@@ -11,8 +11,10 @@ import UIKit
 
 extension UITextField {
     
-    func appTheme() {
-        self.borderStyle = .line
+    override func appTheme() {
+        self.layer.cornerRadius = 8.0
+        self.borderStyle = .none
+        self.layer.borderWidth = 1.0
         self.layer.borderColor = Colors.MAIN.cgColor
     }
     

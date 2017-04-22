@@ -20,10 +20,7 @@ class EducatorTVCell: UITableViewCell {
 
     @IBOutlet weak var container: UIView! {
         didSet {
-            container.backgroundColor = Colors.SECOND_APP_COLOR
-            container.layer.borderColor = Colors.SECOND_APP_COLOR.cgColor
-            container.layer.borderWidth = 1.0
-            container.layer.cornerRadius = 8.0
+            container.appTheme()
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onDataTap))
             container.addGestureRecognizer(tapGesture)

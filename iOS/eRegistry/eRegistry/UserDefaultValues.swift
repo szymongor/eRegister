@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum UserRole {
+enum UserType {
     case teacher
     case student
     case undefined
@@ -45,9 +45,21 @@ class User {
         }
     }
     
+    var id: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: "userId")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "userId")
+        }
+    }
+    
     var roleName: String {
         get {
-            return UserDefaults.standard.string(forKey: "role") ?? ""
+            let role = UserDefaults.standard.string(forKey: "role")
+            if role == "ROLE_TEACHER" { return "Nauczyciel" }
+            else if role == "ROLE_STUDENT" { return "Uczeń" }
+            else { return "Niezdefiniowany" }
         }
         set {
             if newValue == "ROLE_TEACHER" {
@@ -60,7 +72,7 @@ class User {
         }
     }
     
-    private(set) var roleType: UserRole = .undefined
+    private(set) var roleType: UserType = .undefined
     
     var rememberMe: Bool {
         get {

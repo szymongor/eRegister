@@ -42,6 +42,12 @@
 		226ABEC91EA13B3C002652F2 /* SettingsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABEC71EA13B3C002652F2 /* SettingsTVCell.swift */; };
 		226ABECA1EA13B3C002652F2 /* SettingsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */; };
 		226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABECB1EA14741002652F2 /* SettingsItemModel.swift */; };
+		2274D7C01EA949740045FEF4 /* ChildrenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7BE1EA949740045FEF4 /* ChildrenVC.swift */; };
+		2274D7C11EA949740045FEF4 /* ChildrenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274D7BF1EA949740045FEF4 /* ChildrenVC.xib */; };
+		2274D7C31EA94A270045FEF4 /* UIView+appTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7C21EA94A270045FEF4 /* UIView+appTheme.swift */; };
+		2274D7C61EA94DD10045FEF4 /* ChildrenTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7C41EA94DD10045FEF4 /* ChildrenTVCell.swift */; };
+		2274D7C71EA94DD10045FEF4 /* ChildrenTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274D7C51EA94DD10045FEF4 /* ChildrenTVCell.xib */; };
+		2274D7C91EA950AB0045FEF4 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7C81EA950AB0045FEF4 /* Student.swift */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
 		22E330B21EA3B46E0092AC1B /* EducatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E330B01EA3B46E0092AC1B /* EducatorVC.swift */; };
 		22E330B31EA3B46E0092AC1B /* EducatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E330B11EA3B46E0092AC1B /* EducatorVC.xib */; };
@@ -52,7 +58,6 @@
 		22E6A91D1EA384ED00EB2944 /* SubjectDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A91B1EA384ED00EB2944 /* SubjectDetailsTVCell.xib */; };
 		22E6A9231EA3929600EB2944 /* SubjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9221EA3929600EB2944 /* SubjectHeaderView.swift */; };
 		22E6A9271EA392AE00EB2944 /* SubjectHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A9261EA392AE00EB2944 /* SubjectHeaderView.xib */; };
-		22E6A9291EA3A68100EB2944 /* UIViewController+statusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */; };
 		22F32C861EA2389700644548 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C851EA2389700644548 /* JWT.swift */; };
 		22F32C881EA23F1F00644548 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F32C871EA23F1F00644548 /* JSON.swift */; };
 		418C2ABE4F9F4D6AD608E233 /* Pods_eRegistryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3860CD9670562641B700EDFA /* Pods_eRegistryTests.framework */; };
@@ -120,6 +125,12 @@
 		226ABEC71EA13B3C002652F2 /* SettingsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVCell.swift; sourceTree = "<group>"; };
 		226ABEC81EA13B3C002652F2 /* SettingsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTVCell.xib; sourceTree = "<group>"; };
 		226ABECB1EA14741002652F2 /* SettingsItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItemModel.swift; sourceTree = "<group>"; };
+		2274D7BE1EA949740045FEF4 /* ChildrenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenVC.swift; sourceTree = "<group>"; };
+		2274D7BF1EA949740045FEF4 /* ChildrenVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildrenVC.xib; sourceTree = "<group>"; };
+		2274D7C21EA94A270045FEF4 /* UIView+appTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+appTheme.swift"; sourceTree = "<group>"; };
+		2274D7C41EA94DD10045FEF4 /* ChildrenTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenTVCell.swift; sourceTree = "<group>"; };
+		2274D7C51EA94DD10045FEF4 /* ChildrenTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildrenTVCell.xib; sourceTree = "<group>"; };
+		2274D7C81EA950AB0045FEF4 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		22E330B01EA3B46E0092AC1B /* EducatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorVC.swift; sourceTree = "<group>"; };
 		22E330B11EA3B46E0092AC1B /* EducatorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducatorVC.xib; sourceTree = "<group>"; };
@@ -130,7 +141,6 @@
 		22E6A91B1EA384ED00EB2944 /* SubjectDetailsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailsTVCell.xib; sourceTree = "<group>"; };
 		22E6A9221EA3929600EB2944 /* SubjectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectHeaderView.swift; sourceTree = "<group>"; };
 		22E6A9261EA392AE00EB2944 /* SubjectHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectHeaderView.xib; sourceTree = "<group>"; };
-		22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+statusBar.swift"; sourceTree = "<group>"; };
 		22F32C851EA2389700644548 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		22F32C871EA23F1F00644548 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		28FAE57E8D238B9569240132 /* Pods-eRegistry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eRegistry.release.xcconfig"; path = "Pods/Target Support Files/Pods-eRegistry/Pods-eRegistry.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +270,7 @@
 				22554EFD1E9E339900E580EF /* Menu */,
 				2254695C1EA162E100255B86 /* Grades */,
 				22E330AF1EA3B43B0092AC1B /* Educator */,
+				2274D7BA1EA9493A0045FEF4 /* Children */,
 				226ABEBD1EA13577002652F2 /* Settings */,
 			);
 			name = Views;
@@ -271,7 +282,7 @@
 				222C82581E9C17D400644DB5 /* UITextField+appTheme.swift */,
 				222C825C1E9C18B500644DB5 /* UIButton+appTheme.swift */,
 				225469701EA1752200255B86 /* UIColor+rgba.swift */,
-				22E6A9281EA3A68100EB2944 /* UIViewController+statusBar.swift */,
+				2274D7C21EA94A270045FEF4 /* UIView+appTheme.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -342,6 +353,7 @@
 			children = (
 				2254696B1EA166DE00255B86 /* Subject.swift */,
 				220E30411EA368DD00B8F52E /* Grade.swift */,
+				2274D7C81EA950AB0045FEF4 /* Student.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -427,6 +439,41 @@
 				226ABECB1EA14741002652F2 /* SettingsItemModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		2274D7BA1EA9493A0045FEF4 /* Children */ = {
+			isa = PBXGroup;
+			children = (
+				2274D7BD1EA9495A0045FEF4 /* Views */,
+				2274D7BC1EA949550045FEF4 /* Cells */,
+				2274D7BB1EA949500045FEF4 /* Models */,
+			);
+			name = Children;
+			sourceTree = "<group>";
+		};
+		2274D7BB1EA949500045FEF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2274D7BC1EA949550045FEF4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2274D7C41EA94DD10045FEF4 /* ChildrenTVCell.swift */,
+				2274D7C51EA94DD10045FEF4 /* ChildrenTVCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		2274D7BD1EA9495A0045FEF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2274D7BE1EA949740045FEF4 /* ChildrenVC.swift */,
+				2274D7BF1EA949740045FEF4 /* ChildrenVC.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		22E330AF1EA3B43B0092AC1B /* Educator */ = {
@@ -587,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225469641EA1634000255B86 /* GradesVC.xib in Resources */,
+				2274D7C11EA949740045FEF4 /* ChildrenVC.xib in Resources */,
 				22E330B31EA3B46E0092AC1B /* EducatorVC.xib in Resources */,
 				22E6A91D1EA384ED00EB2944 /* SubjectDetailsTVCell.xib in Resources */,
 				2254695B1EA151E700255B86 /* FormVC.xib in Resources */,
@@ -595,6 +643,7 @@
 				22E6A9271EA392AE00EB2944 /* SubjectHeaderView.xib in Resources */,
 				222C822F1E9C120D00644DB5 /* Assets.xcassets in Resources */,
 				2260394E1E9FE39E002AF9E2 /* MenuCVCell.xib in Resources */,
+				2274D7C71EA94DD10045FEF4 /* ChildrenTVCell.xib in Resources */,
 				226ABEC11EA13596002652F2 /* SettingsVC.xib in Resources */,
 				2254696A1EA164C700255B86 /* GradeCVCell.xib in Resources */,
 				222C822A1E9C120D00644DB5 /* Main.storyboard in Resources */,
@@ -771,19 +820,22 @@
 				22F32C861EA2389700644548 /* JWT.swift in Sources */,
 				22E330B81EA3B8BE0092AC1B /* Educator.swift in Sources */,
 				2260394D1E9FE39E002AF9E2 /* MenuCVCell.swift in Sources */,
+				2274D7C31EA94A270045FEF4 /* UIView+appTheme.swift in Sources */,
 				226ABECC1EA14741002652F2 /* SettingsItemModel.swift in Sources */,
 				225469691EA164C700255B86 /* GradeCVCell.swift in Sources */,
 				225469711EA1752200255B86 /* UIColor+rgba.swift in Sources */,
 				2254695A1EA151E700255B86 /* FormVC.swift in Sources */,
 				222C82591E9C17D400644DB5 /* UITextField+appTheme.swift in Sources */,
+				2274D7C01EA949740045FEF4 /* ChildrenVC.swift in Sources */,
+				2274D7C61EA94DD10045FEF4 /* ChildrenTVCell.swift in Sources */,
 				225469631EA1634000255B86 /* GradesVC.swift in Sources */,
 				223A8EEF1EA4F62100786CEF /* EducatorTVCell.swift in Sources */,
 				2254696C1EA166DE00255B86 /* Subject.swift in Sources */,
 				222C822D1E9C120D00644DB5 /* eRegistry.xcdatamodeld in Sources */,
 				22E6A91C1EA384ED00EB2944 /* SubjectDetailsTVCell.swift in Sources */,
-				22E6A9291EA3A68100EB2944 /* UIViewController+statusBar.swift in Sources */,
 				226ABEC91EA13B3C002652F2 /* SettingsTVCell.swift in Sources */,
 				22E6A9231EA3929600EB2944 /* SubjectHeaderView.swift in Sources */,
+				2274D7C91EA950AB0045FEF4 /* Student.swift in Sources */,
 				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,
 				2207AF281E9D5E8F00EFDE71 /* MenuVC.swift in Sources */,
 				220E30421EA368DD00B8F52E /* Grade.swift in Sources */,

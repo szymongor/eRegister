@@ -39,14 +39,14 @@ class GradesVC: UIViewController {
     
     let CELL_ID = "GradeCVCell"
     
+    var student: Student!
+    
     var subjects: [Subject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Oceny"
-
-        downloadData()
         
         // Do any additional setup after loading the view.
     }
@@ -56,82 +56,171 @@ class GradesVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func downloadData() {
+    func prepare(for student: Student) {
+        downloadData(for: student)
+    }
+    
+    private func downloadData(for student: Student) {
         
-        let grades1 = [
-            Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 3, date: "25.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich lekcji"),
-            Grade(mark: 2, date: "19.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 2, date: "05.12.2016", description: "Kartkówka II")
-        ]
-        let grades2 = [
-            Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 3, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 4, date: "15.10.2016", description: "Kartkówka II"),
-            Grade(mark: 5, date: "19.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź"),
-            Grade(mark: 3, date: "04.01.2017", description: "Sprawdzian III"),
-            Grade(mark: 2, date: "05.02.2017", description: "Odpowiedź")
-        ]
-        let grades3 = [
-            Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
-            Grade(mark: 4, date: "19.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź")
-        ]
-        let grades4 = [
-            Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 5, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
-            Grade(mark: 5, date: "19.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 3, date: "05.12.2016", description: "Odpowiedź"),
-            Grade(mark: 4, date: "01.02.2017", description: "Odpowiedź")
-        ]
-        let grades5 = [
-            Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 3, date: "23.09.2016", description: "Kartkówka I"),
-            Grade(mark: 3, date: "15.10.2016", description: "Kartkówka II"),
-            Grade(mark: 3, date: "05.12.2016", description: "Odpowiedź")
-        ]
-        let grades6 = [
-            Grade(mark: 1, date: "17.09.2016", description: "Sprawdzian I"),
-            Grade(mark: 1, date: "20.09.2016", description: "Kartkówka I"),
-            Grade(mark: 2, date: "01.10.2016", description: "Kartkówka II"),
-            Grade(mark: 2, date: "22.11.2016", description: "Sprawdzian II"),
-            Grade(mark: 2, date: "20.12.2016", description: "Odpowiedź")
-        ]
-        let grades7 = [
-            Grade(mark: 2, date: "05.10.2016", description: "Odpowiedź"),
-            Grade(mark: 2, date: "25.10.2016", description: "Odpowiedź"),
-            Grade(mark: 2, date: "19.11.2016", description: "Kartkówka"),
-            Grade(mark: 2, date: "19.01.2017", description: "Odpowiedź")
-        ]
-        let grades8 = [
-            Grade(mark: 3, date: "05.10.2016", description: "Odpowiedź"),
-            Grade(mark: 3, date: "25.10.2016", description: "Odpowiedź"),
-            Grade(mark: 4, date: "19.11.2016", description: "Kartkówka"),
-            Grade(mark: 3, date: "13.12.2016", description: "Odpowiedź"),
-            Grade(mark: 4, date: "11.01.2017", description: "Odpowiedź")
-        ]
-        
-        subjects.append(Subject(name: "Matematyka", grades: grades1))
-        subjects.append(Subject(name: "J. polski", grades: grades2))
-        subjects.append(Subject(name: "J. angielski", grades: grades8))
-        subjects.append(Subject(name: "J. francuski", grades: grades4))
-        subjects.append(Subject(name: "J. niemiecki", grades: grades5))
-        subjects.append(Subject(name: "Fizyka", grades: grades6))
-        subjects.append(Subject(name: "Chemia", grades: grades3))
-        subjects.append(Subject(name: "Biologia", grades: grades4))
-        subjects.append(Subject(name: "Historia", grades: grades1))
-        subjects.append(Subject(name: "Muzyka", grades: grades7))
-        subjects.append(Subject(name: "Informatyka", grades: grades8))
-        subjects.append(Subject(name: "Religia", grades: grades7))
-        subjects.append(Subject(name: "WF", grades: grades2))
+        getTestData(for: student.id)
         
         collectionView.reloadData()
         
+    }
+    
+    func getTestData(for studentId: Int) {
+        switch studentId {
+        case 2:
+            
+            let grades1 = [
+                Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 3, date: "25.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 2, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 2, date: "05.12.2016", description: "Kartkówka II")
+            ]
+            let grades2 = [
+                Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 3, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 4, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 5, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź"),
+                Grade(mark: 3, date: "04.01.2017", description: "Sprawdzian III"),
+                Grade(mark: 2, date: "05.02.2017", description: "Odpowiedź")
+            ]
+            let grades3 = [
+                Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 4, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź")
+            ]
+            let grades4 = [
+                Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 5, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 5, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 3, date: "05.12.2016", description: "Odpowiedź"),
+                Grade(mark: 4, date: "01.02.2017", description: "Odpowiedź")
+            ]
+            let grades5 = [
+                Grade(mark: 3, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 3, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 3, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 3, date: "05.12.2016", description: "Odpowiedź")
+            ]
+            let grades6 = [
+                Grade(mark: 1, date: "17.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 1, date: "20.09.2016", description: "Kartkówka I"),
+                Grade(mark: 2, date: "01.10.2016", description: "Kartkówka II"),
+                Grade(mark: 2, date: "22.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 2, date: "20.12.2016", description: "Odpowiedź")
+            ]
+            let grades7 = [
+                Grade(mark: 2, date: "05.10.2016", description: "Odpowiedź"),
+                Grade(mark: 2, date: "25.10.2016", description: "Odpowiedź"),
+                Grade(mark: 2, date: "19.11.2016", description: "Kartkówka"),
+                Grade(mark: 2, date: "19.01.2017", description: "Odpowiedź")
+            ]
+            let grades8 = [
+                Grade(mark: 3, date: "05.10.2016", description: "Odpowiedź"),
+                Grade(mark: 3, date: "25.10.2016", description: "Odpowiedź"),
+                Grade(mark: 4, date: "19.11.2016", description: "Kartkówka"),
+                Grade(mark: 3, date: "13.12.2016", description: "Odpowiedź"),
+                Grade(mark: 4, date: "11.01.2017", description: "Odpowiedź")
+            ]
+            
+            subjects.append(Subject(name: "Matematyka", grades: grades1))
+            subjects.append(Subject(name: "J. polski", grades: grades2))
+            subjects.append(Subject(name: "J. angielski", grades: grades8))
+            subjects.append(Subject(name: "J. francuski", grades: grades4))
+            subjects.append(Subject(name: "J. niemiecki", grades: grades5))
+            subjects.append(Subject(name: "Fizyka", grades: grades6))
+            subjects.append(Subject(name: "Chemia", grades: grades3))
+            subjects.append(Subject(name: "Biologia", grades: grades4))
+            subjects.append(Subject(name: "Historia", grades: grades1))
+            subjects.append(Subject(name: "Muzyka", grades: grades7))
+            subjects.append(Subject(name: "Informatyka", grades: grades8))
+            subjects.append(Subject(name: "Religia", grades: grades7))
+            subjects.append(Subject(name: "WF", grades: grades2))
+            
+        case 4:
+            
+            let grades1 = [
+                Grade(mark: 1, date: "14.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 4, date: "24.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "24.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 5, date: "12.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "05.01.2016", description: "Kartkówka II")
+            ]
+            let grades2 = [
+                Grade(mark: 3, date: "13.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 2, date: "21.09.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 2, date: "15.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 5, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "08.12.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 3, date: "08.01.2017", description: "Sprawdzian III"),
+                Grade(mark: 1, date: "01.02.2017", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć")
+            ]
+            let grades3 = [
+                Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 2, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 2, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 2, date: "05.12.2016", description: "Odpowiedź")
+            ]
+            let grades4 = [
+                Grade(mark: 1, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 2, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 3, date: "12.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 4, date: "19.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 5, date: "06.02.2017", description: "Odpowiedź")
+            ]
+            let grades5 = [
+                Grade(mark: 5, date: "11.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 4, date: "23.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "15.10.2016", description: "Kartkówka II"),
+                Grade(mark: 5, date: "05.12.2016", description: "Odpowiedź")
+            ]
+            let grades6 = [
+                Grade(mark: 5, date: "17.09.2016", description: "Sprawdzian I"),
+                Grade(mark: 5, date: "20.09.2016", description: "Kartkówka I"),
+                Grade(mark: 5, date: "01.10.2016", description: "Kartkówka II"),
+                Grade(mark: 5, date: "22.11.2016", description: "Sprawdzian II"),
+                Grade(mark: 5, date: "20.12.2016", description: "Odpowiedź")
+            ]
+            let grades7 = [
+                Grade(mark: 2, date: "05.10.2016", description: "Odpowiedź"),
+                Grade(mark: 4, date: "25.10.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 4, date: "19.11.2016", description: "Kartkówka"),
+                Grade(mark: 2, date: "19.01.2017", description: "Odpowiedź")
+            ]
+            let grades8 = [
+                Grade(mark: 5, date: "05.10.2016", description: "Odpowiedź"),
+                Grade(mark: 5, date: "25.10.2016", description: "Odpowiedź"),
+                Grade(mark: 5, date: "19.11.2016", description: "Kartkówka"),
+                Grade(mark: 5, date: "13.12.2016", description: "Odpowiedź ustna dotycząca trzech ostatnich zajęć"),
+                Grade(mark: 4, date: "11.01.2017", description: "Odpowiedź")
+            ]
+            
+            subjects.append(Subject(name: "Matematyka", grades: grades1))
+            subjects.append(Subject(name: "J. polski", grades: grades2))
+            subjects.append(Subject(name: "J. angielski", grades: grades8))
+            subjects.append(Subject(name: "WOS", grades: grades4))
+            subjects.append(Subject(name: "WDŻ", grades: grades5))
+            subjects.append(Subject(name: "Fizyka", grades: grades6))
+            subjects.append(Subject(name: "Chemia", grades: grades3))
+            subjects.append(Subject(name: "Biologia", grades: grades4))
+            subjects.append(Subject(name: "Historia", grades: grades1))
+            subjects.append(Subject(name: "Muzyka", grades: grades7))
+            subjects.append(Subject(name: "Informatyka", grades: grades8))
+            subjects.append(Subject(name: "Religia", grades: grades7))
+            subjects.append(Subject(name: "WF", grades: grades2))
+            
+        default:
+            return
+        }
     }
 
 }

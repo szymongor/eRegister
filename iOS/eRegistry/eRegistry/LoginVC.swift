@@ -91,7 +91,7 @@ class LoginVC: UIViewController {
         }
     }
     
-    private func tryGoToMenu(type: UserRole) {
+    private func tryGoToMenu(type: UserType) {
         guard let menuVC: MenuVC = UINib(nibName: "MenuVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? MenuVC else {
             return
         }

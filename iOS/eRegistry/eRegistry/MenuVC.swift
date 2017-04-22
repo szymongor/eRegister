@@ -29,8 +29,8 @@ class MenuVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func prepare(for type: UserRole) {
-        switch type {
+    func prepare(for userType: UserType) {
+        switch userType {
         case .student:
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "gradeMenuIcon"), description: "Oceny", type: .grades))
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "teacherMenuIcon"), description: "Wychowawca", type: .teacher))
@@ -45,6 +45,7 @@ class MenuVC: UIViewController {
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             print("Teacher")
         default:
+            menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             print("Default")
         }
     }
@@ -62,19 +63,6 @@ class MenuVC: UIViewController {
         self.title = "Menu"
         
         self.navigationItem.hidesBackButton = true
-    }
-
-    func initMenuItems() {
-        
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "gradeMenuIcon"), description: "Oceny", type: .grades))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "teacherMenuIcon"), description: "Wychowawca", type: .teacher))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "infoMenuIcon"), description: "Informacje", type: .settings))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
-        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
-//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Telefon", type: .phone))
-//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Adres", type: .address))
-//        menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "logoIcon"), description: "Email", type: .email))
-        
     }
     
 }
@@ -110,7 +98,7 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
             goToEducator()
         case .settings:
             print("Ustawienia")
-            goToSettings()
+            goToSettings(for: User.instance.roleType)
         case .children:
             print("Podopieczni")
             goToChildren()
@@ -125,6 +113,8 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         guard let gradeVC = UINib(nibName: "GradesVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? GradesVC else {
             return
         }
+        let student = Student(id: User.instance.id, name: "", surname: "")
+        gradeVC.prepare(for: student)
         navigationController?.pushViewController(gradeVC, animated: true)
     }
     
@@ -137,18 +127,19 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
         navigationController?.pushViewController(educatorVC, animated: true)
     }
     
-    private func goToSettings() {
+    private func goToSettings(for userType: UserType) {
         guard let settingsVC = UINib(nibName: "SettingsVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? SettingsVC else {
             return
         }
+        settingsVC.prepare(for: userType)
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     private func goToChildren() {
-//        guard let childrenVC = UINib(nibName: "ChildrenVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? ChildrenVC else {
-//            return
-//        }
-//        self.navigationController?.pushViewController(childrenVC, animated: true)
+        guard let childrenVC = UINib(nibName: "ChildrenVC", bundle: nil).instantiate(withOwner: self, options: nil).first as? ChildrenVC else {
+            return
+        }
+        self.navigationController?.pushViewController(childrenVC, animated: true)
     }
     
     private func logout() {
