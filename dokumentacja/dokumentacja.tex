@@ -368,4 +368,43 @@ Przedstawione diagramy zostały przygotowane z użyciem darmowego edytora \texti
 	\end{itemize}	
 \end{enumerate}
 
+
+\section{Serwer}
+
+\subsection{Technologia}
+Usługa została napisana w języku Java, framework Spring Boot. Użyliśmy Spring Boota ze względu na dobrą dokumentacje oraz stosunkowo krótki czas konfiguracji. System logowania oparty jest na tokenach w standardzie JSON Web Token, jest to standard wolnego dostępu, dobrze udokumentowany.
+
+\subsection{Narzędzia}
+
+Korzystamy ze środowiska IntelliJ do programowania serwisu. Do komunikacji z serwerem wykorzystujemy wtyczkę do przeglądarki Google Chrome - Postman.
+
+\subsection{Opis endpointów}
+
+Z aplikacją serwerową można komunikować się poprzez restowe API.
+
+Endpointy:
+
+\begin{enumerate}
+
+	\item "/auth" \\
+	Opis: Generuje token do autoryzacji zapytań do serwisu na podstawie logina i hasła użytkownika.\\
+		Metoda: POST\\
+		Body: "\{"login":"login", "password":"password"\}"\\ (klasa JwtCredentials)
+		Odpowiedź: \{"status":"status odpowiedzi", "token":"token"\}\\
+		(klasa JwtAuthenticationResponse)
+	
+	\item "/Lessons" \\
+	Opis: Lista wszystkich lekcji
+	Metoda: POST \\
+	Header: \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: \{"status":"status odpowiedzi","lessons":[(tablica lekcji)]\}
+	
+
+\end{enumerate}
+
+\subsection{Opis usługi}
+
+Do aplikacji można się logować jako uczeń ('STUDENT'), opiekun ('GUARDIAN'), nauczyciel ('TEACHER'). Każda z ról ma różny dostęp do API, dostęp do endopintu jest ustawiany za pomocą adnotacji @PreAuthorize("hasRole('TEACHER')").
+
+
 \end{document}
