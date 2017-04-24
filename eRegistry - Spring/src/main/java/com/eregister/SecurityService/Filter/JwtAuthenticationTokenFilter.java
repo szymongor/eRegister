@@ -1,12 +1,9 @@
 package com.eregister.SecurityService.Filter;
 
-import com.eregister.SecurityService.AuthorizationService;
-import com.eregister.SecurityService.Model.JwtAuthority;
-import com.eregister.SecurityService.Token.TokenUtils;
+import com.eregister.SecurityService.Service.AuthorizationService;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -16,9 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by Szymon on 08.04.2017.

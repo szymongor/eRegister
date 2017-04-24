@@ -1,4 +1,4 @@
-package com.eregister.UserService.Controller;
+package com.eregister.UserService;
 
 import com.eregister.UserService.Entity.EregUser;
 import com.eregister.UserService.Model.UsersListResponse;

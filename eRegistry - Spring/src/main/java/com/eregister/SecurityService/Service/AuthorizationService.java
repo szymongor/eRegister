@@ -1,4 +1,4 @@
-package com.eregister.SecurityService;
+package com.eregister.SecurityService.Service;
 
 import com.eregister.SecurityService.Model.JwtCredentials;
 import com.eregister.SecurityService.Token.TokenUtils;

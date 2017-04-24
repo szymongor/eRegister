@@ -1,10 +1,9 @@
-package com.eregister.SecurityService.Controller;
+package com.eregister.SecurityService;
 
-import com.eregister.SecurityService.AuthorizationService;
+import com.eregister.SecurityService.Service.AuthorizationService;
 import com.eregister.SecurityService.Model.ErrorResponse;
 import com.eregister.SecurityService.Model.JwtAuthenticationResponse;
 import com.eregister.SecurityService.Model.JwtCredentials;
-import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;

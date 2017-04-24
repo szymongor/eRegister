@@ -1,4 +1,4 @@
-package com.eregister.LessonsService;
+package com.eregister.LessonsService.Service;
 
 import com.eregister.LessonsService.DAO.LessonsDAO;
 import com.eregister.LessonsService.Entity.Lesson;
