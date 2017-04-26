@@ -30,7 +30,7 @@ public class AuthorizationService {
             user = eregUserService.getEregUserByLogin(login);
         }
         catch (Exception e){
-            throw new SecurityException("No such user");
+            throw new SecurityException(e.getMessage());
         }
 
         if(!user.getPassword().equals(password)){

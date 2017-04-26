@@ -31,9 +31,47 @@ public class EregUserController
         return usersListResponse;
     }
 
+    @RequestMapping(value ="/enables",method = RequestMethod.GET)
+    @PreAuthorize("hasRole('TEACHER')")
+    public UsersListResponse getAllEnableEregUsers(){
+        UsersListResponse usersListResponse =
+                new UsersListResponse(eregUserService.getAllEnableEregUsers(), "Ok");
+
+        return usersListResponse;
+    }
+    @RequestMapping(value ="/teachers",method = RequestMethod.GET)
+    @PreAuthorize("hasRole('TEACHER')")
+    public UsersListResponse getAllTeachersEregUsers(){
+        UsersListResponse usersListResponse =
+                new UsersListResponse(eregUserService.getAllTeachersEregUsers(), "Ok");
+
+        return usersListResponse;
+    }
+    @RequestMapping(value ="/guardians",method = RequestMethod.GET)
+    @PreAuthorize("hasRole('TEACHER')")
+    public UsersListResponse getAllGuardiansEregUsers(){
+        UsersListResponse usersListResponse =
+                new UsersListResponse(eregUserService.getAllGuardiansEregUsers(), "Ok");
+
+        return usersListResponse;
+    }
+    @RequestMapping(value ="/students",method = RequestMethod.GET)
+    @PreAuthorize("hasRole('TEACHER')")
+    public UsersListResponse getAllStudentsEregUsers(){
+        UsersListResponse usersListResponse =
+                new UsersListResponse(eregUserService.getAllStudentsEregUsers(), "Ok");
+
+        return usersListResponse;
+    }
+
     @RequestMapping(value ="/{id}",method = RequestMethod.GET)
     public EregUser getEregUserById(@PathVariable("id") int id){
         return eregUserService.getEregUserById(id);
+    }
+
+    @RequestMapping(value ="/person/{id}",method = RequestMethod.GET)
+    public EregUser getEregUserByIdPerson(@PathVariable("id") int id){
+        return eregUserService.getEregUserByIdPerson(id);
     }
 
     @RequestMapping(value ="/{id}",method = RequestMethod.DELETE)
@@ -52,5 +90,10 @@ public class EregUserController
     public String insertEregUserById(@RequestBody EregUser eregUser){
         eregUserService.insertEregUser(eregUser);
         return "Ereg User inserted!";
+    }
+
+    @RequestMapping(value ="/activeUsers/{isActive}",method = RequestMethod.GET)
+    public Collection<EregUser> myNewTestFunction(@PathVariable("isActive") boolean isActive){
+        return eregUserService.myNewTestFunction(isActive);
     }
 }
