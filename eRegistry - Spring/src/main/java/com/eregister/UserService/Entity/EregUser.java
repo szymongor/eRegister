@@ -21,7 +21,7 @@ public class EregUser {
         this.isEnable = isEnable;
     }
 
-    public EregUser() {
+    public EregUser(){
 
     }
 
@@ -69,7 +69,7 @@ public class EregUser {
         return isEnable;
     }
 
-    public void setEnable(boolean isEnable) {
+    public void setEnable( boolean isEnable) {
         this.isEnable = isEnable;
     }
 }

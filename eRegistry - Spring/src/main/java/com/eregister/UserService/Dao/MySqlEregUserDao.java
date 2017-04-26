@@ -30,21 +30,9 @@ public class MySqlEregUserDao implements EregUserDao {
             eregUser.setId(resultSet.getInt("id"));
             eregUser.setLogin(resultSet.getString("login"));
             eregUser.setPassword(resultSet.getString("password"));
-            eregUser.setRole("ROLE_STUDENT,ROLE_TEACHER");
+            eregUser.setRole("teacher");
             eregUser.setLastPasswordResetDate(resultSet.getString("last_password_reset_date"));
             eregUser.setEnable(resultSet.getBoolean("enabled"));
-            /*
-            String role ="";
-            if(resultSet.getInt("students") != 0){
-                role += "ROLE_STUDENT";
-            }
-            if(resultSet.getInt("guardians") != 0){
-                role += " | ROLE_GUARDIAN";
-            }
-            if(resultSet.getInt("teachers") != 0){
-                role += " | ROLE_TEACHER";
-            }
-            */
             return eregUser;
         }
     }
