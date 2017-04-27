@@ -22,7 +22,7 @@ public class JwtUserDetails implements UserDetails{
         String roles = claims.get("roles").toString();
         String[] splitedRoles = roles.split(",");
         for(String role : splitedRoles){
-            JwtAuthority jwtAuthority = new JwtAuthority(role);
+            JwtAuthority jwtAuthority = new JwtAuthority("ROLE_" + role);
             authorities.add(jwtAuthority);
         }
     }

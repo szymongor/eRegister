@@ -26,9 +26,7 @@ public interface EregUserDao {
 
     void removeEregUserById(int id);
 
-    void updateEregStudent(EregUser eregUser);
+    void updateEregUser(EregUser eregUser);
 
-    void insertEregStudent(EregUser eregUser);
-
-    Collection<EregUser> myNewTestFunction(boolean isActive);
+    void insertEregUser(EregUser eregUser);
 }

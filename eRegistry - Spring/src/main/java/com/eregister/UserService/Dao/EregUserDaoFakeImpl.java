@@ -79,19 +79,13 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public void updateEregStudent(EregUser eregUser){
+    public void updateEregUser(EregUser eregUser){
         allUsers.put(eregUser.getId(),eregUser);
     }
 
     @Override
-    public void insertEregStudent(EregUser eregUser){
+    public void insertEregUser(EregUser eregUser){
         allUsers.put(eregUser.getId(),eregUser);
     }
-
-    @Override
-    public Collection<EregUser> myNewTestFunction(boolean isActive) {
-        return null;
-    }
-
 
 }

@@ -1,7 +1,6 @@
 package com.eregister.UserService.Service;
 
 import com.eregister.UserService.Dao.EregUserDao;
-import com.eregister.UserService.Dao.EregUserDaoFakeImpl;
 import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,15 +54,10 @@ public class EregUserService {
     }
 
     public void updateEregUser(EregUser eregUser){
-        eregUserDao.updateEregStudent(eregUser);
+        eregUserDao.updateEregUser(eregUser);
     }
 
     public void insertEregUser(EregUser eregUser){
-        eregUserDao.insertEregStudent(eregUser);
+        eregUserDao.insertEregUser(eregUser);
     }
-
-    public Collection<EregUser> myNewTestFunction(boolean isActive){
-        return  eregUserDao.myNewTestFunction(isActive);
-    }
-
 }
