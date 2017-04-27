@@ -42,6 +42,7 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
         attends.add(new AbstractMap.SimpleEntry<>(3,4));
         attends.add(new AbstractMap.SimpleEntry<>(3,5));
         attends.add(new AbstractMap.SimpleEntry<>(3,6));
+
     }
 
 

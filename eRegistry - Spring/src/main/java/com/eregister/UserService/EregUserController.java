@@ -1,14 +1,18 @@
 package com.eregister.UserService;
 
+import com.eregister.SecurityService.Model.ErrorResponse;
 import com.eregister.UserService.Entity.EregUser;
+import com.eregister.UserService.Model.UserResponse;
 import com.eregister.UserService.Model.UsersListResponse;
 import com.eregister.UserService.Service.EregUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
@@ -64,9 +68,17 @@ public class EregUserController
         return usersListResponse;
     }
 
-    @RequestMapping(value ="/{id}",method = RequestMethod.GET)
-    public EregUser getEregUserById(@PathVariable("id") int id){
-        return eregUserService.getEregUserById(id);
+    @RequestMapping(value ="/id={id}",method = RequestMethod.GET)
+    public Serializable getEregUserById(@PathVariable("id") int id){
+        Serializable response;
+        try{
+            EregUser eregUser = eregUserService.getEregUserById(id);
+            response = new UserResponse(eregUser, "OK");
+        }
+        catch(EmptyResultDataAccessException e){
+            response = new ErrorResponse("Error", "No user with such id");
+        }
+        return response;
     }
 
     @RequestMapping(value ="/person/{id}",method = RequestMethod.GET)
