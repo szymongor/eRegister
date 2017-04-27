@@ -74,6 +74,11 @@ public class EregUserController
         return eregUserService.getEregUserByIdPerson(id);
     }
 
+    @RequestMapping(value ="/login={login}",method = RequestMethod.GET)
+    public EregUser getEregUserByLogin(@PathVariable("login") String login){
+        return eregUserService.getEregUserByLogin(login);
+    }
+
     @RequestMapping(value ="/{id}",method = RequestMethod.DELETE)
     public String removeEregUserById(@PathVariable("id") int id){
         eregUserService.removeEregUserById(id);

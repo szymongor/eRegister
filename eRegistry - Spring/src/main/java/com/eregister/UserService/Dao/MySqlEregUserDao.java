@@ -1,5 +1,9 @@
 package com.eregister.UserService.Dao;
 
+import com.eregister.UserService.Dao.RowMappers.EregUserRowMapper;
+import com.eregister.UserService.Dao.RowMappers.GuardianRowMapper;
+import com.eregister.UserService.Dao.RowMappers.StudentRowMapper;
+import com.eregister.UserService.Dao.RowMappers.TeacherRowMappper;
 import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.validation.constraints.Null;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,22 +27,6 @@ public class MySqlEregUserDao implements EregUserDao {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-
-    static class EregUserRowMapper implements RowMapper<EregUser>{
-
-        @Override
-        public EregUser mapRow(ResultSet resultSet, int i) throws SQLException {
-            EregUser eregUser = new EregUser();
-            eregUser.setId(resultSet.getInt("id"));
-            eregUser.setLogin(resultSet.getString("login"));
-            eregUser.setPassword(resultSet.getString("password"));
-            eregUser.addRole("TEACHER");
-            eregUser.addRole("USER");
-            eregUser.setLastPasswordResetDate(resultSet.getString("last_password_reset_date"));
-            eregUser.setEnable(resultSet.getBoolean("enabled"));
-            return eregUser;
-        }
-    }
 
     @Override
     public Collection<EregUser> getAllEregUsers() {
@@ -59,7 +48,7 @@ public class MySqlEregUserDao implements EregUserDao {
     public Collection<EregUser> getAllTeachersEregUsers() {
         // SELECT column_name(s) FROM table_name where column = value
         final String sql = Queries.GET_ALL_TEACHERS_EREG_USERS;
-        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new TeacherRowMappper());
         return eregUsers;
     }
 
@@ -67,7 +56,7 @@ public class MySqlEregUserDao implements EregUserDao {
     public Collection<EregUser> getAllGuardiansEregUsers() {
         // SELECT column_name(s) FROM table_name where column = value
         final String sql = Queries.GET_ALL_GUARDIANS_EREG_USERS;
-        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new GuardianRowMapper());
         return eregUsers;
     }
 
@@ -75,7 +64,7 @@ public class MySqlEregUserDao implements EregUserDao {
     public Collection<EregUser> getAllStudentsEregUsers() {
         // SELECT column_name(s) FROM table_name where column = value
         final String sql = Queries.GET_ALL_STUDENTS_EREG_USERS;
-        List<EregUser> eregUsers = jdbcTemplate.query(sql, new EregUserRowMapper());
+        List<EregUser> eregUsers = jdbcTemplate.query(sql, new StudentRowMapper());
         return eregUsers;
     }
 
