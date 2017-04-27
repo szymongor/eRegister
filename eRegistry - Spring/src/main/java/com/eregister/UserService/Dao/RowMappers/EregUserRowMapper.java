@@ -22,6 +22,7 @@ public class EregUserRowMapper implements RowMapper<EregUser> {
 //            eregUser.addRole("USER");
         eregUser.setLastPasswordResetDate(resultSet.getString("last_password_reset_date"));
         eregUser.setEnable(resultSet.getBoolean("enabled"));
+        eregUser.setIdPerson(resultSet.getInt("id_person"));
         return eregUser;
     }
 

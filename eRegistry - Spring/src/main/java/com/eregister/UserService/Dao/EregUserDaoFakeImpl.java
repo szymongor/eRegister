@@ -25,10 +25,10 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     static{
         allUsers = new HashMap<Integer, EregUser>(){
             {
-                put(1, new EregUser(1, "Adam", "12345678", "teacher", "2017.04.19", true));
-                put(2, new EregUser(2, "Kasia", "12345678", "teacher", "2017.04.19", true));
-                put(3, new EregUser(3, "Marta", "12345678", "teacher", "2017.04.19", true));
-                put(4, new EregUser(4, "Marta", "12345678", "teacher", "2017.04.19", true));
+                put(1, new EregUser(1, "Adam", "12345678", "teacher", "2017.04.19", true, 3));
+                put(2, new EregUser(2, "Kasia", "12345678", "teacher", "2017.04.19", true, 4));
+                put(3, new EregUser(3, "Marta", "12345678", "teacher", "2017.04.19", true, 5));
+                put(4, new EregUser(4, "Marta", "12345678", "teacher", "2017.04.19", true, 6));
             }
         };
     }
@@ -74,12 +74,17 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
+    public void removeEregUserByLogin(String login) {
+        allUsers.remove(login);
+    }
+
+    @Override
     public EregUser getEregUserByLogin(String login) {
         return null;
     }
 
     @Override
-    public void updateEregUser(EregUser eregUser){
+    public void updatePasswordEregUser(EregUser eregUser){
         allUsers.put(eregUser.getId(),eregUser);
     }
 

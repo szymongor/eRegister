@@ -14,14 +14,17 @@ public class EregUser {
     String roles;
     String lastPasswordResetDate;
     boolean isEnable;
+    int idPerson;
 
-    public EregUser(int id, String login, String password, String roles, String lastPasswordResetDate, boolean isEnable) {
+    public EregUser(int id, String login, String password, String roles, String lastPasswordResetDate,
+                    boolean isEnable, int idPerson) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.roles = roles;
         this.lastPasswordResetDate = lastPasswordResetDate;
         this.isEnable = isEnable;
+        this.idPerson = idPerson;
     }
 
     public EregUser(){
@@ -75,6 +78,10 @@ public class EregUser {
     public void setEnable( boolean isEnable) {
         this.isEnable = isEnable;
     }
+
+    public int getIdPerson() { return idPerson; }
+
+    public void setIdPerson( int idPerson ) { this.idPerson = idPerson; }
 
     public void addRole(String role){
         if("".equals(roles)){

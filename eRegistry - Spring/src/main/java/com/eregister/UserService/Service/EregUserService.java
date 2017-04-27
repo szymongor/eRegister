@@ -53,8 +53,12 @@ public class EregUserService {
         eregUserDao.removeEregUserById(id);
     }
 
-    public void updateEregUser(EregUser eregUser){
-        eregUserDao.updateEregUser(eregUser);
+    public void removeEregUserByLogin(String login) {
+        eregUserDao.removeEregUserByLogin(login);
+    }
+
+    public void updatePasswordEregUser(EregUser eregUser){
+        eregUserDao.updatePasswordEregUser(eregUser);
     }
 
     public void insertEregUser(EregUser eregUser){

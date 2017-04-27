@@ -98,15 +98,17 @@ public class MySqlEregUserDao implements EregUserDao {
     }
 
     @Override
-    public void updateEregUser(EregUser eregUser) {
-        // UPDATE table_name
-        // SET column1=value, column2=value2,...
-        // WHERE some_column=some_value
-        final String sql = Queries.UPDATE_EREG_USER;
-        final int id = eregUser.getId();
+    public void removeEregUserByLogin(String login) {
+        final String sql = Queries.REMOVE_EREG_USER_BY_LOGIN;
+        jdbcTemplate.update(sql, login);
+    }
+
+    @Override
+    public void updatePasswordEregUser(EregUser eregUser) {
+        final String sql = Queries.UPDATE_PASSWORD_EREG_USER;
         final String login = eregUser.getLogin();
         final String password = eregUser.getPassword();
-        jdbcTemplate.update(sql, new Object[]{login, password, id});
+        jdbcTemplate.update(sql, new Object[]{password, login});
     }
 
     @Override
@@ -116,6 +118,9 @@ public class MySqlEregUserDao implements EregUserDao {
         final String sql = Queries.INSERT_EREG_USER;
         final String login = eregUser.getLogin();
         final String password = eregUser.getPassword();
-        jdbcTemplate.update(sql, new Object[]{login, password});
+        final String last_password_reset_date = eregUser.getLastPasswordResetDate();
+        final Boolean enabled = eregUser.getEnable();
+        final int id_person = eregUser.getIdPerson();
+        jdbcTemplate.update(sql, new Object[]{login, password, last_password_reset_date, enabled, id_person});
     }
 }

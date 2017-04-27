@@ -85,14 +85,21 @@ public class EregUserController
         return "Ereg user deleted";
     }
 
+    @RequestMapping(value ="/login={login}",method = RequestMethod.DELETE)
+    public String removeEregUserByLogin(@PathVariable("login") String login){
+        eregUserService.removeEregUserByLogin(login);
+        return "Ereg user deleted";
+    }
+
+    // zmienić update -> Szymek
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String updateEregUserById(@RequestBody EregUser eregUser){
-        eregUserService.updateEregUser(eregUser);
+    public String updatePasswordEregUser(@RequestBody EregUser eregUser){
+        eregUserService.updatePasswordEregUser(eregUser);
         return "Ereg User updated!";
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String insertEregUserById(@RequestBody EregUser eregUser){
+    public String insertEregUser(@RequestBody EregUser eregUser){
         eregUserService.insertEregUser(eregUser);
         return "Ereg User inserted!";
     }

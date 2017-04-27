@@ -26,7 +26,9 @@ public interface EregUserDao {
 
     void removeEregUserById(int id);
 
-    void updateEregUser(EregUser eregUser);
+    void removeEregUserByLogin(String login);
+
+    void updatePasswordEregUser(EregUser eregUser);
 
     void insertEregUser(EregUser eregUser);
 }

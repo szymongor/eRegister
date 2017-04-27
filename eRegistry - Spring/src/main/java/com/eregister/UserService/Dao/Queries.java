@@ -34,6 +34,8 @@ public class Queries {
     static final String GET_EREG_USER_BY_ID_PERSON = GET_ALL_ENABLE_EREG_USERS + "where USERS.id_person = ?";
     static final String GET_EREG_USER_BY_LOGIN = GET_ALL_EREG_USERS + "WHERE USERS.login = ?";
     static final String REMOVE_EREG_USER_BY_ID = "DELETE FROM USERS WHERE id = ?";
-    static final String UPDATE_EREG_USER = "UPDATE USERS SET login = ?, password = ? WHERE id = ?";
-    static final String INSERT_EREG_USER = "INSERT INTO USERS (login, password) VALUES (?, ?, ?)"; // ZMIENIĆ !!!!!
+    static final String REMOVE_EREG_USER_BY_LOGIN = "DELETE from USERS where login = ?";
+    static final String UPDATE_PASSWORD_EREG_USER = "UPDATE USERS SET password = ? WHERE login = ?";
+    static final String INSERT_EREG_USER = "INSERT INTO USERS (login, password, last_password_reset_date, enabled, " +
+            "id_person) VALUES (?, ?, ?, ?, ?)";
 }
