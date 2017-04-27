@@ -31,7 +31,8 @@ public class MySqlEregUserDao implements EregUserDao {
             eregUser.setId(resultSet.getInt("id"));
             eregUser.setLogin(resultSet.getString("login"));
             eregUser.setPassword(resultSet.getString("password"));
-            eregUser.setRoles("TEACHER");
+            eregUser.addRole("TEACHER");
+            eregUser.addRole("USER");
             eregUser.setLastPasswordResetDate(resultSet.getString("last_password_reset_date"));
             eregUser.setEnable(resultSet.getBoolean("enabled"));
             return eregUser;

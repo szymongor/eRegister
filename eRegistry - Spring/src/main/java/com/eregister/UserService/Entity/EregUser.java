@@ -25,6 +25,7 @@ public class EregUser {
     }
 
     public EregUser(){
+        this.roles = "";
     }
 
     public int getId() {
@@ -73,5 +74,14 @@ public class EregUser {
 
     public void setEnable( boolean isEnable) {
         this.isEnable = isEnable;
+    }
+
+    public void addRole(String role){
+        if("".equals(roles)){
+            roles+=role;
+        }
+        else{
+            roles+=","+role;
+        }
     }
 }
