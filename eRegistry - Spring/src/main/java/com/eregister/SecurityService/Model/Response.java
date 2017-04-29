@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Szymon on 12.04.2017.
  */
-public class ErrorResponse implements Serializable {
+public class Response implements Serializable {
 
     private static final long serialVersionUID = 23L;
 
@@ -13,7 +13,7 @@ public class ErrorResponse implements Serializable {
 
     private final String message;
 
-    public ErrorResponse(String status, String message) {
+    public Response(String status, String message) {
         this.status = status;
         this.message = message;
     }

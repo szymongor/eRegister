@@ -1,6 +1,6 @@
 package com.eregister.UserService;
 
-import com.eregister.SecurityService.Model.ErrorResponse;
+import com.eregister.SecurityService.Model.Response;
 import com.eregister.UserService.Entity.EregUser;
 import com.eregister.UserService.Model.UserResponse;
 import com.eregister.UserService.Model.UsersListResponse;
@@ -11,9 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * Created by Szymon on 07.04.2017.
@@ -34,7 +32,7 @@ public class EregUserController
             response = new UsersListResponse(eregUserService.getAllEregUsers(), "Ok");
         }
         catch (Exception e) {
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -47,7 +45,7 @@ public class EregUserController
             response = new UsersListResponse(eregUserService.getAllEnableEregUsers(), "Ok");
         }
         catch (Exception e) {
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -60,7 +58,7 @@ public class EregUserController
             response = new UsersListResponse(eregUserService.getAllTeachersEregUsers(), "Ok");
         }
         catch (Exception e) {
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -73,7 +71,7 @@ public class EregUserController
             response = new UsersListResponse(eregUserService.getAllGuardiansEregUsers(), "Ok");
         }
         catch (Exception e) {
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -86,7 +84,7 @@ public class EregUserController
             response = new UsersListResponse(eregUserService.getAllStudentsEregUsers(), "Ok");
         }
         catch (Exception e){
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
 
         return response;
@@ -100,10 +98,10 @@ public class EregUserController
             response = new UserResponse(eregUser, "OK");
         }
         catch(EmptyResultDataAccessException e){
-            response = new ErrorResponse("Error", "No user with such id");
+            response = new Response("Error", "No user with such id");
         }
         catch (Exception e){
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -116,10 +114,10 @@ public class EregUserController
             response = new UserResponse(eregUser, "OK");
         }
         catch(EmptyResultDataAccessException e){
-            response = new ErrorResponse("Error", "No user with such id");
+            response = new Response("Error", "No user with such id");
         }
         catch (Exception e){
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
@@ -132,36 +130,64 @@ public class EregUserController
             response = new UserResponse(eregUser, "OK");
         }
         catch(EmptyResultDataAccessException e){
-            response = new ErrorResponse("Error", "No user with such id");
+            response = new Response("Error", "No user with such id");
         }
         catch (Exception e){
-            response = new ErrorResponse("Error", "Internal error");
+            response = new Response("Error", "Internal error");
         }
         return response;
     }
 
     @RequestMapping(value ="/id={id}",method = RequestMethod.DELETE)
-    public String removeEregUserById(@PathVariable("id") int id){
-        eregUserService.removeEregUserById(id);
-        return "Ereg user deleted";
+    public Serializable removeEregUserById(@PathVariable("id") int id){
+        Serializable response;
+        try{
+            eregUserService.removeEregUserById(id);
+            response = new Response("Ok","Removed eReg user id:" + id);
+        }
+        catch (Exception e){
+            response = new Response("Error", "Internal error");
+        }
+        return response;
     }
 
     @RequestMapping(value ="/login={login}",method = RequestMethod.DELETE)
-    public String removeEregUserByLogin(@PathVariable("login") String login){
-        eregUserService.removeEregUserByLogin(login);
-        return "Ereg user deleted";
+    public Serializable removeEregUserByLogin(@PathVariable("login") String login){
+        Serializable response;
+        try{
+            eregUserService.removeEregUserByLogin(login);
+            response = new Response("Ok","Removed eReg user login:" + login);
+        }
+        catch (Exception e){
+            response = new Response("Error", "Internal error");
+        }
+        return response;
     }
 
     // zmienić update -> Szymek
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String updatePasswordEregUser(@RequestBody EregUser eregUser){
-        eregUserService.updatePasswordEregUser(eregUser);
-        return "Ereg User updated!";
+    public Serializable updatePasswordEregUser(@RequestBody EregUser eregUser){
+        Serializable response;
+        try{
+            eregUserService.updatePasswordEregUser(eregUser);
+            response = new Response("Ok","Updated user password");
+        }
+        catch (Exception e){
+            response = new Response("Error", "Internal error");
+        }
+        return response;
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String insertEregUser(@RequestBody EregUser eregUser){
-        eregUserService.insertEregUser(eregUser);
-        return "Ereg User inserted!";
+    public Serializable insertEregUser(@RequestBody EregUser eregUser){
+        Serializable response;
+        try{
+            eregUserService.insertEregUser(eregUser);
+            response = new Response("Ok","Inserted user");
+        }
+        catch (Exception e){
+            response = new Response("Error", "Internal error");
+        }
+        return response;
     }
 }

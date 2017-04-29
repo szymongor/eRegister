@@ -1,7 +1,7 @@
 package com.eregister.SecurityService;
 
 import com.eregister.SecurityService.Service.AuthorizationService;
-import com.eregister.SecurityService.Model.ErrorResponse;
+import com.eregister.SecurityService.Model.Response;
 import com.eregister.SecurityService.Model.JwtAuthenticationResponse;
 import com.eregister.SecurityService.Model.JwtCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +33,10 @@ public class AuthorizationController {
             response = new JwtAuthenticationResponse(token,"Ok");
         }
         catch (SecurityException e){
-            response = new ErrorResponse("Security error", e.getMessage());
+            response = new Response("Security error", e.getMessage());
         }
         catch (Exception e){
-            response = new ErrorResponse("Internal error", e.getMessage());
+            response = new Response("Internal error", e.getMessage());
         }
         return response;
     }
