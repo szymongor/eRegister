@@ -32,7 +32,7 @@ public class TokenUtils {
     //@Value("${jwt.expiration}")
     static private Long expiration = 604800L;
 
-    public String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
+    public static String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
         String id = Integer.toString(eregUser.getId());
         String login = eregUser.getLogin();
         String roles = eregUser.getRoles();
@@ -51,21 +51,27 @@ public class TokenUtils {
         return jwt;
     }
 
-    private Date generateExpirationDate() {
+    private static Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
-    public Claims verifyToken(String token){
+    public static Claims verifyToken(String token){
         Claims claims = Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token).getBody();
         return claims;
     }
 
-    public UserDetails userDetailsFromToken(String token){
+    public static UserDetails userDetailsFromToken(String token){
         Claims claims = verifyToken(token);
         UserDetails userDetails = new JwtUserDetails(claims);
         return userDetails;
+    }
+
+    public static String getLoginFromToken(String token){
+        UserDetails userDetails = userDetailsFromToken(token);
+        String login = userDetails.getUsername();
+        return login;
     }
 
 }

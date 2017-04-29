@@ -1,7 +1,10 @@
 package com.eregister.UserService;
 
 import com.eregister.SecurityService.Model.Response;
+import com.eregister.SecurityService.Token.TokenUtils;
 import com.eregister.UserService.Entity.EregUser;
+import com.eregister.UserService.Model.NewPasswordRequest;
+import com.eregister.UserService.Model.NewPasswordResponse;
 import com.eregister.UserService.Model.UserResponse;
 import com.eregister.UserService.Model.UsersListResponse;
 import com.eregister.UserService.Service.EregUserService;
@@ -165,12 +168,20 @@ public class EregUserController
     }
 
     // zmienić update -> Szymek
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updatePasswordEregUser(@RequestBody EregUser eregUser){
+    @RequestMapping(value ="/newPassword",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Serializable updatePasswordEregUser(@RequestBody NewPasswordRequest newPasswordRequest,
+                                               @RequestHeader(value="Authorization")String token){
         Serializable response;
         try{
-            eregUserService.updatePasswordEregUser(eregUser);
-            response = new Response("Ok","Updated user password");
+            String login = TokenUtils.getLoginFromToken(token);
+            //eregUserService.updatePasswordEregUser(newPasswordRequest, login);
+            EregUser eregUser = eregUserService.getEregUserByLogin(login);
+            String newToken = TokenUtils.generateToken(eregUser);
+            response = new NewPasswordResponse("Ok","Login: " + login
+                    +", new pass: " + newPasswordRequest.getNewPassword(),
+                    newToken);
         }
         catch (Exception e){
             response = new Response("Error", "Internal error");
