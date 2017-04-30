@@ -1,8 +1,6 @@
 package com.eregister.LessonsService.DAO;
 
 import com.eregister.LessonsService.Entity.Lesson;
-import com.eregister.UserService.Entity.EregUser;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +12,7 @@ import java.util.*;
 
 @Repository
 @Qualifier("fakeLessons")
-public class LessonsDaoFakeImpl implements LessonsDAO{
+public class LessonsDaoFakeImpl implements LessonsDao {
 
 
     static Map<Integer, Lesson> lessons;
@@ -23,12 +21,12 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
     static{
         lessons = new HashMap<Integer, Lesson>(){
             {
-                put(1, new Lesson(1, 2010, 1,"Polski"));
-                put(2, new Lesson(2, 2010, 1,"Matematyka"));
-                put(3, new Lesson(3, 2010, 1,"WF"));
-                put(4, new Lesson(4, 2010, 2,"Polski"));
-                put(5, new Lesson(5, 2010, 2,"Historia"));
-                put(6, new Lesson(6, 2010, 2,"Przyroda"));
+                put(1, new Lesson(1, "2010/2011", "letni",1,1,1));
+                put(2, new Lesson(2, "2010/2011", "letni",2,2,2));
+                put(3, new Lesson(3, "2010/2011", "letni",3,3,3));
+                put(4, new Lesson(4, "2010/2011", "zimowy",1,1,2));
+                put(5, new Lesson(5, "2010/2011", "zimowy",1,2,1));
+                put(6, new Lesson(6, "2010/2011", "zimowy",2,1,4));
             }
         };
 
@@ -53,20 +51,43 @@ public class LessonsDaoFakeImpl implements LessonsDAO{
     }
 
     @Override
+    public Collection<Lesson> getLessonsLeadsByTeacher(int idTeacher) {
+        return null;
+    }
+
+    @Override
+    public Collection<Lesson> getLessonsByAttendingGroup(int idGroup) {
+        return null;
+    }
+
+    @Override
+    public Collection<Lesson> getLessonsAboutSubject(int idSubject) {
+        return null;
+    }
+
+    @Override
     public Lesson getLessonById(int id) {
         return lessons.get(id);
     }
 
     @Override
-    public Collection<Lesson> getLessonsByStudentAttending(int studentId) {
-        Collection<Lesson> lessons = new ArrayList<Lesson>();
+    public void removeLessonById(int id) {
 
-        for(Map.Entry<Integer,Integer> attend : attends){
-            if(attend.getKey() == studentId){
-                lessons.add(getLessonById(attend.getValue()));
-            }
-
-        }
-        return lessons;
     }
+
+    @Override
+    public void updateTeacher(Lesson lesson) {
+
+    }
+
+    @Override
+    public void updateSemester(Lesson lesson) {
+
+    }
+
+    @Override
+    public void insertLesson(Lesson lesson) {
+
+    }
+
 }

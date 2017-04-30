@@ -1,13 +1,10 @@
 package com.eregister.LessonsService.Service;
 
-import com.eregister.LessonsService.DAO.LessonsDAO;
+import com.eregister.LessonsService.DAO.LessonsDao;
 import com.eregister.LessonsService.Entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Collection;
 
@@ -20,14 +17,14 @@ public class LessonsService {
 
     @Autowired
     @Qualifier("fakeLessons")
-    LessonsDAO lessonsDAO;
+    LessonsDao lessonsDao;
 
     public Collection<Lesson> getAllLessons(){
-        return lessonsDAO.getAllLessons();
+        return lessonsDao.getAllLessons();
     }
 
     public Collection<Lesson> getLessonsByStudentAttending(int idStudent){
-        return lessonsDAO.getLessonsByStudentAttending(idStudent);
+        return lessonsDao.getLessonsByStudentAttending(idStudent);
     }
 
 }
