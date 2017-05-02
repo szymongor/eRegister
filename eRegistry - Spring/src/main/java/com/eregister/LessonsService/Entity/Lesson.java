@@ -8,18 +8,22 @@ package com.eregister.LessonsService.Entity;
 public class Lesson {
 
     private int id;
-    private int year;
-    private int semester;
-    private String name;
+    private String year;
+    private String semester;
+    private int idTeacher;
+    private int idGroup;
+    private int idSubject;
 
     public Lesson() {
     }
 
-    public Lesson(int id, int year, int semester, String name) {
+    public Lesson(int id, String year, String semester, int idTeacher, int idGroup, int idSubject) {
         this.id = id;
         this.year = year;
         this.semester = semester;
-        this.name = name;
+        this.idTeacher = idTeacher;
+        this.idGroup = idGroup;
+        this. idSubject = idSubject;
     }
 
     public int getId() {
@@ -30,27 +34,43 @@ public class Lesson {
         this.id = id;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 
-    public String getName() {
-        return name;
+    public int getIdTeacher() {
+        return idTeacher;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIdTeacher(int idTeacher) {
+        this.idTeacher = idTeacher;
+    }
+
+    public int getIdGroup() {
+        return idGroup;
+    }
+
+    public void setIdGroup( int idGroup ) {
+        this.idGroup = idGroup;
+    }
+
+    public int getIdSubject() {
+        return idSubject;
+    }
+
+    public void setIdSubject( int idSubject) {
+        this.idSubject = idSubject;
     }
 }

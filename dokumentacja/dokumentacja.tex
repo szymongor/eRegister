@@ -56,31 +56,56 @@ Tomasz \textsc{Kryg}\\
 
 \newpage
 
+\section{Temat projektu}
+Naszym zadaniem jest stworzenie elektronicznego dziennika szkolnego. Dziennik ten powinien umożliwić, uczniom i ich opiekunom, wgląd do ocen ucznia z przedmiotów, na które uczęszcza oraz dać możliwość nauczycielom wprowadzania tych ocen. 
+
+Dzięki projektowi rodzice na bieżąco będą mieli wgląd w szkolne życie swoich dzieci oraz ułatwi to komunikację z nauczycielami.   
 
 \section{Opis ogólny wymagań}
 
-Główną funkcjonalnością tworzonej aplikacji bazodanowej jest dziennik internetowy. Musi on przede wszystkim pozwalać na zapis oraz wgląd do ocen ucznia, ale również mieć pełną bazę użytkowników, grup, zajęć oraz przedmiotów.
-Najważniejszym elementem bazy danych jest ,,użytkownik". Użytkownikiem dziennika może zostać nauczyciel, uczeń oraz opiekun. W każdym przypadku, dane tej osoby są trzymane w bazie przez dłuższy czas, nawet po opuszczeniu placówki. W drugim przypadku jedynie blokowane jest ich konto użytkownika, a dane osoby pozostają bez zmian.
+Na podstawie przeprowadzonej analizy zagadnienia przygotowaliśmy listę podstawowych funkcjonalności, którą powinien realizować nasz projekt.
 
-\subsection{Uczeń}
+Każda osoba, mająca dostęp do dziennik, będzie nazywana użytkownikiem. Każdy użytkownik będzie miał stworzone własne konto, dzięki któremu będzie miał wgląd do odpowiednich zasobów dziennika. Zostanie mu również przypisana \textit{data ważności} (data, po której powinien zostać usunięty dostęp do dziennika) oraz informacja o tym, czy jest \textit{aktywnym} użytkownikiem.
 
-Uczeń jest bez wątpienia podstawowym użytkownikiem bazy – bez niego, dziennik byłby zbędny. Jego prawa dotyczące dostępu są jednak w pewien sposób okrojone. Każdy uczeń posiadający konto w bazie, ma jedynie wgląd do swoich ocen, zajęć w których uczestniczą oraz grup, do których przynależą. Może on jedynie przeglądać informacje – nie ma prawa modyfikacji.
-Uczniowie należą do pewnych grup. Grupa jest to większa ilość uczniów uczestniczących w pewnych konkretnych zajęciach. Zajęcia zawsze dotyczą jednego z możliwych przedmiotów. Z każdych zajęć, uczeń otrzymuje oceny. Podział ocen jest następujący:
+W trakcie tworzenia konta, administrator wprowadzi dane osobowe użytkownika oraz przydzieli mu odpowiednie uprawnienia. Po zalogowaniu się, użytkownicy poza wyświetleniem odpowiednich informacji będą mogli edytować swoje dane, oraz zmienić hasło. W celu ułatwienia opisu funkcjonalności podzieliliśmy użytkowników na podane niżej grupy:
+
+\subsection{Uczniowie}
+
+Każdy uczeń posiadający konto, powinien mieć wgląd do swoich ocen, przedmiotów na które uczęszcza, informacji o sobie, prowadzących zajęcia oraz klasy do której należy.
+
+Oceny będą dzielić się na:
 \begin{itemize}
-\item ocena częściowa -- pomniejsza ocena związana z pewną aktywnością ucznia na zajęciach. Może to być ocena za sprawdzian, odpowiedź lub zadanie domowe. Każda ocena częściowa ma swoją wagę, która wpływa na ważniejsze oceny opisane poniżej.
-\item ocena semestralna -- ocena występująca raz na cały semestr. Jest ona wyliczana na podstawie ocen częściowych ucznia osobno dla każdego przedmiotu.
+\item ocena częściowa -- pomniejsza ocena związana z pewną aktywnością ucznia na zajęciach. Może to być ocena za sprawdzian, odpowiedź lub zadanie domowe. Oprócz otrzymanego stopnia będzie wyświetlona waga oceny, informacja za co została wystawiona oraz data wystawienia.
+\item ocena semestralna -- ocena podsumowująca pracę ucznia przez cały semestr. Jest ona wyliczana na podstawie ocen częściowych ucznia, osobno dla każdego przedmiotu.
 \item ocena końcowa -- główna ocena wystawiana z każdego przedmiotu po całym roku zajęć. Jest to średnia z dwóch ocen semestralnych: za pierwszy oraz za drugi semestr.
 \end{itemize}
-Uczeń z przedmiotu może uzyskać między innymi ocenę niedostateczną. Oznacza ona, że nie uzyskuje on promocji do następnej klasy. W takim wypadku zostaje on jedynie przepisany do innej klasy (rok wcześniej) i kontynuuje swoją naukę w tej klasie.
-Dodatkowo każdy z uczniów, poza grupą należy także do klasy profilowanej. Są to klasy prowadzone przez nauczycieli i są one odpowiednio ukierunkowane. Podsumowując uczeń nie tylko należy do pewnej klasy, ale także ma osobne zajęcia w pewnych konkretnych grupach (przykładem mogą być zajęcia wychowania fizycznego, gdzie istnieją osobne grupy dla chłopców i dziewcząt).
 
-\subsection{Nauczyciel}
+Uczeń z przedmiotu, jako ocenę końcową, może uzyskać między innymi ocenę niedostateczną. Oznacza ona, że nie uzyskuje on promocji do następnej klasy. W takim wypadku zostaje on  przepisany do innej klasy (rok wcześniej) i kontynuuje swoją naukę w tej klasie.
 
-Osobą pełniącą główną pieczę nad ocenami jest nauczyciel. Jest on przypisany do każdej z klas profilowanych jako jej wychowawca. Dodatkowo każdy z nauczycieli prowadzi zajecia z pewnego przedmiotu, zatem jest to osoba posiadająca nieco więcej praw od ucznia – posiada prawo wystawiania ocen. Nauczyciel samodzielnie wystawia każdą z ocen na podstawie osiągnięć uczniów z danego przedmiotu, który on sam prowadzi. Pod uwagę została również wzięta kwestia nauczyciela będącego jednocześnie rodzicem dziecka.
+Uczniowie należą do klas. Klasa posiada swój profil oraz wychowawcę. Między klasami z tego samego rocznika mogą występować grupy. Grupa jest to większa ilość uczniów uczestniczących razem w konkretnych zajęciach. Jedna klasa może się dzielić na grupy (na przykład w $IIIa$ mogą być dwie grupy z języka angielskiego różniące się między sobą poziomem zaawansowania) lub jedna grupa może łączyć w sobie osoby z różnych klas (na przykład dziewczyny z $IIIa$ i $IIIb$ mogą razem uczęszczać na zajęcia z wychowania fizycznego).  
+
+W przypadku uczniów \textit{data ważności} będzie rozumiana jako przewidywana data końca jego edukacji w konkretnej placówce (w przypadku nieotrzymania promocji do następnej klasy, data ta zostanie przedłużona o rok).
 
 \subsection{Opiekun}
 
-Osobnym użytkownikiem, mającym jedynie wgląd do ocen jest opiekun. Jest to osoba będąca zwykle rodzicem ucznia, mającego swoje konto w bazie. Zatem bez ucznia nie ma opiekuna. Opiekun jest poniekąd użytkownikiem-duchem. Może przeglądać jedynie oceny swojego podopiecznego, ale sam nie ma w bazie żadnych danych dodatkowych poza tożsamością oraz adresem zamieszkania. Jest on swego rodzaju obserwatorem, którego rolą jest dowiadywanie się o postępach w nauce swojego dziecka. 
+Z perspektywy uprawnień i funkcjonalności, opiekun jest prawie takim samym użytkownikiem, co uczeń. Jedyna różnica polega na tym, że po zalogowaniu zostaje wyświetlona lista uczniów, którymi się opiekuje. Po wyborze swojego dziecka zostaną wyświetlone takie same informacje, co uczniowi (zajęcia z ich prowadzącymi na, które uczęszcza dziecko i jego oceny wraz z ich opisem).
+Opiekun ma również możliwość edycji danych osobowych swojego podopiecznego.
+
+\textit{Data ważności} w przypadku opiekuna to przewidywana data końca nauki jego podopiecznego (w przypadku kilku podopiecznych zostanie wzięta pod uwagę bardziej odległa data). 
+
+\subsection{Nauczyciel}
+
+Osobą pełniącą główną pieczę nad ocenami jest nauczyciel. Może być przypisany do każdej z klas jako jej wychowawca. Dodatkowo każdy z nauczycieli prowadzi zajęcia z pewnego przedmiotu. 
+Po zalogowaniu na swoje konto, powinien móc wyświetlić wszystkie grupy, w których prowadzi zajęcia. Po wyborze konkretnej grupy, zostanie wyświetlona lista uczniów należących do niej oraz oceny, jakie do tej pory im wystawił.
+
+Po wybraniu konkretnego ucznia nauczyciel będzie mógł edytować dotychczasowe oceny oraz dodawać nowe (wraz z odpowiednim opisem - legendą, wagą i datą). Nauczyciel samodzielnie wystawia każdą z ocen, na podstawie osiągnięć uczniów z danego przedmiotu.
+
+W przypadku nauczyciela, \textit{data ważności} rozumiana jest, jako data końca umowy. W przypadku przedłużenia umowy, data ulega zmianie. W przypadku dłuższego urlopu lub braku prowadzonych zajęć w danym semestrze, użytkownik będzie oznaczony jako \textit{nieaktywny}.
+
+\subsection{Wybór technologii}
+
+Na podstawie powyższej analizy postanowiliśmy napisać osobną aplikację dla nauczycieli i uczniów - aplikacja na urządzenia mobilne z systemem Android. Natomiast panel administratorski i nauczycielski postanowiliśmy zrealizować w wersji webowej. 
+Dla wszystkich użytkowników połączenie z internetem będzie koniecznym warunkiem korzystania z dziennika.
 
 \section{Aplikacja na Androida dla opiekuna i ucznia}
 
@@ -277,15 +302,34 @@ Administrator ma dostęp w pasku nawigacyjnym do listy użytkowników jak i osó
 
 \section{Baza danych}
 
+\subsection{Technologia}
+Baza danych została napisana w MySQL. Jest to ogólnodostępny system, umożliwiający zarządzanie relacyjnymi bazami danych. Zdecydowaliśmy się na niego, ponieważ jest dostępny na wielu platformach, darmowy i posiada rozbudowaną dokumentację. 
+
+\subsection{Narzędzia}
+Do stworzenia i zarządzania bazą danych wykorzystaliśmy panel administratorski do baz danych na serwerze \textit{home.pl}. 
+
+Zapytania oraz połączenie z aplikacją zostały napisane w \textit{IntelliJ}, a do podglądu stworzonych zapytań wykorzystaliśmy dodatek do Google Chrome - aplikację \textit{Postman}. 
+
 \subsection{Diagram}
 \begin{center}
-\hspace{-2cm} \includegraphics[angle=90,scale=0.33]{screeny/diagram.png}
+\includegraphics[scale=0.5]{screeny/diagram1.jpg}
 \end{center}
+
+\begin{center}
+\includegraphics[scale=0.5]{screeny/diagram2.jpg}
+\end{center}
+
+
+Przedstawione diagramy zostały przygotowane z użyciem darmowego edytora \textit{draw.io}. 
 
 
 \subsection{Relacyjny model bazy danych}
 \begin{center}
-\hspace{-2cm} \includegraphics[angle=90,scale=0.33]{screeny/relational.png}
+\includegraphics[scale=0.5]{screeny/relational1.jpg}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.5]{screeny/relational2.jpg}
 \end{center}
 
 \subsection{Dane, o które pytamy}
@@ -323,5 +367,44 @@ Administrator ma dostęp w pasku nawigacyjnym do listy użytkowników jak i osó
 		\item wgląd do swoich danych z możliwością edycji (adres, mail, telefon, ...)
 	\end{itemize}	
 \end{enumerate}
+
+
+\section{Serwer}
+
+\subsection{Technologia}
+Usługa została napisana w języku Java, framework Spring Boot. Użyliśmy Spring Boota ze względu na dobrą dokumentacje oraz stosunkowo krótki czas konfiguracji. System logowania oparty jest na tokenach w standardzie JSON Web Token, jest to standard wolnego dostępu, dobrze udokumentowany.
+
+\subsection{Narzędzia}
+
+Korzystamy ze środowiska IntelliJ do programowania serwisu. Do komunikacji z serwerem wykorzystujemy wtyczkę do przeglądarki Google Chrome - Postman.
+
+\subsection{Opis endpointów}
+
+Z aplikacją serwerową można komunikować się poprzez restowe API.
+
+Endpointy:
+
+\begin{enumerate}
+
+	\item "/auth" \\
+	Opis: Generuje token do autoryzacji zapytań do serwisu na podstawie logina i hasła użytkownika.\\
+		Metoda: POST\\
+		Body: "\{"login":"login", "password":"password"\}"\\ (klasa JwtCredentials)
+		Odpowiedź: \{"status":"status odpowiedzi", "token":"token"\}\\
+		(klasa JwtAuthenticationResponse)
+	
+	\item "/Lessons" \\
+	Opis: Lista wszystkich lekcji
+	Metoda: POST \\
+	Header: \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: \{"status":"status odpowiedzi","lessons":[(tablica lekcji)]\}
+	
+
+\end{enumerate}
+
+\subsection{Opis usługi}
+
+Do aplikacji można się logować jako uczeń ('STUDENT'), opiekun ('GUARDIAN'), nauczyciel ('TEACHER'). Każda z ról ma różny dostęp do API, dostęp do endopintu jest ustawiany za pomocą adnotacji @PreAuthorize("hasRole('TEACHER')").
+
 
 \end{document}

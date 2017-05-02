@@ -1,7 +1,6 @@
 package com.eregister.UserService.Service;
 
 import com.eregister.UserService.Dao.EregUserDao;
-import com.eregister.UserService.Dao.EregUserDaoFakeImpl;
 import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,9 +23,27 @@ public class EregUserService {
         return eregUserDao.getAllEregUsers();
     }
 
+    public Collection<EregUser> getAllEnableEregUsers(){
+        return eregUserDao.getAllEnableEregUsers();
+    }
+
+    public Collection<EregUser> getAllTeachersEregUsers(){
+        return eregUserDao.getAllTeachersEregUsers();
+    }
+
+    public Collection<EregUser> getAllGuardiansEregUsers(){
+        return eregUserDao.getAllGuardiansEregUsers();
+    }
+
+    public Collection<EregUser> getAllStudentsEregUsers(){
+        return eregUserDao.getAllStudentsEregUsers();
+    }
+
     public EregUser getEregUserById(int id){
         return eregUserDao.getEregUserById(id);
     }
+
+    public EregUser getEregUserByIdPerson(int id) { return eregUserDao.getEregUserByIdPerson(id);}
 
     public EregUser getEregUserByLogin(String login){
         return eregUserDao.getEregUserByLogin(login);
@@ -36,12 +53,15 @@ public class EregUserService {
         eregUserDao.removeEregUserById(id);
     }
 
-    public void updateEregUser(EregUser eregUser){
-        eregUserDao.updateEregStudent(eregUser);
+    public void removeEregUserByLogin(String login) {
+        eregUserDao.removeEregUserByLogin(login);
+    }
+
+    public void updatePasswordEregUser(EregUser eregUser){
+        eregUserDao.updatePasswordEregUser(eregUser);
     }
 
     public void insertEregUser(EregUser eregUser){
-        eregUserDao.insertEregStudent(eregUser);
+        eregUserDao.insertEregUser(eregUser);
     }
-
 }

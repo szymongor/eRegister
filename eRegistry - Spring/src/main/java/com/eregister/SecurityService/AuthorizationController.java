@@ -1,10 +1,9 @@
-package com.eregister.SecurityService.Controller;
+package com.eregister.SecurityService;
 
-import com.eregister.SecurityService.AuthorizationService;
-import com.eregister.SecurityService.Model.ErrorResponse;
+import com.eregister.SecurityService.Service.AuthorizationService;
+import com.eregister.SecurityService.Model.Response;
 import com.eregister.SecurityService.Model.JwtAuthenticationResponse;
 import com.eregister.SecurityService.Model.JwtCredentials;
-import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,12 +18,13 @@ import java.io.Serializable;
  */
 
 @RestController
+@RequestMapping(value = "auth")
 public class AuthorizationController {
 
     @Autowired
     AuthorizationService authorizationService;
 
-    @RequestMapping(value = "auth", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public Serializable createAuthenticationToken(@RequestBody JwtCredentials jwtCredentials){
         String token;
         Serializable response;
@@ -33,10 +33,10 @@ public class AuthorizationController {
             response = new JwtAuthenticationResponse(token,"Ok");
         }
         catch (SecurityException e){
-            response = new ErrorResponse("Security error", e.getMessage());
+            response = new Response("Security error", e.getMessage());
         }
         catch (Exception e){
-            response = new ErrorResponse("Internal error", e.getMessage());
+            response = new Response("Internal error", e.getMessage());
         }
         return response;
     }

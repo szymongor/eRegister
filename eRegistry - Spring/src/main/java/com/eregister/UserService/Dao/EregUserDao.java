@@ -10,13 +10,25 @@ import java.util.Collection;
 public interface EregUserDao {
     Collection<EregUser> getAllEregUsers();
 
+    Collection<EregUser> getAllEnableEregUsers();
+
+    Collection<EregUser> getAllTeachersEregUsers();
+
+    Collection<EregUser> getAllGuardiansEregUsers();
+
+    Collection<EregUser> getAllStudentsEregUsers();
+
     EregUser getEregUserById(int id);
 
-    void removeEregUserById(int id);
+    EregUser getEregUserByIdPerson(int id);
 
     EregUser getEregUserByLogin(String login);
 
-    void updateEregStudent(EregUser eregUser);
+    void removeEregUserById(int id);
 
-    void insertEregStudent(EregUser eregUser);
+    void removeEregUserByLogin(String login);
+
+    void updatePasswordEregUser(EregUser eregUser);
+
+    void insertEregUser(EregUser eregUser);
 }

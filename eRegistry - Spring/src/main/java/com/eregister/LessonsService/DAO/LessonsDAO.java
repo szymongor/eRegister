@@ -8,13 +8,13 @@ import java.util.Collection;
 /**
  * Created by Szymon on 15.04.2017.
  */
-public interface LessonsServiceDAO {
+public interface LessonsDAO {
 
     Collection<Lesson> getAllLessons();
 
     Lesson getLessonById(int id);
 
-    Collection<Lesson> getLessonByStudentAttending(int studentId);
+    Collection<Lesson> getLessonsByStudentAttending(int studentId);
 
 
 }

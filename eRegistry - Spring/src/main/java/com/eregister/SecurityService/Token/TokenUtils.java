@@ -1,6 +1,7 @@
 package com.eregister.SecurityService.Token;
 
 import com.eregister.SecurityService.Model.JwtAuthority;
+import com.eregister.SecurityService.Model.JwtUserDetails;
 import com.eregister.UserService.Entity.EregUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
@@ -31,15 +32,15 @@ public class TokenUtils {
     //@Value("${jwt.expiration}")
     static private Long expiration = 604800L;
 
-    public String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
+    public static String generateToken(EregUser eregUser) throws UnsupportedEncodingException {
         String id = Integer.toString(eregUser.getId());
         String login = eregUser.getLogin();
-        String role = eregUser.getRole();
+        String roles = eregUser.getRoles();
 
         String jwt = Jwts.builder()
                 .setExpiration(generateExpirationDate())
                 .claim("login", login)
-                .claim("role", role)
+                .claim("roles", roles)
                 .claim("id",id)
                 .signWith(
                         SignatureAlgorithm.HS256,
@@ -50,54 +51,27 @@ public class TokenUtils {
         return jwt;
     }
 
-    private Date generateExpirationDate() {
+    private static Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
-    public Claims verifyToken(String token){
+    public static Claims verifyToken(String token){
         Claims claims = Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token).getBody();
         return claims;
     }
 
-    public UserDetails userDetailsFromToken(String token){
+    public static UserDetails userDetailsFromToken(String token){
         Claims claims = verifyToken(token);
-        JwtAuthority jwtAuthority = new JwtAuthority(claims.get("role").toString());
-        List<JwtAuthority> authorities = new ArrayList<>();
-        authorities.add(jwtAuthority);
-        UserDetails userDetails = new UserDetails() {
-            @Override
-            public Collection<? extends GrantedAuthority> getAuthorities() {
-                return authorities;
-            }
-            @Override
-            public String getPassword() {
-                return null;
-            }
-            @Override
-            public String getUsername() {
-                return claims.get("login").toString();
-            }
-            @Override
-            public boolean isAccountNonExpired() {
-                return false;
-            }
-            @Override
-            public boolean isAccountNonLocked() {
-                return false;
-            }
-            @Override
-            public boolean isCredentialsNonExpired() {
-                return false;
-            }
-            @Override
-            public boolean isEnabled() {
-                return false;
-            }
-        };
-
+        UserDetails userDetails = new JwtUserDetails(claims);
         return userDetails;
+    }
+
+    public static String getLoginFromToken(String token){
+        UserDetails userDetails = userDetailsFromToken(token);
+        String login = userDetails.getUsername();
+        return login;
     }
 
 }
