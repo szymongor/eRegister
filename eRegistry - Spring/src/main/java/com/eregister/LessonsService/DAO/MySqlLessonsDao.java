@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Karo2 on 2017-04-30.
  */
-public class MySqlLessonsDao implements LessonsDao {
+public class MySqlLessonsDao implements LessonsDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

@@ -12,7 +12,7 @@ import java.util.*;
 
 @Repository
 @Qualifier("fakeLessons")
-public class LessonsDaoFakeImpl implements LessonsDao {
+public class LessonsDaoFakeImpl implements LessonsDAO {
 
 
     static Map<Integer, Lesson> lessons;

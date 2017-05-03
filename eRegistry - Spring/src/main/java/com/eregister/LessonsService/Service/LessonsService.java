@@ -1,6 +1,6 @@
 package com.eregister.LessonsService.Service;
 
-import com.eregister.LessonsService.DAO.LessonsDao;
+import com.eregister.LessonsService.DAO.LessonsDAO;
 import com.eregister.LessonsService.Entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,7 +17,7 @@ public class LessonsService {
 
     @Autowired
     @Qualifier("fakeLessons")
-    LessonsDao lessonsDao;
+    LessonsDAO lessonsDao;
 
     public Collection<Lesson> getAllLessons(){
         return lessonsDao.getAllLessons();

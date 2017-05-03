@@ -176,7 +176,7 @@ public class EregUserController
         Serializable response;
         try{
             String login = TokenUtils.getLoginFromToken(token);
-            //eregUserService.updatePasswordEregUser(newPasswordRequest, login);
+            eregUserService.updatePasswordEregUser(login, newPasswordRequest);
             EregUser eregUser = eregUserService.getEregUserByLogin(login);
             String newToken = TokenUtils.generateToken(eregUser);
             response = new NewPasswordResponse("Ok","Login: " + login

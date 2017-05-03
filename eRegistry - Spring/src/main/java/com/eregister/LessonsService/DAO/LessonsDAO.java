@@ -8,7 +8,7 @@ import java.util.Collection;
 /**
  * Created by Szymon on 15.04.2017.
  */
-public interface LessonsDao {
+public interface LessonsDAO {
 
     Collection<Lesson> getAllLessons();
 

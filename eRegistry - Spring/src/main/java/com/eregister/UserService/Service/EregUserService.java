@@ -2,6 +2,7 @@ package com.eregister.UserService.Service;
 
 import com.eregister.UserService.Dao.EregUserDao;
 import com.eregister.UserService.Entity.EregUser;
+import com.eregister.UserService.Model.NewPasswordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,9 @@ public class EregUserService {
         eregUserDao.removeEregUserByLogin(login);
     }
 
-    public void updatePasswordEregUser(String newPassword, String login, String oldPassword){
+    public void updatePasswordEregUser(String login, NewPasswordRequest newPasswordRequest){
+        String oldPassword = newPasswordRequest.getOldPassword();
+        String newPassword = newPasswordRequest.getNewPassword();
         eregUserDao.updatePasswordEregUser(newPassword, login, oldPassword);
     }
 
