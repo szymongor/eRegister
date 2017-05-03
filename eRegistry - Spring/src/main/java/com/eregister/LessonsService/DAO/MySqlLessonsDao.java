@@ -3,13 +3,19 @@ package com.eregister.LessonsService.DAO;
 import com.eregister.LessonsService.DAO.RowMappers.LessonRowMapper;
 import com.eregister.LessonsService.Entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by Karo2 on 2017-04-30.
  */
+
+@Repository
+@Qualifier("mysql")
 public class MySqlLessonsDao implements LessonsDAO {
 
     @Autowired

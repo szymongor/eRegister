@@ -26,8 +26,7 @@ public class LessonsController
     public Serializable getAllLessons(){
         Serializable response;
         try {
-            int count = lessonsService.getAllLessons();
-            response = new Response("ok", Integer.toString(count));
+            response = new LessonsResponse("ok", lessonsService.getAllLessons());
         }
         catch (Exception e) {
             response = new Response("Error", "Internal error");

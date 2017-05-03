@@ -16,11 +16,11 @@ import java.util.Collection;
 public class LessonsService {
 
     @Autowired
-    @Qualifier("fakeLessons")
+    @Qualifier("mysql")
     LessonsDAO lessonsDao;
 
-    public int getAllLessons(){
-        return lessonsDao.getAllLessons().size();
+    public Collection<Lesson> getAllLessons(){
+        return lessonsDao.getAllLessons();
     }
 
     public Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher ) {
