@@ -22,9 +22,9 @@ public interface LessonsDAO {
 
     void removeLessonById(int id);
 
-    void updateTeacher(int id_teacher, int id);
+    void updateTeacher(int idTeacher, int idLesson);
 
-    void updateSemester(String semester, int id);
+    void updateSemester(String semester, int idLesson);
 
     void insertLesson(Lesson lesson);
 }
