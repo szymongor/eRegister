@@ -23,8 +23,4 @@ public class LessonsService {
         return lessonsDao.getAllLessons();
     }
 
-    public Collection<Lesson> getLessonsByStudentAttending(int idStudent){
-        return lessonsDao.getLessonsByStudentAttending(idStudent);
-    }
-
 }

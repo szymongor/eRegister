@@ -57,8 +57,8 @@ public class EregUserService {
         eregUserDao.removeEregUserByLogin(login);
     }
 
-    public void updatePasswordEregUser(EregUser eregUser){
-        eregUserDao.updatePasswordEregUser(eregUser);
+    public void updatePasswordEregUser(String newPassword, String login, String oldPassword){
+        eregUserDao.updatePasswordEregUser(newPassword, login, oldPassword);
     }
 
     public void insertEregUser(EregUser eregUser){
