@@ -3,13 +3,19 @@ package com.eregister.LessonsService.DAO;
 import com.eregister.LessonsService.DAO.RowMappers.LessonRowMapper;
 import com.eregister.LessonsService.Entity.Lesson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by Karo2 on 2017-04-30.
  */
+
+@Repository
+@Qualifier("mysql")
 public class MySqlLessonsDao implements LessonsDAO {
 
     @Autowired
@@ -57,15 +63,15 @@ public class MySqlLessonsDao implements LessonsDAO {
     }
 
     @Override
-    public void updateTeacher(int id_teacher, int id) {
+    public void updateTeacher(int idTeacher, int idLesson) {
         final String sql = Queries.UPDATE_TEACHER;
-        jdbcTemplate.update(sql, new Object[] {id_teacher, id});
+        jdbcTemplate.update(sql, new Object[] {idTeacher, idLesson});
     }
 
     @Override
-    public void updateSemester(String semester, int id) {
+    public void updateSemester(String semester, int idLesson) {
         final String sql = Queries.UPDATE_SEMESTER;
-        jdbcTemplate.update(sql, new Object[] {semester, id});
+        jdbcTemplate.update(sql, new Object[] {semester, idLesson});
     }
 
     @Override
@@ -74,9 +80,9 @@ public class MySqlLessonsDao implements LessonsDAO {
         final String sql = Queries.INSERT_LESSON;
         final String year = lesson.getYear();
         final String semester = lesson.getSemester();
-        final int id_teacher = lesson.getIdTeacher();
-        final int id_group = lesson.getIdGroup();
-        final int id_subject = lesson.getIdSubject();
-        jdbcTemplate.update(sql, new Object[] {year, semester, id_teacher, id_group, id_subject});
+        final int idTeacher = lesson.getIdTeacher();
+        final int idGroup = lesson.getIdGroup();
+        final int idSubject = lesson.getIdSubject();
+        jdbcTemplate.update(sql, new Object[] {year, semester, idTeacher, idGroup, idSubject});
     }
 }

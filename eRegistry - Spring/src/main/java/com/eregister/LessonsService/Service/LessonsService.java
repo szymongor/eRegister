@@ -16,11 +16,43 @@ import java.util.Collection;
 public class LessonsService {
 
     @Autowired
-    @Qualifier("fakeLessons")
+    @Qualifier("mysql")
     LessonsDAO lessonsDao;
 
     public Collection<Lesson> getAllLessons(){
         return lessonsDao.getAllLessons();
+    }
+
+    public Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher ) {
+        return lessonsDao.getLessonsLeadsByTeacher(idTeacher);
+    }
+
+    public Collection<Lesson> getLessonsByAttendingGroup( int idGroup ) {
+        return lessonsDao.getLessonsByAttendingGroup(idGroup);
+    }
+
+    public Collection<Lesson> getLessonsAboutSubject( int idSubject ) {
+        return lessonsDao.getLessonsAboutSubject(idSubject);
+    }
+
+    public Lesson getLessonById(int id) {
+        return lessonsDao.getLessonById(id);
+    }
+
+    public void removeLessonById(int id) {
+        lessonsDao.removeLessonById(id);
+    }
+
+    public void updateTeacher(int idTeacher, int idLesson) {
+        lessonsDao.updateTeacher(idTeacher, idLesson);
+    }
+
+    public void updateSemester(String semester, int idLesson) {
+        lessonsDao.updateSemester(semester, idLesson);
+    }
+
+    public void insertLesson(Lesson lesson) {
+        lessonsDao.insertLesson(lesson);
     }
 
 }

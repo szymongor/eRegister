@@ -76,7 +76,7 @@ public class LessonsDaoFakeImpl implements LessonsDAO {
     }
 
     @Override
-    public void updateTeacher(int id_teacher, int id) {
+    public void updateTeacher(int idTeacher, int id) {
 
     }
 
