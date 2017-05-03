@@ -35,6 +35,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         String authToken = request.getHeader("Authorization");
         if(! "/auth".equals(request.getRequestURI())) {
+            verifyToken(authToken, response);
             UserDetails userDetails = authorizationService.userDetailsFromToken(authToken);
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -42,7 +43,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         chain.doFilter(request, response);
     }
 
-    private Claims verifyToken(String authToken){
+    private Claims verifyToken(String authToken, HttpServletResponse response){
         try {
             Claims claims;
             claims = authorizationService.verifyToken(authToken);

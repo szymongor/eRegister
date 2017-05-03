@@ -51,11 +51,22 @@ public class AuthorizationService {
 
     public Claims verifyToken(String token){
         Claims claims = tokenUtils.verifyToken(token);
+        EregUser user = getUser(claims);
         return claims;
     }
 
     public UserDetails userDetailsFromToken(String token){
         return tokenUtils.userDetailsFromToken(token);
+    }
+
+    private EregUser getUser(Claims claims){
+        int userId = Integer.parseInt(claims.get("id").toString());
+        EregUser user = eregUserService.getEregUserById(userId);
+        return user;
+    }
+
+    private void checkLastPasswordResetDate(EregUser eregUser){
+        //TO DO
     }
 
 }
