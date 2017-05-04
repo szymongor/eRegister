@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yJy-Lv-7SK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yJy-Lv-7SK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,13 +75,23 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xvx-At-nIG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="205" height="40"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="neL-hg-9Sp" secondAttribute="bottom" id="8j6-Lp-FAC"/>
+                                                    <constraint firstItem="Xvx-At-nIG" firstAttribute="top" secondItem="c52-fc-WLg" secondAttribute="top" id="HC8-L3-R5K"/>
+                                                    <constraint firstItem="neL-hg-9Sp" firstAttribute="leading" secondItem="Xvx-At-nIG" secondAttribute="trailing" constant="64" id="Viz-1i-eTm"/>
                                                     <constraint firstAttribute="height" constant="40" id="Vsq-Yr-YRN"/>
                                                     <constraint firstItem="uJh-Al-1wh" firstAttribute="top" secondItem="c52-fc-WLg" secondAttribute="top" constant="8" id="X2A-Xj-rEX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Xvx-At-nIG" secondAttribute="bottom" id="afo-47-XZG"/>
                                                     <constraint firstAttribute="bottom" secondItem="uJh-Al-1wh" secondAttribute="bottom" constant="8" id="ciZ-T2-BGh"/>
+                                                    <constraint firstItem="Xvx-At-nIG" firstAttribute="leading" secondItem="c52-fc-WLg" secondAttribute="leading" id="hRw-Ya-cMY"/>
                                                     <constraint firstItem="neL-hg-9Sp" firstAttribute="top" secondItem="c52-fc-WLg" secondAttribute="top" id="i0v-z5-JGs"/>
                                                     <constraint firstItem="uJh-Al-1wh" firstAttribute="leading" secondItem="neL-hg-9Sp" secondAttribute="trailing" constant="8" id="ng8-vq-2HS"/>
                                                     <constraint firstAttribute="trailing" secondItem="uJh-Al-1wh" secondAttribute="trailing" id="sxe-JK-pG4"/>
@@ -119,6 +129,7 @@
                         <outlet property="passwordTF" destination="09j-E7-69D" id="Omo-nC-Rw5"/>
                         <outlet property="rememberMeCheckBox" destination="uJh-Al-1wh" id="UlK-C6-qWu"/>
                         <outlet property="rememberMeLabel" destination="neL-hg-9Sp" id="PCz-BT-iim"/>
+                        <outlet property="roleTF" destination="Xvx-At-nIG" id="dHI-AX-k9U"/>
                         <outlet property="usernameTF" destination="nv0-Lc-6aS" id="U2s-5E-sc4"/>
                     </connections>
                 </viewController>
