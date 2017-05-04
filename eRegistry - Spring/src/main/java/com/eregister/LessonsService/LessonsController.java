@@ -1,6 +1,7 @@
 package com.eregister.LessonsService;
 
 import com.eregister.LessonsService.Entity.Lesson;
+import com.eregister.LessonsService.Model.LessonResponse;
 import com.eregister.LessonsService.Service.LessonsService;
 import com.eregister.LessonsService.Model.LessonsResponse;
 import com.eregister.SecurityService.Model.Response;
@@ -33,6 +34,7 @@ public class LessonsController
         }
         return response;
     }
+
     @RequestMapping(value = "/leadBy/id={idTeacher}", method = RequestMethod.GET)
     public Serializable getLessonsLeadsByTeacher(@PathVariable("idTeacher") int idTeacher) {
         Serializable response;
@@ -40,6 +42,96 @@ public class LessonsController
             response = new LessonsResponse("ok", lessonsService.getLessonsLeadsByTeacher(idTeacher));
         }
         catch(Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/attendingGroup/id={idGroup}", method = RequestMethod.GET)
+    public Serializable getLessonsByAttendingGroup(@PathVariable("idGroup") int idGroup) {
+        Serializable response;
+        try {
+            response = new LessonsResponse("ok", lessonsService.getLessonsByAttendingGroup(idGroup));
+        }
+        catch(Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/about/id={idSubject}", method = RequestMethod.GET)
+    public Serializable getLessonsAboutSubject(@PathVariable("idSubject") int idSubject) {
+        Serializable response;
+        try {
+            response = new LessonsResponse("ok", lessonsService.getLessonsAboutSubject(idSubject));
+        }
+        catch(Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
+    public Serializable getLessonById(@PathVariable("id") int id) {
+        Serializable response;
+        try {
+            response = new LessonResponse("ok", lessonsService.getLessonById(id));
+        }
+        catch(Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
+    public Serializable removeLessonById(@PathVariable("id") int id) {
+        Serializable response;
+        try {
+            lessonsService.removeLessonById(id);
+            response = new Response("ok", "Removed lesson id: "+id);
+        }
+        catch(Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/newTeacher", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Serializable updateTeacher(int idTeacher, int idLesson) {
+        Serializable response;
+        try {
+            lessonsService.updateTeacher(idTeacher, idLesson);
+            response = new Response("ok", "Updated teacher.");
+        }
+        catch (Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/newSemester", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Serializable updateSemester(String semester, int idLesson) {
+        Serializable response;
+        try {
+            lessonsService.updateSemester(semester, idLesson);
+            response = new Response("ok", "Updated semester.");
+        }
+        catch (Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Serializable insertLesson(@RequestBody Lesson lesson) {
+        Serializable response;
+        try {
+            lessonsService.insertLesson(lesson);
+            response = new Response("ok", "Inserted lesson");
+        }
+        catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;

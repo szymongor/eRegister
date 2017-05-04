@@ -44,7 +44,7 @@ public class MySqlLessonsDao implements LessonsDAO {
 
     @Override
     public Collection<Lesson> getLessonsAboutSubject(int idSubject) {
-        final String sql = Queries.GET_ALL_LESSONS;
+        final String sql = Queries.GET_LESSONS_ABOUT_SUBJECT;
         List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idSubject);
         return lessons;
     }
