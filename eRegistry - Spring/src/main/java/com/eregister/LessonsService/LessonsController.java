@@ -2,6 +2,8 @@ package com.eregister.LessonsService;
 
 import com.eregister.LessonsService.Entity.Lesson;
 import com.eregister.LessonsService.Model.LessonResponse;
+import com.eregister.LessonsService.Model.UpdateSemesterRequest;
+import com.eregister.LessonsService.Model.UpdateTeacherRequest;
 import com.eregister.LessonsService.Service.LessonsService;
 import com.eregister.LessonsService.Model.LessonsResponse;
 import com.eregister.SecurityService.Model.Response;
@@ -98,10 +100,10 @@ public class LessonsController
 
     @RequestMapping(value = "/newTeacher", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateTeacher(int idTeacher, int idLesson) {
+    public Serializable updateTeacher(@RequestBody UpdateTeacherRequest updateTeacherRequest) {
         Serializable response;
         try {
-            lessonsService.updateTeacher(idTeacher, idLesson);
+            lessonsService.updateTeacher(updateTeacherRequest);
             response = new Response("ok", "Updated teacher.");
         }
         catch (Exception e) {
@@ -112,10 +114,10 @@ public class LessonsController
 
     @RequestMapping(value = "/newSemester", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateSemester(String semester, int idLesson) {
+    public Serializable updateSemester(@RequestBody UpdateSemesterRequest updateSemesterRequest) {
         Serializable response;
         try {
-            lessonsService.updateSemester(semester, idLesson);
+            lessonsService.updateSemester(updateSemesterRequest);
             response = new Response("ok", "Updated semester.");
         }
         catch (Exception e) {

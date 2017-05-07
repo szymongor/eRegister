@@ -2,6 +2,8 @@ package com.eregister.LessonsService.Service;
 
 import com.eregister.LessonsService.DAO.LessonsDAO;
 import com.eregister.LessonsService.Entity.Lesson;
+import com.eregister.LessonsService.Model.UpdateSemesterRequest;
+import com.eregister.LessonsService.Model.UpdateTeacherRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -43,11 +45,15 @@ public class LessonsService {
         lessonsDao.removeLessonById(id);
     }
 
-    public void updateTeacher(int idTeacher, int idLesson) {
+    public void updateTeacher(UpdateTeacherRequest updateTeacherRequest) {
+        int idTeacher = updateTeacherRequest.getIdTeacher();
+        int idLesson = updateTeacherRequest.getIdLesson();
         lessonsDao.updateTeacher(idTeacher, idLesson);
     }
 
-    public void updateSemester(String semester, int idLesson) {
+    public void updateSemester(UpdateSemesterRequest updateSemesterRequest) {
+        String semester = updateSemesterRequest.getSemester();
+        int idLesson = updateSemesterRequest.getIdLesson();
         lessonsDao.updateSemester(semester, idLesson);
     }
 
