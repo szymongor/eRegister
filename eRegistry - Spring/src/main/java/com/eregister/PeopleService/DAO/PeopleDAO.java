@@ -16,11 +16,9 @@ public interface PeopleDAO {
 
     Address getAddressById(int id);
 
-    void removePersonById(int id);
+    private void removePersonById(int id);
 
     void removeAddressById(int id);
-
-    void updatePerson(Person person);
 
     void updatePhone(int idPerson, String newPhone);
 
