@@ -16,7 +16,7 @@ public interface PeopleDAO {
 
     Address getAddressById(int id);
 
-    private void removePersonById(int id);
+    void removePersonById(int id);
 
     void removeAddressById(int id);
 

@@ -14,7 +14,11 @@ public class Person {
     private String expirationDate;
     private int idAddress;
 
-    Person(int id, String name, String surname, String dateOfBirth, String sex, String phone, String mail,
+    public Person() {
+
+    }
+
+    public Person(int id, String name, String surname, String dateOfBirth, String sex, String phone, String mail,
            String expirationDate, int idAddress) {
         this.id = id;
         this.name = name;
