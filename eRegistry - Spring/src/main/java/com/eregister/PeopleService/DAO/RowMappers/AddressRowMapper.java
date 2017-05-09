@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * Created by Karo2 on 2017-05-09.
  */
 public class AddressRowMapper implements RowMapper<Address> {
-    
+
     @Override
     public Address mapRow(ResultSet resultSet, int i) throws SQLException {
         Address address = new Address();

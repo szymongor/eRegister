@@ -29,4 +29,9 @@ public class Queries {
 
     static final String INSERT_PERSON = "INSERT INTO PEOPLE (name, surname, date_of_birth, sex, phone, mail, " +
             "expiration_date, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    static final String INSERT_ADDRESS_AND_PERSON = "INSERT INTO ADDRESSES " +
+            "(street, house_number, flat_number, postal_code, city, country) VALUES (?, ?, ?, ?, ?, ?);" +
+            "INSERT INTO PEOPLE ( name, surname, date_of_birth, sex, phone, mail, expiration_date, id_address) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID());";
 }
