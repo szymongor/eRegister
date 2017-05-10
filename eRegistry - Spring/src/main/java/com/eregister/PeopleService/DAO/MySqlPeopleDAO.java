@@ -74,9 +74,21 @@ public class MySqlPeopleDAO implements PeopleDAO {
     }
 
     @Override
-    public void updateAddress(int idPerson, int newIdAddress) {
-        final String sql = Queries.UPDATE_ADDRESS;
+    public void updateIdAddress(int idPerson, int newIdAddress) {
+        final String sql = Queries.UPDATE_ID_ADDRESS;
         jdbcTemplate.update(sql, new Object[] {newIdAddress, idPerson});
+    }
+
+    @Override
+    public void updateAddress(int idAddress, Address newAddress) {
+        final String sql = Queries.UPDATE_ADDRESS;
+        final String street = newAddress.getStreet();
+        final String houseNumber = newAddress.getHouseNumber();
+        final int flatNumber = newAddress.getFlatNumber();
+        final String postalCode = newAddress.getPostalCode();
+        final String city = newAddress.getCity();
+        final String country = newAddress.getCountry();
+        jdbcTemplate.update(sql, new Object[] {street, houseNumber, flatNumber, postalCode, city, country, idAddress});
     }
 
     @Override

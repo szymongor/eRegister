@@ -26,7 +26,9 @@ public interface PeopleDAO {
 
     void updateExpirationDate(int idPerson, String newExpirationDate);
 
-    void updateAddress(int idPerson, int newIdAddress);
+    void updateIdAddress(int idPerson, int newIdAddress);
+
+    void updateAddress(int idAddress, Address newAddress);
 
     void insertAddress(Address address);
 

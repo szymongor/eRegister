@@ -21,6 +21,8 @@ public class Queries {
 
     static final String UPDATE_EXPIRATION_DATE = "UPDATE PEOPLE set expiration_date= ? WHERE id=?";
 
+    static final String UPDATE_ID_ADDRESS = "UPDATE PEOPLE set id_address = ? WHERE id=?";
+
     static final String UPDATE_ADDRESS = "UPDATE ADDRESSES set street = ?, house_number = ?, flat_number = ?, " +
             "postal_code = ?, city = ?, country = ? WHERE id=?";
 
