@@ -80,7 +80,9 @@ public class PeopleService {
         peopleDAO.insertAddress(address);
     }
 
-    public void insertPerson(Person person, Address address) {
+    public void insertPerson(InsertPersonWithAddress insertPersonAddress) {
+        Person person = insertPersonAddress.getPerson();
+        Address address = insertPersonAddress.getAddress();
         peopleDAO.insertPerson(person, address);
     }
 

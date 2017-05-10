@@ -2,17 +2,16 @@ package com.eregister.LessonsService;
 
 import com.eregister.LessonsService.Entity.Lesson;
 import com.eregister.LessonsService.Model.LessonResponse;
+import com.eregister.LessonsService.Model.LessonsResponse;
 import com.eregister.LessonsService.Model.UpdateSemesterRequest;
 import com.eregister.LessonsService.Model.UpdateTeacherRequest;
 import com.eregister.LessonsService.Service.LessonsService;
-import com.eregister.LessonsService.Model.LessonsResponse;
 import com.eregister.SecurityService.Model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * Created by Szymon on 07.04.2017.
@@ -20,18 +19,16 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/Lessons")
-public class LessonsController
-{
+public class LessonsController {
     @Autowired
     LessonsService lessonsService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Serializable getAllLessons(){
+    public Serializable getAllLessons() {
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getAllLessons());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -42,8 +39,7 @@ public class LessonsController
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsLeadsByTeacher(idTeacher));
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -54,8 +50,7 @@ public class LessonsController
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsByAttendingGroup(idGroup));
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -66,8 +61,7 @@ public class LessonsController
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsAboutSubject(idSubject));
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -78,8 +72,7 @@ public class LessonsController
         Serializable response;
         try {
             response = new LessonResponse("ok", lessonsService.getLessonById(id));
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -90,9 +83,8 @@ public class LessonsController
         Serializable response;
         try {
             lessonsService.removeLessonById(id);
-            response = new Response("ok", "Removed lesson id: "+id);
-        }
-        catch(Exception e) {
+            response = new Response("ok", "Removed lesson id: " + id);
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -105,8 +97,7 @@ public class LessonsController
         try {
             lessonsService.updateTeacher(updateTeacherRequest);
             response = new Response("ok", "Updated teacher.");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -119,8 +110,7 @@ public class LessonsController
         try {
             lessonsService.updateSemester(updateSemesterRequest);
             response = new Response("ok", "Updated semester.");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -132,8 +122,7 @@ public class LessonsController
         try {
             lessonsService.insertLesson(lesson);
             response = new Response("ok", "Inserted lesson");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;

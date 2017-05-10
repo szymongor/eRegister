@@ -35,5 +35,12 @@ public interface PeopleDAO {
     void insertPerson(Person person, Address address);
 
     void insertPerson(Person person);
-//get all child -> guardian??
+    //get all child -> guardian??
+    //add person with addres with role ?
+    // update zmienić end pointy
+    // people i address rozdzielić?
+    // błędy obsłużyć ładnie
+    // zwracać id czy imię nazwisko?
+    // teksty w osobnym pliku "error" itp
+    // generator wpisów automatycznie
 }
