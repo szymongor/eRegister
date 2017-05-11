@@ -131,7 +131,7 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/update/newAddress", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateAddress(@RequestBody UpdateAddressRequest updateAddressRequest) {
         Serializable response;
