@@ -24,6 +24,10 @@ public class PeopleService {
         return peopleDAO.getAllPeople();
     }
 
+    public Collection<Person> getAllChild(int idPerson) {
+        return peopleDAO.getAllChild(idPerson);
+    }
+
     public Person getPersonById(int id) {
         return peopleDAO.getPersonById(id);
     }

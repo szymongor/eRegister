@@ -18,7 +18,6 @@ import java.io.Serializable;
 @RestController
 @RequestMapping("/People")
 public class PeopleController {
-
     @Autowired
     PeopleService peopleService;
 
@@ -27,6 +26,17 @@ public class PeopleController {
         Serializable response;
         try {
             response = new PeopleResponse("ok", peopleService.getAllPeople());
+        } catch (Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/Child/id={idPerson}", method = RequestMethod.GET)
+    public Serializable getAllChild(@PathVariable("idPerson") int idPerson) {
+        Serializable response;
+        try {
+            response = new PeopleResponse("ok", peopleService.getAllChild(idPerson));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
@@ -165,10 +175,34 @@ public class PeopleController {
             peopleService.insertPerson(insertPersonWithAddress);
             response = new Response("ok", "Inserted person with address.");
         } catch (Exception e) {
-            response = new Response("Error", "Internal error.");
+            response = new Response("Error", e.getMessage());
         }
         return response;
     }
+//    {
+//        "address":
+//        {
+//            "idAddress":1,
+//                "street":"Dolnych Wałów",
+//                "houseNumber":"22b",
+//                "flatNumber":5,
+//                "postalCode":"44-100",
+//                "city":"Gliwice",
+//                "country":"Polska"
+//        },
+//        "person":
+//        {
+//            "id": 1,
+//                "name": "Bartłomiej",
+//                "surname": "Kaczkowski",
+//                "dateOfBirth": "1982-04-28",
+//                "sex": "kobieta",
+//                "phone": "511511511",
+//                "mail": "dwdwdwd",
+//                "expirationDate": "2019-12-12",
+//                "idAddress": 4
+//        }
+//    }
 
     @RequestMapping(value = "/newPerson", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -178,8 +212,19 @@ public class PeopleController {
             peopleService.insertPerson(person);
             response = new Response("ok", "Inserted person.");
         } catch (Exception e) {
-            response = new Response("Error", "Internal error.");
+            response = new Response("Error", e.getMessage());
         }
         return response;
     }
+    // PRZYKłAD ----> {
+    //	"id": 1,
+    //  "name": "Bartłomiej",
+    //  "surname": "Kaczkowski",
+    //  "dateOfBirth": "1982-04-28",
+    //  "sex": "kobieta",
+    //  "phone": "511511511",
+    //  "mail": "dwdwdwd",
+    //  "expirationDate": "2019-12-12",
+    //  "idAddress": 4
+    //}
 }

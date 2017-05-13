@@ -22,7 +22,7 @@ public class PersonRowMapper implements RowMapper<Person> {
         person.setPhone(resultSet.getString("phone"));
         person.setMail(resultSet.getString("mail"));
         person.setExpirationDate(resultSet.getString("expiration_date"));
-        person.setIdAddress(resultSet.getInt("id_person"));
+        person.setIdAddress(resultSet.getInt("id_address"));
         return person;
     }
 }

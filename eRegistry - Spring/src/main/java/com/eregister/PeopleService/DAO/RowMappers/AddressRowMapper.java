@@ -21,6 +21,6 @@ public class AddressRowMapper implements RowMapper<Address> {
         address.setPostalCode(resultSet.getString("postal_code"));
         address.setCity(resultSet.getString("city"));
         address.setCountry(resultSet.getString("country"));
-        return null;
+        return address;
     }
 }

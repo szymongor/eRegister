@@ -7,6 +7,11 @@ public class Queries {
 
     static final String GET_ALL_PEOPLE = "SELECT * from PEOPLE";
 
+    static final String GET_ALL_CHILD = "SELECT * from PEOPLE where " +
+            "PEOPLE.id in (SELECT STUDENTS.id_person from STUDENTS where " +
+            "STUDENTS.id in (SELECT id_student from CARES where " +
+            "id_guardian = (SELECT id from GUARDIANS where id_person=?)))";
+
     static final String GET_PERSON_BY_ID = "SELECT * from PEOPLE where id=?";
 
     static final String GET_ADDRESS_BY_ID = "SELECT * from ADDRESSES where id=?";

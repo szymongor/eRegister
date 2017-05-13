@@ -12,6 +12,8 @@ public interface PeopleDAO {
 
     Collection<Person> getAllPeople();
 
+    Collection<Person> getAllChild(int idPerson);
+
     Person getPersonById(int id);
 
     Address getAddressById(int id);
