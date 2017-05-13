@@ -79,7 +79,7 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/update/newPhone", method = RequestMethod.POST,
+    @RequestMapping(value = "/updatePhone", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updatePhone(@RequestBody UpdatePhoneRequest updatePhoneRequest) {
         Serializable response;
@@ -92,7 +92,7 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/update/newMail", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateMail", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateMail(@RequestBody UpdateMailRequest updateMailRequest) {
         Serializable response;
@@ -105,7 +105,7 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/update/newExpirationDate", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateExpirationDate", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateExpirationDate(@RequestBody UpdateExpirationDateRequest updateExpirationDateRequest) {
         Serializable response;
@@ -118,7 +118,7 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/update/newIdAddress", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateIdAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateIdAddress(@RequestBody UpdateIdAddressRequest updateIdAddressRequest) {
         Serializable response;

@@ -90,7 +90,7 @@ public class LessonsController {
         return response;
     }
 
-    @RequestMapping(value = "/newTeacher", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateTeacher", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateTeacher(@RequestBody UpdateTeacherRequest updateTeacherRequest) {
         Serializable response;
@@ -103,7 +103,7 @@ public class LessonsController {
         return response;
     }
 
-    @RequestMapping(value = "/newSemester", method = RequestMethod.POST,
+    @RequestMapping(value = "/updateSemester", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updateSemester(@RequestBody UpdateSemesterRequest updateSemesterRequest) {
         Serializable response;
