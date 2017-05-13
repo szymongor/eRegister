@@ -25,13 +25,13 @@ public class Queries {
             "OR USERS.id_person = role.teachers ";
     static final String GET_ALL_ENABLE_EREG_USERS = GET_ALL_EREG_USERS + "where enabled = 1";
     static final String GET_ALL_TEACHERS_EREG_USERS = "SELECT USERS.id, login, password, last_password_reset_date, " +
-            "enabled FROM USERS, TEACHERS where USERS.id_person = TEACHERS.id_person";
+            "enabled, USERS.id_person FROM USERS, TEACHERS where USERS.id_person = TEACHERS.id_person";
     static final String GET_ALL_GUARDIANS_EREG_USERS = "SELECT USERS.id, login, password, last_password_reset_date, " +
-            "enabled FROM USERS, GUARDIANS where USERS.id_person = GUARDIANS.id_person";
+            "enabled, USERS.id_person FROM USERS, GUARDIANS where USERS.id_person = GUARDIANS.id_person";
     static final String GET_ALL_STUDENTS_EREG_USERS = "SELECT USERS.id, login, password, last_password_reset_date, " +
-            "enabled FROM USERS, STUDENTS where USERS.id_person = STUDENTS.id_person";
-    static final String GET_EREG_USER_BY_ID = GET_ALL_EREG_USERS + "where USERS.id = ?";
-    static final String GET_EREG_USER_BY_ID_PERSON = GET_ALL_ENABLE_EREG_USERS + "where USERS.id_person = ?";
+            "enabled, USERS.id_person FROM USERS, STUDENTS where USERS.id_person = STUDENTS.id_person";
+    static final String GET_EREG_USER_BY_ID = GET_ALL_EREG_USERS + " where USERS.id = ?";
+    static final String GET_EREG_USER_BY_ID_PERSON = GET_ALL_EREG_USERS + " where USERS.id_person = ?";
     static final String GET_EREG_USER_BY_LOGIN = GET_ALL_EREG_USERS + "WHERE USERS.login = ?";
     static final String REMOVE_EREG_USER_BY_ID = "DELETE FROM USERS WHERE id = ?";
     static final String REMOVE_EREG_USER_BY_LOGIN = "DELETE from USERS where login = ?";

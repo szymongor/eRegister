@@ -167,8 +167,7 @@ public class EregUserController
         return response;
     }
 
-    // zmienić update -> Szymek
-    @RequestMapping(value ="/updatePassword",
+    @RequestMapping(value ="/newPassword",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updatePasswordEregUser(@RequestBody NewPasswordRequest newPasswordRequest,

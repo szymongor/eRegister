@@ -37,13 +37,14 @@ public interface PeopleDAO {
     void insertPerson(Person person, Address address);
 
     void insertPerson(Person person);
-    // get all child -> guardian?? => people
     // add person with addres with role => jakos zrobic
+    // insert person with address - nie działa, a powinno - naprawić
     // people i address rozdzielić? => moze
     // błędy obsłużyć ładnie
     // zwracać id czy imię nazwisko? => imie i nazwisko
     // teksty w osobnym pliku "error" itp => jeden plik po którym dziedziczą inne
     // generator wpisów automatycznie
+    //get All People -> teachers, guardians, students
 
     // uczeń -> moje oceny, moje przedmioty;
     // rodzic -> moje dzieci -> oceny, przedmioty;
