@@ -128,7 +128,6 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String phone = person.getPhone();
         final String mail = person.getMail();
         final String expirationDate = person.getExpirationDate();
-
         jdbcTemplate.update(sql, new Object[] {street, houseNumber, flatNumber, postalCode, city, country,
                 name, surname, dateOfBirth, sex, phone, mail, expirationDate});
     }
