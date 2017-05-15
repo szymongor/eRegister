@@ -1,5 +1,5 @@
 Send file:
-    pscp -r \eRegistry2.jar adam@157.158.16.186:/home/adam/app/eregistry
+    pscp -r \eregistry.jar adam@157.158.16.186:/home/adam/app/eregistry
 
 Find process:
     netstat -tulpn | grep :8090
