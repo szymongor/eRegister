@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
 import javax.jws.soap.SOAPBinding;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -36,12 +38,14 @@ public class TokenUtils {
         String id = Integer.toString(eregUser.getId());
         String login = eregUser.getLogin();
         String roles = eregUser.getRoles();
+        String generationDate = generationDate();
 
         String jwt = Jwts.builder()
                 .setExpiration(generateExpirationDate())
                 .claim("login", login)
                 .claim("roles", roles)
                 .claim("id",id)
+                .claim("generationDate",generationDate)
                 .signWith(
                         SignatureAlgorithm.HS256,
                         secret
@@ -60,6 +64,12 @@ public class TokenUtils {
                 .setSigningKey(secret)
                 .parseClaimsJws(token).getBody();
         return claims;
+    }
+
+    public static String generationDate(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
     public static UserDetails userDetailsFromToken(String token){
