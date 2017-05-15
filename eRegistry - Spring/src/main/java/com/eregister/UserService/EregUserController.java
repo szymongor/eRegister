@@ -21,6 +21,7 @@ import java.io.Serializable;
  */
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/EregUsers")
 public class EregUserController
 {

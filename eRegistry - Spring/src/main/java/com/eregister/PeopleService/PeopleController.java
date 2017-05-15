@@ -16,6 +16,7 @@ import java.io.Serializable;
  */
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/People")
 public class PeopleController {
     @Autowired

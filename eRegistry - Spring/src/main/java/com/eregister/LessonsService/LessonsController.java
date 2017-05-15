@@ -18,6 +18,7 @@ import java.io.Serializable;
  */
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/Lessons")
 public class LessonsController {
     @Autowired
