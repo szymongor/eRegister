@@ -11,8 +11,12 @@ public class Lesson {
     private String year;
     private String semester;
     private int idTeacher;
+    private String teacherName;
+    private String teacherSurname;
     private int idGroup;
+    private String groupName;
     private int idSubject;
+    private String subjectName;
 
     public Lesson() {
     }
@@ -23,7 +27,7 @@ public class Lesson {
         this.semester = semester;
         this.idTeacher = idTeacher;
         this.idGroup = idGroup;
-        this. idSubject = idSubject;
+        this.idSubject = idSubject;
     }
 
     public int getId() {
@@ -58,19 +62,51 @@ public class Lesson {
         this.idTeacher = idTeacher;
     }
 
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getTeacherSurname() {
+        return teacherSurname;
+    }
+
+    public void setTeacherSurname(String teacherSurname) {
+        this.teacherSurname = teacherSurname;
+    }
+
     public int getIdGroup() {
         return idGroup;
     }
 
-    public void setIdGroup( int idGroup ) {
+    public void setIdGroup(int idGroup) {
         this.idGroup = idGroup;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public int getIdSubject() {
         return idSubject;
     }
 
-    public void setIdSubject( int idSubject) {
+    public void setIdSubject(int idSubject) {
         this.idSubject = idSubject;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 }
