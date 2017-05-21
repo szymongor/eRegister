@@ -47,6 +47,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new JwtAuthenticationTokenFilter();
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui", "/swagger-resources",
+                "/configuration/security", "/swagger-ui.html",
+                "/webjars/**");
+    }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -66,8 +73,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**");
-    }
+
 }
