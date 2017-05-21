@@ -104,11 +104,9 @@ public class MySqlEregUserDao implements EregUserDao {
     }
 
     @Override
-    public void updatePasswordEregUser(EregUser eregUser) {
+    public void updatePasswordEregUser(String newPassword, String login, String oldPassword) {
         final String sql = Queries.UPDATE_PASSWORD_EREG_USER;
-        final String login = eregUser.getLogin();
-        final String password = eregUser.getPassword();
-        jdbcTemplate.update(sql, new Object[]{password, login});
+        jdbcTemplate.update(sql, new Object[]{newPassword, login, oldPassword});
     }
 
     @Override

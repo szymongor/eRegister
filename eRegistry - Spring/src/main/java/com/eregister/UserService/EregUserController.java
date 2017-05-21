@@ -21,6 +21,7 @@ import java.io.Serializable;
  */
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/EregUsers")
 public class EregUserController
 {
@@ -167,7 +168,6 @@ public class EregUserController
         return response;
     }
 
-    // zmienić update -> Szymek
     @RequestMapping(value ="/newPassword",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -176,7 +176,7 @@ public class EregUserController
         Serializable response;
         try{
             String login = TokenUtils.getLoginFromToken(token);
-            //eregUserService.updatePasswordEregUser(newPasswordRequest, login);
+            eregUserService.updatePasswordEregUser(login, newPasswordRequest);
             EregUser eregUser = eregUserService.getEregUserByLogin(login);
             String newToken = TokenUtils.generateToken(eregUser);
             response = new NewPasswordResponse("Ok","Login: " + login

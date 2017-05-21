@@ -12,7 +12,7 @@ import java.util.*;
 
 @Repository
 @Qualifier("fakeLessons")
-public class LessonsDaoFakeImpl implements LessonsDao {
+public class LessonsDaoFakeImpl implements LessonsDAO {
 
 
     static Map<Integer, Lesson> lessons;
@@ -76,12 +76,12 @@ public class LessonsDaoFakeImpl implements LessonsDao {
     }
 
     @Override
-    public void updateTeacher(Lesson lesson) {
+    public void updateTeacher(int idTeacher, int id) {
 
     }
 
     @Override
-    public void updateSemester(Lesson lesson) {
+    public void updateSemester(String semester, int id) {
 
     }
 

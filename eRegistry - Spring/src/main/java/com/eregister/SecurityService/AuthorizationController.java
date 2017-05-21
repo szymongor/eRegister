@@ -6,10 +6,7 @@ import com.eregister.SecurityService.Model.JwtAuthenticationResponse;
 import com.eregister.SecurityService.Model.JwtCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 
@@ -18,6 +15,7 @@ import java.io.Serializable;
  */
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "auth")
 public class AuthorizationController {
 

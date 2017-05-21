@@ -1,0 +1,11 @@
+Send file:
+    pscp -r \eregistry.jar adam@157.158.16.186:/home/adam/app/eregistry
+
+Find process:
+    netstat -tulpn | grep :8090
+
+Kill process:
+    kill -9 <PID>
+
+Run service:
+    ./run.sh start eregistry.jar

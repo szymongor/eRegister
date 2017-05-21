@@ -84,8 +84,8 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public void updatePasswordEregUser(EregUser eregUser){
-        allUsers.put(eregUser.getId(),eregUser);
+    public void updatePasswordEregUser(String newPassword, String login, String oldPassword){
+
     }
 
     @Override

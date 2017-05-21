@@ -12,9 +12,19 @@ public interface LessonsDAO {
 
     Collection<Lesson> getAllLessons();
 
+    Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher );
+
+    Collection<Lesson> getLessonsByAttendingGroup( int idGroup );
+
+    Collection<Lesson> getLessonsAboutSubject( int idSubject );
+
     Lesson getLessonById(int id);
 
-    Collection<Lesson> getLessonsByStudentAttending(int studentId);
+    void removeLessonById(int id);
 
+    void updateTeacher(int idTeacher, int idLesson);
 
+    void updateSemester(String semester, int idLesson);
+
+    void insertLesson(Lesson lesson);
 }
