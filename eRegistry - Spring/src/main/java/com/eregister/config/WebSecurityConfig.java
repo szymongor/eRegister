@@ -47,13 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new JwtAuthenticationTokenFilter();
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/v2/api-docs",
-                "/configuration/ui", "/swagger-resources",
-                "/configuration/security", "/swagger-ui.html",
-                "/webjars/**");
-    }
+
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -65,12 +59,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         HttpMethod.GET,
                         "/EregUsers"
                 ).permitAll()
-                .antMatchers(HttpMethod.GET,"/Lessons").permitAll()
-                .antMatchers("/auth/**").permitAll()
+//                .antMatchers(HttpMethod.GET,"/Lessons").permitAll()
+                .antMatchers("/auth").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/swagger-resources").permitAll()
+                .antMatchers("/swagger-resources/configuration/ui").permitAll()
+                .antMatchers("/swagger-resources/configuration/security").permitAll()
                 .anyRequest().authenticated();
 
+
         httpSecurity
-               .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+               .addFilterBefore(authenticationTokenFilterBean(),
+                      UsernamePasswordAuthenticationFilter.class);
     }
 
 

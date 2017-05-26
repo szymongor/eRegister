@@ -1,6 +1,7 @@
 package com.eregister.SecurityService.Filter;
 
 import com.eregister.SecurityService.Service.AuthorizationService;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -33,17 +34,24 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        String authToken = request.getHeader("Authorization");
-        if(! "/auth".equals(request.getRequestURI())) {
-            verifyToken(authToken, response);
-            UserDetails userDetails = authorizationService.userDetailsFromToken(authToken);
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+        try{
+            String authToken = request.getHeader("Authorization");
+                verifyToken(authToken, response);
+                UserDetails userDetails = authorizationService.userDetailsFromToken(authToken);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(authentication);
         }
+        catch (SecurityException se){
+            throw new SecurityException(se.getMessage());
+        }
+        catch (Exception e){
+           // throw new SecurityException(e.getMessage());
+        }
+
         chain.doFilter(request, response);
     }
 
-    private Claims verifyToken(String authToken, HttpServletResponse response){
+    private Claims verifyToken(String authToken, HttpServletResponse response) throws Exception {
         try {
             Claims claims;
             claims = authorizationService.verifyToken(authToken);
