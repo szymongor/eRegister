@@ -1,7 +1,6 @@
 package com.eregister.SecurityService.Filter;
 
 import com.eregister.SecurityService.Service.AuthorizationService;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

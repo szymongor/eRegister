@@ -1,6 +1,5 @@
 package com.eregister.UserService.Model;
 
-import oracle.jrockit.jfr.StringConstantPool;
 
 import java.io.Serializable;
 

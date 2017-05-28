@@ -8,6 +8,7 @@ import com.eregister.UserService.Model.NewPasswordResponse;
 import com.eregister.UserService.Model.UserResponse;
 import com.eregister.UserService.Model.UsersListResponse;
 import com.eregister.UserService.Service.EregUserService;
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
@@ -22,7 +23,7 @@ import java.io.Serializable;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/EregUsers")
+@RequestMapping(value = "/EregUsers")
 public class EregUserController
 {
     @Autowired
