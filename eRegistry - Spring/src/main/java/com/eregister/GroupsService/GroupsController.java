@@ -20,7 +20,8 @@ public class GroupsController {
     GroupsService groupsService;
 
     @RequestMapping(value = "/teachBy/id={idTeacher}", method = RequestMethod.GET)
-    public Serializable getAllGroupsByTeacher(@PathVariable("idTeacher") int idTeacher) {
+    public Serializable getAllGroupsByTeacher(@PathVariable("idTeacher") int idTeacher,
+                                              @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new GroupsResponse("ok", groupsService.getAllGroupsByTeacher(idTeacher));

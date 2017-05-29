@@ -31,7 +31,7 @@ public class EregUserController
 
     @RequestMapping(method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllEregUsers(){
+    public Serializable getAllEregUsers(@RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             response = new UsersListResponse(eregUserService.getAllEregUsers(), "Ok");
@@ -44,7 +44,7 @@ public class EregUserController
 
     @RequestMapping(value ="/enables",method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllEnableEregUsers(){
+    public Serializable getAllEnableEregUsers(@RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             response = new UsersListResponse(eregUserService.getAllEnableEregUsers(), "Ok");
@@ -57,7 +57,7 @@ public class EregUserController
 
     @RequestMapping(value ="/teachers",method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllTeachersEregUsers(){
+    public Serializable getAllTeachersEregUsers(@RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             response = new UsersListResponse(eregUserService.getAllTeachersEregUsers(), "Ok");
@@ -70,7 +70,7 @@ public class EregUserController
 
     @RequestMapping(value ="/guardians",method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllGuardiansEregUsers(){
+    public Serializable getAllGuardiansEregUsers(@RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             response = new UsersListResponse(eregUserService.getAllGuardiansEregUsers(), "Ok");
@@ -83,7 +83,7 @@ public class EregUserController
 
     @RequestMapping(value ="/students",method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllStudentsEregUsers(){
+    public Serializable getAllStudentsEregUsers(@RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             response = new UsersListResponse(eregUserService.getAllStudentsEregUsers(), "Ok");
@@ -96,7 +96,8 @@ public class EregUserController
     }
 
     @RequestMapping(value ="/id={id}",method = RequestMethod.GET)
-    public Serializable getEregUserById(@PathVariable("id") int id){
+    public Serializable getEregUserById(@PathVariable("id") int id,
+                                        @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             EregUser eregUser = eregUserService.getEregUserById(id);
@@ -112,7 +113,8 @@ public class EregUserController
     }
 
     @RequestMapping(value ="/person/id={id}",method = RequestMethod.GET)
-    public Serializable getEregUserByIdPerson(@PathVariable("id") int id){
+    public Serializable getEregUserByIdPerson(@PathVariable("id") int id,
+                                              @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             EregUser eregUser = eregUserService.getEregUserByIdPerson(id);
@@ -128,7 +130,8 @@ public class EregUserController
     }
 
     @RequestMapping(value ="/login={login}",method = RequestMethod.GET)
-    public Serializable getEregUserByLogin(@PathVariable("login") String login){
+    public Serializable getEregUserByLogin(@PathVariable("login") String login,
+                                           @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             EregUser eregUser = eregUserService.getEregUserByLogin(login);
@@ -144,7 +147,8 @@ public class EregUserController
     }
 
     @RequestMapping(value ="/id={id}",method = RequestMethod.DELETE)
-    public Serializable removeEregUserById(@PathVariable("id") int id){
+    public Serializable removeEregUserById(@PathVariable("id") int id,
+                                           @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             eregUserService.removeEregUserById(id);
@@ -157,7 +161,8 @@ public class EregUserController
     }
 
     @RequestMapping(value ="/login={login}",method = RequestMethod.DELETE)
-    public Serializable removeEregUserByLogin(@PathVariable("login") String login){
+    public Serializable removeEregUserByLogin(@PathVariable("login") String login,
+                                              @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             eregUserService.removeEregUserByLogin(login);
@@ -191,7 +196,8 @@ public class EregUserController
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable insertEregUser(@RequestBody EregUser eregUser){
+    public Serializable insertEregUser(@RequestBody EregUser eregUser,
+                                       @RequestHeader(name = "Authorization") String token){
         Serializable response;
         try{
             eregUserService.insertEregUser(eregUser);

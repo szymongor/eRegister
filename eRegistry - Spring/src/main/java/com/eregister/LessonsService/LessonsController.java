@@ -25,7 +25,7 @@ public class LessonsController {
     LessonsService lessonsService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Serializable getAllLessons() {
+    public Serializable getAllLessons(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getAllLessons());
@@ -36,7 +36,8 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/leadBy/id={idTeacher}", method = RequestMethod.GET)
-    public Serializable getLessonsLeadsByTeacher(@PathVariable("idTeacher") int idTeacher) {
+    public Serializable getLessonsLeadsByTeacher(@PathVariable("idTeacher") int idTeacher,
+                                                 @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsLeadsByTeacher(idTeacher));
@@ -47,7 +48,8 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/attendingGroup/id={idGroup}", method = RequestMethod.GET)
-    public Serializable getLessonsByAttendingGroup(@PathVariable("idGroup") int idGroup) {
+    public Serializable getLessonsByAttendingGroup(@PathVariable("idGroup") int idGroup,
+                                                   @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsByAttendingGroup(idGroup));
@@ -58,7 +60,8 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/about/id={idSubject}", method = RequestMethod.GET)
-    public Serializable getLessonsAboutSubject(@PathVariable("idSubject") int idSubject) {
+    public Serializable getLessonsAboutSubject(@PathVariable("idSubject") int idSubject,
+                                               @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new LessonsResponse("ok", lessonsService.getLessonsAboutSubject(idSubject));
@@ -69,7 +72,8 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Serializable getLessonById(@PathVariable("id") int id) {
+    public Serializable getLessonById(@PathVariable("id") int id,
+                                      @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new LessonResponse("ok", lessonsService.getLessonById(id));
@@ -80,7 +84,8 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public Serializable removeLessonById(@PathVariable("id") int id) {
+    public Serializable removeLessonById(@PathVariable("id") int id,
+                                         @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             lessonsService.removeLessonById(id);
@@ -93,7 +98,8 @@ public class LessonsController {
 
     @RequestMapping(value = "/updateTeacher", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateTeacher(@RequestBody UpdateTeacherRequest updateTeacherRequest) {
+    public Serializable updateTeacher(@RequestBody UpdateTeacherRequest updateTeacherRequest,
+                                      @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             lessonsService.updateTeacher(updateTeacherRequest);
@@ -106,7 +112,8 @@ public class LessonsController {
 
     @RequestMapping(value = "/updateSemester", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateSemester(@RequestBody UpdateSemesterRequest updateSemesterRequest) {
+    public Serializable updateSemester(@RequestBody UpdateSemesterRequest updateSemesterRequest,
+                                       @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             lessonsService.updateSemester(updateSemesterRequest);
@@ -118,7 +125,8 @@ public class LessonsController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable insertLesson(@RequestBody Lesson lesson) {
+    public Serializable insertLesson(@RequestBody Lesson lesson,
+                                     @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             lessonsService.insertLesson(lesson);
