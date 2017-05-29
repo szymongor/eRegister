@@ -48,6 +48,7 @@
 		2274D7C61EA94DD10045FEF4 /* ChildrenTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7C41EA94DD10045FEF4 /* ChildrenTVCell.swift */; };
 		2274D7C71EA94DD10045FEF4 /* ChildrenTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2274D7C51EA94DD10045FEF4 /* ChildrenTVCell.xib */; };
 		2274D7C91EA950AB0045FEF4 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274D7C81EA950AB0045FEF4 /* Student.swift */; };
+		227B2EC51ED77821005D64A2 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227B2EC41ED77821005D64A2 /* Endpoints.swift */; };
 		2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294D0E51E9C27E100D0C081 /* CheckBox.swift */; };
 		22E330B21EA3B46E0092AC1B /* EducatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E330B01EA3B46E0092AC1B /* EducatorVC.swift */; };
 		22E330B31EA3B46E0092AC1B /* EducatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E330B11EA3B46E0092AC1B /* EducatorVC.xib */; };
@@ -131,6 +132,7 @@
 		2274D7C41EA94DD10045FEF4 /* ChildrenTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenTVCell.swift; sourceTree = "<group>"; };
 		2274D7C51EA94DD10045FEF4 /* ChildrenTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildrenTVCell.xib; sourceTree = "<group>"; };
 		2274D7C81EA950AB0045FEF4 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		227B2EC41ED77821005D64A2 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		2294D0E51E9C27E100D0C081 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		22E330B01EA3B46E0092AC1B /* EducatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorVC.swift; sourceTree = "<group>"; };
 		22E330B11EA3B46E0092AC1B /* EducatorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EducatorVC.xib; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				222C82561E9C149100644DB5 /* RequestManager.swift */,
 				22F32C851EA2389700644548 /* JWT.swift */,
 				22F32C871EA23F1F00644548 /* JSON.swift */,
+				227B2EC41ED77821005D64A2 /* Endpoints.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				226ABEC91EA13B3C002652F2 /* SettingsTVCell.swift in Sources */,
 				22E6A9231EA3929600EB2944 /* SubjectHeaderView.swift in Sources */,
 				2274D7C91EA950AB0045FEF4 /* Student.swift in Sources */,
+				227B2EC51ED77821005D64A2 /* Endpoints.swift in Sources */,
 				2294D0E61E9C27E100D0C081 /* CheckBox.swift in Sources */,
 				2207AF281E9D5E8F00EFDE71 /* MenuVC.swift in Sources */,
 				220E30421EA368DD00B8F52E /* Grade.swift in Sources */,

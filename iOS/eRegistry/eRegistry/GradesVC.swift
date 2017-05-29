@@ -62,9 +62,21 @@ class GradesVC: UIViewController {
     
     private func downloadData(for student: Student) {
         
-        getTestData(for: student.id)
+        //getTestData(for: student.id)
         
-        collectionView.reloadData()
+        RequestManager.getAllLessons(completion: {
+            success, subjects in
+            for (index, _) in subjects.enumerated() {
+                self.subjects.append(subjects[index])
+                self.collectionView.insertItems(at: [IndexPath(item: index, section: 0)])
+            }
+            self.collectionView.reloadData()
+//            self.collectionView.performBatchUpdates({
+//                self.collectionView.reloadData()
+//            }, completion: nil)
+        })
+        
+        //collectionView.reloadData()
         
     }
     

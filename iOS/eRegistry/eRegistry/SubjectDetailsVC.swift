@@ -10,6 +10,16 @@ import UIKit
 
 class SubjectDetailsVC: UIViewController {
 
+    @IBOutlet weak var container: UIView! {
+        didSet {
+            container.backgroundColor = Colors.MAIN
+        }
+    }
+    @IBOutlet weak var teacherLabel: UILabel! {
+        didSet {
+            teacherLabel.textColor = UIColor.white
+        }
+    }
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             let cellNib = UINib(nibName: CELL_ID, bundle: nil)
@@ -42,6 +52,9 @@ class SubjectDetailsVC: UIViewController {
     func setSubject(_ subject: Subject?) {
         self.subject = subject
         self.title = subject?.name
+        if let subjectObject = subject {
+            self.teacherLabel.text = "Nauczyciel: \(subjectObject.teacherName) \(subjectObject.teacherSurname)"
+        }
     }
 
 }

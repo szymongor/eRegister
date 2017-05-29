@@ -57,14 +57,14 @@ class User {
     var roleName: String {
         get {
             let role = UserDefaults.standard.string(forKey: "role")
-            if role == "ROLE_TEACHER" { return "Nauczyciel" }
-            else if role == "ROLE_STUDENT" { return "Uczeń" }
+            if role == "TEACHER" { return "Nauczyciel" }
+            else if role == "STUDENT" { return "Uczeń" }
             else { return "Niezdefiniowany" }
         }
         set {
-            if newValue == "ROLE_TEACHER" {
+            if newValue == "TEACHER" {
                 roleType = .teacher
-            } else if newValue == "ROLE_STUDENT" {
+            } else if newValue == "STUDENT" {
                 roleType = .student
             }
 

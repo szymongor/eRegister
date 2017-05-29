@@ -106,7 +106,6 @@ extension MenuVC : UICollectionViewDelegate, UICollectionViewDataSource {
             print("Wyloguj")
             logout()
         }
-        RequestManager.getUsers()
     }
     
     private func goToGrades() {

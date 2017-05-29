@@ -85,6 +85,7 @@ extension FormVC {
         newValueTF.isSecureTextEntry = true
         confirmNewValueTF.placeholder = "Powtórz hasło"
         confirmNewValueTF.isSecureTextEntry = true
+        confirmButton.addTarget(self, action: #selector(changePassword), for: .touchUpInside)
     }
     
     private func prepareAsPhoneForm() {
@@ -111,4 +112,21 @@ extension FormVC {
         confirmNewValueTF.isSecureTextEntry = true
     }
 
+}
+
+extension FormVC {
+    func changePassword() {
+        print("Password change, new password: \(newValueTF.text)")
+        guard let old = oldValueTF.text else {
+            return
+        }
+        guard let new = newValueTF.text else {
+            return
+        }
+        RequestManager.changePassword(oldPassword: old, newPassword: new, completion: {
+            success in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
 }

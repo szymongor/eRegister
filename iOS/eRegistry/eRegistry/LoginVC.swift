@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var usernameTF: UITextField! {
         didSet {
             usernameTF.placeholder = "Login"
-            usernameTF.text = ""
+            usernameTF.text = "natbob123"
             usernameTF.appTheme()
         }
     }
