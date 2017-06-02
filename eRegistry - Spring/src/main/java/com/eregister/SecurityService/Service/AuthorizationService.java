@@ -37,7 +37,7 @@ public class AuthorizationService {
             user = eregUserService.getEregUserByLogin(login);
         }
         catch (Exception e){
-            throw new SecurityException(e.getMessage());
+            throw e;
         }
 
         if(!user.getPassword().equals(password)){
@@ -56,20 +56,26 @@ public class AuthorizationService {
 
     }
 
-    public Claims verifyToken(String token){
+    public Claims verifyToken(String token) throws Exception {
         Claims claims = tokenUtils.verifyToken(token);
         EregUser user = getUser(claims);
         checkLastPasswordResetDate(user, claims);
         return claims;
     }
 
-    public UserDetails userDetailsFromToken(String token){
+    public UserDetails userDetailsFromToken(String token) throws Exception {
         return tokenUtils.userDetailsFromToken(token);
     }
 
     private EregUser getUser(Claims claims){
-        int userId = Integer.parseInt(claims.get("id").toString());
-        EregUser user = eregUserService.getEregUserById(userId);
+        EregUser user = null;
+        try{
+            int userId = Integer.parseInt(claims.get("id").toString());
+            user = eregUserService.getEregUserById(userId);
+        }catch (Exception e){
+            throw e;
+        }
+
         return user;
     }
 

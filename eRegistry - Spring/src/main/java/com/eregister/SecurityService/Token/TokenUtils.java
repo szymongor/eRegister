@@ -1,23 +1,14 @@
 package com.eregister.SecurityService.Token;
 
-import com.eregister.SecurityService.Model.JwtAuthority;
 import com.eregister.SecurityService.Model.JwtUserDetails;
 import com.eregister.UserService.Entity.EregUser;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -59,10 +50,15 @@ public class TokenUtils {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
-    public static Claims verifyToken(String token){
-        Claims claims = Jwts.parser()
-                .setSigningKey(secret)
-                .parseClaimsJws(token).getBody();
+    public static Claims verifyToken(String token) throws Exception {
+        Claims claims =null;
+        try {
+            claims = Jwts.parser()
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token).getBody();
+        } catch (Exception e){
+            throw new Exception("Wrong token format");
+        }
         return claims;
     }
 
@@ -72,13 +68,13 @@ public class TokenUtils {
         return dateFormat.format(date);
     }
 
-    public static UserDetails userDetailsFromToken(String token){
+    public static UserDetails userDetailsFromToken(String token) throws Exception {
         Claims claims = verifyToken(token);
         UserDetails userDetails = new JwtUserDetails(claims);
         return userDetails;
     }
 
-    public static String getLoginFromToken(String token){
+    public static String getLoginFromToken(String token) throws Exception {
         UserDetails userDetails = userDetailsFromToken(token);
         String login = userDetails.getUsername();
         return login;

@@ -1,0 +1,5 @@
+SWAGGER UI: http://petstore.swagger.io/
+
+API-DOCS LINK: http://157.158.16.186:8090/v2/api-docs
+
+Wystarczy wejść na SWAGGER UI i podmienić link do dokumentacji na nasz API-DOCS i kliknąć Explore.

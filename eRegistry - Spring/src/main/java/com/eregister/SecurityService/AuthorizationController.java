@@ -38,10 +38,4 @@ public class AuthorizationController {
         }
         return response;
     }
-
-    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String verifyToken(@RequestBody JwtCredentials jwtCredentials){
-        //String response = authorizationService.authorizeEregUser(jwtCredentials);
-        return "Ok";
-    }
 }

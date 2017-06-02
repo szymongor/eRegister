@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -47,21 +48,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/EregUsers"
-                ).permitAll()
-                .antMatchers(HttpMethod.GET,"/Lessons").permitAll()
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/**").permitAll()
+                //.antMatchers("/Lessons").permitAll()
+                //.antMatchers("/People").permitAll()
+                //.antMatchers("/Groups").permitAll()
+                //.antMatchers(HttpMethod.GET,"/Lessons").permitAll()
+                .antMatchers("/auth").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/swagger-resources").permitAll()
+                .antMatchers("/swagger-resources/configuration/ui").permitAll()
+                .antMatchers("/swagger-resources/configuration/security").permitAll()
                 .anyRequest().authenticated();
 
+
         httpSecurity
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+               .addFilterBefore(authenticationTokenFilterBean(),
+                      UsernamePasswordAuthenticationFilter.class);
     }
+
+
 }

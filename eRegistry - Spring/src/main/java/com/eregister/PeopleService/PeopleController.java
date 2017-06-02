@@ -23,7 +23,7 @@ public class PeopleController {
     PeopleService peopleService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Serializable getAllPeople() {
+    public Serializable getAllPeople(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new PeopleResponse("ok", peopleService.getAllPeople());
@@ -34,7 +34,8 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/Child/id={idPerson}", method = RequestMethod.GET)
-    public Serializable getAllChild(@PathVariable("idPerson") int idPerson) {
+    public Serializable getAllChild(@PathVariable("idPerson") int idPerson,
+                                    @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new PeopleResponse("ok", peopleService.getAllChild(idPerson));
@@ -45,7 +46,8 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/Person/id={idPerson}", method = RequestMethod.GET)
-    public Serializable getPersonById(@PathVariable("idPerson") int idPerson) {
+    public Serializable getPersonById(@PathVariable("idPerson") int idPerson,
+                                      @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new PersonResponse("ok", peopleService.getPersonById(idPerson));
@@ -56,7 +58,8 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/Address/id={idAddress}", method = RequestMethod.GET)
-    public Serializable getAddressById(@PathVariable("idAddress") int idAddress) {
+    public Serializable getAddressById(@PathVariable("idAddress") int idAddress,
+                                       @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new AddressResponse("ok", peopleService.getAddressById(idAddress));
@@ -67,7 +70,8 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/Person/id={idPerson}", method = RequestMethod.DELETE)
-    public Serializable removePersonById(@PathVariable("idPerson") int idPerson) {
+    public Serializable removePersonById(@PathVariable("idPerson") int idPerson,
+                                         @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.removePersonById(idPerson);
@@ -79,7 +83,8 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/Address/id={idAddress}", method = RequestMethod.DELETE)
-    public Serializable removeAddressById(@PathVariable("idAddress") int idAddress) {
+    public Serializable removeAddressById(@PathVariable("idAddress") int idAddress,
+                                          @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.removeAddressById(idAddress);
@@ -92,7 +97,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/updatePhone", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updatePhone(@RequestBody UpdatePhoneRequest updatePhoneRequest) {
+    public Serializable updatePhone(@RequestBody UpdatePhoneRequest updatePhoneRequest,
+                                    @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.updatePhone(updatePhoneRequest);
@@ -105,7 +111,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/updateMail", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateMail(@RequestBody UpdateMailRequest updateMailRequest) {
+    public Serializable updateMail(@RequestBody UpdateMailRequest updateMailRequest,
+                                   @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.updateMail(updateMailRequest);
@@ -118,7 +125,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/updateExpirationDate", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateExpirationDate(@RequestBody UpdateExpirationDateRequest updateExpirationDateRequest) {
+    public Serializable updateExpirationDate(@RequestBody UpdateExpirationDateRequest updateExpirationDateRequest,
+                                             @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.updateExpirationDate(updateExpirationDateRequest);
@@ -131,7 +139,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/updateIdAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateIdAddress(@RequestBody UpdateIdAddressRequest updateIdAddressRequest) {
+    public Serializable updateIdAddress(@RequestBody UpdateIdAddressRequest updateIdAddressRequest,
+                                        @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.updateIdAddress(updateIdAddressRequest);
@@ -144,7 +153,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/updateAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable updateAddress(@RequestBody UpdateAddressRequest updateAddressRequest) {
+    public Serializable updateAddress(@RequestBody UpdateAddressRequest updateAddressRequest,
+                                      @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.updateAddress(updateAddressRequest);
@@ -157,7 +167,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/newAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable insertAddress(@RequestBody Address address) {
+    public Serializable insertAddress(@RequestBody Address address,
+                                      @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.insertAddress(address);
@@ -170,7 +181,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/newPersonWithAddress", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable insertPersonWithAddress(@RequestBody InsertPersonWithAddress insertPersonWithAddress) {
+    public Serializable insertPersonWithAddress(@RequestBody InsertPersonWithAddress insertPersonWithAddress,
+                                                @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.insertPerson(insertPersonWithAddress);
@@ -207,7 +219,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/newPerson", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Serializable insertPerson(@RequestBody Person person) {
+    public Serializable insertPerson(@RequestBody Person person,
+                                     @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             peopleService.insertPerson(person);
