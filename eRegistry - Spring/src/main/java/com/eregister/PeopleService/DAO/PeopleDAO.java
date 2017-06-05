@@ -2,6 +2,7 @@ package com.eregister.PeopleService.DAO;
 
 import com.eregister.PeopleService.Entity.Address;
 import com.eregister.PeopleService.Entity.Person;
+import com.eregister.PeopleService.Entity.PersonalData;
 
 import java.util.Collection;
 
@@ -13,6 +14,8 @@ public interface PeopleDAO {
     Collection<Person> getAllPeople();
 
     Collection<Person> getAllChild(int idPerson);
+
+    PersonalData getMyPersonalData(int idEregUser);
 
     Person getPersonById(int id);
 

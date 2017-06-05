@@ -3,6 +3,7 @@ package com.eregister.PeopleService.Service;
 import com.eregister.PeopleService.DAO.PeopleDAO;
 import com.eregister.PeopleService.Entity.Address;
 import com.eregister.PeopleService.Entity.Person;
+import com.eregister.PeopleService.Entity.PersonalData;
 import com.eregister.PeopleService.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,6 +27,10 @@ public class PeopleService {
 
     public Collection<Person> getAllChild(int idPerson) {
         return peopleDAO.getAllChild(idPerson);
+    }
+
+    public PersonalData getMyPersonalData(int idEregUser) {
+        return peopleDAO.getMyPersonalData(idEregUser);
     }
 
     public Person getPersonById(int id) {

@@ -2,8 +2,10 @@ package com.eregister.PeopleService.DAO;
 
 import com.eregister.PeopleService.DAO.RowMappers.AddressRowMapper;
 import com.eregister.PeopleService.DAO.RowMappers.PersonRowMapper;
+import com.eregister.PeopleService.DAO.RowMappers.PersonalDataRowMapper;
 import com.eregister.PeopleService.Entity.Address;
 import com.eregister.PeopleService.Entity.Person;
+import com.eregister.PeopleService.Entity.PersonalData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -34,6 +36,13 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String sql = Queries.GET_ALL_CHILD;
         Collection<Person> people = jdbcTemplate.query(sql, new PersonRowMapper(), idPerson);
         return people;
+    }
+
+    @Override
+    public PersonalData getMyPersonalData(int idEregUser) {
+        final String sql = Queries.GET_MY_PERSONAL_DATA;
+        PersonalData personalData = jdbcTemplate.queryForObject(sql, new PersonalDataRowMapper(), idEregUser);
+        return personalData;
     }
 
     @Override
