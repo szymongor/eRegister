@@ -80,4 +80,8 @@ public class TokenUtils {
         return login;
     }
 
+    public static int getIdEregUserFromToken(String token) throws Exception {
+        Claims claims = verifyToken(token);
+        return Integer.parseInt(claims.get("id").toString());
+    }
 }
