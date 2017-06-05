@@ -51,12 +51,17 @@ public class LessonsDaoFakeImpl implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsLeadsByTeacher(int idTeacher) {
+    public Collection<Lesson> getLessonsLeadsByTeacher(int idEregUser) {
         return null;
     }
 
     @Override
     public Collection<Lesson> getLessonsByAttendingGroup(int idGroup) {
+        return null;
+    }
+
+    @Override
+    public Collection<Lesson> getAllStudentLessons(int idEregUser) {
         return null;
     }
 

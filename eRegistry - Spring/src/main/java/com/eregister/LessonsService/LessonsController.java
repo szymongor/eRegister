@@ -7,6 +7,7 @@ import com.eregister.LessonsService.Model.UpdateSemesterRequest;
 import com.eregister.LessonsService.Model.UpdateTeacherRequest;
 import com.eregister.LessonsService.Service.LessonsService;
 import com.eregister.SecurityService.Model.Response;
+import com.eregister.SecurityService.Token.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -35,14 +36,14 @@ public class LessonsController {
         return response;
     }
 
-    @RequestMapping(value = "/leadBy/id={idTeacher}", method = RequestMethod.GET)
-    public Serializable getLessonsLeadsByTeacher(@PathVariable("idTeacher") int idTeacher,
-                                                 @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/teacher/myLessons", method = RequestMethod.GET)
+    public Serializable getLessonsLeadsByTeacher(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new LessonsResponse("ok", lessonsService.getLessonsLeadsByTeacher(idTeacher));
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new LessonsResponse("ok", lessonsService.getLessonsLeadsByTeacher(idEregUser));
         } catch (Exception e) {
-            response = new Response("Error", "Internal error");
+            response = new Response("Error", e.getMessage());
         }
         return response;
     }
@@ -55,6 +56,18 @@ public class LessonsController {
             response = new LessonsResponse("ok", lessonsService.getLessonsByAttendingGroup(idGroup));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/student/myLessons", method = RequestMethod.GET)
+    public Serializable getAllStudentLessons(@RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new LessonsResponse("ok", lessonsService.getAllStudentLessons(idEregUser));
+        } catch (Exception e){
+            response = new Response("Error", e.getMessage());
         }
         return response;
     }

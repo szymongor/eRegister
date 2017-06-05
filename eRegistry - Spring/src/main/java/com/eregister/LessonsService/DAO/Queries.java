@@ -15,8 +15,18 @@ public class Queries {
             "where id_person = PEOPLE.id) teacher ON id_teacher = teacher.teacher_id " +
             "LEFT JOIN GROUPS ON id_group = GROUPS.id " +
             "LEFT JOIN SUBJECTS ON id_subject = SUBJECTS.id";
-    static final String GET_LESSONS_LEADS_BY_TEACHER = GET_ALL_LESSONS + " where id_teacher = ?";
+    static final String GET_LESSONS_LEADS_BY_TEACHER = "SELECT LESSONS.id id, LESSONS.year year, semester, id_teacher, teacher_name, " +
+            "teacher_surname, id_group, GROUPS.name group_name, id_subject, SUBJECTS.name subject_name from LESSONS " +
+            "RIGHT JOIN " +
+            "(SELECT TEACHERS.id teacher_id, name teacher_name, surname teacher_surname from TEACHERS, PEOPLE, USERS " +
+            "where TEACHERS.id_person = PEOPLE.id and PEOPLE.id = USERS.id_person and USERS.id=?) " +
+            "teacher ON id_teacher = teacher.teacher_id LEFT JOIN GROUPS ON id_group = GROUPS.id " +
+            "LEFT JOIN SUBJECTS ON id_subject = SUBJECTS.id";
     static final String GET_LESSONS_BY_ATTENDING_GROUP = GET_ALL_LESSONS + " where id_group = ?";
+    static final String GET_ALL_STUDENT_LESSONS = GET_ALL_LESSONS + " where id_group in " +
+            "(SELECT GROUPS.id idGroup from GROUPS, BELONGS where GROUPS.id = BELONGS.id_group " +
+            "and id_student = (SELECT STUDENTS.id FROM STUDENTS where STUDENTS.id_person " +
+            "= (SELECT PEOPLE.id from PEOPLE, USERS where USERS.id_person = PEOPLE.id and USERS.id=?)))";
     static final String GET_LESSONS_ABOUT_SUBJECT = GET_ALL_LESSONS + " where id_subject = ?";
     static final String GET_LESSON_BY_ID = GET_ALL_LESSONS + " where LESSONS.id = ?";
     static final String REMOVE_LESSON_BY_ID = "DELETE from LESSONS where id = ?";

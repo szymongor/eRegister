@@ -25,12 +25,16 @@ public class LessonsService {
         return lessonsDao.getAllLessons();
     }
 
-    public Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher ) {
-        return lessonsDao.getLessonsLeadsByTeacher(idTeacher);
+    public Collection<Lesson> getLessonsLeadsByTeacher( int idEregUser ) {
+        return lessonsDao.getLessonsLeadsByTeacher(idEregUser);
     }
 
     public Collection<Lesson> getLessonsByAttendingGroup( int idGroup ) {
         return lessonsDao.getLessonsByAttendingGroup(idGroup);
+    }
+
+    public Collection<Lesson> getAllStudentLessons( int idEregUser ) {
+        return lessonsDao.getAllStudentLessons(idEregUser);
     }
 
     public Collection<Lesson> getLessonsAboutSubject( int idSubject ) {

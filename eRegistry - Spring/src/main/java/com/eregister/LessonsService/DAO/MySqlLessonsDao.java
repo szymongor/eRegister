@@ -29,9 +29,9 @@ public class MySqlLessonsDao implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsLeadsByTeacher(int idTeacher) {
+    public Collection<Lesson> getLessonsLeadsByTeacher(int idEregUser) {
         final String sql = Queries.GET_LESSONS_LEADS_BY_TEACHER;
-        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idTeacher);
+        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idEregUser);
         return lessons;
     }
 
@@ -39,6 +39,13 @@ public class MySqlLessonsDao implements LessonsDAO {
     public Collection<Lesson> getLessonsByAttendingGroup(int idGroup) {
         final String sql = Queries.GET_LESSONS_BY_ATTENDING_GROUP;
         List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idGroup);
+        return lessons;
+    }
+
+    @Override
+    public Collection<Lesson> getAllStudentLessons(int idEregUser) {
+        final String sql = Queries.GET_ALL_STUDENT_LESSONS;
+        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idEregUser);
         return lessons;
     }
 

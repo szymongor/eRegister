@@ -12,9 +12,11 @@ public interface LessonsDAO {
 
     Collection<Lesson> getAllLessons();
 
-    Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher );
+    Collection<Lesson> getLessonsLeadsByTeacher( int idEregUser );
 
     Collection<Lesson> getLessonsByAttendingGroup( int idGroup );
+
+    Collection<Lesson> getAllStudentLessons( int idEregUser );
 
     Collection<Lesson> getLessonsAboutSubject( int idSubject );
 
