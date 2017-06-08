@@ -34,12 +34,12 @@ public class PeopleController {
         return response;
     }
 
-    @RequestMapping(value = "/Child/id={idPerson}", method = RequestMethod.GET)
-    public Serializable getAllChild(@PathVariable("idPerson") int idPerson,
-                                    @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/myChildren", method = RequestMethod.GET)
+    public Serializable getMyChildren(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new PeopleResponse("ok", peopleService.getAllChild(idPerson));
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new PeopleResponse("ok", peopleService.getMyChildren(idEregUser));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
@@ -47,7 +47,7 @@ public class PeopleController {
     }
 
     @RequestMapping(value = "/myPersonalData", method = RequestMethod.GET)
-    public Serializable getMyPersonalData( @RequestHeader(name = "Authorization") String token) {
+    public Serializable getMyPersonalData(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);

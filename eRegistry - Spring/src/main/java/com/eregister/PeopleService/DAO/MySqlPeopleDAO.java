@@ -32,9 +32,9 @@ public class MySqlPeopleDAO implements PeopleDAO {
     }
 
     @Override
-    public Collection<Person> getAllChild(int idPerson) {
-        final String sql = Queries.GET_ALL_CHILD;
-        Collection<Person> people = jdbcTemplate.query(sql, new PersonRowMapper(), idPerson);
+    public Collection<Person> getMyChildren(int idEregUser) {
+        final String sql = Queries.GET_MY_CHILDREN;
+        Collection<Person> people = jdbcTemplate.query(sql, new PersonRowMapper(), idEregUser);
         return people;
     }
 

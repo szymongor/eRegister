@@ -25,8 +25,8 @@ public class PeopleService {
         return peopleDAO.getAllPeople();
     }
 
-    public Collection<Person> getAllChild(int idPerson) {
-        return peopleDAO.getAllChild(idPerson);
+    public Collection<Person> getMyChildren(int idEregUser) {
+        return peopleDAO.getMyChildren(idEregUser);
     }
 
     public PersonalData getMyPersonalData(int idEregUser) {
