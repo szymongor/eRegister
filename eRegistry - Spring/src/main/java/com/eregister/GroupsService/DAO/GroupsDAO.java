@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public interface GroupsDAO {
 
-    Collection<Group> getAllGroupsByTeacher(int idTeacher);
+    Collection<Group> getAllGroupsTeachByUser(int idEregUser);
 
     Collection<Person> getAllStudentsFromGroup(int idGroup);
 }

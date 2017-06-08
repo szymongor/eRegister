@@ -5,6 +5,7 @@ package com.eregister.PeopleService.Entity;
  */
 public class Person {
     private int id;
+    private int idUser;
     private String name;
     private String surname;
     private String dateOfBirth;
@@ -37,6 +38,14 @@ public class Person {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getName() {

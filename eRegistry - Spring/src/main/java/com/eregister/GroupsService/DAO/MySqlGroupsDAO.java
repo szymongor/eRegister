@@ -1,6 +1,7 @@
 package com.eregister.GroupsService.DAO;
 
 import com.eregister.GroupsService.DAO.RowMappers.GroupRowMapper;
+import com.eregister.GroupsService.DAO.RowMappers.StudentsFromGroupRowMapper;
 import com.eregister.GroupsService.Entity.Group;
 import com.eregister.PeopleService.Entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,16 @@ public class MySqlGroupsDAO implements GroupsDAO {
     JdbcTemplate jdbcTemplate;
 
     @Override
-    public Collection<Group> getAllGroupsByTeacher(int idTeacher) {
-        String sql = Queries.GET_ALL_GROUPS_BY_TEACHER;
-        Collection<Group> groups = jdbcTemplate.query(sql, new GroupRowMapper(), idTeacher);
+    public Collection<Group> getAllGroupsTeachByUser(int idEregUser) {
+        String sql = Queries.GET_ALL_GROUPS_TEACH_BY_USER;
+        Collection<Group> groups = jdbcTemplate.query(sql, new GroupRowMapper(), idEregUser);
         return groups;
     }
 
     @Override
     public Collection<Person> getAllStudentsFromGroup(int idGroup) {
-        return null;
+        String sql = Queries.GET_ALL_STUDENTS_FROM_GROUP;
+        Collection<Person> studentsFromGroup = jdbcTemplate.query(sql, new StudentsFromGroupRowMapper(), idGroup);
+        return studentsFromGroup;
     }
 }
