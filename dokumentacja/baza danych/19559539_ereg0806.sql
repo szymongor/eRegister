@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 29 Kwi 2017, 15:51
+-- Czas wygenerowania: 08 Cze 2017, 22:35
 -- Wersja serwera: 5.5.54-38.6-log
 -- Wersja PHP: 5.2.17
 
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `ADDRESSES` (
   `city` varchar(30) COLLATE utf8_polish_ci NOT NULL DEFAULT 'Gliwice',
   `country` varchar(30) COLLATE utf8_polish_ci NOT NULL DEFAULT 'Polska',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=41 ;
 
 --
 -- Zrzut danych tabeli `ADDRESSES`
 --
 
 INSERT INTO `ADDRESSES` (`id`, `street`, `house_number`, `flat_number`, `postal_code`, `city`, `country`) VALUES
-(1, 'Dolnych Wałów', '20', 4, '44-100', 'Gliwice', 'Polska'),
+(1, 'Dolnych Wałów', '22b', 5, '44-100', 'Gliwice', 'Polska'),
 (2, 'Zwycięstwa', '68', 3, '44-100', 'Gliwice', 'Polska'),
 (4, 'Wojska Polskiego', '16', 7, '43-100', 'Tychy', 'Polska'),
 (5, 'Czecha Bronisława', '15', NULL, '44-100', 'Gliwice', 'Polska'),
@@ -73,7 +73,10 @@ INSERT INTO `ADDRESSES` (`id`, `street`, `house_number`, `flat_number`, `postal_
 (30, 'Zabrska', '36', 1, '44-100', 'Gliwice', 'Polska'),
 (31, 'Zabrska', '34', 3, '44-100', 'Gliwice', 'Polska'),
 (32, 'Lipowa', '4', 6, '44-100', 'Gliwice', 'Polska'),
-(33, 'Rolna', '58', NULL, '44-100', 'Gliwice', 'Polska');
+(33, 'Rolna', '58', NULL, '44-100', 'Gliwice', 'Polska'),
+(34, 'Bielska', '13', 2, '43-100', 'Tychy', 'Polska'),
+(36, 'Częstochowska', '2', 4, '44-100', 'Gliwice', 'Polska'),
+(37, 'Kujawska', '2', 16, '44-100', 'Gliwice', 'Polska');
 
 -- --------------------------------------------------------
 
@@ -276,14 +279,14 @@ CREATE TABLE IF NOT EXISTS `LESSONS` (
   KEY `id_teacher` (`id_teacher`),
   KEY `id_group` (`id_group`),
   KEY `id_subject` (`id_subject`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=40 ;
 
 --
 -- Zrzut danych tabeli `LESSONS`
 --
 
 INSERT INTO `LESSONS` (`id`, `year`, `semester`, `id_teacher`, `id_group`, `id_subject`) VALUES
-(1, '2016/2017', 'zimowy', 1, 1, 1),
+(1, '2016/2017', 'letni', 4, 1, 1),
 (2, '2016/2017', 'zimowy', 1, 2, 1),
 (3, '2016/2017', 'zimowy', 1, 3, 1),
 (4, '2016/2017', 'zimowy', 1, 4, 1),
@@ -293,7 +296,6 @@ INSERT INTO `LESSONS` (`id`, `year`, `semester`, `id_teacher`, `id_group`, `id_s
 (8, '2016/2017', 'zimowy', 5, 5, 4),
 (9, '2016/2017', 'zimowy', 6, 5, 5),
 (10, '2016/2017', 'zimowy', 7, 5, 6),
-(11, '2016/2017', 'zimowy', 8, 1, 7),
 (12, '2016/2017', 'zimowy', 8, 2, 7),
 (13, '2016/2017', 'zimowy', 8, 3, 7),
 (14, '2016/2017', 'zimowy', 8, 4, 7),
@@ -319,7 +321,8 @@ INSERT INTO `LESSONS` (`id`, `year`, `semester`, `id_teacher`, `id_group`, `id_s
 (34, '2016/2017', 'zimowy', 13, 2, 12),
 (35, '2016/2017', 'zimowy', 13, 3, 12),
 (36, '2016/2017', 'zimowy', 13, 4, 12),
-(37, '2016/2017', 'zimowy', 13, 5, 12);
+(37, '2016/2017', 'zimowy', 13, 5, 12),
+(38, '2016/2017', 'zimowy', 8, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -338,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `PARTIAL_GRADES` (
   PRIMARY KEY (`id`),
   KEY `id_student` (`id_student`),
   KEY `id_lesson` (`id_lesson`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=48 ;
 
 --
 -- Zrzut danych tabeli `PARTIAL_GRADES`
@@ -349,7 +352,49 @@ INSERT INTO `PARTIAL_GRADES` (`id`, `mark`, `weight`, `description`, `date`, `id
 (2, '4', 1, NULL, '2016-10-19', 11, 4),
 (3, '6', 1, NULL, '2016-10-19', 12, 4),
 (4, '3', 1, NULL, '2016-10-19', 9, 21),
-(5, '5', 1, NULL, '2016-10-19', 10, 21);
+(5, '5', 1, NULL, '2016-10-19', 10, 21),
+(6, '3', 1, '"Kartkówka"', '2016-11-07', 5, 4),
+(7, '1', 1, '"Sprawdzian"', '2016-12-01', 5, 4),
+(8, '3-', 1, 'Odpowiedź ustna', '2016-09-15', 3, 1),
+(9, '2+', 1, NULL, '2016-09-14', 15, 2),
+(10, '6', 1, NULL, '2016-10-19', 16, 2),
+(11, '5', 1, NULL, '2016-10-19', 5, 4),
+(12, '1', 1, NULL, '2016-10-19', 6, 5),
+(13, '4', 1, NULL, '2016-10-19', 13, 5),
+(14, '2', 1, NULL, '2016-09-14', 13, 8),
+(15, '3', 1, NULL, '2016-09-14', 14, 9),
+(16, '2', 1, NULL, '2016-09-14', 7, 9),
+(17, '2', 1, NULL, '2016-09-14', 7, 10),
+(18, '3', 1, NULL, '2016-09-14', 17, 12),
+(19, '5', 1, 'dwdwq', '2016-09-14', 5, 14),
+(20, '2-', 1, 'sws', '2016-09-14', 11, 14),
+(21, '5-', 1, 'wdwd', '2016-09-14', 13, 15),
+(22, '3-', 1, 'wdwdw', '2016-09-14', 3, 16),
+(23, '4+', 1, NULL, '2016-09-14', 15, 17),
+(24, '1', 1, NULL, '2016-09-14', 5, 19),
+(25, '1+', 1, NULL, '2016-09-14', 11, 19),
+(26, '2-', 1, 'wdwdw', '2016-09-14', 13, 20),
+(27, '6', 1, 'wdwdw', '2016-09-14', 3, 21),
+(28, '5-', 1, NULL, '2016-09-14', 4, 22),
+(29, '4', 1, 'dva', '2016-09-14', 4, 23),
+(30, '5', 1, NULL, '2016-09-14', 16, 24),
+(31, '2', 1, NULL, '2016-09-14', 11, 26),
+(32, '3', 1, NULL, '2016-09-14', 12, 26),
+(33, '1', 1, NULL, '2016-09-14', 6, 27),
+(34, '2', 1, NULL, '2016-09-14', 10, 28),
+(35, '3', 1, NULL, '2016-09-14', 17, 29),
+(36, '6', 1, NULL, '2016-09-14', 5, 31),
+(37, '3', 1, NULL, '2016-09-14', 11, 31),
+(38, '5', 1, NULL, '2016-09-14', 6, 32),
+(39, '4', 1, NULL, '2016-09-14', 9, 33),
+(40, '5', 1, NULL, '2016-09-14', 17, 34),
+(41, '4', 1, NULL, '2016-09-14', 12, 36),
+(42, '4', 1, NULL, '2016-09-14', 11, 36),
+(43, '3', 1, NULL, '2016-09-14', 7, 37),
+(44, '5', 1, NULL, '2016-09-14', 8, 38),
+(45, '5', 1, NULL, '2016-09-14', 6, 32),
+(46, '3', 1, NULL, '2016-09-14', 12, 36),
+(47, '4', 1, NULL, '2016-09-14', 7, 37);
 
 -- --------------------------------------------------------
 
@@ -369,21 +414,21 @@ CREATE TABLE IF NOT EXISTS `PEOPLE` (
   `id_address` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ADDRESS` (`id_address`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=43 ;
 
 --
 -- Zrzut danych tabeli `PEOPLE`
 --
 
 INSERT INTO `PEOPLE` (`id`, `name`, `surname`, `date_of_birth`, `sex`, `phone`, `mail`, `expiration_date`, `id_address`) VALUES
-(1, 'Natalia', 'Bobek', '2010-03-08', 'kobieta', '514568412', 'nat.bo@gmail.com', '2019-08-31', 1),
+(1, 'Natalia', 'Bobek', '2010-03-08', 'kobieta', '514568222', 'nat.bobek@gmail.com', '2019-08-30', 1),
 (2, 'Michał', 'Ptak', '2010-04-02', 'mężczyzna', '668154654', 'michas@fotka.pl', '2019-08-31', 4),
 (3, 'Elżbieta', 'Ptak', '1988-10-13', 'kobieta', '606454656', 'ela.ptak@gmail.com', '2019-08-31', 4),
 (4, 'Paweł', 'Mamek', '1966-08-14', 'mężczyzna', '514847817', NULL, '2019-08-31', 2),
 (5, 'Ziemowit', 'Chmielewski', '1980-01-23', 'mężczyzna', '675443067', 'ZiemowitChmielewski@o2.pl', '2019-08-31', 5),
 (6, 'Katarzyna', 'Majewska', '2008-04-30', 'kobieta', '673395739', 'kat_maaa@tlen.pl', '2019-08-31', 6),
-(7, 'Irenka', 'Majewska', '1980-08-04', 'kobieta', '721481374', 'irenkaNowicka@gmail.com', '2019-08-31', 6),
-(8, 'Krystyna', 'Jasińska', '1973-02-03', 'kobieta', '532648154', 'krysia@op.pl', '2019-08-31', 8),
+(7, 'Irenka', 'Majewska', '1980-08-04', 'kobieta', '505505505', 'irenkaNowicka@gmail.com', '2019-08-31', 6),
+(8, 'Krystyna', 'Jasińska', '1973-02-03', 'kobieta', '532648154', 'krysia@o2.pl', '2019-08-31', 8),
 (9, 'Marcin', 'Michalewski', '2007-01-03', 'mężczyzna', '604635299', NULL, '2019-08-31', 9),
 (10, 'Maciek', 'Michalewski', '2007-01-03', 'mężczyzna', '604354811', NULL, '2019-08-31', 9),
 (11, 'Kalina', 'Michalewska', '1974-12-09', 'kobieta', '604123456', 'kalina_mich@gmail.com', '2019-08-31', 9),
@@ -412,7 +457,9 @@ INSERT INTO `PEOPLE` (`id`, `name`, `surname`, `date_of_birth`, `sex`, `phone`, 
 (34, 'Szymon', 'Jaskierski', '2010-10-08', 'mężczyzna', NULL, 'szymek04@o2.pl', '2019-08-31', 25),
 (35, 'Celina', 'Jaskierska', '1981-08-21', 'kobieta', '504156456', 'celina_j21@gmail.com', '2019-08-31', 25),
 (36, 'Kamil', 'Bembok', '2010-05-11', 'mężczyzna', NULL, 'kamilek0111@tlen.pl', '2019-08-31', 26),
-(37, 'Marlena', 'Bembok', '1979-03-19', 'kobieta', '515654456', 'marlena_bembok@op.pl', '2019-08-31', 26);
+(37, 'Marlena', 'Bembok', '1979-03-19', 'kobieta', '515654456', 'marlena_bembok@op.pl', '2019-08-31', 26),
+(38, 'Paulina', 'Bęgo', '1989-04-05', 'kobieta', '485654123', 'paula_bego@gmail.com', '2018-06-30', 36),
+(39, 'Paweł', 'Momko', '1980-10-15', 'mężczyzna', '505411223', 'pawmom@gmail.com', '2018-06-30', 37);
 
 -- --------------------------------------------------------
 
@@ -540,24 +587,24 @@ CREATE TABLE IF NOT EXISTS `USERS` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` char(9) COLLATE utf8_polish_ci NOT NULL,
   `password` char(32) COLLATE utf8_polish_ci NOT NULL,
-  `last_password_reset_date` date DEFAULT NULL,
+  `last_password_reset_date` datetime DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
   `id_person` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `id_person` (`id_person`),
   KEY `id_people` (`id_person`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=47 ;
 
 --
 -- Zrzut danych tabeli `USERS`
 --
 
 INSERT INTO `USERS` (`id`, `login`, `password`, `last_password_reset_date`, `enabled`, `id_person`) VALUES
-(3, 'natbob123', '12345678', NULL, 1, 1),
+(3, 'natbob123', '12345678', '2017-05-08 09:16:35', 1, 1),
 (4, 'micpta123', '12345678', NULL, 1, 2),
 (5, 'elzpta123', '12345678', NULL, 1, 3),
-(6, 'pawmam123', '12345678', NULL, 1, 4),
+(6, 'pawmam123', '12345678', '2017-05-15 19:43:29', 1, 4),
 (7, 'ziechm123', '12345678', NULL, 1, 5),
 (8, 'katmaj123', '12345678', NULL, 1, 6),
 (9, 'iremaj123', '12345678', NULL, 1, 7),
