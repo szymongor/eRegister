@@ -50,20 +50,6 @@ public class MySqlLessonsDao implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsAboutSubject(int idSubject) {
-        final String sql = Queries.GET_LESSONS_ABOUT_SUBJECT;
-        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idSubject);
-        return lessons;
-    }
-
-    @Override
-    public Lesson getLessonById(int id) {
-        final String sql = Queries.GET_LESSON_BY_ID;
-        Lesson lesson = jdbcTemplate.queryForObject(sql, new LessonRowMapper(), id);
-        return lesson;
-    }
-
-    @Override
     public void removeLessonById(int id) {
         final String sql = Queries.REMOVE_LESSON_BY_ID;
         jdbcTemplate.update(sql, id);

@@ -18,10 +18,6 @@ public interface LessonsDAO {
 
     Collection<Lesson> getAllStudentLessons( int idEregUser );
 
-    Collection<Lesson> getLessonsAboutSubject( int idSubject );
-
-    Lesson getLessonById(int id);
-
     void removeLessonById(int id);
 
     void updateTeacher(int idTeacher, int idLesson);

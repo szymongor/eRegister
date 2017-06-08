@@ -27,8 +27,6 @@ public class Queries {
             "(SELECT GROUPS.id idGroup from GROUPS, BELONGS where GROUPS.id = BELONGS.id_group " +
             "and id_student = (SELECT STUDENTS.id FROM STUDENTS where STUDENTS.id_person " +
             "= (SELECT PEOPLE.id from PEOPLE, USERS where USERS.id_person = PEOPLE.id and USERS.id=?)))";
-    static final String GET_LESSONS_ABOUT_SUBJECT = GET_ALL_LESSONS + " where id_subject = ?";
-    static final String GET_LESSON_BY_ID = GET_ALL_LESSONS + " where LESSONS.id = ?";
     static final String REMOVE_LESSON_BY_ID = "DELETE from LESSONS where id = ?";
     static final String UPDATE_TEACHER = "UPDATE LESSONS set id_teacher = ? where id = ?";
     static final String UPDATE_SEMESTER = "UPDATE LESSONS set semester = ? where id = ?";

@@ -66,16 +66,6 @@ public class LessonsDaoFakeImpl implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsAboutSubject(int idSubject) {
-        return null;
-    }
-
-    @Override
-    public Lesson getLessonById(int id) {
-        return lessons.get(id);
-    }
-
-    @Override
     public void removeLessonById(int id) {
 
     }

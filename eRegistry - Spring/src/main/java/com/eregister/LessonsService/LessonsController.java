@@ -1,7 +1,6 @@
 package com.eregister.LessonsService;
 
 import com.eregister.LessonsService.Entity.Lesson;
-import com.eregister.LessonsService.Model.LessonResponse;
 import com.eregister.LessonsService.Model.LessonsResponse;
 import com.eregister.LessonsService.Model.UpdateSemesterRequest;
 import com.eregister.LessonsService.Model.UpdateTeacherRequest;
@@ -66,32 +65,8 @@ public class LessonsController {
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);
             response = new LessonsResponse("ok", lessonsService.getAllStudentLessons(idEregUser));
-        } catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", e.getMessage());
-        }
-        return response;
-    }
-
-    @RequestMapping(value = "/about/id={idSubject}", method = RequestMethod.GET)
-    public Serializable getLessonsAboutSubject(@PathVariable("idSubject") int idSubject,
-                                               @RequestHeader(name = "Authorization") String token) {
-        Serializable response;
-        try {
-            response = new LessonsResponse("ok", lessonsService.getLessonsAboutSubject(idSubject));
-        } catch (Exception e) {
-            response = new Response("Error", "Internal error");
-        }
-        return response;
-    }
-
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Serializable getLessonById(@PathVariable("id") int id,
-                                      @RequestHeader(name = "Authorization") String token) {
-        Serializable response;
-        try {
-            response = new LessonResponse("ok", lessonsService.getLessonById(id));
-        } catch (Exception e) {
-            response = new Response("Error", "Internal error");
         }
         return response;
     }

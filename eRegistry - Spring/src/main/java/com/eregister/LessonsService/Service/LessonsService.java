@@ -37,14 +37,6 @@ public class LessonsService {
         return lessonsDao.getAllStudentLessons(idEregUser);
     }
 
-    public Collection<Lesson> getLessonsAboutSubject( int idSubject ) {
-        return lessonsDao.getLessonsAboutSubject(idSubject);
-    }
-
-    public Lesson getLessonById(int id) {
-        return lessonsDao.getLessonById(id);
-    }
-
     public void removeLessonById(int id) {
         lessonsDao.removeLessonById(id);
     }
