@@ -1,7 +1,5 @@
 package com.eregister.GradesService.Entity;
 
-import com.eregister.LessonsService.Entity.Lesson;
-
 /**
  * Created by Karo2 on 2017-06-08.
  */
@@ -12,6 +10,8 @@ public class Grade {
     private int weight;
     private String description;
     private String date;
+    private int idStudent;
+    private int idLesson;
     private String subjectName;
 
     public Grade() {
@@ -55,6 +55,22 @@ public class Grade {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getIdStudent() {
+        return idStudent;
+    }
+
+    public void setIdStudent(int idStudent) {
+        this.idStudent = idStudent;
+    }
+
+    public int getIdLesson() {
+        return idLesson;
+    }
+
+    public void setIdLesson(int idLesson) {
+        this.idLesson = idLesson;
     }
 
     public String getSubjectName() {
