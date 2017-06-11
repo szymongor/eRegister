@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -368,7 +369,6 @@ Przedstawione diagramy zostały przygotowane z użyciem darmowego edytora \texti
 	\end{itemize}	
 \end{enumerate}
 
-
 \section{Serwer}
 
 \subsection{Technologia}
@@ -382,7 +382,7 @@ Korzystamy ze środowiska IntelliJ do programowania serwisu. Do komunikacji z se
 
 Z aplikacją serwerową można komunikować się poprzez restowe API.
 
-Endpointy:
+\subsubsection{Logowanie}
 
 \begin{enumerate}
 
@@ -393,13 +393,51 @@ Endpointy:
 		Odpowiedź: \{"status":"status odpowiedzi", "token":"token"\}\\
 		(klasa JwtAuthenticationResponse)
 	
-	\item "/Lessons" \\
-	Opis: Lista wszystkich lekcji
-	Metoda: POST \\
-	Header: \{"Authorization":"wygenerowany token"\} \\
-	Odpowiedź: \{"status":"status odpowiedzi","lessons":[(tablica lekcji)]\}
-	
+\end{enumerate}
 
+\subsubsection{Oceny}
+
+\begin{enumerate}
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Grades/myGrades":} \\
+	Opis: &  Posortowana (by id lesson) lista ocen zalogowanego użytkownika. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "grades": [\newline \{ "id": 1,\newline "mark": "5+",\newline "weight": 1,\newline "description": null,\newline "date": "2016-10-19",\newline "idStudent": 5,\newline "idLesson": 4,\newline "subjectName": "język polski"\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Grades/myGrades/{idLesson}":} \\
+	Opis: &  Lista ocen zalogowanego użytkownika z danej lekcji.\newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/userGrades/{idUser}":} \\
+	Opis: &  Lista ocen dla użytkownika o podanym id. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/userGrades/{idUser}/lesson/{idLesson}":} \\
+	Opis: &  Lista ocen dla użytkownika o podanym id z danej lekcji. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
+	\end{tabular}}
 \end{enumerate}
 
 \subsection{Opis usługi}
