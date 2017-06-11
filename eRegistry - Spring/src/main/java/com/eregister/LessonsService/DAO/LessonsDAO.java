@@ -1,7 +1,6 @@
 package com.eregister.LessonsService.DAO;
 
 import com.eregister.LessonsService.Entity.Lesson;
-import org.springframework.http.converter.xml.Jaxb2CollectionHttpMessageConverter;
 
 import java.util.Collection;
 
@@ -12,11 +11,11 @@ public interface LessonsDAO {
 
     Collection<Lesson> getAllLessons();
 
-    Collection<Lesson> getLessonsLeadsByTeacher( int idEregUser );
+    Collection<Lesson> getLessonsLeadsByTeacher(int idEregUser);
 
-    Collection<Lesson> getLessonsByAttendingGroup( int idGroup );
+    Collection<Lesson> getLessonsByAttendingGroup(int idGroup);
 
-    Collection<Lesson> getAllStudentLessons( int idEregUser );
+    Collection<Lesson> getAllStudentLessons(int idEregUser);
 
     void removeLessonById(int id);
 

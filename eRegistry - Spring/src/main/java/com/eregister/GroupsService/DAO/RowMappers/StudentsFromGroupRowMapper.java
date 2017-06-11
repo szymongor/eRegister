@@ -1,6 +1,5 @@
 package com.eregister.GroupsService.DAO.RowMappers;
 
-import com.eregister.GroupsService.Entity.Group;
 import com.eregister.PeopleService.Entity.Person;
 import org.springframework.jdbc.core.RowMapper;
 

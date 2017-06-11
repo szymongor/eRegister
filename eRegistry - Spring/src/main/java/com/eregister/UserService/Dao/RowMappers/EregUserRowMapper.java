@@ -31,11 +31,11 @@ public class EregUserRowMapper implements RowMapper<EregUser> {
         String student = resultSet.getString("students");
         String guardian = resultSet.getString("guardians");
         //eregUser.addRole(student);
-        if(teacher!=null)
+        if (teacher != null)
             eregUser.addRole("TEACHER");
-        if(student!=null)
+        if (student != null)
             eregUser.addRole("STUDENT");
-        if(guardian!=null)
+        if (guardian != null)
             eregUser.addRole("GUARDIAN");
     }
 }
