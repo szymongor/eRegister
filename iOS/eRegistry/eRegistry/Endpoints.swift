@@ -12,4 +12,5 @@ class Endpoints {
     static let auth = "auth"
     static let lessons = "Lessons"
     static let newPassword = "newPassword"
+    static let grades = "Grades/myGrades"
 }

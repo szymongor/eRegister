@@ -48,7 +48,7 @@ class GradeCVCell: UICollectionViewCell {
     
     var subject: Subject?
     
-    let BEST_GRADE: CGFloat = 5
+    let BEST_GRADE: CGFloat = 6
     
     let PROGRESS_TOTAL_MARGIN: CGFloat = 64
     
@@ -74,7 +74,7 @@ class GradeCVCell: UICollectionViewCell {
         subjectLabel.text = subject.name
         progressView.backgroundColor = Colors.getColor(forGrade: subject.averageGrade)
         
-        print(self.bounds.width)
+//        print(self.bounds.width)
         updateProgressBar()
     }
 

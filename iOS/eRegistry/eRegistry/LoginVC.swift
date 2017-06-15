@@ -47,13 +47,6 @@ class LoginVC: UIViewController {
         }
     }
     @IBOutlet weak var rememberMeCheckBox: CheckBox!
-    @IBOutlet weak var roleTF: UITextField! {
-        didSet {
-            roleTF.delegate = self
-            roleTF.placeholder = "Wybierz rolę"
-            roleTF.appTheme()
-        }
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -170,39 +163,39 @@ class LoginVC: UIViewController {
 
 
 }
-
-extension LoginVC: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        //self.view.endEditing(true)
-        var pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        textField.inputView = pickerView
-    }
-}
-
-extension LoginVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return possibleRoles.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return possibleRoles[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if possibleRoles[row] == "---" {
-            pickerView.selectRow(1, inComponent: 0, animated: true)
-            roleTF.text = possibleRoles[1]
-        } else {
-            roleTF.text = possibleRoles[row]
-        }
-        roleTF.resignFirstResponder()
-    }
-    
-}
+//
+//extension LoginVC: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        //self.view.endEditing(true)
+//        var pickerView = UIPickerView()
+//        pickerView.delegate = self
+//        pickerView.dataSource = self
+//        textField.inputView = pickerView
+//    }
+//}
+//
+//extension LoginVC: UIPickerViewDelegate, UIPickerViewDataSource {
+//    
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return possibleRoles.count
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return possibleRoles[row]
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        if possibleRoles[row] == "---" {
+//            pickerView.selectRow(1, inComponent: 0, animated: true)
+//            roleTF.text = possibleRoles[1]
+//        } else {
+//            roleTF.text = possibleRoles[row]
+//        }
+//        roleTF.resignFirstResponder()
+//    }
+//    
+//}

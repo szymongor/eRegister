@@ -77,7 +77,7 @@ class RequestManager {
             if result.isSuccess {
                 if let json = result.value as? JSONStandard {
                     if let lessons = json["lessons"] as? [JSONStandard] {
-                        print(lessons)
+//                        print(lessons)
                         for lesson in lessons {
                             let subject = Subject(usingJson: lesson)
                             subjects.append(subject)
@@ -91,35 +91,67 @@ class RequestManager {
         })
     }
     
-    typealias NewPasswordCompletion = (Bool)->()
+    typealias GradesCompletion = (Bool, [Grade])->()
     
-    static func changePassword(oldPassword: String, newPassword: String, completion: @escaping NewPasswordCompletion) {
-        let urlString = getWSAddress() + Endpoints.newPassword
-        let url = URL(string: urlString)!
+    static func getAllGrades(for subjectId: Int, completion: @escaping GradesCompletion) {
+        let urlString = getWSAddress() + Endpoints.grades + "/\(subjectId)"
+        let url: URL = URL(string: urlString)!
         let header: HTTPHeaders = ["Authorization" : User.instance.token]
         
-        let parameters: [String : AnyObject] = [
-            "newPassword": newPassword as AnyObject,
-            "oldPassword": oldPassword as AnyObject
-        ]
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
             response in
             
             var success = false
             let result = response.result
-            if let json = result.value as? JSONStandard {
-                print(json)
-            }
+            
+            var grades: [Grade] = []
+            
             if result.isSuccess {
-                if let json = result.value as? [JSONStandard] {
-                    print(json)
+                if let json = result.value as? JSONStandard {
+                    if let gradesJSON = json["grades"] as? [JSONStandard] {
+//                        print(gradesJSON)
+                        for gradeJSON in gradesJSON {
+                            let grade = Grade(usingJson: gradeJSON)
+                            grades.append(grade)
+                        }
+                        success = true
+                    }
                 }
-                success = true
             }
-            completion(success)
+            completion(success, grades)
+            
         })
     }
+    
+//    typealias NewPasswordCompletion = (Bool)->()
+//    
+//    static func changePassword(oldPassword: String, newPassword: String, completion: @escaping NewPasswordCompletion) {
+//        let urlString = getWSAddress() + Endpoints.newPassword
+//        let url = URL(string: urlString)!
+//        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+//        
+//        let parameters: [String : AnyObject] = [
+//            "newPassword": newPassword as AnyObject,
+//            "oldPassword": oldPassword as AnyObject
+//        ]
+//        
+//        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+//            response in
+//            
+//            var success = false
+//            let result = response.result
+//            if let json = result.value as? JSONStandard {
+//                print(json)
+//            }
+//            if result.isSuccess {
+//                if let json = result.value as? [JSONStandard] {
+//                    print(json)
+//                }
+//                success = true
+//            }
+//            completion(success)
+//        })
+//    }
     
     static func getUsers() {
         

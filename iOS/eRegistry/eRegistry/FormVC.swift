@@ -123,10 +123,10 @@ extension FormVC {
         guard let new = newValueTF.text else {
             return
         }
-        RequestManager.changePassword(oldPassword: old, newPassword: new, completion: {
-            success in
-            
-            self.navigationController?.popViewController(animated: true)
-        })
+//        RequestManager.changePassword(oldPassword: old, newPassword: new, completion: {
+//            success in
+//            
+//            self.navigationController?.popViewController(animated: true)
+//        })
     }
 }

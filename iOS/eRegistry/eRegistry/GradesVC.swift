@@ -69,12 +69,21 @@ class GradesVC: UIViewController {
             for (index, _) in subjects.enumerated() {
                 self.subjects.append(subjects[index])
                 self.collectionView.insertItems(at: [IndexPath(item: index, section: 0)])
+                
+                RequestManager.getAllGrades(for: subjects[index].id, completion: {
+                    success, grades in
+                    subjects[index].grades = grades
+                    self.collectionView.reloadData()
+                })
+                
             }
+            
             self.collectionView.reloadData()
 //            self.collectionView.performBatchUpdates({
 //                self.collectionView.reloadData()
 //            }, completion: nil)
         })
+        
         
         //collectionView.reloadData()
         
