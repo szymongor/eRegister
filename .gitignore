@@ -45,9 +45,37 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-.idea/workspace.xml
 .idea/libraries/Maven__com_zaxxer_HikariCP_2_5_1.xml
-.idea/workspace.xml
 *.class
-*.class
-eRegistry/.idea/workspace.xml
+
+build/
+lib/*.jar
+target
+samples/scala-play2/logs
+.idea
+.idea_modules
+.settings
+.project
+.classpath
+.cache
+atlassian-ide-plugin.xml
+*.iml
+.java-version
+sonar-project.properties
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.aux
+dokumentacja/dokumentacja.log
+*.out
+*.gz
