@@ -1,15 +1,85 @@
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Filter\JwtAuthenticationTokenFilter.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Service\EregUserService.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Entity\EregUser.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Controller\EregUserController.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Token\TokenUtils.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtAuthenticationResponse.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\main.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\EregUserDaoFakeImpl.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtCredentials.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\AuthorizationService.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Model\JwtAuthority.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\EregUserDao.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\config\WebSecurityConfig.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\UserService\Dao\MySqlEregUserDao.java
-C:\Users\Szymon\IdeaProjects\eRegistry\src\main\java\com\eregister\SecurityService\Controller\AuthorizationController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\DAO\MySqlLessonsDao.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\AddressResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Entity\PersonalData.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\RowMappers\PersonRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\DAO\Queries.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\EregUserController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\config\SimpleCORSFilter.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\config\WebSecurityConfig.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\DAO\MySqlGradesDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Model\UpdateFinalGrade.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Model\UserResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Service\LessonsService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\MySqlPeopleDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\AddressesResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Service\EregUserService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\DAO\RowMappers\GradeRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\DAO\RowMappers\LessonRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\Queries.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Entity\Lesson.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\RowMappers\TeacherRowMappper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Entity\EregUser.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Model\GradesResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Model\UpdatePartialGrade.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Service\PeopleService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Service\GradesService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\PeopleDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\InsertPersonWithAddress.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Model\UsersListResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\DAO\Queries.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\config\SwaggerConfig.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtUserDetails.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\GroupsController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\RowMappers\EregUserRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\DAO\RowMappers\StudentsFromGroupRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Model\UpdateTeacherRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\UpdateAddressRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Model\InsertPartialGrade.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\MySqlEregUserDao.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\RowMappers\AddressRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Service\AuthorizationService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtCredentials.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Model\NewPasswordResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\UpdateExpirationDateRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\UpdateIdAddressRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Model\NewPasswordRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtAuthority.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Token\TokenUtils.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\EregUserDao.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Model\UpdateSemesterRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Filter\JwtAuthenticationTokenFilter.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\DAO\GradesDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\Entity\Group.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\RowMappers\PersonalDataRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Model\LessonResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\LessonsController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\GradesController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\JwtAuthenticationResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\RowMappers\GuardianRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Entity\Address.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\DAO\MySqlGroupsDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\DAO\LessonsDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\DAO\RowMappers\GroupRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\EregUserDaoFakeImpl.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\Service\GroupsService.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\PersonResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\config\WebConfig.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\main.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\DAO\GroupsDAO.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\Model\GroupsResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\Model\LessonsResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\DAO\Queries.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\UserService\Dao\RowMappers\StudentRowMapper.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\DAO\Queries.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\UpdateMailRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\UpdatePhoneRequest.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\LessonsService\DAO\LessonsDaoFakeImpl.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Entity\Grade.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GradesService\Model\InsertFinalGrade.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Entity\Person.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\PersonalDataResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\PeopleController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\GroupsService\Entity\Class.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\PeopleService\Model\PeopleResponse.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\AuthorizationController.java
+D:\eRegistry\eRegistry - Spring\src\main\java\com\eregister\SecurityService\Model\Response.java
