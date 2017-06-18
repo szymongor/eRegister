@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 08 Cze 2017, 22:35
+-- Czas wygenerowania: 18 Cze 2017, 15:05
 -- Wersja serwera: 5.5.54-38.6-log
 -- Wersja PHP: 5.2.17
 
@@ -89,9 +89,11 @@ CREATE TABLE IF NOT EXISTS `BELONGS` (
   `id_student` int(10) unsigned NOT NULL,
   `id_group` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id_student_3` (`id_student`,`id_group`),
   KEY `id_student` (`id_student`),
-  KEY `id_group` (`id_group`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=21 ;
+  KEY `id_group` (`id_group`),
+  KEY `id_student_2` (`id_student`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=23 ;
 
 --
 -- Zrzut danych tabeli `BELONGS`
@@ -99,25 +101,25 @@ CREATE TABLE IF NOT EXISTS `BELONGS` (
 
 INSERT INTO `BELONGS` (`id`, `id_student`, `id_group`) VALUES
 (1, 3, 1),
-(2, 4, 1),
-(3, 8, 1),
-(4, 9, 1),
-(5, 10, 1),
-(6, 15, 2),
-(7, 16, 2),
-(8, 17, 2),
 (9, 3, 6),
-(10, 10, 6),
+(2, 4, 1),
 (11, 4, 9),
-(12, 8, 9),
-(13, 9, 9),
 (14, 5, 4),
-(15, 11, 4),
-(16, 12, 4),
 (17, 6, 5),
 (18, 7, 5),
+(3, 8, 1),
+(12, 8, 9),
+(4, 9, 1),
+(13, 9, 9),
+(5, 10, 1),
+(10, 10, 6),
+(15, 11, 4),
+(16, 12, 4),
 (19, 13, 5),
-(20, 14, 5);
+(20, 14, 5),
+(6, 15, 2),
+(7, 16, 2),
+(8, 17, 2);
 
 -- --------------------------------------------------------
 
@@ -130,9 +132,10 @@ CREATE TABLE IF NOT EXISTS `CARES` (
   `id_guardian` int(10) unsigned NOT NULL,
   `id_student` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `cares_unique` (`id_guardian`,`id_student`),
   KEY `id_guardian` (`id_guardian`),
   KEY `id_student` (`id_student`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=17 ;
 
 --
 -- Zrzut danych tabeli `CARES`
@@ -169,9 +172,10 @@ CREATE TABLE IF NOT EXISTS `CLASSES` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_group_2` (`id_group`),
   UNIQUE KEY `id_teacher_2` (`id_teacher`),
+  UNIQUE KEY `classes_unique` (`id_teacher`,`id_group`),
   KEY `id_teacher` (`id_teacher`),
   KEY `id_group` (`id_group`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=12 ;
 
 --
 -- Zrzut danych tabeli `CLASSES`
@@ -193,13 +197,62 @@ INSERT INTO `CLASSES` (`id`, `name`, `profile`, `id_teacher`, `id_group`) VALUES
 CREATE TABLE IF NOT EXISTS `FINAL_GRADES` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mark` enum('niedostateczny','dopuszczający','dostateczny','dobry','bardzo dobry','celujący') COLLATE utf8_polish_ci NOT NULL,
-  `date` date NOT NULL,
+  `date` date NOT NULL DEFAULT '2017-06-23',
   `id_student` int(10) unsigned NOT NULL,
   `id_lesson` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id_student_2` (`id_student`,`id_lesson`),
+  UNIQUE KEY `final_grades_unique` (`id_student`,`id_lesson`),
   KEY `id_lesson` (`id_lesson`),
   KEY `id_student` (`id_student`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=44 ;
+
+--
+-- Zrzut danych tabeli `FINAL_GRADES`
+--
+
+INSERT INTO `FINAL_GRADES` (`id`, `mark`, `date`, `id_student`, `id_lesson`) VALUES
+(1, 'bardzo dobry', '2017-06-23', 3, 21),
+(2, 'bardzo dobry', '2017-06-23', 3, 16),
+(3, 'dopuszczający', '2017-06-23', 3, 1),
+(4, 'dobry', '2017-06-23', 4, 22),
+(5, 'dobry', '2017-06-23', 4, 23),
+(6, 'celujący', '2017-06-23', 5, 31),
+(7, 'bardzo dobry', '2017-06-23', 5, 14),
+(8, 'niedostateczny', '2017-06-23', 5, 19),
+(9, 'dostateczny', '2017-06-23', 5, 4),
+(10, 'bardzo dobry', '2017-06-23', 6, 32),
+(11, 'niedostateczny', '2017-06-23', 6, 5),
+(12, 'dopuszczający', '2017-06-23', 6, 27),
+(13, 'dopuszczający', '2017-06-23', 7, 10),
+(14, 'dopuszczający', '2017-06-23', 7, 9),
+(15, 'dostateczny', '2017-06-23', 7, 37),
+(16, 'bardzo dobry', '2017-06-23', 8, 38),
+(17, 'dobry', '2017-06-23', 9, 33),
+(18, 'dostateczny', '2017-06-23', 9, 21),
+(19, 'bardzo dobry', '2017-06-23', 10, 21),
+(20, 'dopuszczający', '2017-06-23', 10, 28),
+(21, 'dostateczny', '2017-06-23', 11, 31),
+(22, 'dobry', '2017-06-23', 11, 36),
+(23, 'bardzo dobry', '2017-06-23', 11, 26),
+(24, 'dobry', '2017-06-23', 11, 4),
+(25, 'celujący', '2017-06-23', 11, 19),
+(26, 'dopuszczający', '2017-06-23', 11, 14),
+(27, 'celujący', '2017-06-23', 12, 4),
+(28, 'dostateczny', '2017-06-23', 12, 26),
+(29, 'dobry', '2017-06-23', 12, 36),
+(30, 'dopuszczający', '2017-06-23', 13, 8),
+(31, 'dobry', '2017-06-23', 13, 5),
+(32, 'dobry', '2017-06-23', 13, 15),
+(33, 'dobry', '2017-06-23', 13, 20),
+(34, 'dostateczny', '2017-06-23', 14, 9),
+(35, 'bardzo dobry', '2017-06-23', 15, 2),
+(36, 'dostateczny', '2017-06-23', 15, 17),
+(37, 'bardzo dobry', '2017-06-23', 16, 24),
+(38, 'celujący', '2017-06-23', 16, 2),
+(39, 'bardzo dobry', '2017-06-23', 17, 34),
+(40, 'dostateczny', '2017-06-23', 17, 29),
+(41, 'dostateczny', '2017-06-23', 17, 12);
 
 -- --------------------------------------------------------
 
@@ -332,7 +385,7 @@ INSERT INTO `LESSONS` (`id`, `year`, `semester`, `id_teacher`, `id_group`, `id_s
 
 CREATE TABLE IF NOT EXISTS `PARTIAL_GRADES` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `mark` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `mark` enum('1','2','3','4','5','6') COLLATE utf8_polish_ci NOT NULL,
   `weight` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `description` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
   `date` date NOT NULL,
@@ -348,15 +401,15 @@ CREATE TABLE IF NOT EXISTS `PARTIAL_GRADES` (
 --
 
 INSERT INTO `PARTIAL_GRADES` (`id`, `mark`, `weight`, `description`, `date`, `id_student`, `id_lesson`) VALUES
-(1, '5+', 1, NULL, '2016-10-19', 5, 4),
+(1, '3', 1, NULL, '2016-10-19', 5, 4),
 (2, '4', 1, NULL, '2016-10-19', 11, 4),
 (3, '6', 1, NULL, '2016-10-19', 12, 4),
 (4, '3', 1, NULL, '2016-10-19', 9, 21),
 (5, '5', 1, NULL, '2016-10-19', 10, 21),
 (6, '3', 1, '"Kartkówka"', '2016-11-07', 5, 4),
 (7, '1', 1, '"Sprawdzian"', '2016-12-01', 5, 4),
-(8, '3-', 1, 'Odpowiedź ustna', '2016-09-15', 3, 1),
-(9, '2+', 1, NULL, '2016-09-14', 15, 2),
+(8, '2', 1, 'Odpowiedź ustna', '2016-09-15', 3, 1),
+(9, '5', 1, NULL, '2016-09-14', 15, 2),
 (10, '6', 1, NULL, '2016-10-19', 16, 2),
 (11, '5', 1, NULL, '2016-10-19', 5, 4),
 (12, '1', 1, NULL, '2016-10-19', 6, 5),
@@ -367,15 +420,15 @@ INSERT INTO `PARTIAL_GRADES` (`id`, `mark`, `weight`, `description`, `date`, `id
 (17, '2', 1, NULL, '2016-09-14', 7, 10),
 (18, '3', 1, NULL, '2016-09-14', 17, 12),
 (19, '5', 1, 'dwdwq', '2016-09-14', 5, 14),
-(20, '2-', 1, 'sws', '2016-09-14', 11, 14),
-(21, '5-', 1, 'wdwd', '2016-09-14', 13, 15),
-(22, '3-', 1, 'wdwdw', '2016-09-14', 3, 16),
-(23, '4+', 1, NULL, '2016-09-14', 15, 17),
+(20, '2', 1, 'sws', '2016-09-14', 11, 14),
+(21, '4', 1, 'wdwd', '2016-09-14', 13, 15),
+(22, '6', 1, 'wdwdw', '2016-09-14', 3, 16),
+(23, '3', 1, NULL, '2016-09-14', 15, 17),
 (24, '1', 1, NULL, '2016-09-14', 5, 19),
-(25, '1+', 1, NULL, '2016-09-14', 11, 19),
-(26, '2-', 1, 'wdwdw', '2016-09-14', 13, 20),
+(25, '6', 1, NULL, '2016-09-14', 11, 19),
+(26, '4', 1, 'wdwdw', '2016-09-14', 13, 20),
 (27, '6', 1, 'wdwdw', '2016-09-14', 3, 21),
-(28, '5-', 1, NULL, '2016-09-14', 4, 22),
+(28, '1', 1, NULL, '2016-09-14', 4, 22),
 (29, '4', 1, 'dva', '2016-09-14', 4, 23),
 (30, '5', 1, NULL, '2016-09-14', 16, 24),
 (31, '2', 1, NULL, '2016-09-14', 11, 26),
@@ -470,13 +523,61 @@ INSERT INTO `PEOPLE` (`id`, `name`, `surname`, `date_of_birth`, `sex`, `phone`, 
 CREATE TABLE IF NOT EXISTS `SEMIFINAL_GRADES` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mark` enum('niedostateczny','dopuszczający','dostateczny','dobry','bardzo dobry','celujący') NOT NULL,
-  `date` date NOT NULL,
+  `date` date NOT NULL DEFAULT '2017-01-20',
   `id_student` int(10) unsigned NOT NULL,
   `id_lesson` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `semifinal_grades_unique` (`id_student`,`id_lesson`),
   KEY `id_student` (`id_student`,`id_lesson`),
   KEY `id_lesson` (`id_lesson`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin2 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin2 AUTO_INCREMENT=43 ;
+
+--
+-- Zrzut danych tabeli `SEMIFINAL_GRADES`
+--
+
+INSERT INTO `SEMIFINAL_GRADES` (`id`, `mark`, `date`, `id_student`, `id_lesson`) VALUES
+(1, 'bardzo dobry', '2017-01-20', 3, 21),
+(2, 'bardzo dobry', '2017-01-20', 3, 16),
+(3, 'dopuszczający', '2017-01-20', 3, 1),
+(4, 'dopuszczający', '2017-01-20', 4, 22),
+(5, 'dobry', '2017-01-20', 4, 23),
+(6, 'celujący', '2017-01-20', 5, 31),
+(7, 'bardzo dobry', '2017-01-20', 5, 14),
+(8, 'niedostateczny', '2017-01-20', 5, 19),
+(9, 'dostateczny', '2017-01-20', 5, 4),
+(10, 'bardzo dobry', '2017-01-20', 6, 32),
+(11, 'niedostateczny', '2017-01-20', 6, 5),
+(12, 'niedostateczny', '2017-01-20', 6, 27),
+(13, 'dopuszczający', '2017-01-20', 7, 10),
+(14, 'dopuszczający', '2017-01-20', 7, 9),
+(15, 'dostateczny', '2017-01-20', 7, 37),
+(16, 'bardzo dobry', '2017-01-20', 8, 38),
+(17, 'dobry', '2017-01-20', 9, 33),
+(18, 'dostateczny', '2017-01-20', 9, 21),
+(19, 'bardzo dobry', '2017-01-20', 10, 21),
+(20, 'dopuszczający', '2017-01-20', 10, 28),
+(21, 'dostateczny', '2017-01-20', 11, 31),
+(22, 'dobry', '2017-01-20', 11, 36),
+(23, 'dopuszczający', '2017-01-20', 11, 26),
+(24, 'dobry', '2017-01-20', 11, 4),
+(25, 'celujący', '2017-01-20', 11, 19),
+(26, 'dopuszczający', '2017-01-20', 11, 14),
+(27, 'celujący', '2017-01-20', 12, 4),
+(28, 'dostateczny', '2017-01-20', 12, 26),
+(29, 'dobry', '2017-01-20', 12, 36),
+(30, 'dopuszczający', '2017-01-20', 13, 8),
+(31, 'dobry', '2017-01-20', 13, 5),
+(32, 'dobry', '2017-01-20', 13, 15),
+(33, 'dobry', '2017-01-20', 13, 20),
+(34, 'dostateczny', '2017-01-20', 14, 9),
+(35, 'bardzo dobry', '2017-01-20', 15, 2),
+(36, 'dostateczny', '2017-01-20', 15, 17),
+(37, 'bardzo dobry', '2017-01-20', 16, 24),
+(38, 'celujący', '2017-01-20', 16, 2),
+(39, 'bardzo dobry', '2017-01-20', 17, 34),
+(40, 'dostateczny', '2017-01-20', 17, 29),
+(41, 'dostateczny', '2017-01-20', 17, 12);
 
 -- --------------------------------------------------------
 
@@ -594,7 +695,7 @@ CREATE TABLE IF NOT EXISTS `USERS` (
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `id_person` (`id_person`),
   KEY `id_people` (`id_person`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=48 ;
 
 --
 -- Zrzut danych tabeli `USERS`
