@@ -21,14 +21,38 @@ public class MySqlGradesDAO implements GradesDAO {
     JdbcTemplate jdbcTemplate;
 
     @Override
-    public Collection<Grade> getAllUserGrades(int idEregUser) {
-        String sql = Queries.GET_SORT_GRADES_BY_ID_USER;
+    public Collection<Grade> getAllUserPartialGrades(int idEregUser) {
+        String sql = Queries.GET_SORT_PARTIAL_GRADES_BY_ID_USER;
         return jdbcTemplate.query(sql, new GradeRowMapper(), idEregUser);
     }
 
     @Override
-    public Collection<Grade> getAllUserGradesFromLesson(int idEregUser, int idLesson) {
-        String sql = Queries.GET_GRADES_BY_ID_USER_AND_ID_LESSON;
+    public Collection<Grade> getAllUserPartialGradesFromLesson(int idEregUser, int idLesson) {
+        String sql = Queries.GET_SORT_PARTIAL_GRADES_BY_ID_USER_AND_ID_LESSON;
+        return jdbcTemplate.query(sql, new GradeRowMapper(), new Object[]{idEregUser, idLesson});
+    }
+
+    @Override
+    public Collection<Grade> getAllUserSemifinalGrades(int idEregUser) {
+        String sql = Queries.GET_SORT_SEMIFINAL_GRADES_BY_ID_USER;
+        return jdbcTemplate.query(sql, new GradeRowMapper(), idEregUser);
+    }
+
+    @Override
+    public Collection<Grade> getAllUserSemifinalGradesFromLesson(int idEregUser, int idLesson) {
+        String sql = Queries.GET_SORT_SEMIFINAL_GRADES_BY_ID_USER_AND_ID_LESSON;
+        return jdbcTemplate.query(sql, new GradeRowMapper(), new Object[]{idEregUser, idLesson});
+    }
+
+    @Override
+    public Collection<Grade> getAllUserFinalGrades(int idEregUser) {
+        String sql = Queries.GET_SORT_FINAL_GRADES_BY_ID_USER;
+        return jdbcTemplate.query(sql, new GradeRowMapper(), idEregUser);
+    }
+
+    @Override
+    public Collection<Grade> getAllUserFinalGradesFromLesson(int idEregUser, int idLesson) {
+        String sql = Queries.GET_SORT_FINAL_GRADES_BY_ID_USER_AND_ID_LESSON;
         return jdbcTemplate.query(sql, new GradeRowMapper(), new Object[]{idEregUser, idLesson});
     }
 }

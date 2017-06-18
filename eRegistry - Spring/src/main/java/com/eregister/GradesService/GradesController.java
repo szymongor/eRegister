@@ -21,49 +21,147 @@ public class GradesController {
     @Autowired
     GradesService gradesService;
 
-    @RequestMapping(value = "/myGrades", method = RequestMethod.GET)
-    public Serializable getMyGrades(@RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/myPartialGrades", method = RequestMethod.GET)
+    public Serializable getMyPartialGrades(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);
-            response = new GradesResponse("ok", gradesService.getAllUserGrades(idEregUser));
+            response = new GradesResponse("ok", gradesService.getAllUserPartialGrades(idEregUser));
         } catch (Exception e) {
             response = new Response("Error", "InternalError");
         }
         return response;
     }
 
-    @RequestMapping(value = "/myGrades/{idLesson}", method = RequestMethod.GET)
-    public Serializable getMyGradesFromLesson(@PathVariable("idLesson") int idLesson,
-                                              @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/myPartialGrades/{idLesson}", method = RequestMethod.GET)
+    public Serializable getMyPartialGradesFromLesson(@PathVariable("idLesson") int idLesson,
+                                                     @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);
-            response = new GradesResponse("ok", gradesService.getAllUserGradesFromLesson(idEregUser, idLesson));
+            response = new GradesResponse("ok", gradesService.getAllUserPartialGradesFromLesson(idEregUser, idLesson));
         } catch (Exception e) {
             response = new Response("Error", "InternalError");
         }
         return response;
     }
 
-    @RequestMapping(value = "/userGrades/{idUser}", method = RequestMethod.GET)
-    public Serializable getUserGrades(@PathVariable("idUser") int idUser,
-                                      @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/mySemifinalGrades", method = RequestMethod.GET)
+    public Serializable getMySemifinalGrades(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new GradesResponse("ok", gradesService.getAllUserGrades(idUser));
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new GradesResponse("ok", gradesService.getAllUserSemifinalGrades(idEregUser));
         } catch (Exception e) {
             response = new Response("Error", "InternalError");
         }
         return response;
     }
 
-    @RequestMapping(value = "/userGrades/{idUser}/lesson/{idLesson}", method = RequestMethod.GET)
-    public Serializable getUserGrades(@PathVariable("idUser") int idUser, @PathVariable("idLesson") int idLesson,
-                                      @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/mySemifinalGrades/{idLesson}", method = RequestMethod.GET)
+    public Serializable getMySemifinalGradesFromLesson(@PathVariable("idLesson") int idLesson,
+                                                       @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new GradesResponse("ok", gradesService.getAllUserGradesFromLesson(idUser, idLesson));
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new GradesResponse("ok", gradesService.getAllUserSemifinalGradesFromLesson(idEregUser, idLesson));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/myFinalGrades", method = RequestMethod.GET)
+    public Serializable getMyFinalGrades(@RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new GradesResponse("ok", gradesService.getAllUserFinalGrades(idEregUser));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/myFinalGrades/{idLesson}", method = RequestMethod.GET)
+    public Serializable getMyFinalGradesFromLesson(@PathVariable("idLesson") int idLesson,
+                                                   @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new GradesResponse("ok", gradesService.getAllUserFinalGradesFromLesson(idEregUser, idLesson));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userPartialGrades/{idUser}", method = RequestMethod.GET)
+    public Serializable getUserPartialGrades(@PathVariable("idUser") int idUser,
+                                             @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserPartialGrades(idUser));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userPartialGrades/{idUser}/lesson/{idLesson}", method = RequestMethod.GET)
+    public Serializable getUserPartialGrades(@PathVariable("idUser") int idUser, @PathVariable("idLesson") int idLesson,
+                                             @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserPartialGradesFromLesson(idUser, idLesson));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userSemifinalGrades/{idUser}", method = RequestMethod.GET)
+    public Serializable getUserSemifinalGrades(@PathVariable("idUser") int idUser,
+                                               @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserSemifinalGrades(idUser));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userSemifinalGrades/{idUser}/lesson/{idLesson}", method = RequestMethod.GET)
+    public Serializable getUserSemifinalGrades(@PathVariable("idUser") int idUser, @PathVariable("idLesson") int idLesson,
+                                               @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserSemifinalGradesFromLesson(idUser, idLesson));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userFinalGrades/{idUser}", method = RequestMethod.GET)
+    public Serializable getUserFinalGrades(@PathVariable("idUser") int idUser,
+                                           @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserFinalGrades(idUser));
+        } catch (Exception e) {
+            response = new Response("Error", "InternalError");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/userFinalGrades/{idUser}/lesson/{idLesson}", method = RequestMethod.GET)
+    public Serializable getUserFinalGrades(@PathVariable("idUser") int idUser, @PathVariable("idLesson") int idLesson,
+                                           @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new GradesResponse("ok", gradesService.getAllUserFinalGradesFromLesson(idUser, idLesson));
         } catch (Exception e) {
             response = new Response("Error", "InternalError");
         }
