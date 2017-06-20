@@ -5,6 +5,7 @@ package com.eregister.PeopleService.Entity;
  */
 public class Person {
     private int id;
+    private int idUser;
     private String name;
     private String surname;
     private String dateOfBirth;
@@ -19,7 +20,7 @@ public class Person {
     }
 
     public Person(int id, String name, String surname, String dateOfBirth, String sex, String phone, String mail,
-           String expirationDate, int idAddress) {
+                  String expirationDate, int idAddress) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -37,6 +38,14 @@ public class Person {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getName() {

@@ -2,7 +2,9 @@ package com.eregister.GroupsService;
 
 import com.eregister.GroupsService.Model.GroupsResponse;
 import com.eregister.GroupsService.Service.GroupsService;
+import com.eregister.PeopleService.Model.PeopleResponse;
 import com.eregister.SecurityService.Model.Response;
+import com.eregister.SecurityService.Token.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +21,24 @@ public class GroupsController {
     @Autowired
     GroupsService groupsService;
 
-    @RequestMapping(value = "/teachBy/id={idTeacher}", method = RequestMethod.GET)
-    public Serializable getAllGroupsByTeacher(@PathVariable("idTeacher") int idTeacher,
-                                              @RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/teacher/myGroups", method = RequestMethod.GET)
+    public Serializable getAllGroupsTeachByUser(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new GroupsResponse("ok", groupsService.getAllGroupsByTeacher(idTeacher));
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new GroupsResponse("ok", groupsService.getAllGroupsTeachByUser(idEregUser));
+        } catch (Exception e) {
+            response = new Response("Error", "Internal error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/attendingStudents/{idGroup}", method = RequestMethod.GET)
+    public Serializable getAllStudentsFromGroup(@PathVariable("idGroup") int idGroup,
+                                                @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new PeopleResponse("ok", groupsService.getAllStudentsFromGroup(idGroup));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }

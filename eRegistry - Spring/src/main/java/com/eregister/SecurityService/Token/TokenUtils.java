@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 
 /**
  * Created by Szymon on 07.04.2017.
@@ -35,8 +35,8 @@ public class TokenUtils {
                 .setExpiration(generateExpirationDate())
                 .claim("login", login)
                 .claim("roles", roles)
-                .claim("id",id)
-                .claim("generationDate",generationDate)
+                .claim("id", id)
+                .claim("generationDate", generationDate)
                 .signWith(
                         SignatureAlgorithm.HS256,
                         secret
@@ -51,18 +51,18 @@ public class TokenUtils {
     }
 
     public static Claims verifyToken(String token) throws Exception {
-        Claims claims =null;
+        Claims claims = null;
         try {
             claims = Jwts.parser()
                     .setSigningKey(secret)
                     .parseClaimsJws(token).getBody();
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Wrong token format");
         }
         return claims;
     }
 
-    public static String generationDate(){
+    public static String generationDate() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
@@ -80,4 +80,8 @@ public class TokenUtils {
         return login;
     }
 
+    public static int getIdEregUserFromToken(String token) throws Exception {
+        Claims claims = verifyToken(token);
+        return Integer.parseInt(claims.get("id").toString());
+    }
 }

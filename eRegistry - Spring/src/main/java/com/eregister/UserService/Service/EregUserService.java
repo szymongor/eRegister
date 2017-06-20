@@ -20,37 +20,39 @@ public class EregUserService {
     @Qualifier("mysql")
     EregUserDao eregUserDao;
 
-    public Collection<EregUser> getAllEregUsers(){
+    public Collection<EregUser> getAllEregUsers() {
         return eregUserDao.getAllEregUsers();
     }
 
-    public Collection<EregUser> getAllEnableEregUsers(){
+    public Collection<EregUser> getAllEnableEregUsers() {
         return eregUserDao.getAllEnableEregUsers();
     }
 
-    public Collection<EregUser> getAllTeachersEregUsers(){
+    public Collection<EregUser> getAllTeachersEregUsers() {
         return eregUserDao.getAllTeachersEregUsers();
     }
 
-    public Collection<EregUser> getAllGuardiansEregUsers(){
+    public Collection<EregUser> getAllGuardiansEregUsers() {
         return eregUserDao.getAllGuardiansEregUsers();
     }
 
-    public Collection<EregUser> getAllStudentsEregUsers(){
+    public Collection<EregUser> getAllStudentsEregUsers() {
         return eregUserDao.getAllStudentsEregUsers();
     }
 
-    public EregUser getEregUserById(int id){
+    public EregUser getEregUserById(int id) {
         return eregUserDao.getEregUserById(id);
     }
 
-    public EregUser getEregUserByIdPerson(int id) { return eregUserDao.getEregUserByIdPerson(id);}
+    public EregUser getEregUserByIdPerson(int id) {
+        return eregUserDao.getEregUserByIdPerson(id);
+    }
 
-    public EregUser getEregUserByLogin(String login){
+    public EregUser getEregUserByLogin(String login) {
         return eregUserDao.getEregUserByLogin(login);
     }
 
-    public void removeEregUserById(int id){
+    public void removeEregUserById(int id) {
         eregUserDao.removeEregUserById(id);
     }
 
@@ -58,13 +60,13 @@ public class EregUserService {
         eregUserDao.removeEregUserByLogin(login);
     }
 
-    public void updatePasswordEregUser(String login, NewPasswordRequest newPasswordRequest){
+    public void updatePasswordEregUser(String login, NewPasswordRequest newPasswordRequest) {
         String oldPassword = newPasswordRequest.getOldPassword();
         String newPassword = newPasswordRequest.getNewPassword();
         eregUserDao.updatePasswordEregUser(newPassword, login, oldPassword);
     }
 
-    public void insertEregUser(EregUser eregUser){
+    public void insertEregUser(EregUser eregUser) {
         eregUserDao.insertEregUser(eregUser);
     }
 }

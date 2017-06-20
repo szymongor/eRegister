@@ -1,8 +1,5 @@
 package com.eregister.UserService.Entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Szymon on 07.04.2017.
  */
@@ -27,7 +24,7 @@ public class EregUser {
         this.idPerson = idPerson;
     }
 
-    public EregUser(){
+    public EregUser() {
         this.roles = "";
     }
 
@@ -75,20 +72,23 @@ public class EregUser {
         return isEnable;
     }
 
-    public void setEnable( boolean isEnable) {
+    public void setEnable(boolean isEnable) {
         this.isEnable = isEnable;
     }
 
-    public int getIdPerson() { return idPerson; }
+    public int getIdPerson() {
+        return idPerson;
+    }
 
-    public void setIdPerson( int idPerson ) { this.idPerson = idPerson; }
+    public void setIdPerson(int idPerson) {
+        this.idPerson = idPerson;
+    }
 
-    public void addRole(String role){
-        if("".equals(roles)){
-            roles+=role;
-        }
-        else{
-            roles+=","+role;
+    public void addRole(String role) {
+        if ("".equals(roles)) {
+            roles += role;
+        } else {
+            roles += "," + role;
         }
     }
 }

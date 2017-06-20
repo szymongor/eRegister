@@ -2,7 +2,6 @@ package com.eregister.GroupsService.Model;
 
 import com.eregister.GroupsService.Entity.Group;
 
-import javax.naming.directory.SearchResult;
 import java.io.Serializable;
 import java.util.Collection;
 

@@ -29,9 +29,9 @@ public class MySqlLessonsDao implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsLeadsByTeacher(int idTeacher) {
+    public Collection<Lesson> getLessonsLeadsByTeacher(int idEregUser) {
         final String sql = Queries.GET_LESSONS_LEADS_BY_TEACHER;
-        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idTeacher);
+        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idEregUser);
         return lessons;
     }
 
@@ -43,17 +43,10 @@ public class MySqlLessonsDao implements LessonsDAO {
     }
 
     @Override
-    public Collection<Lesson> getLessonsAboutSubject(int idSubject) {
-        final String sql = Queries.GET_LESSONS_ABOUT_SUBJECT;
-        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idSubject);
+    public Collection<Lesson> getAllStudentLessons(int idEregUser) {
+        final String sql = Queries.GET_ALL_STUDENT_LESSONS;
+        List<Lesson> lessons = jdbcTemplate.query(sql, new LessonRowMapper(), idEregUser);
         return lessons;
-    }
-
-    @Override
-    public Lesson getLessonById(int id) {
-        final String sql = Queries.GET_LESSON_BY_ID;
-        Lesson lesson = jdbcTemplate.queryForObject(sql, new LessonRowMapper(), id);
-        return lesson;
     }
 
     @Override
@@ -65,13 +58,13 @@ public class MySqlLessonsDao implements LessonsDAO {
     @Override
     public void updateTeacher(int idTeacher, int idLesson) {
         final String sql = Queries.UPDATE_TEACHER;
-        jdbcTemplate.update(sql, new Object[] {idTeacher, idLesson});
+        jdbcTemplate.update(sql, new Object[]{idTeacher, idLesson});
     }
 
     @Override
     public void updateSemester(String semester, int idLesson) {
         final String sql = Queries.UPDATE_SEMESTER;
-        jdbcTemplate.update(sql, new Object[] {semester, idLesson});
+        jdbcTemplate.update(sql, new Object[]{semester, idLesson});
     }
 
     @Override
@@ -83,6 +76,6 @@ public class MySqlLessonsDao implements LessonsDAO {
         final int idTeacher = lesson.getIdTeacher();
         final int idGroup = lesson.getIdGroup();
         final int idSubject = lesson.getIdSubject();
-        jdbcTemplate.update(sql, new Object[] {year, semester, idTeacher, idGroup, idSubject});
+        jdbcTemplate.update(sql, new Object[]{year, semester, idTeacher, idGroup, idSubject});
     }
 }

@@ -19,8 +19,8 @@ public class GroupsService {
     @Qualifier("mysql")
     GroupsDAO groupsDAO;
 
-    public Collection<Group> getAllGroupsByTeacher(int idTeacher) {
-        return groupsDAO.getAllGroupsByTeacher(idTeacher);
+    public Collection<Group> getAllGroupsTeachByUser(int idEregUser) {
+        return groupsDAO.getAllGroupsTeachByUser(idEregUser);
     }
 
     public Collection<Person> getAllStudentsFromGroup(int idGroup) {

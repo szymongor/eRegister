@@ -6,7 +6,7 @@ package com.eregister.PeopleService.Model;
 public class UpdateAddressRequest {
     private int idAddress;
     private String street;
-    private String  houseNumber;
+    private String houseNumber;
     private int flatNumber;
     private String postalCode;
     private String city;

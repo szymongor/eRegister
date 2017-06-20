@@ -21,24 +21,20 @@ public class LessonsService {
     @Qualifier("mysql")
     LessonsDAO lessonsDao;
 
-    public Collection<Lesson> getAllLessons(){
+    public Collection<Lesson> getAllLessons() {
         return lessonsDao.getAllLessons();
     }
 
-    public Collection<Lesson> getLessonsLeadsByTeacher( int idTeacher ) {
-        return lessonsDao.getLessonsLeadsByTeacher(idTeacher);
+    public Collection<Lesson> getLessonsLeadsByTeacher(int idEregUser) {
+        return lessonsDao.getLessonsLeadsByTeacher(idEregUser);
     }
 
-    public Collection<Lesson> getLessonsByAttendingGroup( int idGroup ) {
+    public Collection<Lesson> getLessonsByAttendingGroup(int idGroup) {
         return lessonsDao.getLessonsByAttendingGroup(idGroup);
     }
 
-    public Collection<Lesson> getLessonsAboutSubject( int idSubject ) {
-        return lessonsDao.getLessonsAboutSubject(idSubject);
-    }
-
-    public Lesson getLessonById(int id) {
-        return lessonsDao.getLessonById(id);
+    public Collection<Lesson> getAllStudentLessons(int idEregUser) {
+        return lessonsDao.getAllStudentLessons(idEregUser);
     }
 
     public void removeLessonById(int id) {

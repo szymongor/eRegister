@@ -18,11 +18,11 @@ public class Response implements Serializable {
         this.message = message;
     }
 
-    public String getStatus(){
+    public String getStatus() {
         return this.status;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return this.message;
     }
 

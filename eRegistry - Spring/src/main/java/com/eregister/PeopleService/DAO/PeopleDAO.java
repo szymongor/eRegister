@@ -2,6 +2,7 @@ package com.eregister.PeopleService.DAO;
 
 import com.eregister.PeopleService.Entity.Address;
 import com.eregister.PeopleService.Entity.Person;
+import com.eregister.PeopleService.Entity.PersonalData;
 
 import java.util.Collection;
 
@@ -12,7 +13,9 @@ public interface PeopleDAO {
 
     Collection<Person> getAllPeople();
 
-    Collection<Person> getAllChild(int idPerson);
+    Collection<Person> getMyChildren(int idEregUser);
+
+    PersonalData getMyPersonalData(int idEregUser);
 
     Person getPersonById(int id);
 
@@ -38,10 +41,6 @@ public interface PeopleDAO {
 
     void insertPerson(Person person);
     // add person with addres with role => jakos zrobic
-    // insert person with address - nie działa, a powinno - naprawić
-    // people i address rozdzielić? => moze
-    // błędy obsłużyć ładnie
-    // zwracać id czy imię nazwisko? => imie i nazwisko
     // teksty w osobnym pliku "error" itp => jeden plik po którym dziedziczą inne
     // generator wpisów automatycznie
     //get All People -> teachers, guardians, students

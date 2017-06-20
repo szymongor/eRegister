@@ -8,7 +8,6 @@ import com.eregister.UserService.Model.NewPasswordResponse;
 import com.eregister.UserService.Model.UserResponse;
 import com.eregister.UserService.Model.UsersListResponse;
 import com.eregister.UserService.Service.EregUserService;
-import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
@@ -24,172 +23,157 @@ import java.io.Serializable;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/EregUsers")
-public class EregUserController
-{
+public class EregUserController {
     @Autowired
     EregUserService eregUserService;
 
     @RequestMapping(method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllEregUsers(@RequestHeader(name = "Authorization") String token){
+    public Serializable getAllEregUsers(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             response = new UsersListResponse(eregUserService.getAllEregUsers(), "Ok");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/enables",method = RequestMethod.GET)
+    @RequestMapping(value = "/enables", method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllEnableEregUsers(@RequestHeader(name = "Authorization") String token){
+    public Serializable getAllEnableEregUsers(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             response = new UsersListResponse(eregUserService.getAllEnableEregUsers(), "Ok");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/teachers",method = RequestMethod.GET)
+    @RequestMapping(value = "/teachers", method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllTeachersEregUsers(@RequestHeader(name = "Authorization") String token){
+    public Serializable getAllTeachersEregUsers(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             response = new UsersListResponse(eregUserService.getAllTeachersEregUsers(), "Ok");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/guardians",method = RequestMethod.GET)
+    @RequestMapping(value = "/guardians", method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllGuardiansEregUsers(@RequestHeader(name = "Authorization") String token){
+    public Serializable getAllGuardiansEregUsers(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             response = new UsersListResponse(eregUserService.getAllGuardiansEregUsers(), "Ok");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/students",method = RequestMethod.GET)
+    @RequestMapping(value = "/students", method = RequestMethod.GET)
     @PreAuthorize("hasRole('TEACHER')")
-    public Serializable getAllStudentsEregUsers(@RequestHeader(name = "Authorization") String token){
+    public Serializable getAllStudentsEregUsers(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             response = new UsersListResponse(eregUserService.getAllStudentsEregUsers(), "Ok");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
 
         return response;
     }
 
-    @RequestMapping(value ="/id={id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
     public Serializable getEregUserById(@PathVariable("id") int id,
-                                        @RequestHeader(name = "Authorization") String token){
+                                        @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             EregUser eregUser = eregUserService.getEregUserById(id);
             response = new UserResponse(eregUser, "OK");
-        }
-        catch(EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             response = new Response("Error", "No user with such id");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/person/id={id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/person/id={id}", method = RequestMethod.GET)
     public Serializable getEregUserByIdPerson(@PathVariable("id") int id,
-                                              @RequestHeader(name = "Authorization") String token){
+                                              @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             EregUser eregUser = eregUserService.getEregUserByIdPerson(id);
             response = new UserResponse(eregUser, "OK");
-        }
-        catch(EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             response = new Response("Error", "No user with such id");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/login={login}",method = RequestMethod.GET)
+    @RequestMapping(value = "/login={login}", method = RequestMethod.GET)
     public Serializable getEregUserByLogin(@PathVariable("login") String login,
-                                           @RequestHeader(name = "Authorization") String token){
+                                           @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             EregUser eregUser = eregUserService.getEregUserByLogin(login);
             response = new UserResponse(eregUser, "OK");
-        }
-        catch(EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             response = new Response("Error", "No user with such id");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/id={id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
     public Serializable removeEregUserById(@PathVariable("id") int id,
-                                           @RequestHeader(name = "Authorization") String token){
+                                           @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             eregUserService.removeEregUserById(id);
-            response = new Response("Ok","Removed eReg user id:" + id);
-        }
-        catch (Exception e){
+            response = new Response("Ok", "Removed eReg user id:" + id);
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/login={login}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/login={login}", method = RequestMethod.DELETE)
     public Serializable removeEregUserByLogin(@PathVariable("login") String login,
-                                              @RequestHeader(name = "Authorization") String token){
+                                              @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             eregUserService.removeEregUserByLogin(login);
-            response = new Response("Ok","Removed eReg user login:" + login);
-        }
-        catch (Exception e){
+            response = new Response("Ok", "Removed eReg user login:" + login);
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value ="/newPassword",
+    @RequestMapping(value = "/newPassword",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable updatePasswordEregUser(@RequestBody NewPasswordRequest newPasswordRequest,
-                                               @RequestHeader(value="Authorization")String token){
+                                               @RequestHeader(value = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             String login = TokenUtils.getLoginFromToken(token);
             eregUserService.updatePasswordEregUser(login, newPasswordRequest);
             EregUser eregUser = eregUserService.getEregUserByLogin(login);
             String newToken = TokenUtils.generateToken(eregUser);
-            response = new NewPasswordResponse("Ok","Login: " + login
-                    +", new pass: " + newPasswordRequest.getNewPassword(),
+            response = new NewPasswordResponse("Ok", "Login: " + login
+                    + ", new pass: " + newPasswordRequest.getNewPassword(),
                     newToken);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
@@ -197,13 +181,12 @@ public class EregUserController
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Serializable insertEregUser(@RequestBody EregUser eregUser,
-                                       @RequestHeader(name = "Authorization") String token){
+                                       @RequestHeader(name = "Authorization") String token) {
         Serializable response;
-        try{
+        try {
             eregUserService.insertEregUser(eregUser);
-            response = new Response("Ok","Inserted user");
-        }
-        catch (Exception e){
+            response = new Response("Ok", "Inserted user");
+        } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
