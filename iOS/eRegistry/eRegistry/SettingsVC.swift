@@ -46,6 +46,14 @@ class SettingsVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        RequestManager.getPerson(byId: User.instance.id, completion: {
+            success in
+            print("Person fetching: \(success)")
+        })
+    }
+    
     func prepare(for userType: UserType) {
         
     }

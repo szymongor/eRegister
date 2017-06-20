@@ -92,24 +92,26 @@ extension FormVC {
         self.title = "Telefon"
         
         titleLabel.isHidden = false
-        titleLabel.text = "791 734 756"
+        titleLabel.text = User.instance.phone
         oldValueTF.isHidden = true
         newValueTF.placeholder = "Nowy numer"
         newValueTF.keyboardType = .phonePad
         confirmNewValueTF.placeholder = "Hasło"
         confirmNewValueTF.isSecureTextEntry = true
+        confirmButton.addTarget(self, action: #selector(changePhone), for: .touchUpInside)
     }
     
     private func prepareAsEmailForm() {
         self.title = "E-mail"
         
         titleLabel.isHidden = false
-        titleLabel.text = "testowy.szymon@gmail.com"
+        titleLabel.text = User.instance.mail
         oldValueTF.isHidden = true
         newValueTF.placeholder = "Nowy e-mail"
         newValueTF.keyboardType = .emailAddress
         confirmNewValueTF.placeholder = "Hasło"
         confirmNewValueTF.isSecureTextEntry = true
+        confirmButton.addTarget(self, action: #selector(changeMail), for: .touchUpInside)
     }
 
 }
@@ -123,10 +125,40 @@ extension FormVC {
         guard let new = newValueTF.text else {
             return
         }
-//        RequestManager.changePassword(oldPassword: old, newPassword: new, completion: {
-//            success in
-//            
-//            self.navigationController?.popViewController(animated: true)
-//        })
+        RequestManager.changePassword(oldPassword: old, newPassword: new, completion: {
+            success in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+    
+    func changePhone() {
+        print("Phone change, new phone: \(newValueTF.text)")
+        guard let old = oldValueTF.text else {
+            return
+        }
+        guard let new = newValueTF.text else {
+            return
+        }
+        RequestManager.changePhone(for: User.instance.id, newPhone: new, completion: {
+            success in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+    
+    func changeMail() {
+        print("Mail change, new mail: \(newValueTF.text)")
+        guard let old = oldValueTF.text else {
+            return
+        }
+        guard let new = newValueTF.text else {
+            return
+        }
+        RequestManager.changeMail(for: User.instance.id, newMail: new, completion: {
+            success in
+            
+            self.navigationController?.popViewController(animated: true)
+        })
     }
 }

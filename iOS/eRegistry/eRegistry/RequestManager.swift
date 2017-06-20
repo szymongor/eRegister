@@ -123,35 +123,32 @@ class RequestManager {
         })
     }
     
-//    typealias NewPasswordCompletion = (Bool)->()
-//    
-//    static func changePassword(oldPassword: String, newPassword: String, completion: @escaping NewPasswordCompletion) {
-//        let urlString = getWSAddress() + Endpoints.newPassword
-//        let url = URL(string: urlString)!
-//        let header: HTTPHeaders = ["Authorization" : User.instance.token]
-//        
-//        let parameters: [String : AnyObject] = [
-//            "newPassword": newPassword as AnyObject,
-//            "oldPassword": oldPassword as AnyObject
-//        ]
-//        
-//        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
-//            response in
-//            
-//            var success = false
-//            let result = response.result
-//            if let json = result.value as? JSONStandard {
-//                print(json)
-//            }
-//            if result.isSuccess {
-//                if let json = result.value as? [JSONStandard] {
-//                    print(json)
-//                }
-//                success = true
-//            }
-//            completion(success)
-//        })
-//    }
+    typealias NewPasswordCompletion = (Bool)->()
+    
+    static func changePassword(oldPassword: String, newPassword: String, completion: @escaping NewPasswordCompletion) {
+        let urlString = getWSAddress() + Endpoints.newPassword
+        let url = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        let parameters: [String : AnyObject] = [
+            "newPassword": newPassword as AnyObject,
+            "oldPassword": oldPassword as AnyObject
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            if let json = result.value as? JSONStandard {
+                print(json)
+            }
+            if result.isSuccess {
+                success = true
+            }
+            completion(success)
+        })
+    }
     
     static func getUsers() {
         
@@ -171,6 +168,92 @@ class RequestManager {
                     print(json)
                 }
             }
+        })
+    }
+    
+    typealias NewPhoneCompletion = (Bool)->()
+    
+    static func changePhone(for id: Int, newPhone: String, completion: @escaping NewPhoneCompletion) {
+        let urlString = getWSAddress() + Endpoints.newPhone
+        let url = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        let parameters: [String : AnyObject] = [
+            "idPerson": id as AnyObject,
+            "phone": newPhone as AnyObject
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            if let json = result.value as? JSONStandard {
+                print(json)
+            }
+            if result.isSuccess {
+                success = true
+            }
+            completion(success)
+        })
+    }
+    
+    static func changeMail(for id: Int, newMail: String, completion: @escaping NewPhoneCompletion) {
+        let urlString = getWSAddress() + Endpoints.newMail
+        let url = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        let parameters: [String : AnyObject] = [
+            "idPerson": id as AnyObject,
+            "mail": newMail as AnyObject
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            if let json = result.value as? JSONStandard {
+                print(json)
+            }
+            if result.isSuccess {
+                success = true
+            }
+            completion(success)
+        })
+    }
+    
+    typealias PersonCompletion = (Bool)->()
+    
+    static func getPerson(byId id: Int, completion: @escaping PersonCompletion) {
+        let urlString = getWSAddress() + Endpoints.person + "\(id)"
+        let url: URL = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            
+            if result.isSuccess {
+                if let json = result.value as? JSONStandard {
+                    guard let person = json["person"] as? JSONStandard else {
+                        return
+                    }
+                    print(person)
+                    if let mail = person["mail"] as? String {
+                        User.instance.mail = mail
+                    }
+                    if let phone = person["phone"] as? String {
+                        User.instance.phone = phone
+                    }
+                    success = true
+                    
+                }
+            }
+            completion(success)
+            
         })
     }
     

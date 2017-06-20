@@ -72,6 +72,24 @@ class User {
         }
     }
     
+    var mail: String {
+        get {
+            return UserDefaults.standard.string(forKey: "userMail") ?? "Brak adresu e-mail"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "userMail")
+        }
+    }
+    
+    var phone: String {
+        get {
+            return UserDefaults.standard.string(forKey: "userPhone") ?? "Brak numeru telefonu"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "userPhone")
+        }
+    }
+    
     private(set) var roleType: UserType = .undefined
     
     var rememberMe: Bool {
