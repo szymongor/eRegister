@@ -68,7 +68,9 @@ class LoginVC: UIViewController {
             if success {
                 
                 self.tryGoToMenu(type: User.instance.roleType)
-                
+                RequestManager.getPerson(byId: User.instance.id, completion: {
+                    success in
+                })
             } else {
                 self.showErrorAlert(message: "Sprawdź połączenie z internetem oraz wprowadź poprawne dane logowania.")
             }

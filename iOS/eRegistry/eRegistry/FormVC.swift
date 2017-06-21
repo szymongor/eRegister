@@ -78,7 +78,9 @@ extension FormVC {
     private func prepareAsPasswordForm() {
         self.title = "Hasło"
         
-        titleLabel.isHidden = true
+        titleLabel.isHidden = false
+        let passwordLength = User.instance.password.characters.count
+        titleLabel.text = String(repeating: "*", count: passwordLength)
         oldValueTF.placeholder = "Stare hasło"
         oldValueTF.isSecureTextEntry = true
         newValueTF.placeholder = "Nowe hasło"
@@ -130,6 +132,10 @@ extension FormVC {
             
             self.navigationController?.popViewController(animated: true)
         })
+        RequestManager.getPerson(byId: User.instance.id, completion: {
+            success in
+            print("Person fetching: \(success)")
+        })
     }
     
     func changePhone() {
@@ -145,6 +151,10 @@ extension FormVC {
             
             self.navigationController?.popViewController(animated: true)
         })
+        RequestManager.getPerson(byId: User.instance.id, completion: {
+            success in
+            print("Person fetching: \(success)")
+        })
     }
     
     func changeMail() {
@@ -159,6 +169,10 @@ extension FormVC {
             success in
             
             self.navigationController?.popViewController(animated: true)
+        })
+        RequestManager.getPerson(byId: User.instance.id, completion: {
+            success in
+            print("Person fetching: \(success)")
         })
     }
 }

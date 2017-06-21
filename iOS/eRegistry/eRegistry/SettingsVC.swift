@@ -48,10 +48,6 @@ class SettingsVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        RequestManager.getPerson(byId: User.instance.id, completion: {
-            success in
-            print("Person fetching: \(success)")
-        })
     }
     
     func prepare(for userType: UserType) {
