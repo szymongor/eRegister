@@ -13,16 +13,16 @@ public class AddressesResponse implements Serializable {
     private final String status;
     private final Collection<Address> addresses;
 
-    public AddressesResponse(String status, Collection<Address> addresses) {
+    public AddressesResponse(String status, Collection<Address> addresses){
         this.status = status;
         this.addresses = addresses;
     }
 
-    public String getStatus() {
+    public String getStatus(){
         return this.status;
     }
 
-    public Collection<Address> getAddresses() {
+    public Collection<Address> getAddresses(){
         return this.addresses;
     }
 }

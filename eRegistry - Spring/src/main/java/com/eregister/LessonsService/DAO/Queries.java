@@ -1,5 +1,9 @@
 package com.eregister.LessonsService.DAO;
 
+import com.eregister.LessonsService.Entity.Lesson;
+
+import java.util.Collection;
+
 /**
  * Created by Karo2 on 2017-04-30.
  */

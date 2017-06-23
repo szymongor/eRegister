@@ -3,6 +3,7 @@ package com.eregister.GroupsService;
 import com.eregister.GroupsService.Model.GroupsResponse;
 import com.eregister.GroupsService.Service.GroupsService;
 import com.eregister.PeopleService.Model.PeopleResponse;
+import com.eregister.PeopleService.Model.PersonResponse;
 import com.eregister.SecurityService.Model.Response;
 import com.eregister.SecurityService.Token.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,8 @@ public class GroupsController {
     }
 
     @RequestMapping(value = "/attendingStudents/{idGroup}", method = RequestMethod.GET)
-    public Serializable getAllStudentsFromGroup(@PathVariable("idGroup") int idGroup,
-                                                @RequestHeader(name = "Authorization") String token) {
+    public Serializable getAllStudentsFromGroup( @PathVariable("idGroup") int idGroup,
+                                                 @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             response = new PeopleResponse("ok", groupsService.getAllStudentsFromGroup(idGroup));

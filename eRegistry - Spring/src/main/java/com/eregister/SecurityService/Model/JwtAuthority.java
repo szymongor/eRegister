@@ -9,7 +9,7 @@ public class JwtAuthority implements GrantedAuthority {
 
     String role;
 
-    public JwtAuthority(String role) {
+    public JwtAuthority(String role){
         this.role = role;
     }
 

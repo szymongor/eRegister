@@ -20,7 +20,7 @@ public class Person {
     }
 
     public Person(int id, String name, String surname, String dateOfBirth, String sex, String phone, String mail,
-                  String expirationDate, int idAddress) {
+           String expirationDate, int idAddress) {
         this.id = id;
         this.name = name;
         this.surname = surname;

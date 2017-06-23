@@ -1,5 +1,7 @@
 package com.eregister.LessonsService.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Szymon on 07.05.2017.
  */

@@ -58,13 +58,13 @@ public class MySqlLessonsDao implements LessonsDAO {
     @Override
     public void updateTeacher(int idTeacher, int idLesson) {
         final String sql = Queries.UPDATE_TEACHER;
-        jdbcTemplate.update(sql, new Object[]{idTeacher, idLesson});
+        jdbcTemplate.update(sql, new Object[] {idTeacher, idLesson});
     }
 
     @Override
     public void updateSemester(String semester, int idLesson) {
         final String sql = Queries.UPDATE_SEMESTER;
-        jdbcTemplate.update(sql, new Object[]{semester, idLesson});
+        jdbcTemplate.update(sql, new Object[] {semester, idLesson});
     }
 
     @Override
@@ -76,6 +76,6 @@ public class MySqlLessonsDao implements LessonsDAO {
         final int idTeacher = lesson.getIdTeacher();
         final int idGroup = lesson.getIdGroup();
         final int idSubject = lesson.getIdSubject();
-        jdbcTemplate.update(sql, new Object[]{year, semester, idTeacher, idGroup, idSubject});
+        jdbcTemplate.update(sql, new Object[] {year, semester, idTeacher, idGroup, idSubject});
     }
 }
