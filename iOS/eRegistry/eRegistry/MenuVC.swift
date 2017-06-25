@@ -38,12 +38,12 @@ class MenuVC: UIViewController {
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             print("Student")
-        case .teacher:
+        case .guardian:
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "gradeMenuIcon"), description: "Podopieczni", type: .children))
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "infoMenuIcon"), description: "Informacje", type: .settings))
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
-            print("Teacher")
+            print("Guardian")
         default:
             menuItems.append(MenuItemModel(image: #imageLiteral(resourceName: "powerMenuIcon"), description: "Wyloguj", type: .logout))
             print("Default")

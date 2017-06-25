@@ -11,6 +11,7 @@ import Foundation
 enum UserType {
     case teacher
     case student
+    case guardian
     case undefined
 }
 
@@ -59,13 +60,16 @@ class User {
             let role = UserDefaults.standard.string(forKey: "role")
             if role == "TEACHER" { return "Nauczyciel" }
             else if role == "STUDENT" { return "Uczeń" }
+            else if role == "GUARDIAN" { return "Opiekun" }
             else { return "Niezdefiniowany" }
         }
         set {
             if newValue == "TEACHER" {
-                roleType = .teacher
+                roleType = .undefined
             } else if newValue == "STUDENT" {
                 roleType = .student
+            } else if newValue == "GUARDIAN" {
+                roleType = .guardian
             }
 
             UserDefaults.standard.set(newValue, forKey: "role")

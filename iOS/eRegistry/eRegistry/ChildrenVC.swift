@@ -41,8 +41,18 @@ class ChildrenVC: UIViewController {
     }
     
     func downloadData() {
-        children.append(Student(id: 2, name: "Adaś", surname: "Grzyb"))
-        children.append(Student(id: 4, name: "Janek", surname: "Grzyb"))
+        
+        RequestManager.getChild(byId: User.instance.id, completion: {
+            success, students in
+            
+            if success {
+                self.children = students
+                self.tableView.reloadData()
+            } else {
+                self.children = []
+            }
+        })
+        
     }
 
 }

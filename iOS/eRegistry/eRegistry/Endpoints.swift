@@ -16,4 +16,5 @@ class Endpoints {
     static let newMail = "People/updateMail"
     static let grades = "Grades/myGrades"
     static let person = "People/Person/id="
+    static let child = "People/myChildren"
 }
