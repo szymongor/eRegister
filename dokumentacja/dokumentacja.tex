@@ -395,6 +395,53 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	
 \end{enumerate}
 
+\subsubsection{Grupy}
+
+\begin{enumerate}
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacher/myGroups":} \\
+	Opis: &  Lista grup, w których użytkownik prowadzi zajęcia. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groups":[(lista grup)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groups": [\newline \{ "id": 1,\newline "name": "IB",\newline "year": null,\newline "active": false\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/attendingStudents/{idGroup}":} \\
+	Opis: &  Lista uczniów należących do danej grupy. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/myClass":} \\
+	Opis: &  Klasa, do której należy uczeń. \newline Id użytkownika wyciągane z tokenu.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa\}\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski"\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/userClass/userId={userId}":} \\
+	Opis: &  Klasa, do której należy podany użytkownik. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+\end{enumerate}
+
+
 \subsubsection{Oceny}
 
 \begin{enumerate}
