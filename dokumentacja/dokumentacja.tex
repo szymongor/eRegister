@@ -514,6 +514,257 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	
 \end{enumerate}
 
+\subsubsection{Ludzie}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People":} \\
+	Opis: &  Zwraca wszystkie osoby z bazy.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "people": [\newline
+        \{
+            "id": 1,\newline
+            "idUser": 3,\newline
+            "name": "Natalia",\newline
+            "surname": "Bobek",\newline
+            "dateOfBirth": "2010-03-08",\newline
+            "sex": "kobieta",\newline
+            "phone": "514568222",\newline
+            "mail": "nat.bobek@gmail.com",\newline
+            "expirationDate": "2019-08-30",\newline
+            "idAddress": 1\},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/myChildren":} \\
+	Opis: &  Zwraca dzieci zalogowanego opiekuna. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/myPersonalData":} \\
+	Opis: &  Zwraca dane osobowe zalogowanego użytkownika.\newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "personalData":\{(dane użytkownika)\}\}  \\
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "personalData": \{ \newline
+        "idPerson": 4,\newline
+        "name": "Paweł",\newline
+        "surname": "Mamek",\newline
+        "dateOfBirth": "1966-08-14",\newline
+        "sex": "mężczyzna",\newline
+        "phone": "514847817",\newline
+        "mail": null,\newline
+        "expirationDate": "2019-08-31",\newline
+        "idAddress": 2,\newline
+        "street": "Zwycięstwa",\newline
+        "houseNumber": "68",\newline
+        "flatNumber": 3,\newline
+        "postalCode": "44-100",\newline
+        "city": "Gliwice",\newline
+        "country": "Polska"\newline
+    \} \}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Person/id={idPerson}":} \\
+	Opis: & Zwraca dane osoby na podstawie podanego id. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "person":\{(osoba)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Address/id={idAddress}":} \\
+	Opis: &  Zwraca adres na podstawie podanego id. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "address":\{(adres)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Person/id={idPerson}":} \\
+	Opis: &  Usuwa osobę na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message": "Removed person id: {id}" lub informacja o błędzie.\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Address/id={idAddress}":} \\
+	Opis: &  Usuwa adres na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Removed address id: {id}" lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updatePhone":} \\
+	Opis: &  Zmiana telefonu użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym numerem, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newPhone": "111111"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated phone." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateMail":} \\
+	Opis: & Zmiana maila użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym mailem, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newMail": "marysia@gmail.com"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated mail." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateExpirationDate":} \\
+	Opis: & Zmiana "daty ważności" użytkownika.\newline Na przykład daty końca umowy (nauczyciel). \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nową datą, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"expirationDate": "2018-07-15"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated expiration date." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateIdAddress":} \\
+	Opis: & Zmiana id adresu użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym id adresu, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newIdAddress": "4"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated id address." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateAddress":} \\
+	Opis: & Zmiana adresu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id adresu i nowymi danymi, np: \newline
+	\{
+	"idAddress":1,\newline
+    "street":"Pierwszego Maja",\newline
+    "houseNumber":"22b",\newline
+    "flatNumber":5,\newline
+    "postalCode":"44-100",\newline
+    "city":"Gliwice",\newline
+    "country":"Polska"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated address." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newPersonWithAddress":} \\
+	Opis: & Dodanie nowej osoby wraz z adresem. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Osoba oraz adres, na przykład: \newline \{
+    "address":\newline
+        \{
+            "idAddress":1,\newline
+                "street":"Dolnych Wałów",\newline
+                "houseNumber":"22b",\newline
+                "flatNumber":5,\newline
+                "postalCode":"44-100",\newline
+                "city":"Gliwice",\newline
+                "country":"Polska"\newline
+        \},\newline
+        "person":\newline
+        \{
+            "id": 1,\newline
+                "name": "Bartłomiej",\newline
+                "surname": "Kaczkowski",\newline
+                "dateOfBirth": "1982-04-28",\newline
+                "sex": "kobieta",\newline
+                "phone": "511511511",\newline
+                "mail": "dwdwdwd",\newline
+                "expirationDate": "2019-12-12",\newline
+                "idAddress": 4\newline
+        \}
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted person with address." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newAddress":} \\
+	Opis: & Dodanie nowego adresu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Adres. \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted address." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newPerson":} \\
+	Opis: & Dodanie nowej osoby. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Osoba. \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted person." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+
 \subsubsection{Grupy}
 
 \begin{enumerate}
