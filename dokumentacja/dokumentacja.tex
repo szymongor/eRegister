@@ -797,7 +797,9 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa\}\} \\
-	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski"\},\newline \ldots
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski", \newline
+	"tutorPhone": "506481354",\newline
+        "tutorMail": "andrzej.maciejewski@o2.pl"\},\newline \ldots
 	\end{tabular}}
 	
 	\item 
@@ -811,6 +813,188 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\end{tabular}}
 \end{enumerate}
 
+\subsubsection{Lekcje}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons":} \\
+	Opis: &  Zwraca wszystkie lekcje.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "lessons": [\newline
+        \{
+            "id": 1,\newline
+            "year": "2016/2017",\newline
+            "semester": "letni",\newline
+            "idTeacher": 4,\newline
+            "teacherName": "Ziemowit",\newline
+            "teacherSurname": "Chmielewski",\newline
+            "idGroup": 1,\newline
+            "groupName": "IA",\newline
+            "idSubject": 1,\newline
+            "subjectName": "język polski"
+        \},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/teacher/myLessons":} \\
+	Opis: &  Zwraca lekcje prowadzone przez zalogowanego nauczyciela. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/attendingGroup/id={idGroup}":} \\
+	Opis: &  Zwraca lekcje odbywające się w podanej grupie. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/student/myLessons":} \\
+	Opis: & Zwraca lekcje zalogowane studenta. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/student/lessons/userId={id}":} \\
+	Opis: &  Zwraca lekcje studenta na podstawie \newline podanego id użytkownika. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/id={id}":} \\
+	Opis: &  Usuwa lekcję na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message": "Removed lesson id: {id}" lub informacja o błędzie.\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/updateTeacher":} \\
+	Opis: &  Zmiana prowadzącego lekcję. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id lekcji i nowym id nauczyciela, np: \newline
+	\{
+	"idLesson": 40,\newline
+	"idTeacher": "7"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated teacher." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/updateSemester":} \\
+	Opis: & Zmiana semestu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id lekcji i nowym semestrem, np: \newline
+	\{
+	"idLesson": 40,\newline
+    "semester": "zimowy"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated semester." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons":} \\
+	Opis: & Dodanie nowej lekcji. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Lekcja, na przykład: \newline \{
+   "id": null,\newline
+            "year": "2016/2017",\newline
+            "semester": "letni",\newline
+            "idTeacher": 4,\newline
+            "teacherName": "",\newline
+            "teacherSurname": "",\newline
+            "idGroup": 1,\newline
+            "groupName": "",\newline
+            "idSubject": 1,\newline
+            "subjectName": ""
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted lesson." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+	
+\subsubsection{Grupy}
+
+\begin{enumerate}
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacher/myGroups":} \\
+	Opis: &  Lista grup, w których użytkownik prowadzi zajęcia. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groups":[(lista grup)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groups": [\newline \{ "id": 1,\newline "name": "IB",\newline "year": null,\newline "active": false\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/attendingStudents/{idGroup}":} \\
+	Opis: &  Lista uczniów należących do danej grupy. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/myClass":} \\
+	Opis: &  Klasa, do której należy uczeń. \newline Id użytkownika wyciągane z tokenu.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa\}\} \\
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski", \newline
+	"tutorPhone": "506481354",\newline
+        "tutorMail": "andrzej.maciejewski@o2.pl"\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/userClass/userId={userId}":} \\
+	Opis: &  Klasa, do której należy podany użytkownik. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+\end{enumerate}
 
 \subsubsection{Oceny}
 
@@ -818,19 +1002,31 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Grades/myGrades":} \\
-	Opis: &  Posortowana (by id lesson) lista ocen zalogowanego użytkownika. \newline Id użytkownika wyciągane z tokenu. \\
+	\multicolumn{2}{l}{"/Grades/myPartialGrades":} \\
+	Opis: &  Posortowana (by id lesson) lista cząstkowych ocen zalogowanego użytkownika. \newline Id użytkownika wyciągane z tokenu. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\} \\
-	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "grades": [\newline \{ "id": 1,\newline "mark": "5+",\newline "weight": 1,\newline "description": null,\newline "date": "2016-10-19",\newline "idStudent": 5,\newline "idLesson": 4,\newline "subjectName": "język polski"\},\newline \ldots
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "grades": [\newline \{ "id": 1,\newline "mark": "5+",\newline "weight": 1,\newline "description": null,\newline "date": "2016-10-19",\newline "idStudent": 5,\newline "idLesson": 4,\newline "subjectName": "język polski"\},\newline \ldots
 	\end{tabular}}
 	
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Grades/myGrades/{idLesson}":} \\
-	Opis: &  Lista ocen zalogowanego użytkownika z danej lekcji.\newline Id użytkownika wyciągane z tokenu. \\
+	\multicolumn{2}{l}{"/Grades/myPartialGrades/{idLesson}":} \\
+	Opis: &  Lista cząstkowych ocen zalogowanego użytkownika \newline z danej lekcji.\newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
+	\end{tabular}}
+	
+	\item Analogicznie: "mySemifinalGrades" i "myFinalGrades" dla ocen semestralnych oraz końcowych,
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/userPartialGrades/{idUser}":} \\
+	Opis: &  Lista cząstkowych ocen dla użytkownika o podanym id. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
@@ -839,22 +1035,14 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/userGrades/{idUser}":} \\
-	Opis: &  Lista ocen dla użytkownika o podanym id. \\
+	\multicolumn{2}{l}{"/userPartialGrades/{idUser}/lesson/{idLesson}":} \\
+	Opis: &  Lista cząstkowych ocen dla użytkownika o podanym id z danej lekcji. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
 	\end{tabular}}
 	
-	\item 
-	{\renewcommand{\arraystretch}{1.5}
-	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/userGrades/{idUser}/lesson/{idLesson}":} \\
-	Opis: &  Lista ocen dla użytkownika o podanym id z danej lekcji. \\
-	Metoda: & GET \\
-	Header: & \{"Authorization":"wygenerowany token"\} \\
-	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
-	\end{tabular}}
+	\item Analogicznie "userSemifinalGrades" i "userFinalGrades" dla ocen semestralnych i końcowych.
 \end{enumerate}
 
 \subsection{Opis usługi}
