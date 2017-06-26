@@ -18,6 +18,8 @@ public class ClassRowMapper implements RowMapper<Class> {
         groupClass.setIdTutor(resultSet.getInt("tutor_id"));
         groupClass.setTutorName(resultSet.getString("tutor_name"));
         groupClass.setTutorSurname(resultSet.getString("tutor_surname"));
+        groupClass.setTutorPhone(resultSet.getString("tutor_phone"));
+        groupClass.setTutorMail(resultSet.getString("tutor_mail"));
         return groupClass;
     }
 }

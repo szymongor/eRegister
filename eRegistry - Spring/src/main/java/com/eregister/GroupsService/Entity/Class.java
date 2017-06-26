@@ -10,6 +10,8 @@ public class Class {
     private int idTutor;
     private String tutorName;
     private String tutorSurname;
+    private String tutorPhone;
+    private String tutorMail;
 
     public String getName() {
         return name;
@@ -49,5 +51,21 @@ public class Class {
 
     public void setTutorSurname(String tutorSurname) {
         this.tutorSurname = tutorSurname;
+    }
+
+    public String getTutorPhone() {
+        return tutorPhone;
+    }
+
+    public void setTutorPhone(String tutorPhone) {
+        this.tutorPhone = tutorPhone;
+    }
+
+    public String getTutorMail() {
+        return tutorMail;
+    }
+
+    public void setTutorMail(String tutorMail) {
+        this.tutorMail = tutorMail;
     }
 }

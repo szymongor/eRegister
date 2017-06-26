@@ -112,6 +112,7 @@ public class EregUserController
         return response;
     }
 
+    //niepotrzebne
     @RequestMapping(value ="/person/id={id}",method = RequestMethod.GET)
     public Serializable getEregUserByIdPerson(@PathVariable("id") int id,
                                               @RequestHeader(name = "Authorization") String token){
@@ -129,6 +130,7 @@ public class EregUserController
         return response;
     }
 
+    //niepotrzebne??
     @RequestMapping(value ="/login={login}",method = RequestMethod.GET)
     public Serializable getEregUserByLogin(@PathVariable("login") String login,
                                            @RequestHeader(name = "Authorization") String token){
@@ -160,6 +162,7 @@ public class EregUserController
         return response;
     }
 
+    //niepotrzebne??
     @RequestMapping(value ="/login={login}",method = RequestMethod.DELETE)
     public Serializable removeEregUserByLogin(@PathVariable("login") String login,
                                               @RequestHeader(name = "Authorization") String token){

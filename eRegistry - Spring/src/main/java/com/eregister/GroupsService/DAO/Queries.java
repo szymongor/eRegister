@@ -3,7 +3,7 @@ package com.eregister.GroupsService.DAO;
 /**
  * Created by Karo2 on 2017-05-17.
  */
-public class Queries {
+public class Queries {//phonr i mail
     static final String GET_ALL_GROUPS_TEACH_BY_USER = "SELECT id_teacher, id_group, GROUPS.name group_name from LESSONS " +
             "INNER JOIN GROUPS ON id_group = GROUPS.id " +
             "and id_teacher = (SELECT TEACHERS.id from TEACHERS " +
@@ -16,10 +16,10 @@ public class Queries {
             "LEFT JOIN USERS ON STUDENTS.id_person = USERS.id_person " +
             "where STUDENTS.id_person = PEOPLE.id) student ON student.studentID = id_student where id_group = ?";
     static final String GET_USER_CLASS = "SELECT CLASSES.name class_name, CLASSES.profile profile, " +
-            "CLASSES.id_teacher tutor_id, tutor_name, tutor_surname from BELONGS " +
+            "CLASSES.id_teacher tutor_id, tutor_name, tutor_surname, tutor_phone, tutor_mail from BELONGS " +
             "INNER JOIN CLASSES ON BELONGS.id_group = CLASSES.id_group " +
-            "INNER JOIN (SELECT TEACHERS.id tutor_id, name tutor_name, surname tutor_surname from PEOPLE, TEACHERS " +
-            "where TEACHERS.id_person = PEOPLE.id) tutor ON id_teacher = tutor.tutor_id " +
-            "and id_student = (SELECT STUDENTS.id from STUDENTS " +
-            "where STUDENTS.id_person = (SELECT USERS.id_person from USERS where USERS.id = ?))";
+            "INNER JOIN (SELECT TEACHERS.id tutor_id, name tutor_name, surname tutor_surname, phone tutor_phone, mail tutor_mail " +
+            "from PEOPLE, TEACHERS where TEACHERS.id_person = PEOPLE.id) tutor ON id_teacher = tutor.tutor_id " +
+            "and id_student = (SELECT STUDENTS.id from STUDENTS where STUDENTS.id_person = (SELECT USERS.id_person from USERS " +
+            "where USERS.id = ?))";
 }
