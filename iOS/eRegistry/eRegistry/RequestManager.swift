@@ -275,6 +275,91 @@ class RequestManager {
         })
     }
     
+    // MARK: Address request
+    
+    typealias AddressCompletion = (Bool, Address?)->()
+    
+    static func getAddress(byId id: Int, completion: @escaping AddressCompletion) {
+        let urlString = getWSAddress() + Endpoints.address + "\(id)"
+        let url: URL = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            
+            if result.isSuccess {
+                if let json = result.value as? JSONStandard {
+                    guard let addressJson = json["address"] as? JSONStandard else {
+                        completion(success, nil)
+                        return
+                    }
+                    print(addressJson)
+                    guard let city = addressJson["city"] as? String,
+                        let country = addressJson["country"] as? String,
+                        let postalCode = addressJson["postalCode"] as? String,
+                        let street = addressJson["street"] as? String,
+                        let houseNumber = addressJson["houseNumber"] as? String,
+                        let flatNumber = addressJson["flatNumber"]
+                    else {
+                        completion(success, nil)
+                        return
+                    }
+                    var address: Address?
+                    if let flat = flatNumber as? String {
+                        address = Address(country: country, city: city, postalCode: postalCode, street: street, houseNumber: houseNumber, flatNumber: flat)
+                    }
+                    address = Address(country: country, city: city, postalCode: postalCode, street: street, houseNumber: houseNumber, flatNumber: nil)
+                    success = true
+                    completion(success, address)
+                    return
+                }
+            }
+            completion(success, nil)
+            
+        })
+    }
+    
+    // MARK: Personal data request
+    
+//    typealias PersonalDataCompletion = (Bool)->()
+//    
+//    static func getPersonalData(completion: @escaping PersonalDataCompletion) {
+//        let urlString = getWSAddress() + Endpoints.personalData
+//        let url: URL = URL(string: urlString)!
+//        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+//        
+//        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+//            response in
+//            
+//            var success = false
+//            let result = response.result
+//            
+//            if result.isSuccess {
+//                if let json = result.value as? JSONStandard {
+//                    print(json)
+//                    guard let person = json["person"] as? JSONStandard else {
+//                        completion(success)
+//                        return
+//                    }
+//                    print(person)
+//                    if let mail = person["mail"] as? String {
+//                        User.instance.mail = mail
+//                    }
+//                    if let phone = person["phone"] as? String {
+//                        User.instance.phone = phone
+//                    }
+//                    success = true
+//                    
+//                }
+//            }
+//            completion(success)
+//            
+//        })
+//    }
+    
     // MARK: Children request
     
     typealias ChildCompletion = (Bool, [Student])->()
