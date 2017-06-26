@@ -395,6 +395,125 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	
 \end{enumerate}
 
+\subsubsection{Użytkownicy}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers":} \\
+	Opis: &  Zwraca wszystkich użytkowników z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "usersList": [\newline \{ "id": 3,\newline
+            "login": "natbob123",\newline
+            "password": "12345678",\newline
+            "roles": "STUDENT",\newline
+            "lastPasswordResetDate": "2017-06-20 20:14:16",\newline
+            "idPerson": 1,\newline
+            "enable": true\},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/enables":} \\
+	Opis: &  Zwraca wszystkich aktywnych użytkowników z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/teachers":} \\
+	Opis: &  Zwraca wszystkich nauczycieli z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/guardians":} \\
+	Opis: &  Zwraca wszystkich opiekunów z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/students":} \\
+	Opis: &  Zwraca wszystkich uczniów z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/id={id}":} \\
+	Opis: &  Zwraca użytkownika na podstawie podanego id.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "user":\{(użytkownik)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/id={id}":} \\
+	Opis: &  Usuwa użytkownika na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Removed eReg user id: {id}" lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/newPassword":} \\
+	Opis: &  Zmiana hasła użytkownika na podstawie loginu\newline pobranego z tokena. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json ze starym i nowym hasłem, np: \newline
+	\{
+	"oldPassword":"12345678", \newline
+	"newPassword":"noweHaslo"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Login: \ldots, new pass: \ldots" lub informacja o błędzie, \newline "token": wygenerowany token dla nowego hasła\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers":} \\
+	Opis: &  Dodanie nowego użytkownika o unikalnym idPerson. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Użytkownik, na przykład: \newline \{
+    "id": 1,\newline
+    "login": "karolina",\newline
+    "password": "12345678",\newline
+    "roles": "STUDENT",\newline
+    "lastPasswordResetDate": null,\newline
+    "idPerson": 40,\newline
+    "enable": true\newline
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted user" lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+
 \subsubsection{Grupy}
 
 \begin{enumerate}
