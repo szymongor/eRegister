@@ -64,7 +64,7 @@ class RequestManager {
 
     }
     
-    // MARK: Lessons request
+    // MARK: Lessons requests
     
     typealias LessonsCompletion = (Bool, [Subject])->()
     
@@ -98,12 +98,42 @@ class RequestManager {
         })
     }
     
+    static func getAllLessons(by id: Int, completion: @escaping LessonsCompletion) {
+        let urlString = getWSAddress() + Endpoints.lessonsById + "\(id)"
+        let url: URL = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            
+            var subjects: [Subject] = []
+            
+            if result.isSuccess {
+                if let json = result.value as? JSONStandard {
+                    if let lessons = json["lessons"] as? [JSONStandard] {
+                        print(lessons)
+                        for lesson in lessons {
+                            let subject = Subject(usingJson: lesson)
+                            subjects.append(subject)
+                        }
+                        success = true
+                    }
+                }
+            }
+            completion(success, subjects)
+            
+        })
+    }
+    
     // MARK: Grades request
     
     typealias GradesCompletion = (Bool, [Grade])->()
     
-    static func getAllGrades(for subjectId: Int, completion: @escaping GradesCompletion) {
-        let urlString = getWSAddress() + Endpoints.grades + "/\(subjectId)"
+    static func getAllGrades(for studentId: Int, for subjectId: Int, completion: @escaping GradesCompletion) {
+        let urlString = getWSAddress() + Endpoints.grades + "/\(studentId)" + "/lesson" + "/\(subjectId)"
         let url: URL = URL(string: urlString)!
         let header: HTTPHeaders = ["Authorization" : User.instance.token]
         
@@ -243,7 +273,7 @@ class RequestManager {
     typealias PersonCompletion = (Bool)->()
     
     static func getPerson(byId id: Int, completion: @escaping PersonCompletion) {
-        let urlString = getWSAddress() + Endpoints.person + "\(id)"
+        let urlString = getWSAddress() + Endpoints.personById + "\(id)"
         let url: URL = URL(string: urlString)!
         let header: HTTPHeaders = ["Authorization" : User.instance.token]
         
@@ -280,7 +310,7 @@ class RequestManager {
     typealias AddressCompletion = (Bool, Address?)->()
     
     static func getAddress(byId id: Int, completion: @escaping AddressCompletion) {
-        let urlString = getWSAddress() + Endpoints.address + "\(id)"
+        let urlString = getWSAddress() + Endpoints.addressById + "\(id)"
         let url: URL = URL(string: urlString)!
         let header: HTTPHeaders = ["Authorization" : User.instance.token]
         
@@ -292,11 +322,11 @@ class RequestManager {
             
             if result.isSuccess {
                 if let json = result.value as? JSONStandard {
+                    print(json)
                     guard let addressJson = json["address"] as? JSONStandard else {
                         completion(success, nil)
                         return
                     }
-                    print(addressJson)
                     guard let city = addressJson["city"] as? String,
                         let country = addressJson["country"] as? String,
                         let postalCode = addressJson["postalCode"] as? String,
@@ -386,7 +416,7 @@ class RequestManager {
                     for person in people {
                         guard let surname = person["surname"] as? String,
                             let name = person["name"] as? String,
-                            let id = person["id"] as? Int
+                            let id = person["idUser"] as? Int
                         else {
                             completion(success, students)
                             return
@@ -397,6 +427,40 @@ class RequestManager {
                 }
             }
             completion(success, students)
+            
+        })
+    }
+    
+    typealias ClassCompletion = (Bool, Educator?)->()
+    
+    static func getClass(completion: @escaping ClassCompletion) {
+        let urlString = getWSAddress() + Endpoints.myClass
+        let url: URL = URL(string: urlString)!
+        let header: HTTPHeaders = ["Authorization" : User.instance.token]
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON(completionHandler: {
+            response in
+            
+            var success = false
+            let result = response.result
+            
+            if result.isSuccess {
+                if let json = result.value as? JSONStandard {
+                    print(json)
+                    guard let groupClass = json["groupClass"] as? JSONStandard,
+                        let name = groupClass["tutorName"] as? String,
+                        let surname = groupClass["tutorSurname"] as? String
+                    else {
+                        completion(success, nil)
+                        return
+                    }
+                    let educator = Educator(name: name, surname: surname, phone: "", email: "")
+                    success = true
+                    completion(success, educator)
+                    return
+                }
+            }
+            completion(success, nil)
             
         })
     }

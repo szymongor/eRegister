@@ -53,7 +53,7 @@ class EducatorTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setView(type: EducatorDataType, description: String) {
+    func setView(type: EducatorDataType, description: String?) {
         self.type = type
         switch type {
         case .surname:
@@ -65,7 +65,10 @@ class EducatorTVCell: UITableViewCell {
         case .email:
             titleLabel.text = "E-mail"
         }
-        contactData = description.replacingOccurrences(of: " ", with: "")
+        guard let desc = description else {
+            return
+        }
+        contactData = desc.replacingOccurrences(of: " ", with: "")
         descriptionLabel.text = contactData
     }
     

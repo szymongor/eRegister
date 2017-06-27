@@ -62,31 +62,53 @@ class GradesVC: UIViewController {
     
     private func downloadData(for student: Student) {
         
-        //getTestData(for: student.id)
-        
-        RequestManager.getAllLessons(completion: {
+        RequestManager.getAllLessons(by: student.id, completion: {
             success, subjects in
             for (index, _) in subjects.enumerated() {
                 self.subjects.append(subjects[index])
                 self.collectionView.insertItems(at: [IndexPath(item: index, section: 0)])
                 
-                RequestManager.getAllGrades(for: subjects[index].id, completion: {
+                RequestManager.getAllGrades(for: student.id, for: subjects[index].id, completion: {
                     success, grades in
-                    subjects[index].grades = grades
-                    self.collectionView.reloadData()
+                    self.subjects[index].grades = grades
+//                    self.collectionView.reloadData()
                 })
                 
             }
             
-            self.collectionView.reloadData()
-//            self.collectionView.performBatchUpdates({
-//                self.collectionView.reloadData()
-//            }, completion: nil)
+//            self.collectionView.reloadData()
+            //            self.collectionView.performBatchUpdates({
+            //                self.collectionView.reloadData()
+            //            }, completion: nil)
         })
+//        getTestData(for: student.id)
         
-        
-        //collectionView.reloadData()
-        
+//        RequestManager.getAllLessons(completion: {
+//            success, subjects in
+//            for (index, _) in subjects.enumerated() {
+//                self.subjects.append(subjects[index])
+//                self.collectionView.insertItems(at: [IndexPath(item: index, section: 0)])
+//                
+//                RequestManager.getAllGrades(for: student.id, for: subjects[index].id, completion: {
+//                    success, grades in
+//                    subjects[index].grades = grades
+//                    self.collectionView.reloadData()
+//                })
+//                
+//            }
+//            
+//            self.collectionView.reloadData()
+////            self.collectionView.performBatchUpdates({
+////                self.collectionView.reloadData()
+////            }, completion: nil)
+//        })
+//        
+//        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.collectionView.reloadData()
+        }
+        collectionView.reloadData()
+//
     }
     
     func getTestData(for studentId: Int) {
