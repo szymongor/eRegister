@@ -20,7 +20,7 @@ public class LessonResponse implements Serializable {
         this.lesson = lesson;
     }
 
-    public String getStatus() {
+    public String getStatus(){
         return this.status;
     }
 

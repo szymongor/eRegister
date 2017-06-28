@@ -1,6 +1,7 @@
 package com.eregister.GroupsService.Service;
 
 import com.eregister.GroupsService.DAO.GroupsDAO;
+import com.eregister.GroupsService.Entity.Class;
 import com.eregister.GroupsService.Entity.Group;
 import com.eregister.PeopleService.Entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,9 @@ public class GroupsService {
 
     public Collection<Person> getAllStudentsFromGroup(int idGroup) {
         return groupsDAO.getAllStudentsFromGroup(idGroup);
+    }
+
+    public Class getUserClass(int idEregUser) {
+        return groupsDAO.getUserClass(idEregUser);
     }
 }

@@ -3,20 +3,22 @@ package com.eregister.GroupsService.Entity;
 /**
  * Created by Karo2 on 2017-05-17.
  */
-public class Class extends Group {
-    private int idClass;
-    private String profile;
-    private int idTeacher;
-    private String teacherName;
-    private String teacherSurname;
-    private int idGroup;
+public class Class {
 
-    public int getIdClass() {
-        return idClass;
+    private String name;
+    private String profile;
+    private int idTutor;
+    private String tutorName;
+    private String tutorSurname;
+    private String tutorPhone;
+    private String tutorMail;
+
+    public String getName() {
+        return name;
     }
 
-    public void setIdClass(int idClass) {
-        this.idClass = idClass;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getProfile() {
@@ -27,35 +29,43 @@ public class Class extends Group {
         this.profile = profile;
     }
 
-    public int getIdTeacher() {
-        return idTeacher;
+    public int getIdTutor() {
+        return idTutor;
     }
 
-    public void setIdTeacher(int idTeacher) {
-        this.idTeacher = idTeacher;
+    public void setIdTutor(int idTutor) {
+        this.idTutor = idTutor;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public String getTutorName() {
+        return tutorName;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setTutorName(String tutorName) {
+        this.tutorName = tutorName;
     }
 
-    public String getTeacherSurname() {
-        return teacherSurname;
+    public String getTutorSurname() {
+        return tutorSurname;
     }
 
-    public void setTeacherSurname(String teacherSurname) {
-        this.teacherSurname = teacherSurname;
+    public void setTutorSurname(String tutorSurname) {
+        this.tutorSurname = tutorSurname;
     }
 
-    public int getIdGroup() {
-        return idGroup;
+    public String getTutorPhone() {
+        return tutorPhone;
     }
 
-    public void setIdGroup(int idGroup) {
-        this.idGroup = idGroup;
+    public void setTutorPhone(String tutorPhone) {
+        this.tutorPhone = tutorPhone;
+    }
+
+    public String getTutorMail() {
+        return tutorMail;
+    }
+
+    public void setTutorMail(String tutorMail) {
+        this.tutorMail = tutorMail;
     }
 }

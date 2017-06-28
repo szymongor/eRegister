@@ -4,6 +4,7 @@ import com.eregister.UserService.Entity.EregUser;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Szymon on 12.04.2017.
@@ -21,7 +22,7 @@ public class UsersListResponse implements Serializable {
         this.status = status;
     }
 
-    public String getStatus() {
+    public String getStatus(){
         return this.status;
     }
 

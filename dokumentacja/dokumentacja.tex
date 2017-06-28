@@ -395,25 +395,638 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	
 \end{enumerate}
 
+\subsubsection{Użytkownicy}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers":} \\
+	Opis: &  Zwraca wszystkich użytkowników z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "usersList": [\newline \{ "id": 3,\newline
+            "login": "natbob123",\newline
+            "password": "12345678",\newline
+            "roles": "STUDENT",\newline
+            "lastPasswordResetDate": "2017-06-20 20:14:16",\newline
+            "idPerson": 1,\newline
+            "enable": true\},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/enables":} \\
+	Opis: &  Zwraca wszystkich aktywnych użytkowników z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/teachers":} \\
+	Opis: &  Zwraca wszystkich nauczycieli z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/guardians":} \\
+	Opis: &  Zwraca wszystkich opiekunów z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/students":} \\
+	Opis: &  Zwraca wszystkich uczniów z bazy.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "usersList":[(lista użytkowników)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/id={id}":} \\
+	Opis: &  Zwraca użytkownika na podstawie podanego id.\newline Wymagana rola: TEACHER. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "user":\{(użytkownik)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/id={id}":} \\
+	Opis: &  Usuwa użytkownika na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Removed eReg user id: {id}" lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers/newPassword":} \\
+	Opis: &  Zmiana hasła użytkownika na podstawie loginu\newline pobranego z tokena. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json ze starym i nowym hasłem, np: \newline
+	\{
+	"oldPassword":"12345678", \newline
+	"newPassword":"noweHaslo"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Login: \ldots, new pass: \ldots" lub informacja o błędzie, \newline "token": wygenerowany token dla nowego hasła\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/EregUsers":} \\
+	Opis: &  Dodanie nowego użytkownika o unikalnym idPerson. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Użytkownik, na przykład: \newline \{
+    "id": 1,\newline
+    "login": "karolina",\newline
+    "password": "12345678",\newline
+    "roles": "STUDENT",\newline
+    "lastPasswordResetDate": null,\newline
+    "idPerson": 40,\newline
+    "enable": true\newline
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted user" lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+
+\subsubsection{Ludzie}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People":} \\
+	Opis: &  Zwraca wszystkie osoby z bazy.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "people": [\newline
+        \{
+            "id": 1,\newline
+            "idUser": 3,\newline
+            "name": "Natalia",\newline
+            "surname": "Bobek",\newline
+            "dateOfBirth": "2010-03-08",\newline
+            "sex": "kobieta",\newline
+            "phone": "514568222",\newline
+            "mail": "nat.bobek@gmail.com",\newline
+            "expirationDate": "2019-08-30",\newline
+            "idAddress": 1\},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/myChildren":} \\
+	Opis: &  Zwraca dzieci zalogowanego opiekuna. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/myPersonalData":} \\
+	Opis: &  Zwraca dane osobowe zalogowanego użytkownika.\newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "personalData":\{(dane użytkownika)\}\}  \\
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "personalData": \{ \newline
+        "idPerson": 4,\newline
+        "name": "Paweł",\newline
+        "surname": "Mamek",\newline
+        "dateOfBirth": "1966-08-14",\newline
+        "sex": "mężczyzna",\newline
+        "phone": "514847817",\newline
+        "mail": null,\newline
+        "expirationDate": "2019-08-31",\newline
+        "idAddress": 2,\newline
+        "street": "Zwycięstwa",\newline
+        "houseNumber": "68",\newline
+        "flatNumber": 3,\newline
+        "postalCode": "44-100",\newline
+        "city": "Gliwice",\newline
+        "country": "Polska"\newline
+    \} \}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Person/id={idPerson}":} \\
+	Opis: & Zwraca dane osoby na podstawie podanego id. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "person":\{(osoba)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Address/id={idAddress}":} \\
+	Opis: &  Zwraca adres na podstawie podanego id. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "address":\{(adres)\}\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Person/id={idPerson}":} \\
+	Opis: &  Usuwa osobę na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message": "Removed person id: {id}" lub informacja o błędzie.\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/Address/id={idAddress}":} \\
+	Opis: &  Usuwa adres na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Removed address id: {id}" lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updatePhone":} \\
+	Opis: &  Zmiana telefonu użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym numerem, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newPhone": "111111"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated phone." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateMail":} \\
+	Opis: & Zmiana maila użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym mailem, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newMail": "marysia@gmail.com"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated mail." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateExpirationDate":} \\
+	Opis: & Zmiana "daty ważności" użytkownika.\newline Na przykład daty końca umowy (nauczyciel). \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nową datą, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"expirationDate": "2018-07-15"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated expiration date." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateIdAddress":} \\
+	Opis: & Zmiana id adresu użytkownika. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id osoby i nowym id adresu, np: \newline
+	\{
+	"idPerson": 1,\newline
+	"newIdAddress": "4"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated id address." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/updateAddress":} \\
+	Opis: & Zmiana adresu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id adresu i nowymi danymi, np: \newline
+	\{
+	"idAddress":1,\newline
+    "street":"Pierwszego Maja",\newline
+    "houseNumber":"22b",\newline
+    "flatNumber":5,\newline
+    "postalCode":"44-100",\newline
+    "city":"Gliwice",\newline
+    "country":"Polska"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated address." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newPersonWithAddress":} \\
+	Opis: & Dodanie nowej osoby wraz z adresem. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Osoba oraz adres, na przykład: \newline \{
+    "address":\newline
+        \{
+            "idAddress":1,\newline
+                "street":"Dolnych Wałów",\newline
+                "houseNumber":"22b",\newline
+                "flatNumber":5,\newline
+                "postalCode":"44-100",\newline
+                "city":"Gliwice",\newline
+                "country":"Polska"\newline
+        \},\newline
+        "person":\newline
+        \{
+            "id": 1,\newline
+                "name": "Bartłomiej",\newline
+                "surname": "Kaczkowski",\newline
+                "dateOfBirth": "1982-04-28",\newline
+                "sex": "kobieta",\newline
+                "phone": "511511511",\newline
+                "mail": "dwdwdwd",\newline
+                "expirationDate": "2019-12-12",\newline
+                "idAddress": 4\newline
+        \}
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted person with address." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newAddress":} \\
+	Opis: & Dodanie nowego adresu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Adres. \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted address." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/People/newPerson":} \\
+	Opis: & Dodanie nowej osoby. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Osoba. \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted person." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+
+\subsubsection{Grupy}
+
+\begin{enumerate}
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacher/myGroups":} \\
+	Opis: &  Lista grup, w których użytkownik prowadzi zajęcia. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groups":[(lista grup)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groups": [\newline \{ "id": 1,\newline "name": "IB",\newline "year": null,\newline "active": false\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/attendingStudents/{idGroup}":} \\
+	Opis: &  Lista uczniów należących do danej grupy. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/myClass":} \\
+	Opis: &  Klasa, do której należy uczeń. \newline Id użytkownika wyciągane z tokenu.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa\}\} \\
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski", \newline
+	"tutorPhone": "506481354",\newline
+        "tutorMail": "andrzej.maciejewski@o2.pl"\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/userClass/userId={userId}":} \\
+	Opis: &  Klasa, do której należy podany użytkownik. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+\end{enumerate}
+
+\subsubsection{Lekcje}
+
+\begin{enumerate}
+
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons":} \\
+	Opis: &  Zwraca wszystkie lekcje.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "lessons": [\newline
+        \{
+            "id": 1,\newline
+            "year": "2016/2017",\newline
+            "semester": "letni",\newline
+            "idTeacher": 4,\newline
+            "teacherName": "Ziemowit",\newline
+            "teacherSurname": "Chmielewski",\newline
+            "idGroup": 1,\newline
+            "groupName": "IA",\newline
+            "idSubject": 1,\newline
+            "subjectName": "język polski"
+        \},\newline \ldots
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/teacher/myLessons":} \\
+	Opis: &  Zwraca lekcje prowadzone przez zalogowanego nauczyciela. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/attendingGroup/id={idGroup}":} \\
+	Opis: &  Zwraca lekcje odbywające się w podanej grupie. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/student/myLessons":} \\
+	Opis: & Zwraca lekcje zalogowane studenta. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/student/lessons/userId={id}":} \\
+	Opis: &  Zwraca lekcje studenta na podstawie \newline podanego id użytkownika. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "lessons":[(lista lekcji)]\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/id={id}":} \\
+	Opis: &  Usuwa lekcję na podstawie podanego id. \\
+	Metoda: & DELETE \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message": "Removed lesson id: {id}" lub informacja o błędzie.\}
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/updateTeacher":} \\
+	Opis: &  Zmiana prowadzącego lekcję. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id lekcji i nowym id nauczyciela, np: \newline
+	\{
+	"idLesson": 40,\newline
+	"idTeacher": "7"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated teacher." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons/updateSemester":} \\
+	Opis: & Zmiana semestu. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Json z id lekcji i nowym semestrem, np: \newline
+	\{
+	"idLesson": 40,\newline
+    "semester": "zimowy"
+\}\\
+	Odpowiedź: & \{
+    "status": "Ok",\newline
+    "message":"Updated semester." lub informacja o błędzie\} 
+	\end{tabular}}
+	
+	\item
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Lessons":} \\
+	Opis: & Dodanie nowej lekcji. \\
+	Metoda: & POST \\
+	Header: & \{"Authorization":"wygenerowany token"\} \newline \{"Content-Type":"application/json"\} \\
+	Body: & Lekcja, na przykład: \newline \{
+   "id": null,\newline
+            "year": "2016/2017",\newline
+            "semester": "letni",\newline
+            "idTeacher": 4,\newline
+            "teacherName": "",\newline
+            "teacherSurname": "",\newline
+            "idGroup": 1,\newline
+            "groupName": "",\newline
+            "idSubject": 1,\newline
+            "subjectName": ""
+\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "message":"Inserted lesson." lub informacja o błędzie\} \\
+	\end{tabular}}
+	
+\end{enumerate}
+	
+\subsubsection{Grupy}
+
+\begin{enumerate}
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacher/myGroups":} \\
+	Opis: &  Lista grup, w których użytkownik prowadzi zajęcia. \newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groups":[(lista grup)]\} \\
+	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "groups": [\newline \{ "id": 1,\newline "name": "IB",\newline "year": null,\newline "active": false\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/attendingStudents/{idGroup}":} \\
+	Opis: &  Lista uczniów należących do danej grupy. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "people":[(lista osób)]\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/myClass":} \\
+	Opis: &  Klasa, do której należy uczeń. \newline Id użytkownika wyciągane z tokenu.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa\}\} \\
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "groupClass": [\newline \{ "name": "IVA",\newline "profile": null,\newline "idTutor": 7,\newline "tutorName": "Andrzej", \newline "tutorSurname": "Maciejewski", \newline
+	"tutorPhone": "506481354",\newline
+        "tutorMail": "andrzej.maciejewski@o2.pl"\},\newline \ldots
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/userClass/userId={userId}":} \\
+	Opis: &  Klasa, do której należy podany użytkownik. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+\end{enumerate}
+
 \subsubsection{Oceny}
 
 \begin{enumerate}
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Grades/myGrades":} \\
-	Opis: &  Posortowana (by id lesson) lista ocen zalogowanego użytkownika. \newline Id użytkownika wyciągane z tokenu. \\
+	\multicolumn{2}{l}{"/Grades/myPartialGrades":} \\
+	Opis: &  Posortowana (by id lesson) lista cząstkowych ocen zalogowanego użytkownika. \newline Id użytkownika wyciągane z tokenu. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\} \\
-	Przykładowa \newline odpowiedź: & 			\{"status": "ok",\newline "grades": [\newline \{ "id": 1,\newline "mark": "5+",\newline "weight": 1,\newline "description": null,\newline "date": "2016-10-19",\newline "idStudent": 5,\newline "idLesson": 4,\newline "subjectName": "język polski"\},\newline \ldots
+	Przykładowa \newline odpowiedź: & \{"status": "ok",\newline "grades": [\newline \{ "id": 1,\newline "mark": "5+",\newline "weight": 1,\newline "description": null,\newline "date": "2016-10-19",\newline "idStudent": 5,\newline "idLesson": 4,\newline "subjectName": "język polski"\},\newline \ldots
 	\end{tabular}}
 	
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Grades/myGrades/{idLesson}":} \\
-	Opis: &  Lista ocen zalogowanego użytkownika z danej lekcji.\newline Id użytkownika wyciągane z tokenu. \\
+	\multicolumn{2}{l}{"/Grades/myPartialGrades/{idLesson}":} \\
+	Opis: &  Lista cząstkowych ocen zalogowanego użytkownika \newline z danej lekcji.\newline Id użytkownika wyciągane z tokenu. \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
+	\end{tabular}}
+	
+	\item Analogicznie: "mySemifinalGrades" i "myFinalGrades" dla ocen semestralnych oraz końcowych,
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/userPartialGrades/{idUser}":} \\
+	Opis: &  Lista cząstkowych ocen dla użytkownika o podanym id. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
@@ -422,22 +1035,14 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/userGrades/{idUser}":} \\
-	Opis: &  Lista ocen dla użytkownika o podanym id. \\
+	\multicolumn{2}{l}{"/userPartialGrades/{idUser}/lesson/{idLesson}":} \\
+	Opis: &  Lista cząstkowych ocen dla użytkownika o podanym id z danej lekcji. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
 	\end{tabular}}
 	
-	\item 
-	{\renewcommand{\arraystretch}{1.5}
-	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/userGrades/{idUser}/lesson/{idLesson}":} \\
-	Opis: &  Lista ocen dla użytkownika o podanym id z danej lekcji. \\
-	Metoda: & GET \\
-	Header: & \{"Authorization":"wygenerowany token"\} \\
-	Odpowiedź: & \{"status":"status odpowiedzi",\newline "grades":[(tablica ocen)]\}
-	\end{tabular}}
+	\item Analogicznie "userSemifinalGrades" i "userFinalGrades" dla ocen semestralnych i końcowych.
 \end{enumerate}
 
 \subsection{Opis usługi}

@@ -8,6 +8,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import static javax.swing.UIManager.put;
+
+
+import static javax.swing.UIManager.put;
+
 /**
  * Created by Szymon on 07.04.2017.
  */
@@ -17,8 +22,8 @@ public class EregUserDaoFakeImpl implements EregUserDao {
 
     static Map<Integer, EregUser> allUsers;
 
-    static {
-        allUsers = new HashMap<Integer, EregUser>() {
+    static{
+        allUsers = new HashMap<Integer, EregUser>(){
             {
                 put(1, new EregUser(1, "Adam", "12345678", "teacher", "2017.04.19", true, 3));
                 put(2, new EregUser(2, "Kasia", "12345678", "teacher", "2017.04.19", true, 4));
@@ -29,7 +34,7 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public Collection<EregUser> getAllEregUsers() {
+    public Collection<EregUser> getAllEregUsers(){
         return allUsers.values();
     }
 
@@ -54,7 +59,7 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public EregUser getEregUserById(int id) {
+    public EregUser getEregUserById(int id){
         return allUsers.get(id);
     }
 
@@ -64,7 +69,7 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public void removeEregUserById(int id) {
+    public void removeEregUserById(int id){
         allUsers.remove(id);
     }
 
@@ -79,13 +84,13 @@ public class EregUserDaoFakeImpl implements EregUserDao {
     }
 
     @Override
-    public void updatePasswordEregUser(String newPassword, String login, String oldPassword) {
+    public void updatePasswordEregUser(String newPassword, String login, String oldPassword){
 
     }
 
     @Override
-    public void insertEregUser(EregUser eregUser) {
-        allUsers.put(eregUser.getId(), eregUser);
+    public void insertEregUser(EregUser eregUser){
+        allUsers.put(eregUser.getId(),eregUser);
     }
 
 }

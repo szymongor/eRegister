@@ -3,6 +3,7 @@ package com.eregister.UserService.Model;
 import com.eregister.UserService.Entity.EregUser;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * Created by Szymon on 27.04.2017.
@@ -20,7 +21,7 @@ public class UserResponse implements Serializable {
         this.status = status;
     }
 
-    public String getStatus() {
+    public String getStatus(){
         return this.status;
     }
 

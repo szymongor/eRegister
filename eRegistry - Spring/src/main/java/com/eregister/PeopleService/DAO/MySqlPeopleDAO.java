@@ -74,25 +74,25 @@ public class MySqlPeopleDAO implements PeopleDAO {
     @Override
     public void updatePhone(int idPerson, String newPhone) {
         final String sql = Queries.UPDATE_PHONE;
-        jdbcTemplate.update(sql, new Object[]{newPhone, idPerson});
+        jdbcTemplate.update(sql, new Object[] {newPhone, idPerson});
     }
 
     @Override
     public void updateMail(int idPerson, String newMail) {
         final String sql = Queries.UPDATE_MAIL;
-        jdbcTemplate.update(sql, new Object[]{newMail, idPerson});
+        jdbcTemplate.update(sql, new Object[] {newMail, idPerson});
     }
 
     @Override
     public void updateExpirationDate(int idPerson, String newExpirationDate) {
         final String sql = Queries.UPDATE_EXPIRATION_DATE;
-        jdbcTemplate.update(sql, new Object[]{newExpirationDate, idPerson});
+        jdbcTemplate.update(sql, new Object[] {newExpirationDate, idPerson});
     }
 
     @Override
     public void updateIdAddress(int idPerson, int newIdAddress) {
         final String sql = Queries.UPDATE_ID_ADDRESS;
-        jdbcTemplate.update(sql, new Object[]{newIdAddress, idPerson});
+        jdbcTemplate.update(sql, new Object[] {newIdAddress, idPerson});
     }
 
     @Override
@@ -104,7 +104,7 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String postalCode = newAddress.getPostalCode();
         final String city = newAddress.getCity();
         final String country = newAddress.getCountry();
-        jdbcTemplate.update(sql, new Object[]{street, houseNumber, flatNumber, postalCode, city, country, idAddress});
+        jdbcTemplate.update(sql, new Object[] {street, houseNumber, flatNumber, postalCode, city, country, idAddress});
     }
 
     @Override
@@ -116,7 +116,7 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String postalCode = address.getPostalCode();
         final String city = address.getCity();
         final String country = address.getCountry();
-        jdbcTemplate.update(sql, new Object[]{street, houseNumber, flatNumber, postalCode, city, country});
+        jdbcTemplate.update(sql, new Object[] {street, houseNumber, flatNumber, postalCode, city, country});
     }
 
     @Override
@@ -137,7 +137,7 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String phone = person.getPhone();
         final String mail = person.getMail();
         final String expirationDate = person.getExpirationDate();
-        jdbcTemplate.update(sql, new Object[]{street, houseNumber, flatNumber, postalCode, city, country,
+        jdbcTemplate.update(sql, new Object[] {street, houseNumber, flatNumber, postalCode, city, country,
                 name, surname, dateOfBirth, sex, phone, mail, expirationDate});
     }
 
@@ -152,6 +152,6 @@ public class MySqlPeopleDAO implements PeopleDAO {
         final String mail = person.getMail();
         final String expirationDate = person.getExpirationDate();
         final int idAddress = person.getIdAddress();
-        jdbcTemplate.update(sql, new Object[]{name, surname, dateOfBirth, sex, phone, mail, expirationDate, idAddress});
+        jdbcTemplate.update(sql, new Object[] {name, surname, dateOfBirth, sex, phone, mail, expirationDate, idAddress});
     }
 }

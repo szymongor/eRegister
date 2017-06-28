@@ -205,30 +205,6 @@ public class PeopleController {
         }
         return response;
     }
-//    {
-//        "address":
-//        {
-//            "idAddress":1,
-//                "street":"Dolnych Wałów",
-//                "houseNumber":"22b",
-//                "flatNumber":5,
-//                "postalCode":"44-100",
-//                "city":"Gliwice",
-//                "country":"Polska"
-//        },
-//        "person":
-//        {
-//            "id": 1,
-//                "name": "Bartłomiej",
-//                "surname": "Kaczkowski",
-//                "dateOfBirth": "1982-04-28",
-//                "sex": "kobieta",
-//                "phone": "511511511",
-//                "mail": "dwdwdwd",
-//                "expirationDate": "2019-12-12",
-//                "idAddress": 4
-//        }
-//    }
 
     @RequestMapping(value = "/newPerson", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -243,15 +219,4 @@ public class PeopleController {
         }
         return response;
     }
-    // PRZYKłAD ----> {
-    //	"id": 1,
-    //  "name": "Bartłomiej",
-    //  "surname": "Kaczkowski",
-    //  "dateOfBirth": "1982-04-28",
-    //  "sex": "kobieta",
-    //  "phone": "511511511",
-    //  "mail": "dwdwdwd",
-    //  "expirationDate": "2019-12-12",
-    //  "idAddress": 4
-    //}
 }

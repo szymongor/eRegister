@@ -1,5 +1,6 @@
 package com.eregister.GroupsService.DAO;
 
+import com.eregister.GroupsService.Entity.Class;
 import com.eregister.GroupsService.Entity.Group;
 import com.eregister.PeopleService.Entity.Person;
 
@@ -13,4 +14,6 @@ public interface GroupsDAO {
     Collection<Group> getAllGroupsTeachByUser(int idEregUser);
 
     Collection<Person> getAllStudentsFromGroup(int idGroup);
+
+    Class getUserClass(int idEregUser);
 }

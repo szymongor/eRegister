@@ -60,11 +60,23 @@ public class LessonsController {
     }
 
     @RequestMapping(value = "/student/myLessons", method = RequestMethod.GET)
-    public Serializable getAllStudentLessons(@RequestHeader(name = "Authorization") String token) {
+    public Serializable getMyLessons(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);
             response = new LessonsResponse("ok", lessonsService.getAllStudentLessons(idEregUser));
+        } catch (Exception e) {
+            response = new Response("Error", e.getMessage());
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/student/lessons/userId={id}", method = RequestMethod.GET)
+    public Serializable getStudentLessons(@PathVariable("id") int id,
+                                          @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new LessonsResponse("ok", lessonsService.getAllStudentLessons(id));
         } catch (Exception e) {
             response = new Response("Error", e.getMessage());
         }

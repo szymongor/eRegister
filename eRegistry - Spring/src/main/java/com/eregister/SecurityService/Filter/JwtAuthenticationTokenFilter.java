@@ -33,16 +33,18 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        try {
+        try{
             String authToken = request.getHeader("Authorization");
-            verifyToken(authToken, response);
-            UserDetails userDetails = authorizationService.userDetailsFromToken(authToken);
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (SecurityException se) {
+                verifyToken(authToken, response);
+                UserDetails userDetails = authorizationService.userDetailsFromToken(authToken);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+        }
+        catch (SecurityException se){
             throw new SecurityException(se.getMessage());
-        } catch (Exception e) {
-            // throw new SecurityException(e.getMessage());
+        }
+        catch (Exception e){
+           // throw new SecurityException(e.getMessage());
         }
 
         chain.doFilter(request, response);
@@ -54,10 +56,11 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             claims = authorizationService.verifyToken(authToken);
             String resp = "Login: ";
             resp += claims.get("login");
-            resp += ", Role: " + claims.get("role");
+            resp += ", Role: "+ claims.get("role");
             //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, resp);
             return claims;
-        } catch (Exception e) {
+        }
+        catch(Exception e){
             throw e;
         }
     }

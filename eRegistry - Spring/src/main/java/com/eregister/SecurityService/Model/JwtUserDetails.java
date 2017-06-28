@@ -11,17 +11,17 @@ import java.util.List;
 /**
  * Created by Szymon on 21.04.2017.
  */
-public class JwtUserDetails implements UserDetails {
+public class JwtUserDetails implements UserDetails{
 
     List<JwtAuthority> authorities;
     String login;
 
-    public JwtUserDetails(Claims claims) {
+    public JwtUserDetails(Claims claims){
         authorities = new ArrayList<>();
         login = claims.get("login").toString();
         String roles = claims.get("roles").toString();
         String[] splitedRoles = roles.split(",");
-        for (String role : splitedRoles) {
+        for(String role : splitedRoles){
             JwtAuthority jwtAuthority = new JwtAuthority("ROLE_" + role);
             authorities.add(jwtAuthority);
         }

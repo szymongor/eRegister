@@ -8,8 +8,13 @@ import com.eregister.UserService.Entity.EregUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.validation.constraints.Null;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -80,7 +85,7 @@ public class MySqlEregUserDao implements EregUserDao {
     }
 
     @Override
-    public EregUser getEregUserByLogin(String login) {
+    public EregUser getEregUserByLogin(String login){
         final String sql = Queries.GET_EREG_USER_BY_LOGIN;
         EregUser eregUser = jdbcTemplate.queryForObject(sql, new EregUserRowMapper(), login);
         return eregUser;

@@ -12,7 +12,7 @@ public class NewPasswordResponse implements Serializable {
 
     private static final long serialVersionUID = 23L;
 
-    public NewPasswordResponse(String status, String message, String token) {
+    public NewPasswordResponse(String  status, String message, String token){
         this.status = status;
         this.message = message;
         this.token = token;
