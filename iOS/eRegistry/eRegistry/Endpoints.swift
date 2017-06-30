@@ -18,7 +18,7 @@ class Endpoints {
     static let grades = "Grades/userPartialGrades"
     static let personById = "People/Person/id="
     static let addressById = "People/Address/id="
-    static let personalData = "myPersonalData"
+    static let personalData = "People/myPersonalData"
     static let child = "People/myChildren"
     static let myClass = "/Groups/myClass"
 }

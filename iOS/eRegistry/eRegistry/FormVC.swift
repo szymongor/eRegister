@@ -124,7 +124,7 @@ extension FormVC {
         self.confirmNewValueTF.isHidden = true
         self.confirmButton.isHidden = true
         
-        RequestManager.getAddress(byId: User.instance.id, completion: {
+        RequestManager.getPersonalData(completion: {
             success, address in
             
             self.titleLabel.isHidden = false
@@ -140,6 +140,23 @@ extension FormVC {
             self.titleLabel.text = "\(addressObj.country), \(addressObj.city)\n ul. \(addressObj.street) \(addressObj.houseNumber)\(flatNumber)\n \(addressObj.postalCode)"
             
         })
+        
+//        RequestManager.getAddress(byId: User.instance.id, completion: {
+//            success, address in
+//            
+//            self.titleLabel.isHidden = false
+//            guard let addressObj = address else {
+//                return
+//            }
+//            var flatNumber = ""
+//            if let flat = addressObj.flatNumber {
+//                flatNumber = "/\(flat)"
+//            } else {
+//                flatNumber = ""
+//            }
+//            self.titleLabel.text = "\(addressObj.country), \(addressObj.city)\n ul. \(addressObj.street) \(addressObj.houseNumber)\(flatNumber)\n \(addressObj.postalCode)"
+//            
+//        })
     }
 
 }
