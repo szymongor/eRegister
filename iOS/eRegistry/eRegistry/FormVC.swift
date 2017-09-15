@@ -71,7 +71,7 @@ extension FormVC {
         case .email:
             prepareAsEmailForm()
         case .address:
-            prepareAsPasswordForm()
+            prepareAsAddressForm()
         }
     }
     
@@ -114,6 +114,49 @@ extension FormVC {
         confirmNewValueTF.placeholder = "Hasło"
         confirmNewValueTF.isSecureTextEntry = true
         confirmButton.addTarget(self, action: #selector(changeMail), for: .touchUpInside)
+    }
+    
+    private func prepareAsAddressForm() {
+        self.title = "Adres"
+        
+        self.oldValueTF.isHidden = true
+        self.newValueTF.isHidden = true
+        self.confirmNewValueTF.isHidden = true
+        self.confirmButton.isHidden = true
+        
+        RequestManager.getPersonalData(completion: {
+            success, address in
+            
+            self.titleLabel.isHidden = false
+            guard let addressObj = address else {
+                return
+            }
+            var flatNumber = ""
+            if let flat = addressObj.flatNumber {
+                flatNumber = "/\(flat)"
+            } else {
+                flatNumber = ""
+            }
+            self.titleLabel.text = "\(addressObj.country), \(addressObj.city)\n ul. \(addressObj.street) \(addressObj.houseNumber)\(flatNumber)\n \(addressObj.postalCode)"
+            
+        })
+        
+//        RequestManager.getAddress(byId: User.instance.id, completion: {
+//            success, address in
+//            
+//            self.titleLabel.isHidden = false
+//            guard let addressObj = address else {
+//                return
+//            }
+//            var flatNumber = ""
+//            if let flat = addressObj.flatNumber {
+//                flatNumber = "/\(flat)"
+//            } else {
+//                flatNumber = ""
+//            }
+//            self.titleLabel.text = "\(addressObj.country), \(addressObj.city)\n ul. \(addressObj.street) \(addressObj.houseNumber)\(flatNumber)\n \(addressObj.postalCode)"
+//            
+//        })
     }
 
 }

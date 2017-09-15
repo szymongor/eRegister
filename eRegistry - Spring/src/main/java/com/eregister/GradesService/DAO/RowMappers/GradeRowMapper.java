@@ -31,8 +31,9 @@ public class GradeRowMapper implements RowMapper<Grade> {
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
         int columns = resultSetMetaData.getColumnCount();
         for (int i = 1; i <= columns; i++) {
-            if (resultSetMetaData.getCatalogName(i).equals(columnName))
+            if (columnName.equals(resultSetMetaData.getColumnName(i))) {
                 return true;
+            }
         }
         return false;
     }

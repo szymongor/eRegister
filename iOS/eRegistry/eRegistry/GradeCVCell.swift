@@ -68,7 +68,12 @@ class GradeCVCell: UICollectionViewCell {
     
     func setSubject(_ subject: Subject) {
         self.subject = subject
-        gradeLabel.text = String(format: "%.2f", subject.averageGrade)
+        let averageGrade = subject.averageGrade
+        var gradeString = String(format: "%.2f", averageGrade)
+        if averageGrade.isZero {
+            gradeString = "–"
+        }
+        gradeLabel.text = gradeString
         gradeLabel.adjustsFontSizeToFitWidth = true
         gradeLabel.minimumScaleFactor = 0.9
         subjectLabel.text = subject.name

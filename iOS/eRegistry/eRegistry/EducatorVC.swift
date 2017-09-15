@@ -28,12 +28,20 @@ class EducatorVC: UIViewController {
     
     let CELL_ID = "EducatorTVCell"
 
-    typealias EducatorDataTupple = (type: EducatorDataType, description: String)
+    typealias EducatorDataTupple = (type: EducatorDataType, description: String?)
     var educatorDatas: [EducatorDataTupple] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Wychowawca"
+        
+        RequestManager.getClass(completion: {
+            success, educator in
+            self.educatorDatas.removeAll()
+            self.educatorDatas.append((.surname, educator?.surname))
+            self.educatorDatas.append((.name, educator?.name))
+            self.tableView.reloadData()
+        })
         // Do any additional setup after loading the view.
     }
 
@@ -43,10 +51,10 @@ class EducatorVC: UIViewController {
     }
 
     func setView(for educator: Educator) {
-        educatorDatas.append((.surname, educator.surname))
-        educatorDatas.append((.name, educator.name))
-        educatorDatas.append((.phone, educator.phone))
-        educatorDatas.append((.email, educator.email))
+//        educatorDatas.append((.surname, educator.surname))
+//        educatorDatas.append((.name, educator.name))
+//        educatorDatas.append((.phone, educator.phone))
+//        educatorDatas.append((.email, educator.email))
         tableView.reloadData()
     }
 
