@@ -39,8 +39,15 @@ public class MySqlGroupsDAO implements GroupsDAO {
     }
 
     @Override
-    public Class getUserClass(int idEregUser) {
-        String sql = Queries.GET_USER_CLASS;
+    public Class getStudentClass(int idEregUser) {
+        String sql = Queries.GET_STUDENT_CLASS;
+        Class groupClass = jdbcTemplate.queryForObject(sql, new ClassRowMapper(), idEregUser);
+        return groupClass;
+    }
+
+    @Override
+    public Class getTeacherClass(int idEregUser) {
+        String sql = Queries.GET_TEACHER_CLASS;
         Class groupClass = jdbcTemplate.queryForObject(sql, new ClassRowMapper(), idEregUser);
         return groupClass;
     }

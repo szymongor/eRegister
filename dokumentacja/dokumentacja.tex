@@ -975,7 +975,7 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Groups/myClass":} \\
+	\multicolumn{2}{l}{"/Groups/student/myClass":} \\
 	Opis: &  Klasa, do której należy uczeń. \newline Id użytkownika wyciągane z tokenu.\\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
@@ -988,8 +988,28 @@ Z aplikacją serwerową można komunikować się poprzez restowe API.
 	\item 
 	{\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}[t]{p{3cm} p{15cm}}
-	\multicolumn{2}{l}{"/Groups/userClass/userId={userId}":} \\
-	Opis: &  Klasa, do której należy podany użytkownik. \\
+	\multicolumn{2}{l}{"/Groups/studentClass/userId={userId}":} \\
+	Opis: &  Klasa, do której należy podany użytkownik (student). \\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacher/myClass":} \\
+	Opis: &  Klasa, którą uczy nauczyciel. \newline Id użytkownika wyciągane z tokenu.\\
+	Metoda: & GET \\
+	Header: & \{"Authorization":"wygenerowany token"\} \\
+	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}
+	\end{tabular}}
+	
+	\item 
+	{\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}[t]{p{3cm} p{15cm}}
+	\multicolumn{2}{l}{"/Groups/teacherClass/userId={userId}":} \\
+	Opis: &  Klasa, którą uczy podany użytkownik. \\
 	Metoda: & GET \\
 	Header: & \{"Authorization":"wygenerowany token"\} \\
 	Odpowiedź: & \{"status":"status odpowiedzi",\newline "groupClass":\{(klasa)\}\}

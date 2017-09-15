@@ -15,11 +15,16 @@ public class Queries {//phonr i mail
             "from PEOPLE, STUDENTS " +
             "LEFT JOIN USERS ON STUDENTS.id_person = USERS.id_person " +
             "where STUDENTS.id_person = PEOPLE.id) student ON student.studentID = id_student where id_group = ?";
-    static final String GET_USER_CLASS = "SELECT CLASSES.name class_name, CLASSES.profile profile, " +
+    static final String GET_STUDENT_CLASS = "SELECT CLASSES.name class_name, CLASSES.profile profile, " +
             "CLASSES.id_teacher tutor_id, tutor_name, tutor_surname, tutor_phone, tutor_mail from BELONGS " +
             "INNER JOIN CLASSES ON BELONGS.id_group = CLASSES.id_group " +
             "INNER JOIN (SELECT TEACHERS.id tutor_id, name tutor_name, surname tutor_surname, phone tutor_phone, mail tutor_mail " +
             "from PEOPLE, TEACHERS where TEACHERS.id_person = PEOPLE.id) tutor ON id_teacher = tutor.tutor_id " +
             "and id_student = (SELECT STUDENTS.id from STUDENTS where STUDENTS.id_person = (SELECT USERS.id_person from USERS " +
             "where USERS.id = ?))";
+    static final String GET_TEACHER_CLASS = "SELECT CLASSES.name class_name, CLASSES.profile profile, CLASSES.id_teacher tutor_id, " +
+            "tutor_name, tutor_surname, tutor_phone, tutor_mail from  CLASSES RIGHT JOIN " +
+            "(SELECT TEACHERS.id tutor_id, name tutor_name, surname tutor_surname, phone tutor_phone, mail tutor_mail from " +
+            "PEOPLE, TEACHERS where TEACHERS.id_person = PEOPLE.id and TEACHERS.id_person = (SELECT USERS.id_person " +
+            "from USERS where USERS.id = ?)) tutor ON id_teacher = tutor.tutor_id";
 }

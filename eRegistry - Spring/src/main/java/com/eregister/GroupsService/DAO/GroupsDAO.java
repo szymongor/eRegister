@@ -15,5 +15,7 @@ public interface GroupsDAO {
 
     Collection<Person> getAllStudentsFromGroup(int idGroup);
 
-    Class getUserClass(int idEregUser);
+    Class getStudentClass(int idEregUser);
+
+    Class getTeacherClass(int idEregUser);
 }

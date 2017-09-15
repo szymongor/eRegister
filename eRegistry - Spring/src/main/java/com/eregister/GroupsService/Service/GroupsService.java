@@ -28,7 +28,9 @@ public class GroupsService {
         return groupsDAO.getAllStudentsFromGroup(idGroup);
     }
 
-    public Class getUserClass(int idEregUser) {
-        return groupsDAO.getUserClass(idEregUser);
+    public Class getStudentClass(int idEregUser) {
+        return groupsDAO.getStudentClass(idEregUser);
     }
+
+    public Class getTeacherClass(int idEregUser) {return groupsDAO.getTeacherClass(idEregUser);}
 }

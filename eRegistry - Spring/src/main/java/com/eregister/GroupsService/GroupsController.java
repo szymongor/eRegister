@@ -46,23 +46,46 @@ public class GroupsController {
         return response;
     }
 
-    @RequestMapping(value = "/myClass", method = RequestMethod.GET)
-    public Serializable getMyClass(@RequestHeader(name = "Authorization") String token) {
+    @RequestMapping(value = "/student/myClass", method = RequestMethod.GET)
+    public Serializable getStudentMyClass(@RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
             int idEregUser = TokenUtils.getIdEregUserFromToken(token);
-            response = new ClassResponse("ok", groupsService.getUserClass(idEregUser));
+            response = new ClassResponse("ok", groupsService.getStudentClass(idEregUser));
+        } catch (Exception e) {
+            response = new Response("Error", "Internal Error");
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/studentClass/userId={id}", method = RequestMethod.GET)
+    public Serializable getStudentMyClass(@PathVariable("id") int id, @RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            response = new ClassResponse("ok", groupsService.getStudentClass(id));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
         return response;
     }
 
-    @RequestMapping(value = "/userClass/userId={id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/teacher/myClass", method = RequestMethod.GET)
+    public Serializable getMyClass(@RequestHeader(name = "Authorization") String token) {
+        Serializable response;
+        try {
+            int idEregUser = TokenUtils.getIdEregUserFromToken(token);
+            response = new ClassResponse("ok", groupsService.getTeacherClass(idEregUser));
+        } catch (Exception e) {
+            response = new Response("Error", e.getMessage());
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/teacherClass/userId={id}", method = RequestMethod.GET)
     public Serializable getMyClass(@PathVariable("id") int id, @RequestHeader(name = "Authorization") String token) {
         Serializable response;
         try {
-            response = new ClassResponse("ok", groupsService.getUserClass(id));
+            response = new ClassResponse("ok", groupsService.getTeacherClass(id));
         } catch (Exception e) {
             response = new Response("Error", "Internal error");
         }
