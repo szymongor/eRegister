@@ -1,0 +1,2 @@
+Technologia:	Aplikacja kliencka działająca w systemie Android napisana w języku Java.
+Uzasadnienie:	Wybór języka programowania na podstawie wspólnych preferencji oraz doświadczenia członków zespołu.

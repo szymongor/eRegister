@@ -1,0 +1,14 @@
+Aplikacja kierowana dla uczniów oraz ich opiekunów dlatego wymagania rozpisano dla obu grup. W poniższej liście zaprezentowano to przy pomocy liter: U dla uczniów oraz O dla opiekunów. Wpisy oznaczone znakiem ! muszą znaleźć się w aplikacji, wpisy oznaczone znakiem ? to opcjonalne rozszerzenia aplikacji.
+
+O, U, !		Możliwość zalogowania (zapamiętaj login/hasło)
+O, U, !		Możliwość zmiany hasła (trzeba ustawić przy pierwszym uruchomieniu, hasło generowane przy tworzeniu użytkownika)
+O, U, !		Obliczanie średniej ważonej (Wyświetla na kafelku przedmiotu)
+O, U, !		Wyświetlanie przedmiotu, ocen cząstkowych z datami wystawienia
+O, U, ?		Oznaczenie o nowych ocenach od ostatniego logowania
+O,  , !		Wybór podopiecznego dla którego wyświetlać oceny
+O,  , ?		W zależności od płci podopiecznego w menu wyboru odpowiednia ikona
+ , U, ?		W dniu urodzin życzenia
+O, U, !		Zmiana danych (mail, telefon)
+O,  , !		Zmiana adresu zamieszkania opiekuna oraz podopiecznych (zastosuj dla podopiecznych)
+O,  , !		Wyświetlanie danych wychowawcy, możliwość wykonania połączenia z poziomu aplikacji
+O, U, ?		Wyświetlanie pomocy
