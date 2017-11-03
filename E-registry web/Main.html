@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://colorlib.com/polygon/gentelella/tables.html -->
+<html lang="en" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Meta, title, CSS, favicons, etc. -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>E-Register</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+    <script src="scripts.js"></script>
+    <script src="api.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="./strona2_files/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./strona2_files/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./strona2_files/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+   <link href="./strona2_files/green.css" rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
+    <!-- Custom Theme Style -->
+    <link href="./strona2_files/custom.min.css" rel="stylesheet">
+  <style type="text/css">/* This is not a zero-length file! */</style><style type="text/css">/* This is not a zero-length file! */</style></head>
+ 
+ 
+  <body onload="init(); initMain();" class="nav-md" ng-app="myApp">  <!-- SPROOBWAC ZMIENIC NA WINDOW-->
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">            
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_info">
+                <h2 id="welcome_role"></h2>
+                <h2 id="welcome_nameSurname"></h2>
+                <button onclick="logOut()">wyloguj</button>
+                  <br>
+                <a href=#!dane_osobiste>Moje dane osobowe</a>
+              </div>
+            </div>
+
+           <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
+              <div class="menu_section active">           
+                
+                <ul class="nav side-menu" style="" ng-controller="menuCtrl">         <!-- NG CLOAK ZEBY NIE MRUGALO -->        
+                                      
+                   <li class="current-page" ng-show="A_uzytkownicy" ng-cloak><a href="#!a_uzytkownicy">Użytkownicy</a></li>
+                   <li class="current-page" ng-show="A_uczniowie"   ng-cloak><a href="#!a_uczniowie">Uczniowie</a></li>
+                   <li class="current-page" ng-show="A_nauczyciele" ng-cloak><a href="#!a_nauczyciele">Nauczyciele</a></li>
+                   <li class="current-page" ng-show="A_opiekunowie" ng-cloak><a href="#!a_opiekunowie">Opiekunowie</a></li>
+                   <li class="current-page" ng-show="A_osoby"       ng-cloak><a href="#!a_osoby">Osoby</a></li>
+                   <li class="current-page" ng-show="A_grupy"       ng-cloak><a href="#!a_grupy">Grupy</a></li>
+                   <li class="current-page" ng-show="U_oceny"       ng-cloak><a href="#!u_oceny" >Oceny</a></li>
+                   <li class="current-page" ng-show="G_uczniowie"   ng-cloak><a href="#!g_uczniowie">Dzieci</a></li>
+                   <br>
+                   <li class="current-page" ng-show="T_mojaKlasa"   ng-cloak><a href="#!t_mojaKlasa">Moja klasa</a></li>
+                   <li class="current-page" ng-show="T_zajecia"     ng-cloak><a href="#!t_zajecia">Moja zajęcia</a></li>
+                </ul>
+              </div>
+            </div>         
+          </div>
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main"  style="min-height:1000px">
+          <div class="">
+            <div ng-view></div>
+        </div>
+        <!-- /page content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script async="" src="./strona2_files/analytics.js"></script><script src="./strona2_files/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./strona2_files/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./strona2_files/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./strona2_files/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="./strona2_files/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <!--<script src="./strona2_files/custom.min.js"></script>-->
+  
+</body></html>

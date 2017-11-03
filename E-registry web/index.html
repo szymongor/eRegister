@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<script src="api.js"></script>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+  <body onload="init();" class="background">
+  <div id="container" style="text-align: center">       <!-- jesli zbyt powiekszony trza logo usunac! -->
+    <img src="images/logo.png">
+    <div class="logWindowOutline">
+      <div id="loginContainer" class="logWindow">
+        <div>LOGIN</div>
+        <input type="text" id="login" value="">
+        <br>
+        <input type="password" id="password" value="">
+        <br>
+        <button type="button" onclick="CheckCredentials()">Log in</button>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>

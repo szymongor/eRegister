@@ -1,0 +1,27 @@
+
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="api.js"></script>
+<script src="scripts.js"></script>
+
+</head>
+
+
+
+<body ng-app="myApp">
+    <div ng-controller="newGrade">
+        <table>
+            <tr>
+                <th>Ocena</th>
+                <th><input id="input_mark" type="text" maxlength="32"></input></th>
+            </tr>
+        </table>
+        <input type="submit" ng-click="addFinalGrade()" value="Zatwierdź">
+    </div>
+</body>
+
+</html>

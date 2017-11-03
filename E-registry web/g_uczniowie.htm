@@ -1,0 +1,98 @@
+
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="api.js"></script>
+<script src="scripts.js"></script>
+
+    <style>
+    table, th, td {
+    min-width: 80px;
+    }
+    </style>
+
+</head>
+
+
+
+<body ng-app="myApp">
+     <div  ng-controller="g_uczniowie">
+            <table>
+                    <th>
+                    IMIĘ
+                    </th>
+                    <th>
+                    NAZWISKO
+                    </th>
+                <tr ng-repeat="x in data">
+                    <th>
+                    {{x.name}}                
+                    </th>
+                     <th>
+                    {{x.surname}}                
+                    </th>             
+                    
+                    <th>
+                        <a ng-href="#!cc_ocenyUcznia/{{x.id}}"><input type="submit" value="PODEJRZ"></a>
+                    </th>
+                    <th>
+                        <input type="submit" class="editButton" ng-init="user = x" data-toggle="modal" data-target="#modalEditUser"  value="EDYTUJ">           
+                    </th>
+                </tr>
+            </table>   
+        </div>
+             
+
+
+        <div class="modal fade" id="modalEditUser" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edytuj użytkownika</h4>
+                </div>
+                 <table>
+                    <tr>
+                <th>Imię:</th> 
+                <th><input type="text" ng-model="name"> </th>
+                    </tr>
+                    <tr>
+                <th>Nazwisko:</th> 
+                <th><input type="text" ng-model="surname"> </th>
+                    </tr>
+                    <tr>
+                <th>Data:</th> 
+                <th><input type="text" ng-model="dateOfBirth"></th>
+                    </tr>
+                    <tr>
+                <th>Płeć:</th>
+                <th><input type="text" ng-model="sex"></th>
+                    </tr>
+                    <tr>
+                <th>Numer telefonu</th>
+                <th><input type="text" pattern="\d*" ng-model="phone" maxlength="9"></th>
+                    </tr>
+                    <tr>
+                <th>Email</th>
+                <th><input type="email" ng-model="mail"></th>
+                    </tr>
+                    <tr>
+                <th>Adres</th>
+                <th><input type="text" ng-model="idAddress" readonly></th>
+                    </tr>
+                </table><br>
+                <input type="submit" value="Zatwierdź" data-dismiss="modal" onclick="">
+            </div>
+            
+            </div>
+        </div>
+      
+</div>
+    
+</body>
+</html>
